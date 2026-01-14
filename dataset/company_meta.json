@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2026-01-14",
+    "description": "Synthesizable facts about Kreatywna Fala - derivable from multiple documents but not explicitly stated in any single document. Tests RAG system ability to aggregate and infer company characteristics.",
+    "purpose": "Qualitative evaluation of system's ability to understand implicit/emergent company attributes from distributed information"
+  },
+  "company_fundamentals": {
+    "headcount": {
+      "value": 10,
+      "derivation": "Count unique team members appearing across documents",
+      "source_evidence": ["Team emails with different senders", "Meeting attendee lists", "Vacation schedules mentioning individuals"],
+      "team_members": [
+        "Zbigniew Reymontowski (CEO)",
+        "Andrzej Kmicic (Senior Account Manager)",
+        "Maciej Boryna (Junior Account Manager)",
+        "Janusz Sieczkowski (Creative Director)",
+        "Irena Dulska (Senior Designer)",
+        "Zosia Samosiej (Project Manager)",
+        "Janek Kos (Digital Marketing Specialist)",
+        "Kasia Pawlak (Content & Strategy)",
+        "Halina Lichocka (Office Manager)",
+        "Ryszard Ochódzki (Finance)"
+      ],
+      "difficulty": "medium"
+    },
+    "location": {
+      "value": "Wrocław, Poland",
+      "derivation": "Infer from client meeting locations, local references",
+      "source_evidence": ["Meetings at Urząd Miasta Wrocław", "Local clients (Browar Wroclavia)", "References to Wrocław Christmas market"],
+      "difficulty": "easy"
+    },
+    "years_in_business": {
+      "value": "15+ years",
+      "derivation": "Mentioned in pitch presentations",
+      "source_evidence": ["doc_086 mentions '15 lat doświadczenia'"],
+      "difficulty": "easy"
+    },
+    "company_type": {
+      "value": "Sp. z o.o. (Polish LLC)",
+      "derivation": "Company name suffix in documents",
+      "source_evidence": ["Email signatures", "Contract references"],
+      "difficulty": "easy"
+    }
+  },
+  "financial_patterns": {
+    "typical_monthly_retainer": {
+      "value_range": "4,000 - 9,200 PLN",
+      "derivation": "Aggregate monthly fees across clients",
+      "source_evidence": {
+        "Browar Wroclavia": "8,500 → 9,200 PLN/mies",
+        "ModaNet": "3,800 → 4,500 PLN/mies",
+        "Smakosz": "6,000 PLN/mies"
+      },
+      "difficulty": "medium"
+    },
+    "typical_project_budget": {
+      "value_range": "22,000 - 50,000 PLN",
+      "derivation": "Aggregate one-time project values",
+      "source_evidence": {
+        "Smakosz rebranding": "45,000 PLN",
+        "Smakosz summer campaign": "22,000 PLN",
+        "Browar summer campaign": "40,000 PLN",
+        "MaszBud annual": "48,000-50,000 PLN",
+        "City Christmas campaign": "38,000 PLN"
+      },
+      "difficulty": "medium"
+    },
+    "target_operating_margin": {
+      "value": "40-45%",
+      "derivation": "Financial reports mention margins",
+      "source_evidence": ["Q3 2023: 42%", "Q1 2024: 44%", "Q2 2024: 43%"],
+      "difficulty": "medium"
+    },
+    "quarterly_revenue": {
+      "value_range": "287,500 - 324,000 PLN",
+      "derivation": "Quarterly reports",
+      "source_evidence": ["Q3 2023: 287,500 PLN", "Q4 2023: 312,000 PLN", "Q1 2024: 298,000 PLN", "Q2 2024: 324,000 PLN"],
+      "difficulty": "easy"
+    },
+    "payment_terms": {
+      "value": "14-60 days depending on client type",
+      "derivation": "Invoice discussions, payment tracking emails",
+      "source_evidence": ["Standard: 14 days", "Public sector: 60 days"],
+      "difficulty": "medium"
+    }
+  },
+  "client_patterns": {
+    "active_clients_typical": {
+      "value": "3-5 at any given time",
+      "derivation": "Count clients mentioned as active in status reports",
+      "source_evidence": ["Throughout the year: Browar (A), ModaNet (B), Smakosz (C), City project (E), MaszBud in pipeline (D)"],
+      "difficulty": "medium"
+    },
+    "longest_client_relationship": {
+      "value": "5+ years (Browar Wroclavia)",
+      "derivation": "Historical references in documents",
+      "source_evidence": ["doc_086: 'Klient od 5 lat'", "Mentions of 2019 start date"],
+      "difficulty": "easy"
+    },
+    "client_types": {
+      "value": ["Local brands (food/beverage)", "E-commerce startups", "Industrial B2B", "Public sector (occasional)"],
+      "derivation": "Categorize clients by industry",
+      "source_evidence": ["Browar = beverage", "ModaNet = e-commerce fashion", "Smakosz = restaurant", "MaszBud = industrial machinery", "City = public sector"],
+      "difficulty": "medium"
+    },
+    "account_manager_structure": {
+      "value": "Senior AM for difficult/large clients, Junior AM for stable/smaller",
+      "derivation": "Observe handover patterns and client assignments",
+      "source_evidence": ["ModaNet handover from Boryna (junior) to Kmicic (senior) when relationship troubled", "Smakosz stayed with Boryna after stabilization"],
+      "difficulty": "hard"
+    }
+  },
+  "operational_patterns": {
+    "reporting_frequency": {
+      "value": "Monthly standard, weekly for troubled accounts",
+      "derivation": "Communication patterns across projects",
+      "source_evidence": ["Standard monthly reports", "Weekly statusy wprowadzone dla ModaNet po kryzysie", "Weekly statusy dla Smakosz po reklamacji"],
+      "difficulty": "medium"
+    },
+    "project_phases": {
+      "value": ["Discovery/Brief", "Concept development", "Client review (1-2 rounds)", "Production", "Delivery"],
+      "derivation": "Project timelines and kickoff notes",
+      "source_evidence": ["Smakosz timeline", "City campaign timeline", "Meeting notes"],
+      "difficulty": "medium"
+    },
+    "common_issues": {
+      "value": ["Scope creep", "Payment delays", "Communication gaps", "Underestimated timelines"],
+      "derivation": "Aggregate problems mentioned across projects",
+      "source_evidence": ["ModaNet budget overrun (scope creep)", "Smakosz payment 45 days late", "Smakosz - communication gap led to complaint", "City project - timeline pressure from approvals"],
+      "difficulty": "hard"
+    },
+    "resolution_approaches": {
+      "value": ["Discounts for service failures", "Increased communication frequency", "Account manager changes", "Formal change request process"],
+      "derivation": "Observe how problems were resolved",
+      "source_evidence": ["Smakosz: 10% discount + weekly statuses", "ModaNet: handover + weekly statuses", "SCR process introduced after ModaNet"],
+      "difficulty": "hard"
+    }
+  },
+  "culture_and_communication": {
+    "internal_language": {
+      "value": "Polish, informal (per-tu basis among most colleagues)",
+      "derivation": "Email tone and greetings",
+      "source_evidence": ["Internal emails use first names", "'Hej', 'Kochani' in internal comms"],
+      "difficulty": "easy"
+    },
+    "external_language": {
+      "value": "Polish, formal (Pan/Pani)",
+      "derivation": "Client email tone",
+      "source_evidence": ["'Szanowny Panie', 'Pani Anno' in client emails"],
+      "difficulty": "easy"
+    },
+    "decision_making_style": {
+      "value": "Collaborative with CEO final authority",
+      "derivation": "Observe escalation patterns",
+      "source_evidence": ["Budget decisions escalated to Zbigniew", "Team discusses but Zbigniew decides (ModaNet absorb cost)", "Senior AM has autonomy within limits"],
+      "difficulty": "hard"
+    },
+    "company_values_implicit": {
+      "value": ["Client relationships over short-term profit", "Learning from mistakes", "Transparency internally", "Quality over speed"],
+      "derivation": "Infer from decisions and communications",
+      "source_evidence": ["Absorbed ModaNet overrun to preserve relationship", "Post-mortems and lessons learned documented", "Open discussion of problems in internal emails", "Delayed Smakosz presentation to improve quality"],
+      "difficulty": "hard"
+    }
+  },
+  "process_evolution": {
+    "changes_during_period": [
+      {
+        "change": "Introduction of Scope Change Request (SCR) form",
+        "date": "April 2024",
+        "trigger": "ModaNet budget overrun",
+        "evidence": "doc_079"
+      },
+      {
+        "change": "Shift to weekly client statuses for at-risk accounts",
+        "date": "December 2023 / March 2024",
+        "trigger": "Smakosz and ModaNet crises",
+        "evidence": "Multiple client communication changes"
+      },
+      {
+        "change": "Content marketing strategy for lead generation",
+        "date": "May-June 2024",
+        "trigger": "Thin pipeline, need for inbound leads",
+        "evidence": "doc_083, doc_086"
+      }
+    ],
+    "difficulty": "hard"
+  },
+  "evaluation_questions": [
+    {
+      "id": "meta_q001",
+      "question_pl": "Ile osób pracuje w agencji Kreatywna Fala? Wymień ich imiona i stanowiska.",
+      "question_en": "How many people work at Kreatywna Fala agency? List their names and positions.",
+      "expected_answer_contains": ["10 osób", "Zbigniew Reymontowski", "Andrzej Kmicic", "Maciej Boryna"],
+      "type": "aggregation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "meta_q002",
+      "question_pl": "Jaki jest typowy zakres miesięcznego wynagrodzenia (retainera) dla klientów agencji?",
+      "question_en": "What is the typical range of monthly retainer fees for agency clients?",
+      "expected_answer_contains": ["4,000-9,000 PLN", "varies by client"],
+      "type": "pattern_recognition",
+      "difficulty": "medium"
+    },
+    {
+      "id": "meta_q003",
+      "question_pl": "Jakie procesy lub procedury agencja wdrożyła w odpowiedzi na problemy z projektami? Podaj przykłady.",
+      "question_en": "What processes or procedures did the agency implement in response to project problems? Give examples.",
+      "expected_answer_contains": ["SCR form", "weekly statuses", "lessons learned"],
+      "type": "synthesis",
+      "difficulty": "hard"
+    },
+    {
+      "id": "meta_q004",
+      "question_pl": "Jak agencja podchodzi do trudnych sytuacji z klientami - jakie są typowe metody rozwiązywania konfliktów?",
+      "question_en": "How does the agency approach difficult client situations - what are typical conflict resolution methods?",
+      "expected_answer_contains": ["rabaty/discounts", "zwiększona komunikacja", "zmiana opiekuna", "transparentność"],
+      "type": "pattern_inference",
+      "difficulty": "hard"
+    },
+    {
+      "id": "meta_q005",
+      "question_pl": "Jakie wartości firmowe można wywnioskować z dokumentów? Na podstawie czego?",
+      "question_en": "What company values can be inferred from the documents? Based on what evidence?",
+      "expected_answer_contains": ["relacje z klientami", "uczciwość", "jakość", "uczenie się z błędów"],
+      "type": "value_inference",
+      "difficulty": "hard"
+    },
+    {
+      "id": "meta_q006",
+      "question_pl": "Który klient ma najdłuższą historię współpracy z agencją i jak długo trwa ta relacja?",
+      "question_en": "Which client has the longest history with the agency and how long has this relationship lasted?",
+      "expected_answer": "Browar Wroclavia, 5+ lat (od 2019)",
+      "type": "aggregation",
+      "difficulty": "easy"
+    },
+    {
+      "id": "meta_q007",
+      "question_pl": "Jaka jest struktura zespołu account managerów i jak przypisywani są klienci?",
+      "question_en": "What is the account manager team structure and how are clients assigned?",
+      "expected_answer_contains": ["senior AM (Kmicic)", "junior AM (Boryna)", "trudni klienci do seniora"],
+      "type": "pattern_inference",
+      "difficulty": "hard"
+    },
+    {
+      "id": "meta_q008",
+      "question_pl": "Jakie są najczęstsze problemy w projektach agencji i jak często występują?",
+      "question_en": "What are the most common problems in agency projects and how often do they occur?",
+      "expected_answer_contains": ["scope creep", "opóźnienia płatności", "komunikacja"],
+      "type": "pattern_recognition",
+      "difficulty": "hard"
+    }
+  ]
+}

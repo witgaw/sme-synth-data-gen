@@ -1,0 +1,25 @@
+# Generated files (from generate_files.py)
+output/
+
+# uv
+.venv/
+uv.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp

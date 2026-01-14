@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "version": "1.1",
+    "created": "2026-01-09",
+    "updated": "2026-01-14",
+    "description": "Evaluation questions for synthetic SME dataset - Kreatywna Fala",
+    "total_questions": 35,
+    "language": "pl",
+    "notes": "Updated for Phase 2 documents (doc_051-100). See company_meta.json for additional synthesizable fact questions."
+  },
+  "exact_match_questions": [
+    {
+      "id": "q001",
+      "question_pl": "Kiedy Maciej Boryna podpisał umowę z swoim pierwszym klientem solo (Smakosz)? Odpowiedz tylko datą.",
+      "question_en": "When did Maciej Boryna sign the contract with his first solo client (Smakosz)? Answer with date only.",
+      "expected_answer": "15 czerwca 2023",
+      "answer_variants": ["15.06.2023", "2023-06-15", "15 June 2023"],
+      "source_documents": ["doc_001", "doc_002"],
+      "planted_fact_id": "boryna_first_client_date",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q002",
+      "question_pl": "O ile dni było opóźnione płatność od Smakosz w listopadzie 2023? Odpowiedz tylko liczbą.",
+      "question_en": "How many days was Smakosz's payment overdue in November 2023? Answer with number only.",
+      "expected_answer": "45",
+      "answer_variants": ["45 dni", "45 days"],
+      "source_documents": ["doc_010", "doc_028"],
+      "planted_fact_id": "client_c_payment_overdue",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q003",
+      "question_pl": "Jaki rabat (w procentach) zaproponowała agencja dla Smakosz po spotkaniu reklamacyjnym 1 grudnia 2023? Odpowiedz tylko liczbą.",
+      "question_en": "What discount (in percent) did the agency offer to Smakosz after the complaint meeting on December 1, 2023? Answer with number only.",
+      "expected_answer": "10",
+      "answer_variants": ["10%", "10 procent"],
+      "source_documents": ["doc_013"],
+      "planted_fact_id": "client_c_discount_percent",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q004",
+      "question_pl": "Kto był główną osobą kontaktową po stronie MaszBud? Podaj imię, nazwisko i stanowisko.",
+      "question_en": "Who was the main contact person at MaszBud? Provide name and job title.",
+      "expected_answer": "Anna Kowalska, Dyrektor Marketingu",
+      "answer_variants": ["Anna Kowalska - Dyrektor Marketingu", "Anna Kowalska (Dyrektor Marketingu)", "Anna Kowalska, Marketing Director"],
+      "source_documents": ["doc_015", "doc_027"],
+      "planted_fact_id": "client_d_contact_person",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q005",
+      "question_pl": "Jaka była wartość początkowej oferty dla MaszBud (październik 2023)? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the value of the initial proposal for MaszBud (October 2023)? Provide amount in PLN only.",
+      "expected_answer": "52000",
+      "answer_variants": ["52,000 PLN", "52 000 PLN", "52000 PLN"],
+      "source_documents": ["doc_015"],
+      "planted_fact_id": "client_d_initial_proposal",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q006",
+      "question_pl": "Jaką kwotę zaproponował MaszBud jako kontrpropozycję w listopadzie 2023? Podaj tylko kwotę w PLN.",
+      "question_en": "What amount did MaszBud propose as a counter-offer in November 2023? Provide amount in PLN only.",
+      "expected_answer": "42000",
+      "answer_variants": ["42,000 PLN", "42 000 PLN", "42000 PLN"],
+      "source_documents": ["doc_011"],
+      "planted_fact_id": "client_d_counter_offer",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q007",
+      "question_pl": "Jaka była wartość zrewidowanej oferty dla MaszBud (grudzień 2023)? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the value of the revised proposal for MaszBud (December 2023)? Provide amount in PLN only.",
+      "expected_answer": "48000",
+      "answer_variants": ["48,000 PLN", "48 000 PLN", "48000 PLN"],
+      "source_documents": ["doc_027"],
+      "planted_fact_id": "client_d_revised_proposal",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q008",
+      "question_pl": "Jaki był przychód agencji w Q3 2023? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the agency's revenue in Q3 2023? Provide amount in PLN only.",
+      "expected_answer": "287500",
+      "answer_variants": ["287,500 PLN", "287 500 PLN", "287500 PLN"],
+      "source_documents": ["doc_016"],
+      "planted_fact_id": "q3_2023_revenue",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q009",
+      "question_pl": "Jaka była marża operacyjna agencji w Q3 2023? Odpowiedz tylko liczbą (procent).",
+      "question_en": "What was the agency's operating margin in Q3 2023? Answer with number only (percent).",
+      "expected_answer": "42",
+      "answer_variants": ["42%", "42 procent"],
+      "source_documents": ["doc_016"],
+      "planted_fact_id": "q3_2023_margin",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q010",
+      "question_pl": "Jaka była początkowa miesięczna opłata ModaNet przed zwiększeniem scope? Podaj tylko kwotę w PLN.",
+      "question_en": "What was ModaNet's initial monthly fee before scope expansion? Provide amount in PLN only.",
+      "expected_answer": "3800",
+      "answer_variants": ["3,800 PLN", "3 800 PLN", "3800 PLN"],
+      "source_documents": ["doc_019", "doc_021"],
+      "planted_fact_id": "client_b_monthly_fee_initial",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q011",
+      "question_pl": "Jaka była miesięczna opłata ModaNet po dodaniu TikTok do scope? Podaj tylko kwotę w PLN.",
+      "question_en": "What was ModaNet's monthly fee after adding TikTok to the scope? Provide amount in PLN only.",
+      "expected_answer": "4500",
+      "answer_variants": ["4,500 PLN", "4 500 PLN", "4500 PLN"],
+      "source_documents": ["doc_019", "doc_021"],
+      "planted_fact_id": "client_b_monthly_fee_final",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q012",
+      "question_pl": "Od jakiej daty obowiązywała nowa opłata ModaNet po zwiększeniu scope? Odpowiedz tylko datą.",
+      "question_en": "From what date was the new ModaNet fee effective after scope increase? Answer with date only.",
+      "expected_answer": "15 stycznia 2024",
+      "answer_variants": ["15.01.2024", "2024-01-15", "15 January 2024"],
+      "source_documents": ["doc_019", "doc_021"],
+      "planted_fact_id": "client_b_fee_increase_date",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q013",
+      "question_pl": "Jaka była łączna kwota zaległych płatności w listopadzie 2023? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the total amount of overdue payments in November 2023? Provide amount in PLN only.",
+      "expected_answer": "6000",
+      "answer_variants": ["6,000 PLN", "6 000 PLN", "6000 PLN"],
+      "source_documents": ["doc_028"],
+      "planted_fact_id": "november_2023_overdue",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q014",
+      "question_pl": "Jaki był planowany budżet projektu ModaNet? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the planned budget for the ModaNet project? Provide amount in PLN only.",
+      "expected_answer": "32000",
+      "answer_variants": ["32,000 PLN", "32 000 PLN", "32000 PLN"],
+      "source_documents": ["doc_022", "doc_031"],
+      "planted_fact_id": "modanet_project_budget",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q015",
+      "question_pl": "Jaki był rzeczywisty koszt projektu ModaNet? Podaj tylko kwotę w PLN.",
+      "question_en": "What was the actual cost of the ModaNet project? Provide amount in PLN only.",
+      "expected_answer": "34500",
+      "answer_variants": ["34,500 PLN", "34 500 PLN", "34500 PLN"],
+      "source_documents": ["doc_031"],
+      "planted_fact_id": "modanet_project_actual",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q016",
+      "question_pl": "O ile PLN projekt ModaNet przekroczył budżet? Podaj tylko kwotę.",
+      "question_en": "By how much PLN did the ModaNet project exceed the budget? Provide amount only.",
+      "expected_answer": "2500",
+      "answer_variants": ["2,500 PLN", "2 500 PLN", "2500 PLN"],
+      "source_documents": ["doc_022", "doc_023", "doc_031"],
+      "planted_fact_id": "modanet_budget_overrun",
+      "type": "single_source",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q017",
+      "question_pl": "Ile emaili follow-up wysłał Maciej Boryna do prospekta LogiTrans? Odpowiedz tylko liczbą.",
+      "question_en": "How many follow-up emails did Maciej Boryna send to prospect LogiTrans? Answer with number only.",
+      "expected_answer": "4",
+      "answer_variants": ["4 maile", "4 emails", "cztery"],
+      "source_documents": ["doc_014", "doc_017", "doc_020", "doc_024"],
+      "planted_fact_id": "logitrans_followup_count",
+      "type": "multi_document",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q018",
+      "question_pl": "Kiedy Browar Wroclavia przedłużył umowę i jaka była nowa miesięczna wartość? Podaj datę i kwotę.",
+      "question_en": "When did Browar Wroclavia renew their contract and what was the new monthly value? Provide date and amount.",
+      "expected_answer": "Marzec 2024, 9200 PLN",
+      "answer_variants": ["Marzec 2024, 9,200 PLN", "March 2024, 9200 PLN", "1 kwietnia 2024, 9200 PLN"],
+      "source_documents": ["doc_030"],
+      "planted_fact_id": "client_a_contract_renewal",
+      "type": "single_source",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q019",
+      "question_pl": "Kiedy Andrzej Kmicic przejął konto ModaNet od Macieja Boryny? Odpowiedz tylko datą.",
+      "question_en": "When did Andrzej Kmicic take over the ModaNet account from Maciej Boryna? Answer with date only.",
+      "expected_answer": "12 marca 2024",
+      "answer_variants": ["12.03.2024", "2024-03-12", "12 March 2024"],
+      "source_documents": ["doc_029"],
+      "planted_fact_id": "modanet_account_handover",
+      "type": "single_source",
+      "difficulty": "easy"
+    }
+  ],
+  "multi_document_synthesis_questions": [
+    {
+      "id": "q020",
+      "question_pl": "Ile dni minęło między pierwszą skargą Smakosz (12 listopada 2023) a spotkaniem rozwiązującym problem (1 grudnia 2023)? Odpowiedz tylko liczbą dni.",
+      "question_en": "How many days passed between Smakosz's first complaint (November 12, 2023) and the resolution meeting (December 1, 2023)? Answer with number of days only.",
+      "expected_answer": "19",
+      "answer_variants": ["19 dni", "19 days"],
+      "source_documents": ["doc_044", "doc_013"],
+      "planted_fact_id": "client_c_complaint_to_resolution",
+      "type": "temporal_calculation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q021",
+      "question_pl": "Opisz kolejność zdarzeń w negocjacjach cenowych z MaszBud: podaj trzy kwoty i daty.",
+      "question_en": "Describe the sequence of price negotiations with MaszBud: provide three amounts and dates.",
+      "expected_answer": "52,000 PLN (20 października 2023) → 42,000 PLN kontrpropozycja (28 listopada 2023) → 48,000 PLN finalna oferta (15 grudnia 2023)",
+      "answer_variants": [],
+      "source_documents": ["doc_015", "doc_011", "doc_027"],
+      "planted_fact_id": "multi_fact_synthesis",
+      "type": "sequence",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q022",
+      "question_pl": "Opisz timeline projektu Smakosz od podpisania umowy do zaakceptowania koncepcji. Podaj kluczowe daty.",
+      "question_en": "Describe the Smakosz project timeline from contract signing to concept approval. Provide key dates.",
+      "expected_answer": "Umowa: 15 czerwca 2023, Kickoff: 20 czerwca 2023, Koncepcje zaakceptowane: 22 sierpnia 2023",
+      "answer_variants": [],
+      "source_documents": ["doc_001", "doc_033", "doc_034"],
+      "planted_fact_id": "client_c_project_timeline",
+      "type": "timeline",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q023",
+      "question_pl": "Opisz sekwencję zmiany scope ModaNet: kiedy była prośba, kiedy zatwierdzono, kiedy weszła nowa umowa?",
+      "question_en": "Describe the sequence of ModaNet's scope change: when was the request, when approved, when did the new contract start?",
+      "expected_answer": "Prośba: 8 stycznia 2024, Zatwierdzenie: 9 stycznia 2024, Nowa umowa: 30 stycznia 2024, obowiązuje od 15 stycznia 2024",
+      "answer_variants": [],
+      "source_documents": ["doc_018", "doc_019", "doc_021"],
+      "planted_fact_id": "modanet_scope_change_sequence",
+      "type": "sequence",
+      "difficulty": "medium"
+    }
+  ],
+  "qualitative_questions": [
+    {
+      "id": "q024",
+      "question_pl": "Opisz jak zmieniała się relacja agencji z klientem ModaNet między sierpniem 2023 a kwietniem 2024. Wymień kluczowe momenty.",
+      "question_en": "Describe how the relationship between the agency and ModaNet evolved from August 2023 to April 2024. List key moments.",
+      "source_documents": ["doc_018", "doc_021", "doc_022", "doc_023", "doc_025", "doc_026", "doc_029", "doc_031"],
+      "rubric_id": "modanet_relationship_evolution",
+      "type": "narrative",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q025",
+      "question_pl": "Jakie były główne problemy w projekcie Smakosz i jak zostały rozwiązane?",
+      "question_en": "What were the main problems in the Smakosz project and how were they resolved?",
+      "source_documents": ["doc_008", "doc_009", "doc_010", "doc_013", "doc_044", "doc_050"],
+      "rubric_id": "smakosz_problem_resolution",
+      "type": "narrative",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q026",
+      "question_pl": "Opisz proces pozyskiwania klienta MaszBud od pierwszego kontaktu do finalnej decyzji.",
+      "question_en": "Describe the process of acquiring MaszBud client from first contact to final decision.",
+      "source_documents": ["doc_054", "doc_055", "doc_056", "doc_057", "doc_094", "doc_095", "doc_098", "doc_100"],
+      "rubric_id": "maszbud_sales_process",
+      "type": "narrative",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q027",
+      "question_pl": "Jakie lessons learned wynikają z projektu ModaNet według wewnętrznego post-mortem?",
+      "question_en": "What lessons learned emerged from the ModaNet project according to the internal post-mortem?",
+      "source_documents": ["doc_022", "doc_023", "doc_031", "doc_046"],
+      "rubric_id": "modanet_lessons_learned",
+      "type": "lessons_learned",
+      "difficulty": "medium"
+    }
+  ],
+  "temporal_filter_questions": [
+    {
+      "id": "q028",
+      "question_pl": "Pokaż wszystkie dokumenty z marca 2024.",
+      "question_en": "Show all documents from March 2024.",
+      "expected_document_ids": ["doc_029", "doc_030", "doc_043", "doc_073", "doc_074"],
+      "type": "temporal_filter",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q029",
+      "question_pl": "Pokaż wszystkie dokumenty związane z klientem ModaNet z lutego 2024.",
+      "question_en": "Show all documents related to client ModaNet from February 2024.",
+      "expected_document_ids": ["doc_022", "doc_023", "doc_025", "doc_026", "doc_046"],
+      "type": "temporal_filter_client",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q030",
+      "question_pl": "Co się działo z projektem Smakosz w listopadzie 2023? Podsumuj na podstawie dokumentów z tego miesiąca.",
+      "question_en": "What was happening with the Smakosz project in November 2023? Summarize based on documents from that month.",
+      "expected_document_ids": ["doc_010", "doc_012", "doc_044"],
+      "source_documents": ["doc_010", "doc_012", "doc_044"],
+      "type": "temporal_synthesis",
+      "difficulty": "medium"
+    }
+  ],
+  "negative_questions": [
+    {
+      "id": "q031",
+      "question_pl": "Jakie są dane kontaktowe prospekta LogiTrans (adres biura, numer telefonu)?",
+      "question_en": "What are the contact details of prospect LogiTrans (office address, phone number)?",
+      "expected_answer": null,
+      "expected_behavior": "System should indicate that this information is not available in the documents",
+      "type": "negative_absent_detail",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q032",
+      "question_pl": "Ile projektów zrealizowała agencja dla Urzędu Miasta Wrocław przed 2023 rokiem?",
+      "question_en": "How many projects did the agency complete for the City of Wrocław before 2023?",
+      "expected_answer": null,
+      "expected_behavior": "System should indicate that this information is not available in the documents (documents only cover 2023-2024)",
+      "type": "negative_outside_scope",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q033",
+      "question_pl": "Jaka jest strategia marketingowa którą agencja zaproponowała dla TechStart?",
+      "question_en": "What is the marketing strategy that the agency proposed for TechStart?",
+      "expected_answer": null,
+      "expected_behavior": "System should indicate limited information - only high-level proposal exists (doc_043), no detailed strategy document",
+      "type": "negative_partial",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q034",
+      "question_pl": "Czy agencja miała jakieś problemy prawne lub spory sądowe z klientami?",
+      "question_en": "Did the agency have any legal problems or court disputes with clients?",
+      "expected_answer": null,
+      "expected_behavior": "System should indicate that no such information is present in the documents",
+      "type": "negative_absent_topic",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q035",
+      "question_pl": "Jaka była wartość sprzedaży (revenue) agencji w 2022 roku?",
+      "question_en": "What was the agency's sales revenue in 2022?",
+      "expected_answer": null,
+      "expected_behavior": "System should indicate that this information is not available (documents only cover June 2023 - May 2024)",
+      "type": "negative_outside_timeframe",
+      "difficulty": "easy"
+    }
+  ]
+}

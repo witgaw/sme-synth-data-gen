@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2026-01-09",
+    "description": "Scoring rubrics for qualitative/narrative evaluation questions",
+    "scoring_scale": "0-5 points per rubric"
+  },
+  "rubrics": {
+    "modanet_relationship_evolution": {
+      "description": "Evaluates understanding of ModaNet client relationship evolution from start to April 2024",
+      "must_mention": [
+        "Początek współpracy sierpień/wrzesień 2023",
+        "Rozszerzenie scope o TikTok w styczniu 2024",
+        "Przekroczenie budżetu projektu (~2,500 PLN)",
+        "Skargi klienta w lutym 2024 na jakość materiałów",
+        "Handover od Boryny do Kmicica w marcu 2024",
+        "Stabilizacja relacji w kwietniu 2024"
+      ],
+      "should_mention": [
+        "Wzrost monthly fee z 3,800 do 4,500 PLN",
+        "Wymagający charakter klienta (startup)",
+        "Decyzja o absorbowaniu overrun przez agencję",
+        "Pozytywne wyniki biznesowe mimo problemów"
+      ],
+      "must_not_mention": [
+        "Informacje o innych klientach nie związane z kontekstem",
+        "Wydarzenia spoza okresu sierpień 2023 - kwiecień 2024",
+        "Spekulacje nie oparte na dokumentach"
+      ],
+      "scoring": {
+        "all_must_mention": 3,
+        "most_must_mention": 2,
+        "some_must_mention": 1,
+        "includes_should_mention": "+1 (max 2)",
+        "any_must_not_mention": "-2",
+        "factual_errors": "-1 per error"
+      },
+      "max_score": 5
+    },
+    "smakosz_problem_resolution": {
+      "description": "Evaluates understanding of Smakosz project problems and resolution process",
+      "must_mention": [
+        "Opóźnienia w dostawie (2 tygodnie, październik/listopad 2023)",
+        "Brak proaktywnej komunikacji o problemach",
+        "Zaległość w płatności (45 dni)",
+        "Spotkanie wyjaśniające 1 grudnia 2023",
+        "Rabat 10% jako rekompensata",
+        "Wprowadzenie cotygodniowych statusów mailowych"
+      ],
+      "should_mention": [
+        "Zmiany w briefie jako przyczyna opóźnień",
+        "Handover opieki do Kmicica (wsparcie dla Boryny)",
+        "Odbudowanie zaufania - relacja ustabilizowana",
+        "Lessons learned nt. komunikacji projektowej"
+      ],
+      "must_not_mention": [
+        "Problemy innych klientów jako przyczyny",
+        "Wydarzenia po grudniu 2023 (fokus na crisis resolution)",
+        "Nieudokumentowane szczegóły"
+      ],
+      "scoring": {
+        "all_must_mention": 3,
+        "most_must_mention": 2,
+        "some_must_mention": 1,
+        "includes_should_mention": "+1 (max 2)",
+        "any_must_not_mention": "-2",
+        "factual_errors": "-1 per error"
+      },
+      "max_score": 5
+    },
+    "maszbud_sales_process": {
+      "description": "Evaluates understanding of MaszBud sales process from first contact to final decision",
+      "must_mention": [
+        "Pierwszy kontakt wrzesień 2023 (targi/networking event)",
+        "Pitch złożony 20 października 2023 (52,000 PLN)",
+        "Kontrpropozycja klienta 42,000 PLN (koniec listopada)",
+        "Zrewidowana oferta 48,000 PLN (15 grudnia 2023)",
+        "Pauza w negocjacjach Q1-Q2 2024 (zmiany w zarządzie klienta)",
+        "Nowy CEO (Piotr Machinery) wznawia rozmowy czerwiec 2024",
+        "Finalna decyzja: akceptacja (25 lipca 2024)",
+        "Plan etapowy: 50k rocznie, start wrzesień 2024"
+      ],
+      "should_mention": [
+        "Długi cykl sprzedażowy B2B (10+ miesięcy)",
+        "Elastyczność agencji w negocjacjach cenowych",
+        "Kluczowa rola zmiany zarządu w odblokowaniu dealu",
+        "Nowy CEO wrócił z USA - rozumie wartość marketingu",
+        "LinkedIn jako kluczowy kanał w finalnej ofercie"
+      ],
+      "must_not_mention": [
+        "Spekulacje o przyczynach nie wymienione w dokumentach",
+        "Informacje o innych prospektach nie związane z kontekstem"
+      ],
+      "scoring": {
+        "all_must_mention": 3,
+        "most_must_mention": 2,
+        "some_must_mention": 1,
+        "includes_should_mention": "+1 (max 2)",
+        "any_must_not_mention": "-2",
+        "factual_errors": "-1 per error"
+      },
+      "max_score": 5
+    },
+    "modanet_lessons_learned": {
+      "description": "Evaluates extraction of lessons learned from ModaNet project",
+      "must_mention": [
+        "Bufory 15% na projekty dla startupów",
+        "Change request = zawsze formalna wycena przed akceptacją",
+        "Lepsze trackowanie kosztów real-time",
+        "Tygodniowe statusy pisemne od początku projektu"
+      ],
+      "should_mention": [
+        "Przy wymagających klientach - senior AM od początku",
+        "Jasne SLA dla akceptacji kreacji (max 2 rundy poprawek)",
+        "Dokumentowanie scope changes na bieżąco",
+        "Wcześniejsza eskalacja problemów budżetowych"
+      ],
+      "must_not_mention": [
+        "Lessons learned z innych projektów",
+        "Spekulacje nie oparte na dokumentach",
+        "Krytyka zespołu (focus na proces, nie osoby)"
+      ],
+      "scoring": {
+        "all_must_mention": 3,
+        "most_must_mention": 2,
+        "some_must_mention": 1,
+        "includes_should_mention": "+1 (max 2)",
+        "any_must_not_mention": "-1",
+        "factual_errors": "-1 per error"
+      },
+      "max_score": 5
+    }
+  },
+  "evaluation_guidelines": {
+    "general_principles": [
+      "Factual accuracy is paramount - deduct points for any incorrect dates, numbers, or events",
+      "Completeness matters - answering with only partial information scores lower",
+      "Chronological coherence - narrative should flow logically",
+      "Document grounding - all claims should be traceable to source documents",
+      "Synthesis quality - ability to connect information across multiple documents"
+    ],
+    "scoring_instructions": {
+      "5_points": "Excellent - covers all must_mention points, includes should_mention, accurate, well-synthesized",
+      "4_points": "Very good - covers all must_mention points, mostly accurate, good synthesis",
+      "3_points": "Good - covers most must_mention points, generally accurate",
+      "2_points": "Fair - covers some must_mention points, some inaccuracies",
+      "1_point": "Poor - minimal coverage, significant inaccuracies",
+      "0_points": "Fail - off-topic, mostly incorrect, or contains must_not_mention items"
+    },
+    "human_evaluation_tips": [
+      "Read the source documents before evaluating responses",
+      "Check dates and numbers carefully against ground truth",
+      "Look for logical sequence in narrative questions",
+      "Penalize hallucinations (information not in documents) heavily",
+      "Reward conciseness without loss of accuracy",
+      "Consider: did the system answer the question that was asked?"
+    ]
+  },
+  "example_evaluations": [
+    {
+      "question_id": "q024",
+      "rubric_id": "modanet_relationship_evolution",
+      "sample_response_good": "Relacja z ModaNet rozpoczęła się w sierpniu 2023. Na początku było entuzjastycznie - młoda firma, dużo energii. W styczniu 2024 rozszerzono scope o TikTok, co zwiększyło monthly fee z 3,800 PLN do 4,500 PLN. Niestety projekt przekroczył budżet o ~2,500 PLN. W lutym 2024 klient skarżył się na jakość materiałów TikTok i groził odejściem. W marcu Kmicic przejął konto od Boryny żeby lepiej zarządzać wymagającym klientem. Do kwietnia relacja się ustabilizowała, klient zadowolony z wyników biznesowych.",
+      "score": 5,
+      "rationale": "Covers all must_mention points, accurate dates and figures, logical flow, includes should_mention context"
+    },
+    {
+      "question_id": "q024",
+      "rubric_id": "modanet_relationship_evolution",
+      "sample_response_poor": "ModaNet to trudny klient który ciągle się skarżył. Projekt przekroczył budżet więc musieli zmienić account managera. W końcu się uspokoiło.",
+      "score": 1,
+      "rationale": "Missing most must_mention points, no dates, no specific details, oversimplified"
+    }
+  ]
+}
