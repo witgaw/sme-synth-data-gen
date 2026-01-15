@@ -7,7 +7,11 @@
     "date_range": {
       "start": "2023-06-01",
       "end": "2024-05-31"
-    }
+    },
+    "ocr_documents": 16,
+    "ocr_easy": 8,
+    "ocr_hard": 8,
+    "total_documents": 116
   },
   "documents": [
     {
@@ -19,13 +23,20 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Gratulacje dla Maćka - pierwszy klient!",
       "body": "Dzień dobry Wszystkim,\n\nChciałem pogratulować Maćkowi Borynie zdobycia pierwszego klienta solo - Sieć Restauracji Smakosz podpisała wczoraj umowę na rebranding!\n\nMaciej, świetna robota w negocjacjach. Projekt jest ciekawy i będzie dobrą wizytówką dla nas w branży gastronomicznej.\n\nAndrzeju, proszę Cię o wsparcie Maćka w pierwszych tygodniach - pomóż mu się rozkręcić, ale nie przejmuj projektu. To jego klient i musi się nauczyć prowadzenia całego procesu.\n\nJanusz, proszę o przydzielenie zasobów - Irena i Zosia będą potrzebne do koncepcji wizualnych.\n\nPozdrawiam,\nZbigniew",
-      "clients_mentioned": ["Client C"],
-      "planted_facts": ["boryna_first_client_date"]
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "boryna_first_client_date"
+      ]
     },
     {
       "id": "doc_002",
@@ -36,12 +47,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Gratulacje dla Maćka - pierwszy klient!",
       "body": "Dzień dobry,\n\nDziękuję bardzo za wsparcie! Bardzo się cieszę z tego projektu. Umowa podpisana 15 czerwca, kickoff mamy zaplanowany na przyszły tydzień.\n\nAndrzeju - na pewno będę się do Ciebie zgłaszał z pytaniami, szczególnie w temacie zarządzania oczekiwaniami klienta.\n\nJanusz, Irena, Zosia - bardzo się cieszę na współpracę! Klient ma jasną wizję, ale też jest otwarty na nasze sugestie.\n\nPostaram się nie zawieść!\n\nPozdrawiam,\nMaciej",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -53,13 +69,22 @@
       "author": "Janusz Sieczkowski",
       "author_email": "janusz.sieczkowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Capacity zespołu - musimy porozmawiać",
       "body": "Zbyszek, Andrzej,\n\nMamy problem z obciążeniem zespołu. Irena i Zosia są na maksymalnym wykorzystaniu, a właśnie dostaliśmy projekt od miasta (kampania bożonarodzeniowa) z napięty terminem.\n\nDo tego Smakosz wymaga więcej iteracji niż zakładaliśmy - Maciej uczy się na bieżąco, więc wszystko trwa dłużej.\n\nMoim zdaniem mamy dwie opcje:\n1. Zatrudnić junior designera na część etatu\n2. Ograniczyć przyjmowanie nowych klientów do Q4\n\nAndrzej, wiem że masz pipeline pełen leadów, ale musimy być realistami co do naszych możliwości. Wolę dobrze obsłużyć 5 klientów niż średnio 8.\n\nCo o tym sądzicie?\n\nJanusz",
-      "clients_mentioned": ["Client C", "Client E"],
+      "clients_mentioned": [
+        "Client C",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -71,13 +96,22 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"},
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Capacity zespołu - musimy porozmawiać",
       "body": "Janusz,\n\nRozumiem Twoje obawy, ale nie możemy teraz hamować sprzedaży. Q4 to najlepszy czas na zamykanie kontraktów na przyszły rok.\n\nProponuję kompromis:\n- Zatrudniamy junior designera na 3 miesiące próbnie\n- Ja biorę na siebie więcej pracy operacyjnej żeby odciążyć Maćka\n- Priorytetyzujemy projekty - miasto jest ważne (referencja), Smakosz można trochę spowolnić\n\nCo do Smakosza - Maciej się uczy, ale to normalne. Za 2 miesiące będzie się kręcił sam.\n\nZbyszek, co Ty na to?\n\nAndrzej",
-      "clients_mentioned": ["Client C", "Client E"],
+      "clients_mentioned": [
+        "Client C",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -89,9 +123,18 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"},
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"},
-        {"name": "Halina Lichocka", "email": "halina.lichocka@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        },
+        {
+          "name": "Halina Lichocka",
+          "email": "halina.lichocka@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Decyzja: zatrudnienie junior designera",
@@ -108,14 +151,23 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "subject": "Pipeline review - potrzebujemy więcej prospektów",
       "body": "Zbyszek,\n\nRobiłem dziś przegląd pipeline'u na Q4 i mam obawy. Poza MaszBud (spotkałem ich na evencie branżowym w zeszłym tygodniu, obiecująco wygląda) nie mamy mocnych leadów na większe projekty.\n\nModaNet i kilka mniejszych to za mało żeby zabezpieczyć cele na 2024.\n\nProponuję:\n- Ja skupiam się na zamknięciu MaszBud (duża ryba, przemysł, mogą być 50k+)\n- Maciej intensyfikuje cold outreach - dajmy mu cel 20 pierwszych kontaktów w październiku\n- Może warto pomyśleć o jakimś evencie networkingowym?\n\nMaciek - przygotujesz listę 30 firm z branży logistycznej i produkcyjnej? To są nasze sweet spoty.\n\nAndrzej",
-      "clients_mentioned": ["Client B", "Client D"],
+      "clients_mentioned": [
+        "Client B",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -127,10 +179,16 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Re: Pipeline review - lista prospektów",
       "body": "Andrzej,\n\nJasne, przygotuję listę do piątku. Mam już kilka firm na oku z LinkedIn.\n\nCzy mamy jakieś case studies z branży logistycznej/produkcyjnej? To by bardzo pomogło w cold outreach - mógłbym pokazać że rozumiemy ich specyfikę.\n\nTakże - czy preferujesz żebym dzwonił czy pisał maile? Na szkoleniu mówili że LinkedIn + email combo działa najlepiej dla B2B.\n\nPozdrawiam,\nMaciej",
@@ -146,14 +204,22 @@
       "author": "Irena Dulska",
       "author_email": "irena.dulska@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz - opóźnienie w dostawie",
       "body": "Janusz,\n\nMusze Cię poinformować że nie zdążymy z finalnym pakietem identyfikacji wizualnej dla Smakosz na koniec tego tygodnia jak było w harmonogramie.\n\nPowód: klient wprowadził zmiany w briefie w zeszłym tygodniu (nowe menu, trzeba dodać ikony dla kategorii dań). To jest faktycznie rozszerzenie scope, nie iteracja.\n\nRealistyczny termin: 10 listopada.\n\nMaciej - musisz to zakomunikować klientowi. Przygotuj wytłumaczenie że to zmiana zakresu. Jeśli chcą zachować pierwotny termin, musimy ustalić co z scope wypadnie.\n\nJanusz - proszę o backup w rozmowie z klientem jeśli będzie problem.\n\nIrena",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -165,13 +231,21 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Irena Dulska", "email": "irena.dulska@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Irena Dulska",
+          "email": "irena.dulska@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Smakosz - opóźnienie w dostawie",
       "body": "Irena, Janusz,\n\nRozumiem sytuację. Masz rację Irena - zmiany w briefie to rzeczywiście rozszerzenie zakresu.\n\nDzwoniłem do klienta (Marek Nowak) - nie jest zadowolony, ale rozumie. Zaakceptował przesunięcie na 10 listopada pod warunkiem że to już ostateczny termin.\n\nTrochę się martwię bo to już drugie przesunięcie (pierwsze było tydzień temu). Obawiam się że zaczynamy tracić zaufanie klienta.\n\nJanusz - czy możemy zrobić krótkie spotkanie żeby omówić jak lepiej komunikować takie sytuacje w przyszłości? Czuję że mógłbym to obsłużyć lepiej.\n\nPozdrawiam,\nMaciej",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -183,17 +257,33 @@
       "author": "Halina Lichocka",
       "author_email": "halina.lichocka@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"},
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        },
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Ryszard Ochódzki", "email": "ryszard.ochodzki@kreatywnafala.pl"}
+        {
+          "name": "Ryszard Ochódzki",
+          "email": "ryszard.ochodzki@kreatywnafala.pl"
+        }
       ],
       "subject": "PILNE - Zaległości płatnicze Smakosz",
       "body": "Dzień dobry,\n\nInformuję że płatność od Sieć Restauracji Smakosz jest opóźniona o 45 dni.\n\nSzczegóły:\n- Faktura FV/2023/10/003\n- Kwota: 6,000 PLN netto\n- Data wystawienia: 1 października 2023\n- Termin płatności: 15 października 2023\n- Dzisiaj: 15 listopada 2023\n- Opóźnienie: 45 dni (!!)\n\nTo jest już czerwona flaga. Dzwoniłam do ich biura wczoraj - pani z księgowości powiedziała że \"jest w toku\" ale nie podała konkretnego terminu.\n\nMaciej - to Twój klient, musisz to wyjaśnić. Czy są jakieś problemy o których nie wiemy? Reklamacja? Niezadowolenie?\n\nAndrzej - może pomożesz Maćkowi w tej rozmowie?\n\nRyszard - jak długo możemy czekać przed wysłaniem upomnienia?\n\nHalina",
-      "clients_mentioned": ["Client C"],
-      "planted_facts": ["client_c_payment_overdue"]
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "client_c_payment_overdue"
+      ]
     },
     {
       "id": "doc_011",
@@ -204,13 +294,20 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "MaszBud - odpowiedź na ofertę",
       "body": "Zbyszek,\n\nDostałem dziś telefon od Anny Kowalskiej z MaszBud. Są zainteresowani, ale budżet 52,000 PLN jest dla nich za wysoki.\n\nIch propozycja: 42,000 PLN rocznie.\n\nTo sporo poniżej naszej oferty, ale:\n- To duża firma, dobra referencja w B2B przemysłowym\n- Długoterminowy potencjał - jeśli się sprawdzimy, mogą zwiększyć budżet\n- Ich główna konkurencja to lokalne agencje za 30-35k, więc 42k to i tak więcej\n\nMoże zejść do 45-48k? Co o tym sądzisz?\n\nChcą decyzję do połowy grudnia.\n\nAndrzej",
-      "clients_mentioned": ["Client D"],
-      "planted_facts": ["client_d_counter_offer"]
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "client_d_counter_offer"
+      ]
     },
     {
       "id": "doc_012",
@@ -221,12 +318,17 @@
       "author": "Janusz Sieczkowski",
       "author_email": "janusz.sieczkowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Wnioski ze Smakosz - komunikacja z klientem",
       "body": "Cześć Wszystkim,\n\nW kontekście ostatnich problemów ze Smakosz (opóźnienia, brak płatności, frustracja klienta) chciałem zaproponować kilka zmian w naszym procesie:\n\n1. **Tygodniowe statusy email dla każdego aktywnego projektu**\n   - Krótkie update: co zrobiono, co dalej, jakie ryzyka\n   - Nawet jeśli \"wszystko idzie zgodnie z planem\"\n   - To buduje zaufanie i pozwala uniknąć niespodzianek\n\n2. **Change request = zawsze na piśmie**\n   - Jeśli klient chce zmian w scope, natychmiast mailowe potwierdzenie\n   - Określenie wpływu na termin i budżet\n   - Formalna akceptacja przed rozpoczęciem prac\n\n3. **Eskalacja wewnętrzna przy pierwszych symptomach problemu**\n   - Nie czekać aż problem urośnie\n   - Lepiej przedyskutować wcześniej niż gasić pożary później\n\nMaciek - nic Ci nie zarzucam, uczysz się i radzisz sobie coraz lepiej. To są wnioski dla wszystkich.\n\nCo sądzicie?\n\nJanusz",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -237,17 +339,44 @@
       "timestamp": "2023-12-01T17:30:00+01:00",
       "author": "Zosia Samosiej",
       "title": "Notatki ze spotkania z Klientem Smakosz - rozwiązanie reklamacji",
-      "attendees": ["Andrzej Kmicic", "Zbigniew Reymontowski", "Maciej Boryna", "Marek Nowak (Smakosz)", "Anna Wiśniewska (Smakosz)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Zbigniew Reymontowski",
+        "Maciej Boryna",
+        "Marek Nowak (Smakosz)",
+        "Anna Wiśniewska (Smakosz)"
+      ],
       "location": "Biuro Klienta, Wrocław ul. Świdnicka 23",
       "content": "## Kontekst\n\nSpotkanie w sprawie reklamacji dotyczącej opóźnień w dostawie materiałów rebrandingowych oraz braku płatności za fakturę FV/2023/10/003.\n\n## Stanowisko klienta\n\n- Opóźnienie łącznie 2 tygodnie względem harmonogramu (pierwotny termin: 31 października)\n- Brak proaktywnej komunikacji o problemach - klient dowiadywał się o przesunięciach dopiero po pytaniu\n- Niezadowolenie z jakości zarządzania projektem\n- Oczekują rekompensaty: rabat lub dodatkowe usługi bez opłat\n- Wstrzymali płatność faktury jako \"zabezpieczenie\" do wyjaśnienia sytuacji\n\n## Nasze wyjaśnienia\n\nAndrzej Kmicic i Zbigniew Reymontowski:\n- Pierwsze przesunięcie (28.10) wynikało z dodania przez klienta nowych elementów do briefu w dniu 23.10 (ikony menu, rozszerzona paleta kolorów)\n- Drugie przesunięcie (5.11) - problemy techniczne z wydrukami próbnymi\n- Przyznajemy błąd w komunikacji - powinniśmy byli informować proaktywnie o każdej zmianie\n- Jakość finalnego produktu jest wysoka, co klient potwierdził\n\n## Ustalenia\n\n1. **Rabat 10%** na fakturę za październik (FV/2023/10/003) - kwota po rabacie: 5,400 PLN\n2. Halina Lichocka przygotuje korektę faktury do 5 grudnia\n3. **Cotygodniowe statusy mailowe** od grudnia - każdy piątek, krótkie update\n4. **Dedykowany opiekun**: Andrzej Kmicic przejmuje bezpośrednią opiekę nad kontem (Maciej dalej w projekcie, ale Andrzej jako senior backup)\n5. Klient zapłaci skorygowaną fakturę do 15 grudnia\n6. Maciej przeprowadzi wewnętrzny audyt komunikacji projektowej i przedstawi wnioski\n\n## Zadania\n\n- [ ] Andrzej Kmicic: Wysłać podsumowanie ustaleń mailem - termin: 2.12.2023\n- [ ] Halina Lichocka: Przygotować korektę faktury - termin: 5.12.2023\n- [ ] Andrzej Kmicic: Pierwszy status tygodniowy - termin: 8.12.2023\n- [ ] Maciej Boryna: Audyt komunikacji i lessons learned - termin: 15.12.2023\n\n## Atmosfera\n\nSpokojne, konstruktywne spotkanie. Klient docenił że przyjechaliśmy osobiście i że Zbigniew (CEO) był obecny. Relacja nadszarpnięta ale nie zerwana. Jest szansa na odbudowanie zaufania.",
       "action_items": [
-        {"owner": "Andrzej Kmicic", "task": "Wysłać podsumowanie ustaleń mailem", "due": "2023-12-02"},
-        {"owner": "Halina Lichocka", "task": "Przygotować korektę faktury", "due": "2023-12-05"},
-        {"owner": "Andrzej Kmicic", "task": "Pierwszy status tygodniowy", "due": "2023-12-08"},
-        {"owner": "Maciej Boryna", "task": "Audyt komunikacji i lessons learned", "due": "2023-12-15"}
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Wysłać podsumowanie ustaleń mailem",
+          "due": "2023-12-02"
+        },
+        {
+          "owner": "Halina Lichocka",
+          "task": "Przygotować korektę faktury",
+          "due": "2023-12-05"
+        },
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Pierwszy status tygodniowy",
+          "due": "2023-12-08"
+        },
+        {
+          "owner": "Maciej Boryna",
+          "task": "Audyt komunikacji i lessons learned",
+          "due": "2023-12-15"
+        }
       ],
-      "clients_mentioned": ["Client C"],
-      "planted_facts": ["client_c_discount_percent", "client_c_complaint_to_resolution"]
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "client_c_discount_percent",
+        "client_c_complaint_to_resolution"
+      ]
     },
     {
       "id": "doc_014",
@@ -258,13 +387,20 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Jan Nowak", "email": "j.nowak@logitrans.pl"}
+        {
+          "name": "Jan Nowak",
+          "email": "j.nowak@logitrans.pl"
+        }
       ],
       "cc": [],
       "subject": "Propozycja współpracy - marketing dla branży logistycznej",
       "body": "Szanowny Panie Dyrektorze,\n\nPozwalam sobie skontaktować się z propozycją współpracy w zakresie usług marketingowych dla LogiTrans.\n\nKreatywna Fala to agencja marketingowa z Wrocławia z 15-letnim doświadczeniem. Specjalizujemy się w obsłudze firm B2B, w tym z branży logistycznej i transportowej.\n\nNasze usługi obejmują:\n- Strategię marketingową i pozycjonowanie marki\n- Obecność online (strona www, LinkedIn, kampanie Google Ads)\n- Materiały sprzedażowe dostosowane do długich cykli sprzedaży B2B\n- Content marketing i edukacja rynku\n\nW załączeniu przesyłam krótką prezentację naszej agencji oraz case study z branży przemysłowej.\n\nCzy byłby Pan zainteresowany krótką rozmową w najbliższych tygodniach? Chętnie poznam Państwa potrzeby i przedstawię jak możemy wspierać rozwój LogiTrans.\n\nZ poważaniem,\nMaciej Boryna\nAccount Manager\nKreatywna Fala Sp. z o.o.\n+48 71 333 2211\nmaciej.boryna@kreatywnafala.pl",
-      "clients_mentioned": ["Client F"],
-      "planted_facts": ["logitrans_followup_count"]
+      "clients_mentioned": [
+        "Client F"
+      ],
+      "planted_facts": [
+        "logitrans_followup_count"
+      ]
     },
     {
       "id": "doc_015",
@@ -303,8 +439,13 @@
           "content": "1. Spotkanie warsztatowe (2-3h) - poznanie firmy, produktów, wyzwań biznesowych\n2. Doprecyzowanie oferty na bazie spotkania (jeśli potrzebne)\n3. Podpisanie umowy - start w listopadzie/grudniu 2023\n\nJeśli mają Państwo pytania lub chcieliby umówić spotkanie, proszę o kontakt:\n\nAndrzej Kmicic\nSenior Account Manager\n+48 71 333 2211\nandrzej.kmicic@kreatywnafala.pl"
         }
       ],
-      "clients_mentioned": ["Client D"],
-      "planted_facts": ["client_d_contact_person", "client_d_initial_proposal"]
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "client_d_contact_person",
+        "client_d_initial_proposal"
+      ]
     },
     {
       "id": "doc_016",
@@ -340,8 +481,17 @@
           "content": "1. **Sprzedaż:** Zamknąć kontrakt z MaszBud\n2. **Relacje klientowskie:** Rozwiązać sytuację z Smakosz, ustabilizować relację\n3. **Przygotowanie 2024:** Rozmowy o przedłużeniu z Browarem Wroclavia, intensyfikacja prospectingu\n4. **Procesy:** Wdrożenie nowych zasad komunikacji projektowej\n5. **Finanse:** Cel Q4: 300,000 PLN przychodu, marża 44%"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client E"],
-      "planted_facts": ["q3_2023_revenue", "q3_2023_margin"]
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client E"
+      ],
+      "planted_facts": [
+        "q3_2023_revenue",
+        "q3_2023_margin"
+      ]
     },
     {
       "id": "doc_017",
@@ -352,12 +502,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Jan Nowak", "email": "j.nowak@logitrans.pl"}
+        {
+          "name": "Jan Nowak",
+          "email": "j.nowak@logitrans.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Propozycja współpracy - marketing dla branży logistycznej",
       "body": "Szanowny Panie Dyrektorze,\n\nNawiązuję do mojego maila z 20 listopada w sprawie potencjalnej współpracy marketingowej.\n\nRozumiem że koniec roku to bardzo pracowity okres, niemniej chciałbym zapytać czy miał Pan okazję zapoznać się z naszą ofertą?\n\nJeśli temat współpracy jest dla Państwa interesujący, chętnie umówię się na krótką rozmowę w styczniu - mogę przyjechać do Państwa biura lub spotkamy się online, jak będzie Panu wygodniej.\n\nW razie pytań pozostaję do dyspozycji.\n\nŻyczę udanych Świąt i pomyślnego Nowego Roku!\n\nZ poważaniem,\nMaciej Boryna\nAccount Manager\nKreatywna Fala Sp. z o.o.\n+48 71 333 2211",
-      "clients_mentioned": ["Client F"],
+      "clients_mentioned": [
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -369,14 +524,24 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "ModaNet - prośba o rozszerzenie scope (TikTok)",
       "body": "Zbyszek, Janusz,\n\nModaNet dzwonił dziś rano. Julia (CEO) chce dodać TikTok do naszego scope - widzą że ich konkurencja tam jest aktywna i chcą też wejść.\n\nScope obecnie: Facebook, Instagram, Google Ads + monthly reporting\nScope nowy: + TikTok (content creation, kampanie, monitoring)\n\nTo dodatkowa praca:\n- Janek (digital) - kampanie i analytics\n- Kasia (copy) - scenariusze do filmików\n- Zosia - grafiki/adapta cje\n- Szacuję +15-20h miesięcznie ekstra\n\nMoja propozycja: zwiększenie fee z 3,800 PLN do 4,500-4,800 PLN miesięcznie.\n\nModaNet jest naprawdę zainteresowana - to młoda firma, TikTok ma sens dla ich grupy docelowej. Jeśli odmówimy, mogą to dać komuś innemu i z czasem przenieść całość.\n\nCo sądzicie? Ja jestem za - to dobry klient, są płynni, i lepiej powiększyć scope niż ryzykować utratę.\n\nAndrzej",
-      "clients_mentioned": ["Client B"],
-      "planted_facts": ["modanet_scope_change_sequence"]
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "modanet_scope_change_sequence"
+      ]
     },
     {
       "id": "doc_019",
@@ -387,15 +552,27 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Re: ModaNet - prośba o rozszerzenie scope (TikTok)",
       "body": "Andrzeju,\n\nOK, zgadzam się. Zaproponuj im 4,500 PLN - to uczciwa cena za scope pracy.\n\nWażne:\n1. Przygotuj aneks do umowy z dokładnym opisem nowego scope\n2. Nowe fee obowiązuje od 15 stycznia (daj im tydzień na decyzję)\n3. Upewnij się że Janek, Kasia i Zosia mają capacity - skonsultuj z Januszem\n\nJanusz - proszę potwierdź że zespół da radę. Jeśli będzie to za duże obciążenie, musimy być szczerzy z klientem.\n\nPozdrawiam,\nZbigniew",
-      "clients_mentioned": ["Client B"],
-      "planted_facts": ["client_b_monthly_fee_initial", "client_b_monthly_fee_final", "client_b_fee_increase_date"]
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "client_b_monthly_fee_initial",
+        "client_b_monthly_fee_final",
+        "client_b_fee_increase_date"
+      ]
     },
     {
       "id": "doc_020",
@@ -406,12 +583,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Jan Nowak", "email": "j.nowak@logitrans.pl"}
+        {
+          "name": "Jan Nowak",
+          "email": "j.nowak@logitrans.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Propozycja współpracy - marketing dla branży logistycznej",
       "body": "Szanowny Panie Dyrektorze,\n\nNawiązuję ponownie do tematu potencjalnej współpracy w zakresie marketingu.\n\nRozumiem że być może temat nie jest obecnie priorytetem dla LogiTrans, niemniej chciałem zostawić otwarte drzwi na przyszłość.\n\nGdyby w którymś momencie pojawił się u Państwa temat wsparcia marketingowego (szczególnie obecność online, lead generation B2B), będę bardzo mile widzieć możliwość rozmowy.\n\nZ poważaniem,\nMaciej Boryna",
-      "clients_mentioned": ["Client F"],
+      "clients_mentioned": [
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -446,7 +628,9 @@
           "content": "- **Czas trwania:** Umowa bezterminowa z 1-miesięcznym okresem wypowiedzenia\n- **Akceptacje:** Klient akceptuje plan contentu do 5-go dnia miesiąca. Brak odpowiedzi = milcząca akceptacja\n- **Change requests:** Zmiany w zatwierdzonym planie możliwe do 10-go dnia miesiąca. Późniejsze zmiany realizowane w kolejnym miesiącu\n- **Komunikacja:** Główny contact: Andrzej Kmicic (andrzej.kmicic@kreatywnafala.pl, +48 71 333 2211)\n- **SLA:** Odpowiedź na maile klienta: max 24h robocze"
         }
       ],
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -458,15 +642,26 @@
       "author": "Janek Kos",
       "author_email": "janek.kos@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "subject": "ModaNet - concern o budżet projektu",
       "body": "Andrzej,\n\nZrobiłem dzisiaj przeliczenie budżetu na projekcie ModaNet od września do końca stycznia i mamy problem.\n\nPlan budżetowy projektu (setup + 5 miesięcy obsługi): 32,000 PLN\nRzeczywiste koszty do końca stycznia: ~31,500 PLN\nZostało nam 500 PLN na kolejne 2-3 miesiące (!)\n\nCzemu?\n1. Setup trwał dłużej niż zakładaliśmy (testowanie, poprawki, dodatkowe iteracje z klientem)\n2. TikTok dodany w styczniu - to dużo dodatkowej pracy dla Kasi i Zosi, nie tylko dla mnie\n3. Klient bardzo wymagający - dużo zmian, dużo konsultacji, sporo pracy Andrzeja i Janusza\n\nFee poszło z 3,800 na 4,500 PLN, ale to pokrywa tylko ongoing, nie nadrabia kosztów setupu.\n\nMoje obliczenia: skończymy projekt z deficytem ok. 2,000-2,500 PLN względem założonego budżetu.\n\nCo robimy? Czy rozmawiamy z klientem o dodatkowym fee za setup? Czy absorbujemy stratę?\n\nJanek",
-      "clients_mentioned": ["Client B"],
-      "planted_facts": ["modanet_project_budget", "modanet_budget_overrun"]
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "modanet_project_budget",
+        "modanet_budget_overrun"
+      ]
     },
     {
       "id": "doc_023",
@@ -477,15 +672,26 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janek Kos", "email": "janek.kos@kreatywnafala.pl"}
+        {
+          "name": "Janek Kos",
+          "email": "janek.kos@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Re: ModaNet - concern o budżet projektu",
       "body": "Janek,\n\nDziękuję za heads up. To jest nieprzyjemne ale nie zaskakujące - wiedzieliśmy że klient jest wymagający.\n\nMoja opinia: NIE idziemy do klienta po dodatkowe pieniądze za setup. Dlaczego:\n1. Relacja jest już napięta (były skargi na quality), nie chcę dokładać problemu finansowego\n2. Część overrun to nasza wina - niedoszacowanie, nie ich\n3. Ongoing fee (4,500 PLN) jest OK i będziemy zarabiać na tym długoterminowo\n\nProponuję:\n- Absorbujemy te 2-3k jako koszt pozyskania i utrzymania klienta\n- Wyciągamy wnioski: lepsze budżetowanie setupu, jaśniejsze scope przy nowych klientach\n- Ścieśle monitorujemy kolejne miesiące żeby nie było dalszych przekroczeń\n\nZbyszek - co Ty na to? To Twoja decyzja ostatecznie.\n\nAndrzej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -497,12 +703,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Jan Nowak", "email": "j.nowak@logitrans.pl"}
+        {
+          "name": "Jan Nowak",
+          "email": "j.nowak@logitrans.pl"
+        }
       ],
       "cc": [],
       "subject": "Ostatnie nawiązanie - współpraca marketingowa",
       "body": "Szanowny Panie Dyrektorze,\n\nTo moje ostatnie nawiązanie do tematu współpracy marketingowej, którą proponowałem w zeszłym roku.\n\nJeśli temat nie jest dla Państwa aktualny - w pełni rozumiem i nie będę więcej niepokóił.\n\nNa wypadek gdyby w przyszłości pojawił się interes, zostawiam kontakt:\nMaciej Boryna, +48 71 333 2211, maciej.boryna@kreatywnafala.pl\n\nDziękuję za czas i życzę powodzenia w biznesie.\n\nZ poważaniem,\nMaciej",
-      "clients_mentioned": ["Client F"],
+      "clients_mentioned": [
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -514,12 +725,17 @@
       "author": "Julia Nowakowska",
       "author_email": "julia@modanet.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Uwagi do ostatnich materiałów",
       "body": "Andrzej,\n\nMusze wyrazić niezadowolenie z ostatnich materiałów na TikTok. Filmiki są dobre technicznie, ale nie czuję że odzwierciedlają DNA naszej marki.\n\nMam wrażenie że zrobiliśmy krok wstecz jakościowo. Czy to efekt spieszenia się? Dodaliśmy TikTok ale jakość nie może ucierpieć.\n\nPotrzebuję spotkania w tym tygodniu żeby to omówić. Jeśli nie uda nam się znaleźć wspólnego języka, będę musiała rozważyć inne opcje.\n\nJulia Nowakowska\nCEO ModaNet",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -531,13 +747,21 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"},
-        {"name": "Kasia Pawlak", "email": "kasia.pawlak@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Kasia Pawlak",
+          "email": "kasia.pawlak@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "PILNE - ModaNet niezadowolony",
       "body": "Janusz, Kasia,\n\nDostałem właśnie dość ostry mail od Juli (ModaNet). Jest niezadowolona z jakości materiałów TikTok, grozi odejściem.\n\nMusimy spotkać się jutro rano żeby to rozwiązać. Kasia - możesz przygotować propozycje jak możemy poprawić quality? Może potrzebujemy więcej czasu na pre-production?\n\nJanusz - mam Twój backup na spotkaniu z klientem? Może być w czwartek.\n\nTo jest poważne. Klient jest wymagający ale płaci regularnie i ma potencjał na long-term. Nie możemy go stracić.\n\nAndrzej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -569,8 +793,12 @@
           "content": "- Podpisanie umowy: do końca grudnia 2023\n- Start projektu: styczeń 2024\n- Płatność: miesięczne faktury, termin 14 dni\n- Czas trwania: 12 miesięcy z możliwością przedłużenia\n\nJesteśmy elastyczni i nastawieni na długoterminową współpracę. Wierzymy że to dopasowanie pozwoli nam zbudować wartościową relację.\n\nDo dyspozycji w sprawie pytań:\nAndrzej Kmicic\n+48 71 333 2211\nandrzej.kmicic@kreatywnafala.pl"
         }
       ],
-      "clients_mentioned": ["Client D"],
-      "planted_facts": ["client_d_revised_proposal"]
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "client_d_revised_proposal"
+      ]
     },
     {
       "id": "doc_028",
@@ -583,28 +811,95 @@
       "sheets": [
         {
           "name": "Faktury listopad",
-          "columns": ["Nr faktury", "Klient", "Data wystawienia", "Kwota netto", "Termin płatności", "Data zapłaty", "Status", "Uwagi"],
+          "columns": [
+            "Nr faktury",
+            "Klient",
+            "Data wystawienia",
+            "Kwota netto",
+            "Termin płatności",
+            "Data zapłaty",
+            "Status",
+            "Uwagi"
+          ],
           "rows": [
-            ["FV/2023/11/001", "Browar Wroclavia", "2023-11-05", 8500, "2023-11-19", "2023-11-25", "Zapłacona po terminie", "+6 dni"],
-            ["FV/2023/11/002", "ModaNet", "2023-11-05", 3800, "2023-11-19", "2023-11-17", "Zapłacona", "Przed terminem"],
-            ["FV/2023/11/003", "Smakosz", "2023-11-05", 6000, "2023-11-19", null, "Zaległość 45 dni", "Brak kontaktu"],
-            ["FV/2023/11/004", "Urząd Miasta", "2023-11-10", 12000, "2023-12-10", null, "W terminie", "Zaliczka końcowa"]
+            [
+              "FV/2023/11/001",
+              "Browar Wroclavia",
+              "2023-11-05",
+              8500,
+              "2023-11-19",
+              "2023-11-25",
+              "Zapłacona po terminie",
+              "+6 dni"
+            ],
+            [
+              "FV/2023/11/002",
+              "ModaNet",
+              "2023-11-05",
+              3800,
+              "2023-11-19",
+              "2023-11-17",
+              "Zapłacona",
+              "Przed terminem"
+            ],
+            [
+              "FV/2023/11/003",
+              "Smakosz",
+              "2023-11-05",
+              6000,
+              "2023-11-19",
+              null,
+              "Zaległość 45 dni",
+              "Brak kontaktu"
+            ],
+            [
+              "FV/2023/11/004",
+              "Urząd Miasta",
+              "2023-11-10",
+              12000,
+              "2023-12-10",
+              null,
+              "W terminie",
+              "Zaliczka końcowa"
+            ]
           ]
         },
         {
           "name": "Podsumowanie",
-          "columns": ["Kategoria", "Wartość"],
+          "columns": [
+            "Kategoria",
+            "Wartość"
+          ],
           "rows": [
-            ["Wystawione w listopadzie", 30300],
-            ["Zapłacone w listopadzie", 12300],
-            ["Zaległości (>30 dni)", 6000],
-            ["Oczekiwane w grudniu", 12000]
+            [
+              "Wystawione w listopadzie",
+              30300
+            ],
+            [
+              "Zapłacone w listopadzie",
+              12300
+            ],
+            [
+              "Zaległości (>30 dni)",
+              6000
+            ],
+            [
+              "Oczekiwane w grudniu",
+              12000
+            ]
           ]
         }
       ],
       "has_formulas": true,
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client E"],
-      "planted_facts": ["november_2023_overdue"]
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client E"
+      ],
+      "planted_facts": [
+        "november_2023_overdue"
+      ]
     },
     {
       "id": "doc_029",
@@ -615,13 +910,20 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Zmiana w obsłudze klienta ModaNet",
       "body": "Cześć Wszystkim,\n\nInformuję że od dzisiaj przejmuję bezpośrednią opiekę nad kontem ModaNet od Maćka.\n\nMaciej świetnie prowadził projekt w fazie setupu, ale klient jest bardzo wymagający i potrzebuje kogoś z większym doświadczeniem w zarządzaniu trudnymi relacjami.\n\nMaciek - to nie jest refleksja na Twoją pracę! Zrobiłeś kawał dobrej roboty, szczególnie w początkowej fazie. Po prostu klient wymaga teraz innego podejścia.\n\nMaciek zostaje w zespole projektowym i dalej będzie odpowiedzialny za koordynację z Jankiem i Kasią. Ja przejmuję główny kontakt z klientem i eskalacje.\n\nWszyscy - proszę kierować sprawy dotyczące ModaNet do mnie od dzisiaj.\n\nPozdrawiam,\nAndrzej",
-      "clients_mentioned": ["Client B"],
-      "planted_facts": ["modanet_account_handover"]
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "modanet_account_handover"
+      ]
     },
     {
       "id": "doc_030",
@@ -632,15 +934,25 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Halina Lichocka", "email": "halina.lichocka@kreatywnafala.pl"}
+        {
+          "name": "Halina Lichocka",
+          "email": "halina.lichocka@kreatywnafala.pl"
+        }
       ],
       "subject": "Świetne wieści - Browar Wroclavia przedłuża!",
       "body": "Andrzej,\n\nŚwietna robota! Marek Piwowar (Browar Wroclavia) potwierdził dziś przedłużenie umowy na kolejny rok.\n\nCo więcej - zgodzili się na podwyżkę fee do 9,200 PLN miesięcznie (było 8,500 PLN). To 8% wzrost.\n\nArgumenty które zadziałały:\n- Nasze wyniki z kampanii letniej 2023 (wzrost sprzedaży o 23%)\n- Profesjonalna obsługa przez 5 lat\n- Gotowość do rozszerzenia scope o LinkedIn w 2024\n\nNowa umowa obowiązuje od 1 kwietnia 2024.\n\nHalina - proszę przygotować aneks do umowy. Nowe warunki: 9,200 PLN netto/miesiąc, scope rozszerzony o prowadzenie profilu LinkedIn (2 posty/tydzień).\n\nTo bardzo dobra wiadomość na Q2. Gratulacje Andrzej!\n\nZbigniew",
-      "clients_mentioned": ["Client A"],
-      "planted_facts": ["client_a_contract_renewal"]
+      "clients_mentioned": [
+        "Client A"
+      ],
+      "planted_facts": [
+        "client_a_contract_renewal"
+      ]
     },
     {
       "id": "doc_031",
@@ -739,8 +1051,12 @@
           "type": "bullets"
         }
       ],
-      "clients_mentioned": ["Client B"],
-      "planted_facts": ["modanet_project_actual"]
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "modanet_project_actual"
+      ]
     },
     {
       "id": "doc_032",
@@ -753,27 +1069,101 @@
       "sheets": [
         {
           "name": "Aktywni klienci",
-          "columns": ["Klient", "Opiekun", "Umowa od", "Wartość mies. (PLN)", "Status płatności", "Status relacji", "Uwagi"],
+          "columns": [
+            "Klient",
+            "Opiekun",
+            "Umowa od",
+            "Wartość mies. (PLN)",
+            "Status płatności",
+            "Status relacji",
+            "Uwagi"
+          ],
           "rows": [
-            ["Browar Wroclavia", "Kmicic", "2019-03-01", 9200, "OK", "Bardzo dobra", "Przedłużenie od kwietnia, wzrost fee"],
-            ["ModaNet", "Kmicic", "2023-08-01", 4500, "OK", "Napięta", "Handover od Boryny w marcu"],
-            ["Smakosz", "Boryna", "2023-06-15", 6000, "OK", "Odbudowująca się", "Po kryzysie XI-XII, teraz stabilnie"]
+            [
+              "Browar Wroclavia",
+              "Kmicic",
+              "2019-03-01",
+              9200,
+              "OK",
+              "Bardzo dobra",
+              "Przedłużenie od kwietnia, wzrost fee"
+            ],
+            [
+              "ModaNet",
+              "Kmicic",
+              "2023-08-01",
+              4500,
+              "OK",
+              "Napięta",
+              "Handover od Boryny w marcu"
+            ],
+            [
+              "Smakosz",
+              "Boryna",
+              "2023-06-15",
+              6000,
+              "OK",
+              "Odbudowująca się",
+              "Po kryzysie XI-XII, teraz stabilnie"
+            ]
           ]
         },
         {
           "name": "Pipeline",
-          "columns": ["Prospekt", "Opiekun", "Etap", "Wartość (PLN)", "Szansa %", "Następny krok", "Ostatni kontakt"],
+          "columns": [
+            "Prospekt",
+            "Opiekun",
+            "Etap",
+            "Wartość (PLN)",
+            "Szansa %",
+            "Następny krok",
+            "Ostatni kontakt"
+          ],
           "rows": [
-            ["MaszBud (D)", "Kmicic", "Negocjacje", 48000, 70, "Decyzja w kwietniu", "2024-03-20"],
-            ["TechStart", "Pawlak", "Spotkanie umówione", 28000, 35, "Prezentacja 15.04", "2024-03-28"],
-            ["LogiTrans (F)", "Boryna", "Cold - no response", 35000, 5, "Porzucony", "2024-02-19"]
+            [
+              "MaszBud (D)",
+              "Kmicic",
+              "Negocjacje",
+              48000,
+              70,
+              "Decyzja w kwietniu",
+              "2024-03-20"
+            ],
+            [
+              "TechStart",
+              "Pawlak",
+              "Spotkanie umówione",
+              28000,
+              35,
+              "Prezentacja 15.04",
+              "2024-03-28"
+            ],
+            [
+              "LogiTrans (F)",
+              "Boryna",
+              "Cold - no response",
+              35000,
+              5,
+              "Porzucony",
+              "2024-02-19"
+            ]
           ]
         },
         {
           "name": "Zakończeni klienci",
-          "columns": ["Klient", "Okres współpracy", "Powód zakończenia", "Możliwość powrotu"],
+          "columns": [
+            "Klient",
+            "Okres współpracy",
+            "Powód zakończenia",
+            "Możliwość powrotu"
+          ],
           "rows": [
-            ["Urząd Miasta Wrocław", "VIII-XII 2023", "Projekt jednorazowy zakończony", "Niska (przetargi)"]
+            [
+              "Urząd Miasta Wrocław",
+              "VIII-XII 2023",
+              "Projekt jednorazowy zakończony",
+              "Niska (przetargi)"
+            ]
           ]
         }
       ],
@@ -782,7 +1172,14 @@
         "Wartość oczekiwana pipeline = Wartość * Szansa%",
         "Total pipeline value = suma wszystkich wartości w toku"
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client E", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client E",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -793,16 +1190,37 @@
       "timestamp": "2023-06-20T15:00:00+02:00",
       "author": "Maciej Boryna",
       "title": "Kickoff meeting - Smakosz - Rebranding",
-      "attendees": ["Maciej Boryna", "Irena Dulska", "Marek Nowak (Smakosz)", "Anna Wiśniewska (Smakosz)"],
+      "attendees": [
+        "Maciej Boryna",
+        "Irena Dulska",
+        "Marek Nowak (Smakosz)",
+        "Anna Wiśniewska (Smakosz)"
+      ],
       "location": "Biuro Kreatywna Fala, Wrocław",
       "content": "## Kontekst\n\nPierwsze spotkanie po podpisaniu umowy 15 czerwca. Cel: poznanie biznesu klienta, ustalenie oczekiwań, harmonogram projektu.\n\n## O kliencie\n\n**Smakosz** - sieć 5 restauracji w województwie dolnośląskim:\n- 2 w Wrocławiu (Rynek, Nadodrze)\n- Po 1 w: Oława, Świdnica, Legnica\n- Założona 2018, obecnie 45 pracowników\n- Kuchnia polska, nowoczesne bistro\n- Grupa docelowa: 25-50 lat, średnia klasa, lokalni gourmets\n\n## Cel rebrandingu\n\nObecna identyfikacja wizualna przestarzała, nie oddaje charakteru restauracji. Chcą:\n- Nowoczesny, ale ciepły wizerunek\n- Wyróżnienie się na tle konkurencji (zbyt generic obecnie)\n- Spójność wizualna we wszystkich lokalizacjach\n- Gotowe materiały do otwarcia 6. lokalizacji (Wałbrzych, planowane XI 2023)\n\n## Zakres prac\n\n1. Logo + identyfikacja wizualna\n2. Kolorystyka, typografia, key visuals\n3. Menu design (3 wersje: główne, lunch, napoje)\n4. Materiały POS: stojaki na stoły, plakaty, roll-upy\n5. Materiały dla pracowników: fartuch, name badge\n6. Szablon social media (posty, stories)\n\n## Harmonogram\n\n- Koncepcje logo: do 15 lipca (3 tygodnie)\n- Akceptacja + iteracje: do 31 lipca\n- Pełna identyfikacja: do 31 sierpnia\n- Materiały POS i menu: do 30 września\n- Roll-out we wszystkich lokalizacjach: do 31 października\n\n**Ważne:** Deadline 31 października jest twardy - klient chce być gotowy przed otwarciem Wałbrzych.\n\n## Budżet\n\n18,000 PLN netto + koszty druku (rozliczane osobno)\n\n## Styl i preferencje\n\n- Lubią: nowoczesne, ale z duszą, ciepłe kolory, polskie motywy subtelnie\n- Nie lubią: korporacyjne, zimne, zbyt minimalistyczne\n- Inspiracje: podali 5 brandów które im się podobają (głównie craft breweries i bistro)\n\n## Ustalenia\n\n1. Maciej - główny kontakt, project management\n2. Irena - lead design, koncepcje\n3. Prezentacja koncepcji: osobiście w biurze klienta (nie mailem)\n4. Cotygodniowe short updates mailem (piątek)\n5. Feedback od klienta: max 3 dni robocze od prezentacji\n\n## Atmosfera\n\nBardzo dobre spotkanie. Klient entuzjastyczny, jasne oczekiwania, realistyczne podejście. Marek i Anna bardzo zaangażowani w projekt.\n\n## Następne kroki\n\n- Maciej: brief dla Ireny (do 22.06)\n- Irena: research i moodboard (do 30.06)\n- Spotkanie wewnętrzne: 3.07 - omówienie koncepcji przed prezentacją klientowi",
       "action_items": [
-        {"owner": "Maciej Boryna", "task": "Przygotować szczegółowy brief dla Ireny", "due": "2023-06-22"},
-        {"owner": "Irena Dulska", "task": "Research i moodboard", "due": "2023-06-30"},
-        {"owner": "Maciej Boryna", "task": "Zaplanować spotkanie wewnętrzne 3.07", "due": "2023-06-23"}
+        {
+          "owner": "Maciej Boryna",
+          "task": "Przygotować szczegółowy brief dla Ireny",
+          "due": "2023-06-22"
+        },
+        {
+          "owner": "Irena Dulska",
+          "task": "Research i moodboard",
+          "due": "2023-06-30"
+        },
+        {
+          "owner": "Maciej Boryna",
+          "task": "Zaplanować spotkanie wewnętrzne 3.07",
+          "due": "2023-06-23"
+        }
       ],
-      "clients_mentioned": ["Client C"],
-      "planted_facts": ["client_c_project_timeline"]
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "client_c_project_timeline"
+      ]
     },
     {
       "id": "doc_034",
@@ -813,13 +1231,21 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Irena Dulska", "email": "irena.dulska@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Irena Dulska",
+          "email": "irena.dulska@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Świetne wieści - Smakosz zachwyceni koncepcją!",
       "body": "Irena, Janusz,\n\nWłaśnie wróciłem ze spotkania z klientem Smakosz. Prezentowaliśmy finalne koncepcje rebrandingu.\n\nReakcja: ZACHWYT! Marek powiedział dosłownie \"to jest dokładnie to czego szukaliśmy\". Zaakceptowali wariant B (ten z motywem pszenicy) praktycznie bez poprawek.\n\nIrena - gratulacje, świetna robota! Klient bardzo docenił subtelność i profesjonalizm.\n\nTeraz przechodzimy do fazy produkcji materiałów. Deadline 31 października nadal aktualny.\n\nCzuję się świetnie - to mój pierwszy projekt i idzie naprawdę dobrze!\n\nDziękuję za wsparcie!\n\nMaciej",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -831,13 +1257,25 @@
       "author": "Janusz Sieczkowski",
       "author_email": "janusz.sieczkowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Pipeline review - potrzeba więcej prospectingu",
       "body": "Zbyszek, Andrzej,\n\nPrzeglądałem nasz pipeline na Q2/Q3 i martwię się.\n\nStan obecny:\n- 3 aktywnych klientów (Wroclavia, ModaNet, Smakosz) = stabilny recurring revenue ok. 19.7k/miesiąc\n- MaszBud w negocjacjach (szansa 70%, decyzja lada moment)\n- TechStart - słabe (spotkanie było, ale brak follow-up od nich)\n- LogiTrans - porzucony\n\nTo za mało żeby zabezpieczyć cele na H2 2024.\n\nProponuję:\n1. Andrzej - intensywny prospecting w maju/czerwcu, cel: 3 nowe leady w fazie rozmów\n2. Maciej - wsparcie w cold outreach (nauka przez działanie)\n3. Może warto pomyśleć o jakimś evencie networkingowym we Wrocławiu?\n\nJeśli nie zwiększymy aktywności teraz, będziemy mieli problem w Q3.\n\nCo sądzicie?\n\nJanusz",
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -849,7 +1287,10 @@
       "author": "Halina Lichocka",
       "author_email": "halina.lichocka@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Dyskusja: junior digital marketer vs focus na obecnych klientach?",
@@ -885,11 +1326,31 @@
           "title": "Status klientów - podsumowanie",
           "chart_type": "table",
           "chart_data": {
-            "columns": ["Klient", "Status", "MRR", "Trend"],
+            "columns": [
+              "Klient",
+              "Status",
+              "MRR",
+              "Trend"
+            ],
             "rows": [
-              ["Wroclavia", "Bardzo dobra", "9,200", "↑ Wzrost fee od IV"],
-              ["ModaNet", "Stabilizuje się", "4,500", "→ Po trudnym II/III"],
-              ["Smakosz", "Dobra", "6,000", "↑ Relacja odbudowana"]
+              [
+                "Wroclavia",
+                "Bardzo dobra",
+                "9,200",
+                "↑ Wzrost fee od IV"
+              ],
+              [
+                "ModaNet",
+                "Stabilizuje się",
+                "4,500",
+                "→ Po trudnym II/III"
+              ],
+              [
+                "Smakosz",
+                "Dobra",
+                "6,000",
+                "↑ Relacja odbudowana"
+              ]
             ]
           },
           "type": "chart"
@@ -946,7 +1407,13 @@
           "type": "bullets"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -958,12 +1425,17 @@
       "author": "Kasia Pawlak",
       "author_email": "kasia.pawlak@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janek Kos", "email": "janek.kos@kreatywnafala.pl"}
+        {
+          "name": "Janek Kos",
+          "email": "janek.kos@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "ModaNet - brief na wrzesień",
       "body": "Janek,\n\nOtrzymałam od Andrzeja brief na kampanię wrześniową dla ModaNet. Mam kilka pytań:\n\n1. Grupa docelowa: 18-35 czy 25-35? Brief mówi jedno, a prezentacja od klienta drugie\n2. Ton komunikacji: mamy być edgy czy raczej aspirational?\n3. Budget limits na copy: ile znaków/słów max dla postów?\n\nMożesz to wyjaśnić z Andrzejem? Nie chcę startować z niepewnościami.\n\nDodatkowo - widziałam że chcą 3 posty/tydzień. To dużo jak na ich budget. Może zaproponować 2 posty + 3 stories?\n\nKasia",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -977,21 +1449,104 @@
       "sheets": [
         {
           "name": "Projekty aktywne",
-          "columns": ["Projekt", "Klient", "Opiekun", "Start", "Deadline", "Status", "% realizacji", "Budżet", "Wykorzystano", "Uwagi"],
+          "columns": [
+            "Projekt",
+            "Klient",
+            "Opiekun",
+            "Start",
+            "Deadline",
+            "Status",
+            "% realizacji",
+            "Budżet",
+            "Wykorzystano",
+            "Uwagi"
+          ],
           "rows": [
-            ["Kampania zimowa", "Browar Wroclavia", "Kmicic", "2023-10-01", "2023-12-31", "W trakcie", 85, 25000, 21000, "Na finiszu"],
-            ["Rebranding", "Smakosz", "Boryna", "2023-06-15", "2023-10-31", "Opóźniony", 95, 18000, 17500, "Finalizacja po kryzysie"],
-            ["Launch e-commerce", "ModaNet", "Boryna", "2023-09-01", "2024-02-15", "W trakcie", 45, 32000, 14500, "Setup phase"],
-            ["Kampania świąteczna", "Urząd Miasta", "Kmicic", "2023-08-15", "2023-12-15", "Finalizacja", 98, 38000, 37800, "Zakończenie w terminie"]
+            [
+              "Kampania zimowa",
+              "Browar Wroclavia",
+              "Kmicic",
+              "2023-10-01",
+              "2023-12-31",
+              "W trakcie",
+              85,
+              25000,
+              21000,
+              "Na finiszu"
+            ],
+            [
+              "Rebranding",
+              "Smakosz",
+              "Boryna",
+              "2023-06-15",
+              "2023-10-31",
+              "Opóźniony",
+              95,
+              18000,
+              17500,
+              "Finalizacja po kryzysie"
+            ],
+            [
+              "Launch e-commerce",
+              "ModaNet",
+              "Boryna",
+              "2023-09-01",
+              "2024-02-15",
+              "W trakcie",
+              45,
+              32000,
+              14500,
+              "Setup phase"
+            ],
+            [
+              "Kampania świąteczna",
+              "Urząd Miasta",
+              "Kmicic",
+              "2023-08-15",
+              "2023-12-15",
+              "Finalizacja",
+              98,
+              38000,
+              37800,
+              "Zakończenie w terminie"
+            ]
           ]
         },
         {
           "name": "Ryzyka i problemy",
-          "columns": ["Projekt", "Ryzyko/Problem", "Prawdopodobieństwo", "Wpływ", "Mitygacja", "Owner"],
+          "columns": [
+            "Projekt",
+            "Ryzyko/Problem",
+            "Prawdopodobieństwo",
+            "Wpływ",
+            "Mitygacja",
+            "Owner"
+          ],
           "rows": [
-            ["Smakosz", "Relacja nadszarpnięta", "Średnie", "Utrata klienta", "Weekly statusy, discount", "Kmicic"],
-            ["ModaNet", "Przekroczenie budżetu", "Wysokie", "Niższa marża", "Monitoring kosztów", "Kmicic"],
-            ["Urząd Miasta", "Opóźnienie płatności", "Średnie", "Cash flow", "Follow-up z księgowością", "Lichocka"]
+            [
+              "Smakosz",
+              "Relacja nadszarpnięta",
+              "Średnie",
+              "Utrata klienta",
+              "Weekly statusy, discount",
+              "Kmicic"
+            ],
+            [
+              "ModaNet",
+              "Przekroczenie budżetu",
+              "Wysokie",
+              "Niższa marża",
+              "Monitoring kosztów",
+              "Kmicic"
+            ],
+            [
+              "Urząd Miasta",
+              "Opóźnienie płatności",
+              "Średnie",
+              "Cash flow",
+              "Follow-up z księgowością",
+              "Lichocka"
+            ]
           ]
         }
       ],
@@ -999,7 +1554,12 @@
       "formula_descriptions": [
         "% wykorzystania budżetu = Wykorzystano / Budżet * 100"
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client E"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1011,14 +1571,22 @@
       "author": "Irena Dulska",
       "author_email": "irena.dulska@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz - potrzeba więcej czasu na koncepcje",
       "body": "Janusz,\n\nMam concern odnośnie timingu projektu Smakosz. Brief zakłada 3 tygodnie na koncepcje logo (deadline 15 lipca był tydzień temu).\n\nProblem:\n- Research konkurencji zajął więcej czasu niż zakładałam\n- Klient ma bardzo specyficzne wymagania (\"nowoczesne ale z duszą\" to szerokie)\n- Chcę przedstawić 3 solidne opcje, nie chcę śpieszyć\n\nAktualnie mam 2 koncepcje gotowe, 3-cia wymaga jeszcze pracy. Realistyczny termin prezentacji: 31 lipca.\n\nMaciek - czy możesz to skomunikować klientowi? Argument: wolę zrobić dobrze niż szybko i słabo.\n\nJanusz - backup please?\n\nIrena",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1030,14 +1598,22 @@
       "author": "Anna Kowalska",
       "author_email": "a.kowalska@maszbud.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Tomasz Budnik", "email": "t.budnik@maszbud.pl"}
+        {
+          "name": "Tomasz Budnik",
+          "email": "t.budnik@maszbud.pl"
+        }
       ],
       "subject": "Re: Follow-up - decyzja ws. współpracy",
       "body": "Dzień dobry Panie Andrzeju,\n\nDziękuję za cierpliwość. Przepraszam za opóźnienie w odpowiedzi - wewnętrznie musieliśmy przejść przez kilka rund zatwierdzania.\n\nNiestety muszę poinformować że w tym momencie nie jesteśmy gotowi na rozpoczęcie współpracy. Powody:\n\n1. Nasz budżet marketingowy na 2024 został już podzielony na inne inicjatywy\n2. Zarząd chce najpierw dokończyć restrukturyzację działu sprzedaży\n3. Timing nie jest dobry - mamy dużo zmian wewnętrznych\n\nTo nie znaczy \"nie\" na zawsze. Bardzo doceniamy Państwa profesjonalizm i elastyczność w negocjacjach. Wasza oferta była konkurencyjna i merytoryczna.\n\nCzy moglibyśmy wrócić do rozmowy w Q4 2024 lub Q1 2025? Wtedy będziemy gotowi na taką współpracę.\n\nZ poważaniem,\nAnna Kowalska\nDyrektor Marketingu\nMaszBud Sp. z o.o.",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1049,13 +1625,21 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Zła wiadomość - MaszBud się wycofał",
       "body": "Zbyszek, Janusz,\n\nDostałem dziś odpowiedź od MaszBud. Nie podpisują umowy - budżet poszedł na inne rzeczy, restrukturyzacja wewnętrzna, chcą wrócić do tematu za pół roku.\n\nTo jest disappointment. Liczyliśmy na ten kontrakt (48k rocznie) do zabezpieczenia H2.\n\nZ drugiej strony - to nie jest twarde \"nie\". Relacja dobra, doceniają nas, timing po prostu nie pasuje. Mogą wrócić Q4/Q1.\n\nCo robimy?\n1. Wracam do intensywnego prospectingu - nie mamy czasu do stracenia\n2. Up-sell do obecnych klientów? (Wroclavia, Smakosz)\n3. Maciej musi pomóc w leadgeneration\n\nPotrzebujemy pilnie 2-3 nowych opportunities w pipeline.\n\nAndrzej",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1140,12 +1724,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Smakosz - klient się skarży",
       "body": "Andrzej,\n\nMam problem. Marek Nowak (Smakosz) dzwonił dziś dość zdenerwowany.\n\nSkarga:\n- Nie wiedział że mamy opóźnienie w dostawie (Irena informowała mnie 28.10, ale ja nie przekazałem od razu klientowi)\n- Czuje się pominięty w komunikacji\n- Mówi że \"dowiaduje się o problemach dopiero jak pyta\"\n- Nie płacą faktury dopóki \"nie wyjaśnimy co się dzieje\"\n\nMoja wina - powinienem był natychmiast zakomunikować opóźnienie. Myślałem że załatwię to szybko i nie będzie problemu.\n\nCo mam teraz zrobić? Umówić spotkanie? Napisać mail z wyjaśnieniami?\n\nPotrzebuję Twojej rady.\n\nMaciej",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1159,31 +1748,139 @@
       "sheets": [
         {
           "name": "Recurring revenue",
-          "columns": ["Klient", "Typ", "Miesięczna wartość", "Start", "Pewność", "Roczna wartość", "Uwagi"],
+          "columns": [
+            "Klient",
+            "Typ",
+            "Miesięczna wartość",
+            "Start",
+            "Pewność",
+            "Roczna wartość",
+            "Uwagi"
+          ],
           "rows": [
-            ["Browar Wroclavia", "Retainer", 8500, "2019-03", "95%", 102000, "Odnowienie w marcu 2024"],
-            ["ModaNet", "Retainer", 4500, "2023-08", "80%", 54000, "Po zwiększeniu fee w styczniu"],
-            ["Smakosz", "Ad-hoc", 6000, "2023-06", "70%", 36000, "Relacja w odbudowie"]
+            [
+              "Browar Wroclavia",
+              "Retainer",
+              8500,
+              "2019-03",
+              "95%",
+              102000,
+              "Odnowienie w marcu 2024"
+            ],
+            [
+              "ModaNet",
+              "Retainer",
+              4500,
+              "2023-08",
+              "80%",
+              54000,
+              "Po zwiększeniu fee w styczniu"
+            ],
+            [
+              "Smakosz",
+              "Ad-hoc",
+              6000,
+              "2023-06",
+              "70%",
+              36000,
+              "Relacja w odbudowie"
+            ]
           ]
         },
         {
           "name": "Pipeline - nowe projekty",
-          "columns": ["Prospekt", "Typ", "Wartość", "Szansa %", "Expected value", "Timeline"],
+          "columns": [
+            "Prospekt",
+            "Typ",
+            "Wartość",
+            "Szansa %",
+            "Expected value",
+            "Timeline"
+          ],
           "rows": [
-            ["MaszBud", "Roczna", 48000, 60, 28800, "Q1-Q2 2024"],
-            ["TechStart", "3 mies trial", 28000, 35, 9800, "Q2 2024"],
-            ["Inne prospekty", "Mixed", 50000, 20, 10000, "H2 2024"]
+            [
+              "MaszBud",
+              "Roczna",
+              48000,
+              60,
+              28800,
+              "Q1-Q2 2024"
+            ],
+            [
+              "TechStart",
+              "3 mies trial",
+              28000,
+              35,
+              9800,
+              "Q2 2024"
+            ],
+            [
+              "Inne prospekty",
+              "Mixed",
+              50000,
+              20,
+              10000,
+              "H2 2024"
+            ]
           ]
         },
         {
           "name": "Prognoza 2024",
-          "columns": ["Kwartał", "Recurring", "Pipeline", "Ad-hoc", "Razem", "Konserwatywna", "Optymistyczna"],
+          "columns": [
+            "Kwartał",
+            "Recurring",
+            "Pipeline",
+            "Ad-hoc",
+            "Razem",
+            "Konserwatywna",
+            "Optymistyczna"
+          ],
           "rows": [
-            ["Q1", 57000, 0, 15000, 72000, 70000, 80000],
-            ["Q2", 57000, 24000, 20000, 101000, 85000, 110000],
-            ["Q3", 63000, 14000, 20000, 97000, 85000, 105000],
-            ["Q4", 63000, 10000, 25000, 98000, 88000, 110000],
-            ["TOTAL 2024", null, null, null, 368000, 328000, 405000]
+            [
+              "Q1",
+              57000,
+              0,
+              15000,
+              72000,
+              70000,
+              80000
+            ],
+            [
+              "Q2",
+              57000,
+              24000,
+              20000,
+              101000,
+              85000,
+              110000
+            ],
+            [
+              "Q3",
+              63000,
+              14000,
+              20000,
+              97000,
+              85000,
+              105000
+            ],
+            [
+              "Q4",
+              63000,
+              10000,
+              25000,
+              98000,
+              88000,
+              110000
+            ],
+            [
+              "TOTAL 2024",
+              null,
+              null,
+              null,
+              368000,
+              328000,
+              405000
+            ]
           ]
         }
       ],
@@ -1193,7 +1890,12 @@
         "Konserwatywna = 90% prognozy bazowej",
         "Optymistyczna = 110% prognozy bazowej"
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1205,13 +1907,21 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"},
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        },
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Decyzja: absorbujemy overrun ModaNet",
       "body": "Andrzej, Janusz,\n\nW nawiązaniu do waszych maili o przekroczeniu budżetu ModaNet - zgadzam się z Andrzejem.\n\nDecyzja:\n- NIE idziemy do klienta po dodatkowe pieniądze\n- Absorbujemy ~2,500 PLN jako koszt pozyskania klienta\n- Traktujemy jako lessons learned\n\nRationale:\n1. Relacja jest napięta, dokładanie problemu finansowego byłoby błędem\n2. Część overrun to nasze błędne szacowanie\n3. Ongoing (4,500 PLN/mies) jest rentowne - zarobimy to w 2-3 miesiącach\n4. Long-term value > short-term loss\n\nLekcje na przyszłość:\n- Bufory 15% na startupy\n- Lepsze trackowanie kosztów real-time\n- Scope changes = zawsze formalna wycena przed akceptacją\n\nJanusz - zrób z tym post-mortem dla zespołu (bez obwiniania). Chcę żebyśmy się uczyli.\n\nAndrzej - dobra decyzja, dobrze że escalowałeś wcześnie.\n\nZbigniew",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1222,15 +1932,34 @@
       "timestamp": "2023-08-15T14:00:00+02:00",
       "author": "Zosia Samosiej",
       "title": "Kickoff - Kampania świąteczna Urząd Miasta Wrocław",
-      "attendees": ["Andrzej Kmicic", "Janusz Sieczkowski", "Dr. Tomasz Kowalczyk (Urząd)", "Beata Nowak (Urząd)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Janusz Sieczkowski",
+        "Dr. Tomasz Kowalczyk (Urząd)",
+        "Beata Nowak (Urząd)"
+      ],
       "location": "Urząd Miasta, Wrocław",
       "content": "## Cel projektu\n\nPromocja jarmarku bożonarodzeniowego we Wrocławiu 2023. Deadline: kampania musi ruszyć do 1 grudnia.\n\n## Scope\n\n1. Strategia komunikacji (target groups, key messages)\n2. Kreacje kampanii:\n   - Outdoor (billboardy, citylighty)\n   - Digital (banery, social media)\n   - Materiały prasowe\n3. Realizacja kampanii social media (FB, IG) - 4 tygodnie\n4. Raportowanie\n\n## Budżet\n\n38,000 PLN (setup + realizacja)\nMedia budget: po stronie miasta\n\n## Timeline\n\n- Strategia i kreacje: do 15 października\n- Akceptacja miasta (może potrwać!): do 1 listopada\n- Produkcja materiałów: do 20 listopada\n- Kampania social media: 1-31 grudnia\n\n## Uwagi i ryzyka\n\n**UWAGA:** Miasto ma długi proces akceptacji. Wszystko musi przejść przez:\n1. Departament Turystyki (Tomasz)\n2. Departament Komunikacji (ktoś inny)\n3. Wiceprezydent (ostateczna akceptacja)\n\nKażdy szczebel może trwać 5-7 dni. Musimy mieć bufor!\n\n**Ryzyko:** Jeśli akceptacje się przedłużą, możemy nie zdążyć na start kampanii 1.12.\n\n## Ustalenia\n\n- Contact person: Dr. Tomasz Kowalczyk\n- Prezentacje: zawsze w biurze Urzędu (nie mailem)\n- Zmiany: tylko na piśmie, zatwierdzone przez Tomasza\n- Płatność: 60 dni od faktury (standard w sektorze publicznym)\n- Faktury: split 50% po akceptacji kreacji, 50% po zakończeniu kampanii\n\n## Atmosfera\n\nProfesjonalne, ale biurokratyczne. Dr. Kowalczyk bardzo konkretny i pomocny. Beata (komunikacja) wydaje się być bottleneckiem w akceptacjach.\n\n## Następne kroki\n\n- Andrzej: Brief dla Janusza i zespołu kreatywnego (do 18.08)\n- Janusz: Strategia i pierwsze koncepcje (do 15.09)\n- Spotkanie prezentacyjne: umówić na 20.09",
       "action_items": [
-        {"owner": "Andrzej Kmicic", "task": "Brief dla zespołu kreatywnego", "due": "2023-08-18"},
-        {"owner": "Janusz Sieczkowski", "task": "Strategia i koncepcje", "due": "2023-09-15"},
-        {"owner": "Zosia Samosiej", "task": "Zarezerwować salę w Urzędzie na 20.09", "due": "2023-08-20"}
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Brief dla zespołu kreatywnego",
+          "due": "2023-08-18"
+        },
+        {
+          "owner": "Janusz Sieczkowski",
+          "task": "Strategia i koncepcje",
+          "due": "2023-09-15"
+        },
+        {
+          "owner": "Zosia Samosiej",
+          "task": "Zarezerwować salę w Urzędzie na 20.09",
+          "due": "2023-08-20"
+        }
       ],
-      "clients_mentioned": ["Client E"],
+      "clients_mentioned": [
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1242,13 +1971,21 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"},
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "ESKALACJA - Urząd Miasta opóźnia akceptacje",
       "body": "Janusz, Zbyszek,\n\nMamy poważny problem z projektem dla Urzędu Miasta.\n\nPrezentowaliśmy koncepcje 15 września (zgodnie z planem). Dr. Kowalczyk podobały się, obiecał feedback do 17.09.\n\nDziś 18.09, nadal czekamy. Dzwoniłem - materiały są \"w toku akceptacji wewnętrznej\". Nie ma konkretnej daty.\n\nProblem: Jeśli approval przeciągnie się do końca września, nie zdążymy z produkcją do 20 listopada. A kampania MUSI ruszyć 1 grudnia.\n\nCo robimy:\n1. Daily follow-up z Tomaszem (ale nie mogę ich naciskać za bardzo - to publiczny sektor)\n2. Przygotować plan B: przyspieszona produkcja (dodatkowy koszt?)\n3. Komunikować ryzyko klientowi oficjalnie mailem?\n\nZbyszek - Twoja decyzja. Ja bym wysłał formalnego maila o ryzyku już teraz.\n\nAndrzej",
-      "clients_mentioned": ["Client E"],
+      "clients_mentioned": [
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1260,12 +1997,17 @@
       "author": "Janek Kos",
       "author_email": "janek.kos@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Browar Wroclavia - pomysł na kampanię letnią 2024",
       "body": "Andrzej,\n\nAnalyzowałem dane z kampanii letniej 2023 dla Browaru Wroclavia (ta która dała +23% sprzedaży). Mam pomysł na 2024.\n\nCo zadziałało w 2023:\n- Instagram Reels z lokalnymi influencerami (+45% engagement)\n- Google Ads z geotargetingiem na tereny rekreacyjne (+180% CTR vs. standard)\n- Partnerstowanie z eventami lokalnymi (Noc Muzeów, festiwal)\n\nPomysł na 2024:\n- Podwoić budżet na Instagram (2k → 4k)\n- Dodać TikTok (młodszy segment, craft beer zyskuje tam)\n- Early bird: kampania już w maju (nie czekać do czerwca)\n- Partnership z 2-3 festivalami muzycznymi w regionie\n\nBudżet: szacuję że potrzebujemy +2-3k miesięcznie przez czerwiec-sierpień.\n\nMaybe to okazja do up-sellu? Browar odnowił z nami z podwyżką, są zadowoleni. Warto zaproponować?\n\nCo myślisz?\n\nJanek",
-      "clients_mentioned": ["Client A"],
+      "clients_mentioned": [
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
@@ -1277,33 +2019,50 @@
       "author": "Halina Lichocka",
       "author_email": "halina.lichocka@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Ryszard Ochódzki", "email": "ryszard.ochodzki@kreatywnafala.pl"}
+        {
+          "name": "Ryszard Ochódzki",
+          "email": "ryszard.ochodzki@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz - korekta faktury przygotowana",
       "body": "Dzień dobry Zbyszku,\n\nW nawiązaniu do ustaleń ze spotkania z klientem Smakosz (1 grudnia), przygotowałam korektę faktury FV/2023/10/003.\n\n**Oryginał:**\n- Kwota netto: 6,000 PLN\n- VAT 23%: 1,380 PLN\n- Brutto: 7,380 PLN\n\n**Po rabacie 10%:**\n- Kwota netto: 5,400 PLN\n- VAT 23%: 1,242 PLN\n- Brutto: 6,642 PLN\n\nFaktura korygująca: FK/2023/12/001\n\nWysłałam klientowi mailem z prośbą o płatność do 15 grudnia (jak ustalono na spotkaniu).\n\nRyszard - proszę o potwierdzenie że wszystko OK pod względem księgowym.\n\nPozdrawiam,\nHalina",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
       "id": "doc_051",
       "type": "email_internal",
       "format": "eml",
-      "filename": "email_dulska_20230725_001.eml",
+      "filename": "email_dulska_20230725_002.eml",
       "timestamp": "2023-07-25T11:30:00+02:00",
       "author": "Irena Dulska",
       "author_email": "irena.dulska@kreatywnafala.pl",
       "recipients": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz - nie zdążymy z tym timeline",
       "body": "Janusz,\n\nMuszę Ci powiedzieć wprost: timeline projektu Smakosz jest nierealny.\n\nMaciej obiecał klientowi pierwsze koncepcje do 28 lipca. Problem:\n1. Mam jeszcze 3 rewizje do browaru (deadline 26.07)\n2. Zosia jest na urlopie do 30.07\n3. Brief od Macieja dostałam wczoraj, a nie 2 tygodnie temu jak powinnam\n\nRozumiem że to jego pierwszy klient i się uczy, ale nie mogę robić cudów. Albo przesuwamy deadline Smakosz o tydzień, albo robię to po godzinach za dodatkowe wynagrodzenie.\n\nProszę o decyzję.\n\nIrena",
-      "clients_mentioned": ["Client C", "Client A"],
+      "clients_mentioned": [
+        "Client C",
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
@@ -1315,13 +2074,21 @@
       "author": "Janusz Sieczkowski",
       "author_email": "janusz.sieczkowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Irena Dulska", "email": "irena.dulska@kreatywnafala.pl"},
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Irena Dulska",
+          "email": "irena.dulska@kreatywnafala.pl"
+        },
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Smakosz - nie zdążymy z tym timeline",
       "body": "Irena, Maciej,\n\nIrena ma rację. Maciej - musisz lepiej planować komunikację z zespołem kreatywnym. Brief powinien być minimum 2 tygodnie przed deadline, nie 3 dni.\n\nDecyzja:\n1. Przesuwamy prezentację koncepcji Smakosz na 4 sierpnia\n2. Maciej - TY informujesz klienta o zmianie i bierzesz odpowiedzialność\n3. Irena - nie pracujesz po godzinach, to nie jest sytuacja awaryjna, tylko błąd w planowaniu\n\nMaciej - proszę, żebyś się z tego nauczył. Kalendarz kreatywny to nie jest coś co możesz ignorować.\n\nJanusz",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1333,31 +2100,44 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Marek Nowak", "email": "m.nowak@smakosz.pl"}
+        {
+          "name": "Marek Nowak",
+          "email": "m.nowak@smakosz.pl"
+        }
       ],
       "cc": [
-        {"name": "Anna Wiśniewska", "email": "a.wisniewska@smakosz.pl"}
+        {
+          "name": "Anna Wiśniewska",
+          "email": "a.wisniewska@smakosz.pl"
+        }
       ],
       "subject": "Zmiana terminu prezentacji koncepcji",
       "body": "Szanowny Panie Marku,\n\nPiszę z informacją o zmianie terminu prezentacji pierwszych koncepcji rebrandingu.\n\nPierwotny termin: 28 lipca\nNowy termin: 4 sierpnia\n\nPrzyczyna: Chcemy mieć więcej czasu na dopracowanie koncepcji, żeby przedstawić Państwu materiały najwyższej jakości. Nasz zespół kreatywny pracuje nad trzema różnymi kierunkami i potrzebujemy dodatkowego tygodnia na ich pełne rozwinięcie.\n\nPrzepraszam za zmianę w ostatniej chwili. Czy termin 4 sierpnia o 10:00 w Państwa biurze jest odpowiedni?\n\nZ poważaniem,\nMaciej Boryna\nKreatywna Fala Sp. z o.o.",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
       "id": "doc_054",
       "type": "email_internal",
       "format": "eml",
-      "filename": "email_pawlak_20230905_001.eml",
+      "filename": "email_pawlak_20230905_002.eml",
       "timestamp": "2023-09-05T16:30:00+02:00",
       "author": "Kasia Pawlak",
       "author_email": "kasia.pawlak@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "MaszBud - info po evencie",
       "body": "Andrzej,\n\nWidziałam że rozmawiałeś z kimś z MaszBud na evencie branżowym. Mam dla Ciebie background info.\n\nMaszBud Sp. z o.o.:\n- Producent maszyn budowlanych (koparki, ładowarki)\n- Siedziba: Legnica\n- Obroty ~40-50 mln rocznie (to duża firma jak na nas)\n- Marketing: prawie zero obecności online, stara strona www\n- Konkurencja: CAT, Komatsu, Volvo (giganci)\n\nZ tego co słyszałam na rynku:\n- Szukają agencji do \"odmłodzenia wizerunku\"\n- Problemem jest że ich klienci to głównie starsi właściciele firm budowlanych\n- Młodsze pokolenie przejmuje firmy i oni szukają dostawców online\n\nJeśli chcesz, mogę przygotować research konkurencji i propozycję contentu. Mam pomysł na case studies i LinkedIn.\n\nKasia",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1369,12 +2149,17 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Anna Kowalska", "email": "a.kowalska@maszbud.pl"}
+        {
+          "name": "Anna Kowalska",
+          "email": "a.kowalska@maszbud.pl"
+        }
       ],
       "cc": [],
       "subject": "Propozycja spotkania - Kreatywna Fala",
       "body": "Szanowna Pani Anno,\n\nDziękuję za miłą rozmowę na targach w Kielcach. Jak obiecałem, kontaktuję się z propozycją spotkania.\n\nPo naszej rozmowie przemyślałem kilka rzeczy:\n\n1. Branża maszyn budowlanych faktycznie potrzebuje lepszej komunikacji online - większość konkurencji ma przestarzałe strony i zerową obecność w social media\n\n2. LinkedIn jest idealnym kanałem dla B2B w tej branży - tam są decydenci z firm budowlanych\n\n3. Case studies i content edukacyjny mogą budować pozycję eksperta\n\nProponuję spotkanie w Państwa biurze w Legnicy w przyszłym tygodniu. Przygotuję krótką prezentację możliwości i wstępne pomysły.\n\nCzy któryś z terminów pasuje:\n- Wtorek 19.09, godz. 10:00?\n- Środa 20.09, godz. 14:00?\n\nZ poważaniem,\nAndrzej Kmicic\nSenior Account Manager\nKreatywna Fala Sp. z o.o.",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1386,12 +2171,17 @@
       "author": "Anna Kowalska",
       "author_email": "a.kowalska@maszbud.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Propozycja spotkania - Kreatywna Fala",
       "body": "Szanowny Panie Andrzeju,\n\nDziękuję za kontakt. Również miło wspominam naszą rozmowę.\n\nWtorek 19.09 o 10:00 pasuje. Proszę o przyjazd do naszej siedziby:\nMaszBud Sp. z o.o.\nul. Przemysłowa 15\n59-220 Legnica\n\nNa spotkaniu będzie również nasz Dyrektor Handlowy, Pan Krzysztof Mazur.\n\nProszę zarezerwować około 1,5 godziny.\n\nDo zobaczenia,\nAnna Kowalska\nDyrektor Marketingu\nMaszBud Sp. z o.o.",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1402,15 +2192,33 @@
       "timestamp": "2023-09-19T12:30:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Notatki ze spotkania - MaszBud Sp. z o.o.",
-      "attendees": ["Andrzej Kmicic", "Anna Kowalska (MaszBud)", "Krzysztof Mazur (MaszBud)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Anna Kowalska (MaszBud)",
+        "Krzysztof Mazur (MaszBud)"
+      ],
       "location": "Biuro MaszBud, Legnica",
       "content": "## Kontekst\n\nPierwsze spotkanie po kontakcie na targach. Cel: poznanie potrzeb, prezentacja możliwości.\n\n## O firmie MaszBud\n\n- Producent od 1995 roku\n- Specjalizacja: maszyny budowlane średniej wielkości\n- Rynek: Polska (80%), eksport do Czech i Słowacji\n- Zatrudnienie: ~180 osób\n- Przychody: ~45 mln PLN rocznie\n\n## Wyzwania marketingowe\n\n1. **Zmiana pokoleniowa** - nowi decydenci szukają dostawców online, nie na targach\n2. **Strona www** - bardzo przestarzała, nie responsywna, brak SEO\n3. **Zero social media** - LinkedIn nie istnieje, FB nieaktualny od 2020\n4. **Materiały sprzedażowe** - PDF-y z 2018 roku, trzeba odświeżyć\n5. **Konkurencja** - Volvo i CAT mają profesjonalny marketing, MaszBud wygląda przy nich amatorsko\n\n## Oczekiwania\n\n- \"Chcemy wyglądać profesjonalnie jak zachodnia konkurencja\"\n- Nie oczekują cudów od razu, rozumieją że to proces\n- Budżet: \"umiarkowany, ale gotowi zainwestować jeśli zobaczymy sens\"\n- Pan Mazur pytał o ROI - jak mierzymy efekty?\n\n## Atmosfera\n\n- Anna bardzo entuzjastyczna, ewidentnie walczy o marketing od dawna\n- Krzysztof bardziej sceptyczny, typowy handlowiec (\"po co nam social media, my sprzedajemy bezpośrednio\")\n- Musimy przekonać Krzysztofa danymi, nie obietnicami\n\n## Następne kroki\n\n1. Przygotować ofertę z 2-3 wariantami cenowymi\n2. Uwzględnić mierzalne KPI\n3. Pokazać case studies z B2B (mamy cokolwiek?)\n4. Deadline: oferta do 10 października\n5. Prezentacja oferty: umówić na ~20 października",
       "action_items": [
-        {"owner": "Andrzej Kmicic", "task": "Przygotować ofertę MaszBud", "due": "2023-10-10"},
-        {"owner": "Kasia Pawlak", "task": "Research case studies B2B", "due": "2023-10-05"},
-        {"owner": "Janek Kos", "task": "Audyt SEO strony MaszBud", "due": "2023-10-05"}
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Przygotować ofertę MaszBud",
+          "due": "2023-10-10"
+        },
+        {
+          "owner": "Kasia Pawlak",
+          "task": "Research case studies B2B",
+          "due": "2023-10-05"
+        },
+        {
+          "owner": "Janek Kos",
+          "task": "Audyt SEO strony MaszBud",
+          "due": "2023-10-05"
+        }
       ],
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1422,15 +2230,26 @@
       "author": "Zosia Samosiej",
       "author_email": "zosia.samosiej@kreatywnafala.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"},
-        {"name": "Irena Dulska", "email": "irena.dulska@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        },
+        {
+          "name": "Irena Dulska",
+          "email": "irena.dulska@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz - klient zaakceptował koncepcję!",
       "body": "Hej wszystkim,\n\nDobre wieści ze spotkania z klientem Smakosz!\n\nPan Nowak i Pani Wiśniewska zaakceptowali koncepcję nr 2 (ta z ciepłą kolorystyką i nowoczesnym logo). Bardzo im się podobała.\n\nFeedback:\n- Logo: super, tylko drobna korekta - litera 'k' powinna być bardziej czytelna\n- Kolorystyka: tak, ciepłe brązy i pomarańcze\n- Typografia: OK\n- Mockupy menu: rewelacja, pan Nowak powiedział \"nareszcie wyglądamy jak restauracja a nie jak bar\"\n\nPrzejściemy do fazy realizacji. Deadline na komplet materiałów brandingowych: koniec października.\n\nIrena, Maciej - dziękuję za ciężką pracę! Przepraszam za chaos z timeline na początku, ale wyszło super.\n\nZosia",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1442,7 +2261,10 @@
       "author": "Halina Lichocka",
       "author_email": "halina.lichocka@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Przypomnienie: urlopy listopadowe + grafik dyżurów",
@@ -1459,13 +2281,24 @@
       "author": "Ryszard Ochódzki",
       "author_email": "ryszard.ochodzki@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Halina Lichocka", "email": "halina.lichocka@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Halina Lichocka",
+          "email": "halina.lichocka@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Sytuacja płatności - październik 2023",
       "body": "Zbyszku, Halina,\n\nPodsumowanie płatności za październik:\n\n**Zapłacone terminowo:**\n- Browar Wroclavia: 8,500 PLN (jak zwykle OK)\n- ModaNet: 3,800 PLN (zapłacili 2 dni przed terminem!)\n\n**Oczekujące:**\n- Smakosz: 6,000 PLN - termin był 19.10, do dziś brak\n- Urząd Miasta: 19,000 PLN - termin 60 dni, czekamy do 5.11\n\n**Analiza Smakosz:**\nHalina, sprawdź proszę co się dzieje. Maciej coś wie? Bo mamy pattern - poprzednia faktura też była z opóźnieniem.\n\nJeśli zaległość przekroczy 30 dni, musimy wysłać oficjalne wezwanie.\n\n**Cash flow:**\nMamy bufor, więc nie jest krytycznie. Ale jeśli Smakosz nie zapłaci do połowy listopada, będzie ciasno przed świętami.\n\nRyszard",
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client E"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1477,12 +2310,17 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Marek Piwowar", "email": "m.piwowar@browarwroclavia.pl"}
+        {
+          "name": "Marek Piwowar",
+          "email": "m.piwowar@browarwroclavia.pl"
+        }
       ],
       "cc": [],
       "subject": "Podsumowanie kampanii świątecznej + plany na 2024",
       "body": "Szanowny Panie Marku,\n\nZ przyjemnością informuję, że kampania świąteczna \"Wrocławskie Smaki\" zakończyła się sukcesem!\n\nWyniki (vs. rok ubiegły):\n- Zasięg social media: +34%\n- Engagement rate: 4.2% (poprzednio 2.8%)\n- Ruch na stronie: +28%\n- Sprzedaż w grudniu: dane od Państwa (czekamy!)\n\nPełny raport przygotuję do końca grudnia.\n\nJednocześnie chciałbym umówić się na spotkanie planistyczne na styczeń. Mamy kilka propozycji na 2024:\n1. Rozszerzenie obecności na Instagram Reels\n2. Współpraca z lokalnymi influencerami\n3. Kampania wiosenna (festiwale piwa)\n\nCzy 15 stycznia o 10:00 w Państwa biurze pasuje?\n\nPozdrawiam świątecznie,\nAndrzej Kmicic",
-      "clients_mentioned": ["Client A"],
+      "clients_mentioned": [
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
@@ -1494,7 +2332,10 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Spotkanie końcoworoczne - agenda",
@@ -1528,7 +2369,13 @@
           "content": "1. Zamknąć deal z MaszBud\n2. Odnowić kontrakt z Browarem\n3. Ustabilizować współpracę z ModaNet po zmianach\n4. Zwiększyć prospecting - pipeline jest cienki\n5. Rozważyć zatrudnienie junior account managera"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client E"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1540,12 +2387,17 @@
       "author": "Julia Nowakowska",
       "author_email": "julia@modanet.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Pilne - TikTok",
       "body": "Maciej,\n\nMam pilną sprawę. Nasz inwestor bardzo naciska na obecność na TikToku. Konkurencja (Showroom, Answear) ma tam setki tysięcy followersów, a my zero.\n\nCzy możemy dodać TikTok do naszego scope? Potrzebuję to jak najszybciej.\n\nBudżet: Mogę dołożyć jakieś 500-700 PLN miesięcznie do obecnego fee. Czy to wystarczy?\n\nDaj znać ASAP.\n\nJulia",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1557,12 +2409,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "ModaNet chce TikTok - potrzebuję rady",
       "body": "Andrzej,\n\nDostałem wczoraj maila od Julii (ModaNet) - chcą dodać TikTok do scope. Naciska inwestor.\n\nProblem:\n1. Proponują +500-700 PLN/mies. To za mało na porządny TikTok (minimum 3-4 filmiki/tydzień)\n2. Nie mamy nikogo kto umie robić TikToki (Janek zna digital ale to co innego)\n3. To jest scope creep klasyczny - pamiętam co mówiłeś o ModaNet\n\nMoje opcje:\n\nA) Odmówić - \"nie specjalizujemy się w TikTok\"\nB) Zaproponować zewnętrznego partnera (TikTok agency)\nC) Wziąć za dodatkowe +700 PLN i robić minimalnie\nD) Wycenić porządnie (myślę +1500-2000 PLN/mies) i negocjować\n\nCo byś zrobił?\n\nMaciej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1574,12 +2431,17 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: ModaNet chce TikTok - potrzebuję rady",
       "body": "Maciej,\n\nDobra analiza. Opcja D.\n\nPowody:\n1. Odmawianie klientowi to ostateczność - tracimy revenue i relację\n2. Zewnętrzny partner = tracimy kontrolę i marżę\n3. Robienie po łebkach za 700 zł = będą niezadowoleni = problemy\n\nMoja propozycja:\n- Wycena: obecne 3,800 + 700 (TikTok) = 4,500 PLN/mies\n- To daje nam ~20h/mies na TikTok, wystarczy na 2-3 filmiki/tydzień\n- Janek może się nauczyć (poleć mu kursy), albo bierzemy freelancera\n\nKluczowe: Przedstaw to jako \"profesjonalne podejście do TikTok wymaga X\", nie jako \"nie chcemy za mało\". \n\nPokaż benchmark: Showroom pewnie wydaje 5-10k na TikTok miesięcznie, nie 500 PLN.\n\nSpotkaj się z Julią osobiście, nie mailowo. Łatwiej przekonać.\n\nTrzymam kciuki.\n\nAndrzej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1593,28 +2455,103 @@
       "sheets": [
         {
           "name": "Aktywne szanse",
-          "columns": ["Prospekt", "Opiekun", "Etap", "Wartość roczna", "Szansa %", "Expected", "Następny krok", "Deadline"],
+          "columns": [
+            "Prospekt",
+            "Opiekun",
+            "Etap",
+            "Wartość roczna",
+            "Szansa %",
+            "Expected",
+            "Następny krok",
+            "Deadline"
+          ],
           "rows": [
-            ["MaszBud", "Kmicic", "Negocjacje", 48000, 65, 31200, "Czekamy na decyzję zarządu", "2024-01-31"],
-            ["TechStart", "Pawlak", "Oferta", 28000, 40, 11200, "Prezentacja 15.01", "2024-02-15"],
-            ["LogiTrans", "Boryna", "Zimny lead", 35000, 5, 1750, "Kolejny follow-up", "2024-02-01"]
+            [
+              "MaszBud",
+              "Kmicic",
+              "Negocjacje",
+              48000,
+              65,
+              31200,
+              "Czekamy na decyzję zarządu",
+              "2024-01-31"
+            ],
+            [
+              "TechStart",
+              "Pawlak",
+              "Oferta",
+              28000,
+              40,
+              11200,
+              "Prezentacja 15.01",
+              "2024-02-15"
+            ],
+            [
+              "LogiTrans",
+              "Boryna",
+              "Zimny lead",
+              35000,
+              5,
+              1750,
+              "Kolejny follow-up",
+              "2024-02-01"
+            ]
           ]
         },
         {
           "name": "Odnowienia",
-          "columns": ["Klient", "Obecna wartość", "Proponowana", "Status", "Deadline"],
+          "columns": [
+            "Klient",
+            "Obecna wartość",
+            "Proponowana",
+            "Status",
+            "Deadline"
+          ],
           "rows": [
-            ["Browar Wroclavia", 102000, 110400, "W negocjacjach", "2024-03-01"],
-            ["ModaNet", 45600, 54000, "Scope expansion", "2024-01-15"],
-            ["Smakosz", 72000, 72000, "Stabilny", "2024-06-15"]
+            [
+              "Browar Wroclavia",
+              102000,
+              110400,
+              "W negocjacjach",
+              "2024-03-01"
+            ],
+            [
+              "ModaNet",
+              45600,
+              54000,
+              "Scope expansion",
+              "2024-01-15"
+            ],
+            [
+              "Smakosz",
+              72000,
+              72000,
+              "Stabilny",
+              "2024-06-15"
+            ]
           ]
         },
         {
           "name": "Utracone",
-          "columns": ["Prospekt", "Wartość", "Powód", "Data"],
+          "columns": [
+            "Prospekt",
+            "Wartość",
+            "Powód",
+            "Data"
+          ],
           "rows": [
-            ["GreenTech", 42000, "Wybrali konkurencję (cena)", "2023-11-20"],
-            ["FoodExpress", 25000, "Projekt wstrzymany", "2023-12-05"]
+            [
+              "GreenTech",
+              42000,
+              "Wybrali konkurencję (cena)",
+              "2023-11-20"
+            ],
+            [
+              "FoodExpress",
+              25000,
+              "Projekt wstrzymany",
+              "2023-12-05"
+            ]
           ]
         }
       ],
@@ -1622,7 +2559,13 @@
       "formula_descriptions": [
         "Expected = Wartość roczna * Szansa %"
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -1634,12 +2577,17 @@
       "author": "Janek Kos",
       "author_email": "janek.kos@kreatywnafala.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "TikTok ModaNet - mam plan",
       "body": "Maciej,\n\nAndrzej powiedział że bierzemy TikTok dla ModaNet. OK, dam radę.\n\nMój plan:\n\n1. **Tydzień 1-2:** Research i setup\n   - Założenie konta business\n   - Analiza konkurencji (Showroom, Answear, Zalando)\n   - Content calendar na pierwszy miesiąc\n\n2. **Format:** Krótkie (15-30s) filmiki\n   - Behind the scenes (pakowanie zamówień)\n   - Styling tips\n   - Trendy vs. klasyka\n   - User generated content (reposty od klientów)\n\n3. **Częstotliwość:** 3x/tydzień na start\n\n4. **Koszty:**\n   - Mój czas: ~15h/mies\n   - Może potrzebujemy telefonu z lepszą kamerą? (iPhone 13+)\n   - Stock music/effects: ~100 PLN/mies\n\n5. **KPI:**\n   - M1: 500 followers\n   - M3: 2000 followers\n   - M6: 5000 followers + min 1 viral (>50k views)\n\nRealistyczne?\n\nJanek",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1651,19 +2599,24 @@
       "author": "Marek Piwowar",
       "author_email": "m.piwowar@browarwroclavia.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Odnowienie współpracy 2024",
       "body": "Panie Andrzeju,\n\nDziękuję za spotkanie w poniedziałek i propozycję na 2024.\n\nPrzeanalizowaliśmy z zarządem Państwa ofertę. Mamy kilka uwag:\n\n1. Podwyżka z 8,500 do 9,200 PLN/mies (+8%) jest akceptowalna, biorąc pod uwagę inflację\n2. Chcielibyśmy jednak rozszerzyć zakres o raportowanie co 2 tygodnie (zamiast miesięcznego)\n3. Pytanie o kampanię letnią - czy budżet 25k jest wystarczający na influencerów?\n\nJeśli uzgodnimy te punkty, możemy podpisać w przyszłym tygodniu.\n\nPozdrawiam,\nMarek Piwowar",
-      "clients_mentioned": ["Client A"],
+      "clients_mentioned": [
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
       "id": "doc_070",
       "type": "presentation_internal",
       "format": "pptx",
-      "filename": "przeglad_q1_2024.pptx",
+      "filename": "przeglad_q1_2024_v2.pptx",
       "timestamp": "2024-04-08T10:00:00+02:00",
       "author": "Zbigniew Reymontowski",
       "title": "Przegląd biznesowy Q1 2024",
@@ -1707,8 +2660,16 @@
           "title": "Status klientów",
           "chart_type": "pie",
           "chart_data": {
-            "labels": ["Zielony (A, C)", "Żółty (B)", "Pipeline (D)"],
-            "values": [2, 1, 1]
+            "labels": [
+              "Zielony (A, C)",
+              "Żółty (B)",
+              "Pipeline (D)"
+            ],
+            "values": [
+              2,
+              1,
+              1
+            ]
           },
           "type": "chart"
         },
@@ -1723,7 +2684,12 @@
           "type": "bullets"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -1735,31 +2701,44 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "FW: ModaNet - nieprzyjemny mail od Julii",
       "body": "Andrzej,\n\nCzy możesz na to zerknąć? Dostałem dziś rano od Julii.\n\n---\nOd: Julia Nowakowska\nTemat: Jakość pracy ostatniego miesiąca\n\nMaciej,\n\nMuszę wyrazić rozczarowanie jakością pracy w ostatnim miesiącu:\n\n1. TikToki są słabe - zero viralowych, followersów +120 zamiast obiecanych 500\n2. Posty na IG mają niższy engagement niż w grudniu\n3. Raport miesięczny dostałam 5 dni po terminie\n4. Na 3 maile nie dostałam odpowiedzi przez 48h\n\nZaczęłam się zastanawiać czy ta współpraca ma sens. Płacimy 4500 PLN miesięcznie i oczekuję profesjonalizmu.\n\nJulia\n---\n\nCzęściowo ma rację (raport i maile - moja wina), ale TikTok to dopiero miesiąc! Jak mam odpowiedzieć?\n\nMaciej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
       "id": "doc_072",
       "type": "email_internal",
       "format": "eml",
-      "filename": "email_kmicic_20240212_002.eml",
+      "filename": "email_kmicic_20240212_003.eml",
       "timestamp": "2024-02-12T16:00:00+01:00",
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Re: FW: ModaNet - nieprzyjemny mail od Julii",
       "body": "Maciej, Zbyszek (do wiadomości),\n\nTo poważna sprawa. Julia ma częściowo rację, ale też nierealistyczne oczekiwania.\n\nMoje zdanie:\n1. Maile i raport - Twoja wina. NIE MOŻE się powtórzyć.\n2. TikTok po miesiącu - oczekiwanie 500 followers było optymistyczne, powiedziałeś jej że to benchmark czy commitment?\n3. IG engagement - sezonowość (styczeń/luty zawsze słabsze), ale pokaż dane YoY nie MoM\n\nCo robić:\n1. Zadzwoń do niej DZISIAJ. Nie mailuj.\n2. Przeproś za maile i raport - konkretnie\n3. TikTok - pokaż plan na następne 2 miesiące, realiczne oczekiwania\n4. Zaproponuj tygodniowe statusy zamiast miesięcznych\n\nZbyszek - jeśli relacja się nie poprawi, mogę przejąć konto w marcu. Maciej robi co może, ale ModaNet to trudny klient.\n\nAndrzej",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1770,15 +2749,33 @@
       "timestamp": "2024-03-05T17:00:00+01:00",
       "author": "Andrzej Kmicic",
       "title": "Spotkanie kryzysowe - ModaNet",
-      "attendees": ["Andrzej Kmicic", "Maciej Boryna", "Julia Nowakowska (ModaNet)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Maciej Boryna",
+        "Julia Nowakowska (ModaNet)"
+      ],
       "location": "Wideokonferencja (Google Meet)",
       "content": "## Kontekst\n\nSpotkanie zwołane po tym jak Julia zasygnalizowała chęć zakończenia współpracy. Andrzej przejął prowadzenie.\n\n## Stanowisko Julii\n\n- \"Jestem bardzo sfrustrowana ostatnimi miesiącami\"\n- Główne problemy:\n  - Komunikacja (opóźnienia w odpowiedziach)\n  - Wyniki TikTok poniżej oczekiwań\n  - Poczucie że \"nie jesteśmy priorytetem\"\n- Rozważała wypowiedzenie i przejście do innej agencji (\"rozmawiałam z 2 innymi\")\n\n## Nasze odpowiedzi\n\n- Przeprosiny za problemy komunikacyjne (Maciej)\n- Wyjaśnienie że TikTok wymaga czasu (benchmark: 3-6 miesięcy na traction)\n- Propozycja zmian\n\n## Ustalone zmiany\n\n1. **Account handover:** Andrzej przejmuje główny kontakt, Maciej wspiera operacyjnie\n2. **Komunikacja:** Odpowiedzi w ciągu 24h, statusy tygodniowe (piątki)\n3. **TikTok:** Nowe KPI - focus na views i engagement, nie na followers\n4. **Trial period:** 2 miesiące na poprawę, potem decyzja\n\n## Atmosfera\n\nNapięta, ale konstruktywna. Julia doceniła że Andrzej przyszedł osobiście (virtualnie). Maciej był cichy - chyba zdenerwowany.\n\n## Ryzyko\n\nWciąż 30-40% szansa że odejdą po 2 miesiącach. Musimy dowieźć.\n\n## Moja ocena (Andrzej)\n\nMaciej nie jest gotowy na trudnych klientów. Zrobił błędy ale też Julia jest bardzo wymagająca. Handover był potrzebny.",
       "action_items": [
-        {"owner": "Halina Lichocka", "task": "Przygotować aneks do umowy (zmiana opiekuna)", "due": "2024-03-08"},
-        {"owner": "Andrzej Kmicic", "task": "Pierwszy weekly status", "due": "2024-03-08"},
-        {"owner": "Janek Kos", "task": "Nowa strategia TikTok - focus na engagement", "due": "2024-03-10"}
+        {
+          "owner": "Halina Lichocka",
+          "task": "Przygotować aneks do umowy (zmiana opiekuna)",
+          "due": "2024-03-08"
+        },
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Pierwszy weekly status",
+          "due": "2024-03-08"
+        },
+        {
+          "owner": "Janek Kos",
+          "task": "Nowa strategia TikTok - focus na engagement",
+          "due": "2024-03-10"
+        }
       ],
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1790,13 +2787,22 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"},
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        },
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "ModaNet - oficjalny handover",
       "body": "Andrzej, Maciej,\n\nPotwierdzam oficjalny handover konta ModaNet:\n\n- Od dziś (12 marca 2024) głównym opiekunem jest Andrzej Kmicic\n- Maciej pozostaje jako wsparcie operacyjne i kontakt dla Janka w sprawach TikTok\n- Wszelka komunikacja z Julią idzie przez Andrzeja\n\nMaciej - nie traktuj tego jako porażkę. ModaNet to trudny klient i Twoja praca nad Smakoszem pokazuje że potrafisz prowadzić konta. Czasem chemia nie działa i trzeba zmienić podejście.\n\nAndrzej - masz 2 miesiące żeby ustabilizować relację. Jeśli się nie uda, to ich decyzja, nie nasza wina.\n\nDziękuję obu za profesjonalne podejście.\n\nZbigniew",
-      "clients_mentioned": ["Client B", "Client C"],
+      "clients_mentioned": [
+        "Client B",
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1844,12 +2850,17 @@
       "author": "Marek Nowak",
       "author_email": "m.nowak@smakosz.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Podziękowanie i plany na lato",
       "body": "Panie Macieju,\n\nChciałem podziękować za ostatnie miesiące współpracy. Po trudnym okresie pod koniec zeszłego roku, widzę znaczącą poprawę:\n\n- Komunikacja jest teraz regularna i przejrzysta\n- Cotygodniowe statusy bardzo pomagają\n- Nowe materiały do lokali wyglądają świetnie\n- Klienci chwalą nowe menu\n\nPatrząc wstecz, myślę że obie strony się czegoś nauczyły. Doceniam że wzięliście feedback na poważnie.\n\nTeraz do spraw bieżących - zbliża się sezon letni i chcemy przygotować kampanię na ogródki. Czy moglibyśmy się spotkać w przyszłym tygodniu?\n\nProponuję 7 maja o 11:00 w naszym lokalu na Rynku.\n\nPozdrawiam,\nMarek Nowak",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1882,7 +2893,9 @@
           "content": "Współpraca z Dr. Tomaszem Kowalczykiem (Departament Turystyki) była bardzo dobra - profesjonalna i konstruktywna.\n\nWyzwaniem był Departament Komunikacji (Beata Nowak), który wprowadzał opóźnienia w akceptacjach.\n\nRekomendacja: Urząd może być dobrym źródłem referencji, ale nie planujemy aktywnego prospectingu w sektorze publicznym ze względu na biurokrację i długie terminy płatności (60 dni)."
         }
       ],
-      "clients_mentioned": ["Client E"],
+      "clients_mentioned": [
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1896,29 +2909,113 @@
       "sheets": [
         {
           "name": "Projekty jednorazowe",
-          "columns": ["Projekt", "Klient", "Przychód", "Koszty bezpośrednie", "Marża", "Marża %", "Uwagi"],
+          "columns": [
+            "Projekt",
+            "Klient",
+            "Przychód",
+            "Koszty bezpośrednie",
+            "Marża",
+            "Marża %",
+            "Uwagi"
+          ],
           "rows": [
-            ["Rebranding", "Smakosz", 45000, 28500, 16500, 36.7, "Rabat 10% wpłynął na marżę"],
-            ["Kampania świąteczna", "Urząd Miasta", 38000, 26600, 11400, 30, "Niższa marża - dodatkowe rewizje"],
-            ["Launch e-commerce", "ModaNet", 32000, 34500, -2500, -7.8, "STRATA - overrun absorbowalny"]
+            [
+              "Rebranding",
+              "Smakosz",
+              45000,
+              28500,
+              16500,
+              36.7,
+              "Rabat 10% wpłynął na marżę"
+            ],
+            [
+              "Kampania świąteczna",
+              "Urząd Miasta",
+              38000,
+              26600,
+              11400,
+              30,
+              "Niższa marża - dodatkowe rewizje"
+            ],
+            [
+              "Launch e-commerce",
+              "ModaNet",
+              32000,
+              34500,
+              -2500,
+              -7.8,
+              "STRATA - overrun absorbowalny"
+            ]
           ]
         },
         {
           "name": "Retainery miesięczne",
-          "columns": ["Klient", "Miesięczna wartość", "Przychód roczny", "Szac. koszty", "Marża roczna", "Marża %"],
+          "columns": [
+            "Klient",
+            "Miesięczna wartość",
+            "Przychód roczny",
+            "Szac. koszty",
+            "Marża roczna",
+            "Marża %"
+          ],
           "rows": [
-            ["Browar Wroclavia", 8500, 102000, 57000, 45000, 44.1],
-            ["ModaNet", 3800, 30400, 18000, 12400, 40.8],
-            ["Smakosz", 6000, 48000, 31000, 17000, 35.4]
+            [
+              "Browar Wroclavia",
+              8500,
+              102000,
+              57000,
+              45000,
+              44.1
+            ],
+            [
+              "ModaNet",
+              3800,
+              30400,
+              18000,
+              12400,
+              40.8
+            ],
+            [
+              "Smakosz",
+              6000,
+              48000,
+              31000,
+              17000,
+              35.4
+            ]
           ]
         },
         {
           "name": "Podsumowanie 2023",
-          "columns": ["Kategoria", "Przychód", "Koszty", "Marża", "Marża %"],
+          "columns": [
+            "Kategoria",
+            "Przychód",
+            "Koszty",
+            "Marża",
+            "Marża %"
+          ],
           "rows": [
-            ["Projekty jednorazowe", 115000, 89600, 25400, 22.1],
-            ["Retainery", 180400, 106000, 74400, 41.2],
-            ["RAZEM", 295400, 195600, 99800, 33.8]
+            [
+              "Projekty jednorazowe",
+              115000,
+              89600,
+              25400,
+              22.1
+            ],
+            [
+              "Retainery",
+              180400,
+              106000,
+              74400,
+              41.2
+            ],
+            [
+              "RAZEM",
+              295400,
+              195600,
+              99800,
+              33.8
+            ]
           ]
         }
       ],
@@ -1927,7 +3024,12 @@
         "Marża = Przychód - Koszty bezpośrednie",
         "Marża % = Marża / Przychód * 100"
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client E"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client E"
+      ],
       "planted_facts": []
     },
     {
@@ -1939,12 +3041,17 @@
       "author": "Janusz Sieczkowski",
       "author_email": "janusz.sieczkowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Nowy proces: Scope Change Request Form",
       "body": "Wszystkim,\n\nPo doświadczeniach z ModaNet (i nie tylko), wprowadzamy nowy proces obsługi zmian zakresu.\n\nOd teraz KAŻDA zmiana scope musi przejść przez formularz SCR (Scope Change Request):\n\n1. Klient prosi o zmianę → Account Manager wypełnia SCR\n2. SCR zawiera: opis zmiany, szacowany czas, wpływ na budget, ryzyko\n3. SCR idzie do mnie (Janusz) na akceptację feasibility\n4. SCR idzie do Andrzeja/Zbyszka na akceptację finansową\n5. Dopiero PO akceptacji mówimy klientowi TAK\n\nFormularz jest w SharePoint: /Szablony/SCR_template.docx\n\nCele:\n- Zero overrunów budżetowych\n- Świadome decyzje o rozszerzeniach\n- Dokumentacja do późniejszych dyskusji z klientem\n\nWiem że to dodatkowa biurokracja, ale po tym co było - wolę 10 minut na formularz niż 2500 PLN straty.\n\nPytania? Zapraszam na kawę.\n\nJanusz",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1956,12 +3063,17 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Julia Nowakowska", "email": "julia@modanet.pl"}
+        {
+          "name": "Julia Nowakowska",
+          "email": "julia@modanet.pl"
+        }
       ],
       "cc": [],
       "subject": "Podsumowanie dwóch miesięcy i propozycja kontynuacji",
       "body": "Szanowna Pani Julio,\n\nZgodnie z ustaleniami z marca, przesyłam podsumowanie ostatnich dwóch miesięcy współpracy.\n\n**Co się zmieniło:**\n1. Komunikacja: weekly statusy w każdy piątek, odpowiedzi <24h\n2. TikTok: focus na engagement (średni views per video: 2,400 → 8,700)\n3. Instagram: engagement rate powrócił do poziomu z Q4 (3.2%)\n4. Raporty: zawsze na czas\n\n**Wyniki TikTok (marzec-kwiecień):**\n- Followers: 320 → 890 (+178%)\n- Avg views: 8,700 per video\n- Best performing: \"5 sposobów na wiosenną stylizację\" - 34k views\n- 2 filmiki zakwalifikowane na TikTok Shop\n\n**Moja propozycja:**\nKontynuujemy współpracę na obecnych warunkach. Jeśli chce Pani przedyskutować jakiekolwiek zmiany, chętnie się spotkam.\n\nCzy mogę liczyć na kontynuację?\n\nZ poważaniem,\nAndrzej Kmicic",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -1972,15 +3084,34 @@
       "timestamp": "2024-05-07T12:00:00+02:00",
       "author": "Maciej Boryna",
       "title": "Kickoff - Kampania letnia Smakosz 2024",
-      "attendees": ["Maciej Boryna", "Irena Dulska", "Marek Nowak (Smakosz)", "Anna Wiśniewska (Smakosz)"],
+      "attendees": [
+        "Maciej Boryna",
+        "Irena Dulska",
+        "Marek Nowak (Smakosz)",
+        "Anna Wiśniewska (Smakosz)"
+      ],
       "location": "Restauracja Smakosz, Rynek 15, Wrocław",
       "content": "## Cel projektu\n\nPromocja ogródków letnich sieci restauracji Smakosz. Kampania maj-sierpień 2024.\n\n## Zakres\n\n1. Kreacje kampanii (social media, plakaty do lokali)\n2. Obsługa social media w sezonie letnim (zwiększona częstotliwość)\n3. Współpraca z lokalnymi food influencerami (2-3 osoby)\n4. Materiały do lokali (menu boards, standy)\n\n## Budżet\n\n- Kreacja i obsługa: 12,000 PLN\n- Influencerzy: 6,000 PLN (budżet klienta)\n- Produkcja materiałów: 4,000 PLN\n- RAZEM: 22,000 PLN\n\n## Timeline\n\n- Kreacje do akceptacji: 20 maja\n- Start kampanii social: 1 czerwca\n- Influencerzy: czerwiec-lipiec\n- Zakończenie: 31 sierpnia\n\n## Key messages\n\n- \"Lato smakuje lepiej na świeżym powietrzu\"\n- Focus na lokalne składniki i sezonowe menu\n- Atmosfera: rodzinna, lokalna, autentyczna\n\n## Ustalenia\n\n- Pan Nowak chce uniknąć \"corporate look\" - ma być ciepło i autentycznie\n- Influencerzy: lokalni, micro (5-20k followers), food/lifestyle\n- Zdjęcia: możemy robić w lokalach (sesja do ustalenia)\n- Raportowanie: co 2 tygodnie\n\n## Moja ocena (Maciej)\n\nŚwietna atmosfera na spotkaniu! Pan Nowak jest bardzo pozytywny, widać że docenia poprawę w komunikacji. Pani Anna jest bardziej wymagająca co do kreacji - Irena, proszę o szczególną uwagę na jakość.\n\nTo jest szansa na pokazanie że Smakosz to stabilny, długoterminowy klient.",
       "action_items": [
-        {"owner": "Irena Dulska", "task": "Moodboard i pierwsze koncepcje", "due": "2024-05-14"},
-        {"owner": "Maciej Boryna", "task": "Shortlist influencerów", "due": "2024-05-14"},
-        {"owner": "Zosia Samosiej", "task": "Rezerwacja sesji foto w lokalu", "due": "2024-05-20"}
+        {
+          "owner": "Irena Dulska",
+          "task": "Moodboard i pierwsze koncepcje",
+          "due": "2024-05-14"
+        },
+        {
+          "owner": "Maciej Boryna",
+          "task": "Shortlist influencerów",
+          "due": "2024-05-14"
+        },
+        {
+          "owner": "Zosia Samosiej",
+          "task": "Rezerwacja sesji foto w lokalu",
+          "due": "2024-05-20"
+        }
       ],
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -1992,14 +3123,22 @@
       "author": "Irena Dulska",
       "author_email": "irena.dulska@kreatywnafala.pl",
       "recipients": [
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl"}
+        {
+          "name": "Janusz Sieczkowski",
+          "email": "janusz.sieczkowski@kreatywnafala.pl"
+        }
       ],
       "subject": "Smakosz lato - koncepcje gotowe",
       "body": "Maciej,\n\nMam 3 kierunki koncepcyjne dla kampanii letniej Smakosz:\n\n**Kierunek A: \"Wrocławskie Lato\"**\n- Kolory: żółcie, pomarańcze, zieleń\n- Zdjęcia: lifestyle, ludzie przy stolikach\n- Vibe: miejski, nowoczesny, młody\n\n**Kierunek B: \"Smak Tradycji\"**\n- Kolory: ciepłe brązy, krem, bordo\n- Zdjęcia: składniki, potrawy close-up\n- Vibe: tradycyjny, autentyczny, rodzinny\n\n**Kierunek C: \"Ogródek Marzeń\"**\n- Kolory: pastele, miękka zieleń, błękit\n- Zdjęcia: ogródki restauracji, zieleń, kwiaty\n- Vibe: romantyczny, spokojny, escape\n\nOsobiście rekomenduję B - pasuje do tego co mówił Pan Nowak o \"autentyczności\". Ale A jest bardziej instagramowy.\n\nMoodboardy w SharePoint: /Projekty/Smakosz/Lato2024/\n\nKiedy spotkanie z klientem?\n\nIrena",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2011,13 +3150,25 @@
       "author": "Kasia Pawlak",
       "author_email": "kasia.pawlak@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Prospecting - nowe podejście?",
       "body": "Zbyszek, Andrzej,\n\nPo Q1 review i dyskusji o pipeline, mam propozycję.\n\nProblem: Za mało nowych leadów. Maciej męczy LogiTrans od pół roku bez efektu. MaszBud wisi w powietrzu. TechStart nie odpowiada.\n\nMoja propozycja: Content-driven prospecting.\n\nZamiast cold outreach (który nie działa), zróbmy:\n\n1. **Seria case studies** - napiszę 3 porządne case studies (Browar, Smakosz, Urząd)\n2. **LinkedIn presence** - regularne posty od Zbyszka i Andrzeja (ja napiszę, wy publikujecie)\n3. **Webinar** - \"Marketing dla MŚP w 2024\" - zbieramy leady, pokazujemy expertise\n4. **Newsletter** - miesięczny, tips & tricks, budujemy bazę\n\nKoszt: Mój czas (~20h/mies extra) + 500-1000 PLN na promocję postów.\n\nBenefit: Leady przychodzą do nas, zamiast my do nich. Wyższy quality.\n\nCo myślicie? Mogę przygotować szczegółowy plan.\n\nKasia",
-      "clients_mentioned": ["Client A", "Client C", "Client D", "Client E", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client C",
+        "Client D",
+        "Client E",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
@@ -2046,24 +3197,36 @@
           "content": "1. Zwiększyć aktywność prospectingową - propozycja Kasi o content marketing\n2. Networking na eventach branżowych (lista: Kongres MŚP czerwiec, Targi Marketing lipiec)\n3. Rozważyć partnerstwa z firmami komplementarnymi (web dev, fotografowie)\n4. Utrzymać doskonałą obsługę obecnych klientów - referrals są najlepszym źródłem"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D", "Client F"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D",
+        "Client F"
+      ],
       "planted_facts": []
     },
     {
       "id": "doc_085",
       "type": "email_internal",
       "format": "eml",
-      "filename": "email_lichocka_20240515_001.eml",
+      "filename": "email_lichocka_20240515_002.eml",
       "timestamp": "2024-05-15T09:00:00+02:00",
       "author": "Halina Lichocka",
       "author_email": "halina.lichocka@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Urlopy letnie - proszę o zgłoszenia",
       "body": "Kochani,\n\nZbliża się sezon urlopowy i proszę o zgłaszanie planów do końca maja.\n\nDotychczas zgłoszone:\n- Zbyszek: 15-26 lipca (2 tygodnie)\n- Janusz: 5-16 sierpnia (2 tygodnie)\n- Ryszard: bez urlopu (\"za dużo roboty\")\n\nPrzypominam zasady:\n1. Maksymalnie 2 osoby z zespołu na urlopie jednocześnie\n2. Account managerowie - uzgodnijcie zastępstwa dla klientów\n3. Pilne sprawy - zawsze zostawiajcie kontakt awaryjny\n4. Czerwiec-sierpień to gorący okres dla klientów (sezon letni) - planujcie z głową\n\nMaciej, Andrzej - Browar i Smakosz mają kampanie letnie. Proszę o plan zastępstw.\n\nDo końca tygodnia czekam na resztę zgłoszeń.\n\nHalina",
-      "clients_mentioned": ["Client A", "Client C"],
+      "clients_mentioned": [
+        "Client A",
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2131,7 +3294,9 @@
           "type": "text"
         }
       ],
-      "clients_mentioned": ["Client A"],
+      "clients_mentioned": [
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
@@ -2142,15 +3307,34 @@
       "timestamp": "2024-05-25T11:30:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Spotkanie planistyczne - Kampania letnia Browar Wroclavia 2024",
-      "attendees": ["Andrzej Kmicic", "Janek Kos", "Marek Piwowar (Browar)", "Tomasz Chmielarz (Browar)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Janek Kos",
+        "Marek Piwowar (Browar)",
+        "Tomasz Chmielarz (Browar)"
+      ],
       "location": "Biuro Browaru Wroclavia, Wrocław",
       "content": "## Cel\n\nUstalenie zakresu i budżetu kampanii letniej 2024.\n\n## Wyniki 2023 (przypomnienie)\n\n- Kampania czerwiec-sierpień\n- Wzrost sprzedaży w sezonie: +23%\n- Engagement social: +45%\n- Koszt: 28,000 PLN (kreacja + media)\n\n## Propozycja 2024\n\nJanek przedstawił analizę i rekomendacje:\n\n1. **Instagram Reels** - kontynuacja, zwiększenie budżetu\n2. **TikTok** - NOWY kanał (młodszy segment)\n3. **Influencerzy lokalni** - 3-5 osób, micro (10-50k)\n4. **Festiwale** - obecność na 2-3 eventach w regionie\n\n## Budżet\n\n- Kreacja i obsługa: 15,000 PLN\n- Media (IG, TikTok, Google): 12,000 PLN\n- Influencerzy: 8,000 PLN\n- Eventy: 5,000 PLN\n- **RAZEM: 40,000 PLN** (vs. 28,000 w 2023)\n\n## Reakcja klienta\n\n- Pan Piwowar: \"40 tysięcy to sporo, ale jeśli dowieziecie +25% sprzedaży, jestem za\"\n- Tomasz (marketing): bardzo entuzjastyczny o TikToku\n- Pytanie o KPI - ustaliliśmy jasne cele (patrz niżej)\n\n## Ustalone KPI\n\n- Sprzedaż sezon: +25% YoY\n- Zasięg social: +40% YoY\n- Min. 1 viral content (>100k views)\n- 2 eventy z minimum 200 próbkami wydanych\n\n## Następne kroki\n\n- Formalna oferta do 30 maja\n- Decyzja klienta do 5 czerwca\n- Start kampanii: 15 czerwca",
       "action_items": [
-        {"owner": "Andrzej Kmicic", "task": "Formalna oferta 40k", "due": "2024-05-30"},
-        {"owner": "Janek Kos", "task": "Media plan szczegółowy", "due": "2024-05-30"},
-        {"owner": "Kasia Pawlak", "task": "Shortlist influencerów", "due": "2024-06-01"}
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Formalna oferta 40k",
+          "due": "2024-05-30"
+        },
+        {
+          "owner": "Janek Kos",
+          "task": "Media plan szczegółowy",
+          "due": "2024-05-30"
+        },
+        {
+          "owner": "Kasia Pawlak",
+          "task": "Shortlist influencerów",
+          "due": "2024-06-01"
+        }
       ],
-      "clients_mentioned": ["Client A"],
+      "clients_mentioned": [
+        "Client A"
+      ],
       "planted_facts": []
     },
     {
@@ -2164,30 +3348,138 @@
       "sheets": [
         {
           "name": "Shortlist Browar",
-          "columns": ["Influencer", "Platforma", "Followers", "Engagement", "Kategoria", "Koszt/post", "Status", "Kontakt"],
+          "columns": [
+            "Influencer",
+            "Platforma",
+            "Followers",
+            "Engagement",
+            "Kategoria",
+            "Koszt/post",
+            "Status",
+            "Kontakt"
+          ],
           "rows": [
-            ["@wroclaw_foodie", "IG", 28000, 4.2, "Food", 800, "Do kontaktu", "DM"],
-            ["@piwomania_pl", "IG/TikTok", 45000, 3.8, "Piwo/Lifestyle", 1200, "Do kontaktu", "Email"],
-            ["@dolnyslask_smaki", "IG", 18000, 5.1, "Food/Travel", 600, "Współpracowaliśmy 2023", "Email"],
-            ["@craft_beer_wro", "TikTok", 32000, 6.2, "Piwo", 1000, "Do kontaktu", "DM"],
-            ["@ania_gotuje", "IG", 52000, 3.5, "Food", 1500, "Za droga?", "Email"]
+            [
+              "@wroclaw_foodie",
+              "IG",
+              28000,
+              4.2,
+              "Food",
+              800,
+              "Do kontaktu",
+              "DM"
+            ],
+            [
+              "@piwomania_pl",
+              "IG/TikTok",
+              45000,
+              3.8,
+              "Piwo/Lifestyle",
+              1200,
+              "Do kontaktu",
+              "Email"
+            ],
+            [
+              "@dolnyslask_smaki",
+              "IG",
+              18000,
+              5.1,
+              "Food/Travel",
+              600,
+              "Współpracowaliśmy 2023",
+              "Email"
+            ],
+            [
+              "@craft_beer_wro",
+              "TikTok",
+              32000,
+              6.2,
+              "Piwo",
+              1000,
+              "Do kontaktu",
+              "DM"
+            ],
+            [
+              "@ania_gotuje",
+              "IG",
+              52000,
+              3.5,
+              "Food",
+              1500,
+              "Za droga?",
+              "Email"
+            ]
           ]
         },
         {
           "name": "Shortlist Smakosz",
-          "columns": ["Influencer", "Platforma", "Followers", "Engagement", "Kategoria", "Koszt/post", "Status", "Kontakt"],
+          "columns": [
+            "Influencer",
+            "Platforma",
+            "Followers",
+            "Engagement",
+            "Kategoria",
+            "Koszt/post",
+            "Status",
+            "Kontakt"
+          ],
           "rows": [
-            ["@wroclaw_foodie", "IG", 28000, 4.2, "Food", 800, "Rekomendowany", "DM"],
-            ["@rodzinnie_wroclaw", "IG", 15000, 5.8, "Family/Lifestyle", 500, "Do kontaktu", "Email"],
-            ["@smacznego_wro", "IG", 22000, 4.5, "Food", 700, "Do kontaktu", "DM"]
+            [
+              "@wroclaw_foodie",
+              "IG",
+              28000,
+              4.2,
+              "Food",
+              800,
+              "Rekomendowany",
+              "DM"
+            ],
+            [
+              "@rodzinnie_wroclaw",
+              "IG",
+              15000,
+              5.8,
+              "Family/Lifestyle",
+              500,
+              "Do kontaktu",
+              "Email"
+            ],
+            [
+              "@smacznego_wro",
+              "IG",
+              22000,
+              4.5,
+              "Food",
+              700,
+              "Do kontaktu",
+              "DM"
+            ]
           ]
         },
         {
           "name": "Budżety",
-          "columns": ["Klient", "Budżet influencerów", "Planowane osoby", "Avg koszt", "Status"],
+          "columns": [
+            "Klient",
+            "Budżet influencerów",
+            "Planowane osoby",
+            "Avg koszt",
+            "Status"
+          ],
           "rows": [
-            ["Browar Wroclavia", 8000, 5, 1600, "W przygotowaniu"],
-            ["Smakosz", 6000, 3, 2000, "W przygotowaniu"]
+            [
+              "Browar Wroclavia",
+              8000,
+              5,
+              1600,
+              "W przygotowaniu"
+            ],
+            [
+              "Smakosz",
+              6000,
+              3,
+              2000,
+              "W przygotowaniu"
+            ]
           ]
         }
       ],
@@ -2195,7 +3487,10 @@
       "formula_descriptions": [
         "Avg koszt = Budżet / Planowane osoby"
       ],
-      "clients_mentioned": ["Client A", "Client C"],
+      "clients_mentioned": [
+        "Client A",
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2207,7 +3502,10 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Strategia H2 2024 - spotkanie 3 czerwca",
@@ -2224,12 +3522,17 @@
       "author": "Julia Nowakowska",
       "author_email": "julia@modanet.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Re: Podsumowanie dwóch miesięcy i propozycja kontynuacji",
       "body": "Panie Andrzeju,\n\nDziękuję za podsumowanie. Muszę przyznać, że ostatnie dwa miesiące były znacznie lepsze.\n\nDoceniam:\n- Regularną komunikację (te piątkowe statusy są super)\n- Poprawę wyników na TikToku\n- Szybkie odpowiedzi na maile\n\nDecyzja: Kontynuujemy współpracę.\n\nMam jednak prośbę na przyszłość - chciałabym więcej proaktywności. Nie tylko realizacja tego co ustalimy, ale też propozycje nowych rzeczy. \"Hej Julia, widziałam że konkurencja robi X, może my też powinniśmy?\" - tego mi brakuje.\n\nCzy możemy się spotkać w maju na planowanie Q2? Mamy nową kolekcję w czerwcu i potrzebuję dobrej kampanii launchu.\n\nPozdrawiam,\nJulia",
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -2262,7 +3565,12 @@
           "content": "1. Dowieźć kampanie letnie (Browar, Smakosz) na najwyższym poziomie\n2. Domknąć MaszBud lub odpuścić\n3. Content marketing - minimum 2 nowe leady z tego źródła\n4. Planowanie 2025 - rozpocząć w sierpniu"
         }
       ],
-      "clients_mentioned": ["Client A", "Client B", "Client C", "Client D"],
+      "clients_mentioned": [
+        "Client A",
+        "Client B",
+        "Client C",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -2274,13 +3582,22 @@
       "author": "Janek Kos",
       "author_email": "janek.kos@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"},
-        {"name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        },
+        {
+          "name": "Maciej Boryna",
+          "email": "maciej.boryna@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Kampanie letnie - raport tygodniowy #1",
       "body": "Andrzej, Maciej,\n\nPierwszy tydzień kampanii letnich za nami. Podsumowanie:\n\n**BROWAR WROCLAVIA:**\n- TikTok: 3 filmiki opublikowane, avg views: 4,200\n- IG Reels: 4 filmiki, avg views: 8,100\n- Google Ads: CTR 2.8% (target: 2.5%) ✓\n- Influencer @dolnyslask_smaki: post opublikowany, engagement 5.2%\n\nStatus: ZIELONY - jesteśmy on track\n\n**SMAKOSZ:**\n- IG: 5 postów, avg engagement: 4.1%\n- Stories: 12 opublikowanych, avg views: 1,200\n- Influencer @wroclaw_foodie: sesja zaplanowana na 15.06\n\nStatus: ZIELONY - klient bardzo zadowolony z kreacji\n\n**Problemy:**\n- Brak filmików od @craft_beer_wro (Browar) - podobno choroba, czekamy\n- Sesja foto Smakosz przesunięta o 5 dni - pogoda\n\n**Budżet:**\n- Browar: wydane 8,200 / 40,000 PLN (20.5%)\n- Smakosz: wydane 4,800 / 22,000 PLN (21.8%)\n\nNastępny raport w piątek.\n\nJanek",
-      "clients_mentioned": ["Client A", "Client C"],
+      "clients_mentioned": [
+        "Client A",
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2294,31 +3611,115 @@
       "sheets": [
         {
           "name": "Browar Wroclavia",
-          "columns": ["Kategoria", "Planowany", "Wydany", "Pozostało", "% wykorzystania"],
+          "columns": [
+            "Kategoria",
+            "Planowany",
+            "Wydany",
+            "Pozostało",
+            "% wykorzystania"
+          ],
           "rows": [
-            ["Kreacja i obsługa", 15000, 5200, 9800, 34.7],
-            ["Media (IG, TikTok, Google)", 12000, 4800, 7200, 40.0],
-            ["Influencerzy", 8000, 2400, 5600, 30.0],
-            ["Eventy", 5000, 0, 5000, 0.0],
-            ["RAZEM", 40000, 12400, 27600, 31.0]
+            [
+              "Kreacja i obsługa",
+              15000,
+              5200,
+              9800,
+              34.7
+            ],
+            [
+              "Media (IG, TikTok, Google)",
+              12000,
+              4800,
+              7200,
+              40.0
+            ],
+            [
+              "Influencerzy",
+              8000,
+              2400,
+              5600,
+              30.0
+            ],
+            [
+              "Eventy",
+              5000,
+              0,
+              5000,
+              0.0
+            ],
+            [
+              "RAZEM",
+              40000,
+              12400,
+              27600,
+              31.0
+            ]
           ]
         },
         {
           "name": "Smakosz",
-          "columns": ["Kategoria", "Planowany", "Wydany", "Pozostało", "% wykorzystania"],
+          "columns": [
+            "Kategoria",
+            "Planowany",
+            "Wydany",
+            "Pozostało",
+            "% wykorzystania"
+          ],
           "rows": [
-            ["Kreacja i obsługa", 12000, 4200, 7800, 35.0],
-            ["Influencerzy", 6000, 800, 5200, 13.3],
-            ["Produkcja materiałów", 4000, 3200, 800, 80.0],
-            ["RAZEM", 22000, 8200, 13800, 37.3]
+            [
+              "Kreacja i obsługa",
+              12000,
+              4200,
+              7800,
+              35.0
+            ],
+            [
+              "Influencerzy",
+              6000,
+              800,
+              5200,
+              13.3
+            ],
+            [
+              "Produkcja materiałów",
+              4000,
+              3200,
+              800,
+              80.0
+            ],
+            [
+              "RAZEM",
+              22000,
+              8200,
+              13800,
+              37.3
+            ]
           ]
         },
         {
           "name": "Podsumowanie",
-          "columns": ["Klient", "Budżet całkowity", "Wydany do 15.06", "Plan do 15.06", "Status"],
+          "columns": [
+            "Klient",
+            "Budżet całkowity",
+            "Wydany do 15.06",
+            "Plan do 15.06",
+            "Status"
+          ],
           "rows": [
-            ["Browar Wroclavia", 40000, 12400, 13000, "OK - lekko pod planem"],
-            ["Smakosz", 22000, 8200, 7500, "OK - lekko nad planem (materiały)"]
+            [
+              "Browar Wroclavia",
+              40000,
+              12400,
+              13000,
+              "OK - lekko pod planem"
+            ],
+            [
+              "Smakosz",
+              22000,
+              8200,
+              7500,
+              "OK - lekko nad planem (materiały)"
+            ]
           ]
         }
       ],
@@ -2327,7 +3728,10 @@
         "% wykorzystania = Wydany / Planowany * 100",
         "Pozostało = Planowany - Wydany"
       ],
-      "clients_mentioned": ["Client A", "Client C"],
+      "clients_mentioned": [
+        "Client A",
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2339,12 +3743,17 @@
       "author": "Anna Kowalska",
       "author_email": "a.kowalska@maszbud.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Update w sprawie współpracy",
       "body": "Szanowny Panie Andrzeju,\n\nPrzepraszam za długie milczenie. Jak Pan wie, mieliśmy sporo zmian wewnętrznych.\n\nDobra wiadomość: nowy Dyrektor Zarządzający jest bardzo zainteresowany modernizacją naszego marketingu. Właśnie wrócił z USA i widzi jak to robią tam firmy produkcyjne.\n\nProśba: Czy mógłby Pan odświeżyć ofertę? Budżet pozostaje w okolicach 50k rocznie, ale chcielibyśmy zobaczyć:\n1. Więcej o LinkedIn (nowy dyrektor tam jest bardzo aktywny)\n2. Jakieś case studies z B2B/przemysłu\n3. Propozycję etapowego wdrożenia (nie wszystko na raz)\n\nCzy możemy się spotkać w lipcu? Proponuję 10 lub 11 lipca.\n\nPozdrawiam serdecznie,\nAnna Kowalska",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -2356,13 +3765,22 @@
       "author": "Andrzej Kmicic",
       "author_email": "andrzej.kmicic@kreatywnafala.pl",
       "recipients": [
-        {"name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl"},
-        {"name": "Kasia Pawlak", "email": "kasia.pawlak@kreatywnafala.pl"}
+        {
+          "name": "Zbigniew Reymontowski",
+          "email": "zbigniew.reymontowski@kreatywnafala.pl"
+        },
+        {
+          "name": "Kasia Pawlak",
+          "email": "kasia.pawlak@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "MaszBud wraca do gry!",
       "body": "Zbyszek, Kasia,\n\nDobre wieści! Anna Kowalska z MaszBud napisała - są gotowi wznowić rozmowy!\n\nCo się zmieniło:\n- Nowy Dyrektor Zarządzający (wrócił z USA, rozumie marketing)\n- Budżet wciąż ~50k rocznie\n- Chcą LinkedIn (nowy dyrektor jest tam aktywny!)\n- Proszą o podejście etapowe\n\nSpotkanie: 10 lub 11 lipca w Legnicy\n\nKasia - czy możesz przygotować:\n1. Case study Browaru (B2B-ish, długa współpraca)\n2. Mini-propozycję LinkedIn dla przemysłu\n3. 3-etapowy plan wdrożenia (miesięcznie: 0-3, 3-6, 6-12)\n\nTo może być nasz biggest win w 2024. Musimy to zamknąć.\n\nAndrzej\n\nPS. Zbyszek, czy mógłbyś pojechać ze mną na to spotkanie? Twój autorytet by pomógł.",
-      "clients_mentioned": ["Client A", "Client D"],
+      "clients_mentioned": [
+        "Client A",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -2441,7 +3859,9 @@
           "type": "bullets"
         }
       ],
-      "clients_mentioned": ["Client B"],
+      "clients_mentioned": [
+        "Client B"
+      ],
       "planted_facts": []
     },
     {
@@ -2453,12 +3873,17 @@
       "author": "Maciej Boryna",
       "author_email": "maciej.boryna@kreatywnafala.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Smakosz - super feedback od klienta",
       "body": "Andrzej,\n\nChciałem się podzielić dobrą wiadomością.\n\nWczoraj byłem na spotkaniu statusowym ze Smakosz. Pan Nowak powiedział wprost:\n\n\"Macieju, widzę ogromną poprawę od zeszłego roku. Komunikacja jest super, materiały świetne, a kampania już przynosi efekty - w pierwszym tygodniu czerwca mieliśmy +18% gości w ogródkach vs. rok temu.\"\n\nI jeszcze lepiej - pytał czy możemy rozszerzyć współpracę na jesień. Chce zrobić kampanię \"powrót do korzeni\" na sezon jesienny z focus na dania z dyni i grzybów.\n\nWstępnie rozmawialiśmy o budżecie 15-20k na okres wrzesień-listopad.\n\nCzy mogę przygotować wstępną propozycję?\n\nDziękuję za wszystkie rady przez ten rok. Czuję że naprawdę się rozwijam.\n\nMaciej",
-      "clients_mentioned": ["Client C"],
+      "clients_mentioned": [
+        "Client C"
+      ],
       "planted_facts": []
     },
     {
@@ -2469,15 +3894,35 @@
       "timestamp": "2024-07-10T14:30:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Spotkanie prezentacyjne - MaszBud Sp. z o.o. (wznowione)",
-      "attendees": ["Andrzej Kmicic", "Zbigniew Reymontowski", "Anna Kowalska (MaszBud)", "Piotr Machinery (MaszBud - nowy CEO)"],
+      "attendees": [
+        "Andrzej Kmicic",
+        "Zbigniew Reymontowski",
+        "Anna Kowalska (MaszBud)",
+        "Piotr Machinery (MaszBud - nowy CEO)"
+      ],
       "location": "Biuro MaszBud, Legnica",
       "content": "## Kontekst\n\nWznowienie rozmów po 6-miesięcznej przerwie. Nowy CEO (Piotr Machinery, 42 lata, wrócił z USA) przejął firmę po ojcu. Chce modernizować.\n\n## Nasze prezentacja\n\nZbyszek otworzył - o agencji, doświadczeniu z B2B.\nAndrzej - case study Browaru (5 lat współpracy, wyniki).\nPropozycja etapowa:\n- Etap 1 (M1-3): Audit, strategia, LinkedIn setup - 15k\n- Etap 2 (M4-6): Content, pierwsze kampanie - 18k\n- Etap 3 (M7-12): Pełna obsługa - 17k\n- RAZEM rok 1: 50k (jak w budżecie)\n\n## Reakcje\n\n**Piotr Machinery (CEO):**\n- \"W USA każda firma produkcyjna ma porządny LinkedIn\"\n- \"Chcę żebyśmy wyglądali profesjonalnie online\"\n- \"Lubię podejście etapowe - możemy ocenić po każdym kroku\"\n- \"Cena OK, ale chcę widzieć KPI po każdym etapie\"\n\n**Anna Kowalska:**\n- Wyraźnie ulżona że Piotr jest entuzjastyczny\n- \"Mówiłam ojcu od lat że musimy coś zrobić z marketingiem\"\n- Prosi o szczegółowy timeline\n\n## Atmosfera\n\nBardzo pozytywna! Piotr to nowoczesny menedżer, rozumie wartość marketingu. Zbyszek świetnie nawiązał kontakt (rozmowa o USA, branży produkcyjnej).\n\n## Ustalenia\n\n- Przesłać formalną ofertę do 15 lipca\n- Decyzja MaszBud do końca lipca\n- Jeśli TAK - start wrzesień 2024\n\n## Moja ocena\n\n90% szansa na zamknięcie. To jest nasz deal roku!",
       "action_items": [
-        {"owner": "Andrzej Kmicic", "task": "Formalna oferta z KPI", "due": "2024-07-15"},
-        {"owner": "Kasia Pawlak", "task": "Timeline i content plan", "due": "2024-07-15"},
-        {"owner": "Janek Kos", "task": "LinkedIn benchmark konkurencji", "due": "2024-07-12"}
+        {
+          "owner": "Andrzej Kmicic",
+          "task": "Formalna oferta z KPI",
+          "due": "2024-07-15"
+        },
+        {
+          "owner": "Kasia Pawlak",
+          "task": "Timeline i content plan",
+          "due": "2024-07-15"
+        },
+        {
+          "owner": "Janek Kos",
+          "task": "LinkedIn benchmark konkurencji",
+          "due": "2024-07-12"
+        }
       ],
-      "clients_mentioned": ["Client A", "Client D"],
+      "clients_mentioned": [
+        "Client A",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -2489,12 +3934,19 @@
       "author": "Zbigniew Reymontowski",
       "author_email": "zbigniew.reymontowski@kreatywnafala.pl",
       "recipients": [
-        {"name": "Wszyscy", "email": "wszyscy@kreatywnafala.pl"}
+        {
+          "name": "Wszyscy",
+          "email": "wszyscy@kreatywnafala.pl"
+        }
       ],
       "cc": [],
       "subject": "Update przed moim urlopem",
       "body": "Zespół,\n\nJak wiecie, od jutra jestem na urlopie do 26 lipca. Kilka spraw na koniec:\n\n**DOBRE WIEŚCI:**\n1. MaszBud - oferta wysłana, 90% szansa. Decyzja do końca lipca. Andrzej prowadzi.\n2. Kampanie letnie - świetne wyniki. Janek i Maciej, robicie świetną robotę.\n3. Smakosz chce rozszerzyć na jesień - kolejny sukces Maćka.\n\n**DO PILNOWANIA:**\n1. ModaNet - kampania launchu kolekcji musi pójść bez problemów. Andrzej odpowiada.\n2. Jeśli MaszBud odpowie TAK - możecie potwierdzić start wrzesień. Szczegóły po moim powrocie.\n\n**KONTAKT AWARYJNY:**\n- Pilne sprawy: Andrzej\n- Finansowe: Ryszard\n- Naprawdę pilne: mój telefon (ale proszę tylko w ostateczności)\n\nWierzę w Was. Ten rok może być przełomowy.\n\nDo zobaczenia 29 lipca!\n\nZbigniew\n\nPS. Janusz, Ty po mnie 5-16 sierpnia. Andrzej będzie w lipcu sam - wsparcie jest kluczowe.",
-      "clients_mentioned": ["Client B", "Client C", "Client D"],
+      "clients_mentioned": [
+        "Client B",
+        "Client C",
+        "Client D"
+      ],
       "planted_facts": []
     },
     {
@@ -2506,15 +3958,404 @@
       "author": "Piotr Machinery",
       "author_email": "p.machinery@maszbud.pl",
       "recipients": [
-        {"name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl"}
+        {
+          "name": "Andrzej Kmicic",
+          "email": "andrzej.kmicic@kreatywnafala.pl"
+        }
       ],
       "cc": [
-        {"name": "Anna Kowalska", "email": "a.kowalska@maszbud.pl"}
+        {
+          "name": "Anna Kowalska",
+          "email": "a.kowalska@maszbud.pl"
+        }
       ],
       "subject": "Decyzja - współpraca z Kreatywną Falą",
       "body": "Szanowny Panie Andrzeju,\n\nPo przeanalizowaniu Państwa oferty i dyskusji z Anną, podjąłem decyzję.\n\nAKCEPTUJEMY OFERTĘ.\n\nChcemy rozpocząć współpracę od września 2024, zgodnie z zaproponowanym planem etapowym.\n\nKilka uwag:\n1. Proszę o przygotowanie umowy do podpisu\n2. Kickoff meeting proponuję na pierwszy tydzień września\n3. KPI po Etapie 1 - kluczowe dla kontynuacji\n4. Anna będzie Państwa głównym kontaktem operacyjnym\n\nCieszę się na współpracę. Wierzę że razem zmodernizujemy wizerunek MaszBud.\n\nZ poważaniem,\nPiotr Machinery\nDyrektor Zarządzający\nMaszBud Sp. z o.o.",
-      "clients_mentioned": ["Client D"],
+      "clients_mentioned": [
+        "Client D"
+      ],
       "planted_facts": []
+    },
+    {
+      "id": "doc_101",
+      "type": "pdf_contract_signed",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "umowa_smakosz_2024_signed.pdf",
+      "timestamp": "2024-01-22T14:00:00+02:00",
+      "author": "Marek Nowak",
+      "title": "Umowa o świadczenie usług marketingowych - Smakosz",
+      "parties": {
+        "client": "Sieć Restauracji Smakosz Sp. z o.o.",
+        "agency": "Kreatywna Fala Sp. z o.o."
+      },
+      "content": "UMOWA O ŚWIADCZENIE USŁUG MARKETINGOWYCH\nNr: KF/2024/SMAK/001\n\nzawarta dnia 22 stycznia 2024 roku we Wrocławiu\n\npomiędzy:\nSieć Restauracji Smakosz Sp. z o.o.\nul. Rynek 15, 50-106 Wrocław\nNIP: 8961234567\nreprezentowaną przez: Marek Nowak - Właściciel\nzwaną dalej \"Zleceniodawcą\"\n\na\n\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\nreprezentowaną przez: Zbigniew Reymontowski - Prezes Zarządu\nzwaną dalej \"Zleceniobiorcą\"\n\n§1. PRZEDMIOT UMOWY\n1. Przedmiotem umowy jest świadczenie kompleksowych usług marketingowych.\n2. Zakres usług obejmuje: obsługę social media, kampanie reklamowe, materiały graficzne.\n\n§2. WYNAGRODZENIE\n1. Roczna wartość umowy wynosi: 48 000 PLN netto (czterdzieści osiem tysięcy złotych).\n2. Płatność miesięczna: 4 000 PLN netto.\n3. Termin płatności: 14 dni od wystawienia faktury.\n\n§3. CZAS TRWANIA\n1. Umowa zostaje zawarta na okres 12 miesięcy.\n2. Data rozpoczęcia: 1 lutego 2024 roku.\n3. Data zakończenia: 31 stycznia 2025 roku.\n\n§4. PODPISY\n\n_____________________          _____________________\nMarek Nowak                    Zbigniew Reymontowski\nSieć Restauracji Smakosz       Kreatywna Fala Sp. z o.o.\n\nWrocław, 22 stycznia 2024 r.",
+      "signatures": [
+        "Marek Nowak",
+        "Zbigniew Reymontowski"
+      ],
+      "contract_value_annual": 48000,
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "pf_ocr_001_smakosz_contract_value"
+      ]
+    },
+    {
+      "id": "doc_102",
+      "type": "pdf_invoice_vendor",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "faktura_pixel_2024_001.pdf",
+      "timestamp": "2024-02-15T10:00:00+02:00",
+      "author": "Studio Graficzne Pixel",
+      "title": "Faktura VAT nr FV/2024/02/015",
+      "content": "FAKTURA VAT\nNr: FV/2024/02/015\nData wystawienia: 15 lutego 2024\n\nSPRZEDAWCA:\nStudio Graficzne Pixel\nTomasz Kolorski\nul. Świdnicka 22/5, 50-068 Wrocław\nNIP: 8991234561\n\nNABYWCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\n\nPOZYCJE:\n1. Projekt graficzny - broszura ModaNet (16 stron)\n   Ilość: 1 | Cena netto: 2 400,00 PLN | VAT 23%: 552,00 PLN | Brutto: 2 952,00 PLN\n\n2. Przygotowanie do druku - pliki produkcyjne\n   Ilość: 1 | Cena netto: 800,00 PLN | VAT 23%: 184,00 PLN | Brutto: 984,00 PLN\n\nRAZEM NETTO: 3 200,00 PLN\nVAT 23%: 736,00 PLN\nRAZEM BRUTTO: 3 936,00 PLN\n\nTermin płatności: 28 lutego 2024\nNumer konta: 12 1234 5678 9012 3456 7890 1234\n\nPodpis wystawcy: Tomasz Kolorski",
+      "vendor_name": "Studio Graficzne Pixel",
+      "vendor_nip": "8991234561",
+      "amount_net": 3200,
+      "amount_gross": 3936,
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "pf_ocr_002_vendor_pixel_amount"
+      ]
+    },
+    {
+      "id": "doc_103",
+      "type": "pdf_invoice_vendor",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "faktura_videomakers_2024_003.pdf",
+      "timestamp": "2024-03-20T11:30:00+02:00",
+      "author": "VideoMakers Wrocław",
+      "title": "Faktura VAT nr VM/2024/03/003",
+      "content": "FAKTURA VAT\nNr: VM/2024/03/003\nData wystawienia: 20 marca 2024\n\nSPRZEDAWCA:\nVideoMakers Wrocław Sp. z o.o.\nul. Legnicka 55, 54-203 Wrocław\nNIP: 8942345678\n\nNABYWCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\n\nPOZYCJE:\n1. Produkcja spotu reklamowego - Browar Wroclavia (30s)\n   Cena netto: 5 500,00 PLN | VAT 23%: 1 265,00 PLN | Brutto: 6 765,00 PLN\n\n2. Montaż i postprodukcja\n   Cena netto: 2 000,00 PLN | VAT 23%: 460,00 PLN | Brutto: 2 460,00 PLN\n\n3. Udostępnienie licencji muzyki\n   Cena netto: 1 000,00 PLN | VAT 23%: 230,00 PLN | Brutto: 1 230,00 PLN\n\nRAZEM NETTO: 8 500,00 PLN\nVAT 23%: 1 955,00 PLN\nRAZEM BRUTTO: 10 455,00 PLN\n\nTermin płatności: 3 kwietnia 2024\nNumer konta: 45 9876 5432 1098 7654 3210 9876",
+      "vendor_name": "VideoMakers Wrocław Sp. z o.o.",
+      "vendor_nip": "8942345678",
+      "amount_net": 8500,
+      "amount_gross": 10455,
+      "clients_mentioned": [
+        "Client A"
+      ],
+      "planted_facts": [
+        "pf_ocr_003_vendor_video_amount"
+      ]
+    },
+    {
+      "id": "doc_104",
+      "type": "pdf_bank_confirmation",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "przelew_maszbud_zaliczka_20240728.pdf",
+      "timestamp": "2024-07-28T08:15:00+02:00",
+      "author": "mBank",
+      "title": "Potwierdzenie przelewu przychodzącego",
+      "content": "POTWIERDZENIE PRZELEWU PRZYCHODZĄCEGO\nmBank S.A.\n\nData operacji: 28 lipca 2024\nNumer referencyjny: PRZ/2024/07/28/00154782\n\nNADAWCA:\nMaszBud Sp. z o.o.\nul. Przemysłowa 12, 59-220 Legnica\nNumer rachunku: PL 67 1234 5678 9012 3456 7890 1234\n\nODBIORCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNumer rachunku: PL 12 1140 2004 0000 3102 7654 3210\n\nKWOTA: 25 000,00 PLN\n(słownie: dwadzieścia pięć tysięcy złotych 00/100)\n\nTYTUŁ PRZELEWU:\nZaliczka - umowa KF/2024/MB/001, Etap 1\n\nSTATUS: ZAKSIĘGOWANO\n\nDokument wygenerowany elektronicznie.\nmBank S.A., ul. Senatorska 18, 00-950 Warszawa",
+      "amount": 25000,
+      "payer": "MaszBud Sp. z o.o.",
+      "payment_date": "2024-07-28",
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "pf_ocr_004_maszbud_advance"
+      ]
+    },
+    {
+      "id": "doc_105",
+      "type": "pdf_email_export",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "email_export_modanet_kryzys_202402.pdf",
+      "timestamp": "2024-02-28T16:00:00+02:00",
+      "author": "System archiwizacji",
+      "title": "Archiwum korespondencji - ModaNet eskalacja",
+      "content": "ARCHIWUM KORESPONDENCJI EMAIL\nEksport: 28 lutego 2024, 16:00\nSystem: Kreatywna Fala - archiwizacja\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 1 z 3\nOd: Julia Nowakowska <julia@modanet.pl>\nDo: Maciej Boryna <maciej.boryna@kreatywnafala.pl>\nData: 12 lutego 2024, 09:45\nTemat: Pilne - problem z materiałami\n\nMacieju,\nGrafiki do kampanii są nie do przyjęcia. Kolory są blade, zdjęcia produktów rozmazane. Rozmawialiśmy o tym już tydzień temu!\nJulia\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 2 z 3\nOd: Maciej Boryna <maciej.boryna@kreatywnafala.pl>\nDo: Julia Nowakowska <julia@modanet.pl>\nCC: Andrzej Kmicic <andrzej.kmicic@kreatywnafala.pl>\nData: 12 lutego 2024, 11:20\nTemat: RE: Pilne - problem z materiałami\n\nPani Julio,\nPrzepraszam za problemy. Dodaję Andrzeja do wątku - wspólnie przygotujemy poprawki do jutra.\nMaciej\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 3 z 3\nOd: Julia Nowakowska <julia@modanet.pl>\nDo: Zbigniew Reymontowski <zbigniew.reymontowski@kreatywnafala.pl>\nData: 12 lutego 2024, 14:30\nTemat: FW: Pilne - problem z materiałami\n\nPanie Zbigniewie,\nPrzesyłam poniżej wymianę z Maciejem. To nie pierwszy raz. Proszę o interwencję.\nJulia Nowakowska\nCEO, ModaNet\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKONIEC ARCHIWUM\nData eskalacji do CEO: 12 lutego 2024",
+      "export_date": "2024-02-28",
+      "email_count": 3,
+      "escalation_date": "2024-02-12",
+      "clients_mentioned": [
+        "Client B"
+      ],
+      "planted_facts": [
+        "pf_ocr_005_modanet_escalation_date"
+      ]
+    },
+    {
+      "id": "doc_106",
+      "type": "pdf_delivery_signoff",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "protokol_odbioru_browar_202403.pdf",
+      "timestamp": "2024-03-15T15:30:00+02:00",
+      "author": "Marek Piwowar",
+      "title": "Protokół odbioru - Kampania wiosenna Browar Wroclavia",
+      "content": "PROTOKÓŁ ODBIORU PRAC\nNr: PO/2024/BW/002\n\nZLECENIODAWCA:\nBrowar Regionalny \"Wroclavia\" Sp. z o.o.\nreprezentowany przez: Marek Piwowar, Dyrektor Marketingu\n\nWYKONAWCA:\nKreatywna Fala Sp. z o.o.\nreprezentowana przez: Andrzej Kmicic, Senior Account Manager\n\nPRZEDMIOT ODBIORU:\nKampania reklamowa \"Wiosna z Wroclavią\" - materiały promocyjne\n\nZAKRES PRAC:\n☑ Koncepcja kreatywna kampanii\n☑ Projekt graficzny - 5 key visuals\n☑ Adaptacje do social media (FB, IG) - 15 formatów\n☑ Materiały POS - projekty (10 szt.)\n☑ Spot radiowy 30s - scenariusz i produkcja\n\nTERMIN REALIZACJI:\nPlanowany: 10 marca 2024\nFaktyczny: 14 marca 2024\nOpóźnienie: 4 dni (uzgodnione z klientem)\n\nOCENA JAKOŚCI:\n☑ Materiały zgodne z briefem\n☑ Jakość wykonania: BARDZO DOBRA\n☑ Brak uwag do poprawek\n\nUWAGI:\nKampania zaakceptowana bez zastrzeżeń. Opóźnienie wynikało z dodatkowych poprawek zgłoszonych przez klienta w trakcie realizacji.\n\nDATA ODBIORU: 15 marca 2024\n\nPODPISY:\n\n_____________________          _____________________\nMarek Piwowar                  Andrzej Kmicic\nBrowar Wroclavia               Kreatywna Fala Sp. z o.o.",
+      "delivery_date": "2024-03-15",
+      "signatory_client": "Marek Piwowar",
+      "quality_rating": "bardzo dobra",
+      "clients_mentioned": [
+        "Client A"
+      ],
+      "planted_facts": [
+        "pf_ocr_006_browar_signoff_date"
+      ]
+    },
+    {
+      "id": "doc_107",
+      "type": "pdf_proposal_signed",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "oferta_edusfera_akceptacja_202406.pdf",
+      "timestamp": "2024-06-10T12:00:00+02:00",
+      "author": "Dr hab. Maria Szkolna",
+      "title": "Akceptacja oferty - EduSfera Sp. z o.o.",
+      "content": "POTWIERDZENIE AKCEPTACJI OFERTY\n\nDotyczy: Oferta nr KF/2024/EDU/001\nData oferty: 28 maja 2024\nData akceptacji: 10 czerwca 2024\n\nDANE ZLECENIODAWCY:\nEduSfera Sp. z o.o.\nul. Akademicka 5, 50-038 Wrocław\nNIP: 8967891234\nOsoba kontaktowa: Dr hab. Maria Szkolna, Dyrektor ds. Rozwoju\n\nZAKRES ZLECENIA:\n1. Strategia komunikacji marki - 8 000 PLN\n2. Identyfikacja wizualna (odświeżenie) - 12 000 PLN\n3. Materiały rekrutacyjne (rok akademicki 2024/25) - 15 000 PLN\n\nŁĄCZNA WARTOŚĆ: 35 000 PLN netto\n\nHARMONOGRAM:\n- Start prac: 17 czerwca 2024\n- Zakończenie: 31 sierpnia 2024\n\nWARUNKI PŁATNOŚCI:\n- 30% zaliczki przy podpisaniu (10 500 PLN) - do 14 czerwca 2024\n- 70% po odbiorze (24 500 PLN) - do 14 września 2024\n\nAKCEPTACJA:\nNiniejszym akceptuję warunki przedstawionej oferty i wyrażam zgodę na rozpoczęcie prac.\n\n[PIECZĘĆ FIRMOWA]\nEduSfera Sp. z o.o.\nZatwierdzono: 10.06.2024\n\n_____________________\nDr hab. Maria Szkolna\nDyrektor ds. Rozwoju\nEduSfera Sp. z o.o.",
+      "acceptance_date": "2024-06-10",
+      "project_value": 35000,
+      "client_name": "EduSfera Sp. z o.o.",
+      "clients_mentioned": [],
+      "planted_facts": [
+        "pf_ocr_007_edusfera_value"
+      ]
+    },
+    {
+      "id": "doc_108",
+      "type": "pdf_contract_annex",
+      "format": "pdf",
+      "pdf_difficulty": "easy",
+      "filename": "aneks_smakosz_video_202405.pdf",
+      "timestamp": "2024-05-08T10:00:00+02:00",
+      "author": "Zbigniew Reymontowski",
+      "title": "Aneks nr 1 do umowy KF/2024/SMAK/001",
+      "content": "ANEKS NR 1\ndo Umowy o świadczenie usług marketingowych\nnr KF/2024/SMAK/001 z dnia 22 stycznia 2024 r.\n\nzawarty dnia 8 maja 2024 roku we Wrocławiu\n\npomiędzy:\nSieć Restauracji Smakosz Sp. z o.o. (Zleceniodawca)\na\nKreatywna Fala Sp. z o.o. (Zleceniobiorca)\n\n§1. ROZSZERZENIE ZAKRESU USŁUG\nStrony postanawiają rozszerzyć zakres usług o:\n1. Produkcję materiałów wideo (2 spoty miesięcznie)\n2. Obsługę kanału YouTube\n3. Współpracę z influencerami lokalnymi\n\n§2. ZMIANA WYNAGRODZENIA\n1. Dotychczasowa miesięczna opłata: 4 000 PLN netto\n2. Nowa miesięczna opłata: 5 500 PLN netto\n3. Różnica: 1 500 PLN netto miesięcznie\n4. Dodatkowy roczny koszt: 12 000 PLN netto (za 8 miesięcy: maj-grudzień)\n\n§3. WEJŚCIE W ŻYCIE\nAneks wchodzi w życie z dniem 1 maja 2024 roku.\n\n§4. POZOSTAŁE POSTANOWIENIA\nPozostałe warunki umowy pozostają bez zmian.\n\nPODPISY:\n\n_____________________          _____________________\nMarek Nowak                    Zbigniew Reymontowski\nSieć Restauracji Smakosz       Kreatywna Fala Sp. z o.o.\n\nWrocław, 8 maja 2024 r.",
+      "annex_date": "2024-05-08",
+      "new_monthly_fee": 5500,
+      "additional_scope_value": 12000,
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "pf_ocr_008_smakosz_video_extension"
+      ]
+    },
+    {
+      "id": "doc_109",
+      "type": "pdf_notes_handwritten",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "notatki_reczne_maszbud_spotkanie.pdf",
+      "timestamp": "2024-07-10T16:00:00+02:00",
+      "author": "Andrzej Kmicic",
+      "title": "Notatki odręczne - spotkanie MaszBud",
+      "ocr_challenges": [
+        "handwriting",
+        "crossed_out_text",
+        "arrows",
+        "margin_notes"
+      ],
+      "content": "[HANDWRITTEN NOTES - SCANNED]\n\nMaszBud - spotkanie 10.07.2024\n=================================\n\nObecni:\n- Piotr M. (nowy CEO!) ← wrócił z USA\n- Anna K. (marketing)\n- my: Zbyszek + ja\n\nBUDŻET: 50k/rok ✓\n         ~~~~~~~~\nPlan etapowy:\n  Etap 1 → 15k (audit + LinkedIn)\n  Etap 2 → 18k (content)  \n  Etap 3 → 17k (pełna obsł.)\n           ----\n           50k RAZEM\n\n[strzałka w prawo] start WRZESIEŃ '24\n\nPiotr bardzo pro-marketing!!\n\"w USA każda firma ma LinkedIn\"\n\nAnna: ulżyło jej że CEO się zgodził\n\nKPI - WAŻNE dla Piotra\n↓\nmusimy mierzyć wszystko\n\nDo zrobienia:\n□ oferta formalna → 15.07\n□ timeline dla Anny\n□ benchmark konkurencji (Janek)\n\nOcena: 90% szans!!!\nTo jest NASZ ROK! :)\n\n[podkreślone] Decyzja do końca lipca",
+      "key_figures": {
+        "budget": 50000,
+        "probability": "90%"
+      },
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "pf_ocr_009_maszbud_budget_handwritten"
+      ]
+    },
+    {
+      "id": "doc_110",
+      "type": "pdf_briefing_annotated",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "brief_smakosz_z_adnotacjami.pdf",
+      "timestamp": "2024-04-15T14:00:00+02:00",
+      "author": "Irena Dulska",
+      "title": "Brief kreatywny Smakosz z adnotacjami zespołu",
+      "ocr_challenges": [
+        "mixed_print_handwriting",
+        "sticky_notes",
+        "highlighter",
+        "margin_annotations"
+      ],
+      "content": "BRIEF KREATYWNY - KAMPANIA LETNIA SMAKOSZ\n===========================================\n\n[DRUK] Cel kampanii: Promocja ogródków letnich w 5 lokalizacjach\n\n[ADNOTACJA RĘCZNA na marginesie: \"główny focus = Rynek!\"]\n\nGrupa docelowa:\n- Wiek: 25-45 lat\n- Wrocław i okolice\n- [ZAKREŚLONE żółtym] Rodziny z dziećmi + pary\n\n[KARTECZKA SAMOPRZYLEPNA]\n\"Kasia - hasło musi \nmieć słowo LATO\n- Irena\"\n\nBudżet produkcyjny: 18 000 PLN\n[DOPISEK] → zostało ~2k rezerwy\n\nMateriały do przygotowania:\n1. Key visual [✓ ZROBIONE - Zosia]\n2. Adaptacje SM (15 szt.) [✓]\n3. Menu boards [w trakcie]\n4. [PRZEKREŚLONE] Ulotki - klient zrezygnował\n\nTerminy:\n- Prezentacja konceptu: 22 kwietnia → [ZMIANA NA 25.04!]\n- Finalne materiały: 10 maja\n- Start kampanii: 15 maja\n\n[NA DOLE STRONY - RĘCZNIE]\n\"Spotkanie z klientem przesunięte!\nPan Nowak - urlop 20-24.04\nNowy termin: 25.04 godz 11:00\"\n\nZatwierdził: ______________ \n              [podpis nieczytelny]",
+      "production_budget": 18000,
+      "campaign_start": "2024-05-15",
+      "clients_mentioned": [
+        "Client C"
+      ],
+      "planted_facts": [
+        "pf_ocr_010_smakosz_summer_budget"
+      ]
+    },
+    {
+      "id": "doc_111",
+      "type": "pdf_invoice_stamped",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "faktura_drukarnia_ze_stemplami.pdf",
+      "timestamp": "2024-04-02T09:00:00+02:00",
+      "author": "Drukarnia Express",
+      "title": "Faktura z pieczątkami i adnotacjami",
+      "ocr_challenges": [
+        "overlapping_stamps",
+        "handwritten_approval",
+        "coffee_stain",
+        "faded_text"
+      ],
+      "content": "[SKAN FAKTURY Z PIECZĄTKAMI]\n\nFAKTURA VAT nr DE/04/2024/0089\nData: 02.04.2024\n\nDrukarnia Express Sp.j.\nul. Fabryczna 10, Wrocław\nNIP: 8951234567\n\nNabywca: Kreatywna Fala Sp. z o.o.\n\n[PIECZĄTKA OKRĄGŁA częściowo zakrywająca tekst]\n\"ZAPŁACONO\n05.04.2024\nmBank\"\n\nPozycje:\n1. Druk ulotek A5 (5000 szt.)     1 200,00 PLN\n2. Druk plakatów B1 (50 szt.)       800,00 PLN  \n3. Druk wizytówek (1000 szt.)       350,00 PLN\n4. Roll-up 200x85 (2 szt.)          600,00 PLN\n                              ----------------\n[PLAMA OD KAWY częściowo zasłania]\nRAZEM NETTO:                     2 950,00 PLN\nVAT 23%:                           678,50 PLN\nBRUTTO:                          3 628,50 PLN\n\n[PIECZĄTKA PROSTOKĄTNA]\n\"SPRAWDZONO POD WZGLĘDEM\nMERYTORYCZNYM I FORMALNYM\nHalina Lichocka\npodpis: [nieczytelny podpis]\"\n\n[DOPISEK RĘCZNY]\n\"OK do zapłaty - HL 04.04\"\n\nTermin płatności: 16.04.2024",
+      "amount_net": 2950,
+      "payment_date": "2024-04-05",
+      "verified_by": "Halina Lichocka",
+      "clients_mentioned": [],
+      "planted_facts": [
+        "pf_ocr_011_drukarnia_amount"
+      ]
+    },
+    {
+      "id": "doc_112",
+      "type": "pdf_fax_received",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "fax_browar_zmiana_terminu.pdf",
+      "timestamp": "2024-02-05T11:30:00+02:00",
+      "author": "Browar Wroclavia",
+      "title": "Fax - zmiana terminu kampanii",
+      "ocr_challenges": [
+        "low_resolution",
+        "noise",
+        "skewed",
+        "fax_artifacts",
+        "partial_cutoff"
+      ],
+      "content": "[FAX - SŁABA JAKOŚĆ, SZUM, PRZEKRZYWIONY]\n\n====================================\nTELEFAX\n====================================\nOd: Browar Wroclavia - Dział Marketingu\nDo: Kreatywna Fala Sp. z o.o.\nData: 05.02.2024\nStron: 1/1\nNr ref: BW/FAX/2024/012\n====================================\n\nPILNE - ZMIANA HARMONOGRAMU\n\nSz.P. Andrzej Kmicic,\n\n[fragment nieczytelny z powodu szumu]\n...informuję o konieczności przesunięcia...\n\nNOWY TERMIN prezentacji konceptów:\nz 15 lutego na 22 LUTEGO 2024\n\nPowód: wewnętrzne ustalenia zarządu\ndotyczące [nieczytelne] ...budżetu rocznego...\n\nProsimy o potwierdzenie przyjęcia\nnowego terminu.\n\n[dolna część strony ucięta przez fax]\n\nZ poważan...\nMar...Piwo...\nDyr. Mar[keting]u\n\nTel. zwrotny: 71 333 [nieczytelne]\n\n[STEMPEL WPŁYWU]\n\"Wpłynęło: 05.02.2024 godz. 11:47\nKreatywna Fala - sekretariat\"\n====================================\n                          str. 1 z 1",
+      "original_deadline": "2024-02-15",
+      "new_deadline": "2024-02-22",
+      "received_timestamp": "2024-02-05T11:47:00",
+      "clients_mentioned": [
+        "Client A"
+      ],
+      "planted_facts": [
+        "pf_ocr_012_browar_deadline_change"
+      ]
+    },
+    {
+      "id": "doc_113",
+      "type": "pdf_whiteboard_photo",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "tablica_strategia_q2_2024.pdf",
+      "timestamp": "2024-04-03T16:30:00+02:00",
+      "author": "Janusz Sieczkowski",
+      "title": "Zdjęcie tablicy - sesja strategiczna Q2",
+      "ocr_challenges": [
+        "perspective_distortion",
+        "glare",
+        "partial_occlusion",
+        "whiteboard_markers",
+        "reflection"
+      ],
+      "content": "[ZDJĘCIE TABLICY - PERSPEKTYWA, ODBLASKI]\n\nSTRATEGIA Q2 2024\n==================\n\n[LEWA STRONA - marker niebieski]\nPRIORYTETY:\n→ ModaNet - NAPRAWIĆ relację!\n→ MaszBud - zamknąć deal\n→ Browar - odnowienie ✓\n\n[ŚRODEK - marker czerwony, częściowo zasłonięty przez odblaski]\nBUDŻET:\nPrzychody plan: 320k\nKoszty: ~210k    [odblask]\nMarża cel: 35%\n\n[PRAWA STRONA - marker zielony]\nZESPÓŁ:\n- Maciej → mentoring (Andrzej)\n- [nieczytelne - odblask]\n- Nowy designer? → WRZESIEŃ?\n\n[NA DOLE - marker czarny, słabo widoczny]\nKLIENCI NOWI (target):\n1. EduSfera ← kontakt Maria Sz.\n2. [zasłonięte ręką fotografa]\n3. LogiTrans - odpuścić?\n\n[STRZAŁKA do góry]\nCEL ROKU: 1.2 mln przychodu\n\n[karteczka przyklejona]\n\"Spotkanie podsumowujące\n15.04 godz 10:00\"\n\n[data w rogu]\n3.04.2024, sesja #1",
+      "q2_revenue_target": 320000,
+      "annual_revenue_goal": 1200000,
+      "margin_target": "35%",
+      "clients_mentioned": [
+        "Client B",
+        "Client D",
+        "Client A"
+      ],
+      "planted_facts": [
+        "pf_ocr_013_annual_revenue_goal"
+      ]
+    },
+    {
+      "id": "doc_114",
+      "type": "pdf_form_filled",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "formularz_urlop_kmicic_202407.pdf",
+      "timestamp": "2024-07-01T09:00:00+02:00",
+      "author": "Andrzej Kmicic",
+      "title": "Wniosek urlopowy - wypełniony ręcznie",
+      "ocr_challenges": [
+        "form_fields",
+        "checkboxes",
+        "handwritten_in_boxes",
+        "signature",
+        "stamp"
+      ],
+      "content": "[FORMULARZ Z POLAMI DO WYPEŁNIENIA]\n\nWNIOSEK O URLOP WYPOCZYNKOWY\nKreatywna Fala Sp. z o.o.\n\nDANE PRACOWNIKA:\nImię i nazwisko: [ręcznie] Andrzej Kmicic\nStanowisko: [ręcznie] Senior Account Manager\nDział: [ręcznie] Sprzedaż / Obsługa Klienta\n\nRODZAJ URLOPU:\n[X] Urlop wypoczynkowy\n[ ] Urlop na żądanie\n[ ] Urlop okolicznościowy\n\nTERMIN URLOPU:\nOd dnia: [ręcznie] 05.08.2024\nDo dnia: [ręcznie] 16.08.2024\nLiczba dni: [ręcznie] 10 (dziesięć)\n\nZASTĘPSTWO:\nOsoba zastępująca: [ręcznie] Maciej Boryna\n                            + Janusz S. (sprawy eskalowane)\n\nKONTAKT W NAGŁYCH PRZYPADKACH:\nTelefon: [ręcznie] 601 XXX XXX (tylko PILNE!)\n\n[SEKCJA ZATWIERDZEŃ]\n\nBezpośredni przełożony:\nPodpis: [podpis] ____________\nData: [ręcznie] 01.07.2024\n[PIECZĄTKA] ZATWIERDZAM - Z. Reymontowski\n\nDział HR / Administracja:\nPodpis: [podpis Haliny] ____________\nData: [ręcznie] 02.07.2024\nPozostały urlop w 2024: [ręcznie] 8 dni\n\nNr wniosku: [stempel] WU/2024/031",
+      "employee": "Andrzej Kmicic",
+      "leave_start": "2024-08-05",
+      "leave_end": "2024-08-16",
+      "leave_days": 10,
+      "substitute": "Maciej Boryna",
+      "clients_mentioned": [],
+      "planted_facts": [
+        "pf_ocr_014_kmicic_vacation_dates"
+      ]
+    },
+    {
+      "id": "doc_115",
+      "type": "pdf_multicolumn_report",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "raport_branzowy_marketing_2023_skan.pdf",
+      "timestamp": "2024-01-10T08:00:00+02:00",
+      "author": "Polska Izba Komunikacji Marketingowej",
+      "title": "Raport branżowy - skan starego dokumentu",
+      "ocr_challenges": [
+        "two_column_layout",
+        "faded_print",
+        "fold_marks",
+        "page_numbers",
+        "headers_footers"
+      ],
+      "content": "[SKAN RAPORTU - 2 KOLUMNY, WYBLAKŁY DRUK]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nPOLSKA IZBA KOMUNIKACJI MARKETINGOWEJ\nRaport: Rynek agencji reklamowych 2023\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n                                    Strona 47\n\n[KOLUMNA LEWA]                  [KOLUMNA PRAWA]\n\nSEGMENT: MAŁE AGENCJE          TRENDY CENOWE\n(do 15 pracowników)            \n                               Średnia stawka godzinowa\nLiczba firm: ~2,400            w segmencie małych agencji:\nPrzychody segmentu:            \n842 mln PLN (+7% r/r)          • Strategia: 180-250 PLN/h\n                               • Kreacja: 150-220 PLN/h\nŚredni przychód na             • Social media: 120-180 PLN/h\nfirmę: 351 tys. PLN            • Produkcja: 100-150 PLN/h\n\nMediana: 285 tys. PLN          [TABELA - częściowo nieczytelna]\n                               \nZatrudnienie:                  Region    | Śr.stawka | Zmiana\nśr. 8,2 pracownika            Warszawa  | 195 PLN   | +12%\n                              [zgięcie papieru]\nMarża operacyjna:             Wrocław   | 165 PLN   | +8%\nśrednia 28,5%                 [wyblakłe]| [...]     | [...]\nnajlepsze firmy: >40%         \n                              \n[RAMKA Z CYTATEM]             PROGNOZA 2024:\n\"Małe agencje               \nkonkurują jakością,           Wzrost rynku: +5-7%\nnie skalą\"                    Presja na marże: TAK\n- ekspert PIKM                Konsolidacja: prawdopodobna\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[STOPKA - słabo widoczna]\n© 2023 PIKM | www.pikm.org.pl | Źródło: badania własne\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "report_year": 2023,
+      "small_agency_segment_revenue": "842 mln PLN",
+      "average_agency_revenue": "351 tys PLN",
+      "average_margin": "28.5%",
+      "wroclaw_hourly_rate": "165 PLN",
+      "clients_mentioned": [],
+      "planted_facts": [
+        "pf_ocr_015_industry_wroclaw_rate"
+      ]
+    },
+    {
+      "id": "doc_116",
+      "type": "pdf_receipt_crumpled",
+      "format": "pdf",
+      "pdf_difficulty": "hard",
+      "filename": "paragon_obiad_klient_zgnieciony.pdf",
+      "timestamp": "2024-05-22T20:00:00+02:00",
+      "author": "Restauracja Patio",
+      "title": "Paragon fiskalny - rozliczenie spotkania z klientem",
+      "ocr_challenges": [
+        "crumpled_paper",
+        "thermal_print_fade",
+        "creases",
+        "partial_text",
+        "small_font"
+      ],
+      "content": "[ZGNIECIONY PARAGON - SKAN]\n\n       ████████████████████\n       █  PARAGON FISKALNY █\n       ████████████████████\n\n    RESTAURACJA PATIO SP.J.\n    ul. Świdnicka 53, Wrocław\n    NIP: 895-123-45-67\n\n    2024-05-22       19:47\n\n[ZAGIĘCIE - część nieczytelna]\n\n    Zupa dnia x2     ████ 28,00\n    Stek wołowy      ████ 89,00\n    [zgięcie]łosoś      79,00\n    Wino dom[owe]       45,00\n    [nieczytelne]       38,00\n    Deser x2            42,00\n    Kawa x2             24,00\n\n[ZAGIĘCIE POPRZECZNE]\n\n    ═══════════════════════\n    SUMA PLN       345,00\n    ═══════════════════════\n    W tym PTU 8%:   25,56\n\n    GOTÓWKA:       350,00\n    RESZTA:          5,00\n\n[DOLNA CZĘŚĆ MOCNO ZNISZCZONA]\n    \n    Nr wydr.: 0█47\n    #fiskalny: [nieczytelne]\n\n[ODRĘCZNY DOPISEK NA ODWROCIE]\n\"Obiad z p. Kowalską (MaszBud)\n22.05.2024 - do rozliczenia\n- Andrzej K.\"\n\n[PIECZĄTKA FIRMOWA - rozmazana]\n\"Kreatywna Fala\nROZLICZONO\"\n\n================================",
+      "restaurant": "Restauracja Patio",
+      "total_amount": 345.0,
+      "expense_date": "2024-05-22",
+      "client_meeting": "MaszBud - Anna Kowalska",
+      "claimed_by": "Andrzej Kmicic",
+      "clients_mentioned": [
+        "Client D"
+      ],
+      "planted_facts": [
+        "pf_ocr_016_client_dinner_amount"
+      ]
     }
   ]
 }

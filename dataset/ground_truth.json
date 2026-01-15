@@ -1,12 +1,18 @@
 {
   "meta": {
-    "version": "1.1",
+    "version": "1.2",
     "created": "2026-01-09",
-    "updated": "2026-01-14",
+    "updated": "2026-01-15",
     "description": "Evaluation questions for synthetic SME dataset - Kreatywna Fala",
-    "total_questions": 35,
+    "total_questions": 56,
     "language": "pl",
-    "notes": "Updated for Phase 2 documents (doc_051-100). See company_meta.json for additional synthesizable fact questions."
+    "notes": "Updated for Phase 2 documents (doc_051-100), OCR documents (doc_101-116), and multi-hop OCR questions. Multi-hop questions require combining OCR-extracted data with other document types.",
+    "ocr_questions": 16,
+    "ocr_easy": 8,
+    "ocr_hard": 8,
+    "multi_hop_ocr_questions": 5,
+    "multi_hop_concrete": 3,
+    "multi_hop_narrative": 2
   },
   "exact_match_questions": [
     {
@@ -14,8 +20,15 @@
       "question_pl": "Kiedy Maciej Boryna podpisał umowę z swoim pierwszym klientem solo (Smakosz)? Odpowiedz tylko datą.",
       "question_en": "When did Maciej Boryna sign the contract with his first solo client (Smakosz)? Answer with date only.",
       "expected_answer": "15 czerwca 2023",
-      "answer_variants": ["15.06.2023", "2023-06-15", "15 June 2023"],
-      "source_documents": ["doc_001", "doc_002"],
+      "answer_variants": [
+        "15.06.2023",
+        "2023-06-15",
+        "15 June 2023"
+      ],
+      "source_documents": [
+        "doc_001",
+        "doc_002"
+      ],
       "planted_fact_id": "boryna_first_client_date",
       "type": "single_source",
       "difficulty": "easy"
@@ -25,8 +38,14 @@
       "question_pl": "O ile dni było opóźnione płatność od Smakosz w listopadzie 2023? Odpowiedz tylko liczbą.",
       "question_en": "How many days was Smakosz's payment overdue in November 2023? Answer with number only.",
       "expected_answer": "45",
-      "answer_variants": ["45 dni", "45 days"],
-      "source_documents": ["doc_010", "doc_028"],
+      "answer_variants": [
+        "45 dni",
+        "45 days"
+      ],
+      "source_documents": [
+        "doc_010",
+        "doc_028"
+      ],
       "planted_fact_id": "client_c_payment_overdue",
       "type": "single_source",
       "difficulty": "easy"
@@ -36,8 +55,13 @@
       "question_pl": "Jaki rabat (w procentach) zaproponowała agencja dla Smakosz po spotkaniu reklamacyjnym 1 grudnia 2023? Odpowiedz tylko liczbą.",
       "question_en": "What discount (in percent) did the agency offer to Smakosz after the complaint meeting on December 1, 2023? Answer with number only.",
       "expected_answer": "10",
-      "answer_variants": ["10%", "10 procent"],
-      "source_documents": ["doc_013"],
+      "answer_variants": [
+        "10%",
+        "10 procent"
+      ],
+      "source_documents": [
+        "doc_013"
+      ],
       "planted_fact_id": "client_c_discount_percent",
       "type": "single_source",
       "difficulty": "easy"
@@ -47,8 +71,15 @@
       "question_pl": "Kto był główną osobą kontaktową po stronie MaszBud? Podaj imię, nazwisko i stanowisko.",
       "question_en": "Who was the main contact person at MaszBud? Provide name and job title.",
       "expected_answer": "Anna Kowalska, Dyrektor Marketingu",
-      "answer_variants": ["Anna Kowalska - Dyrektor Marketingu", "Anna Kowalska (Dyrektor Marketingu)", "Anna Kowalska, Marketing Director"],
-      "source_documents": ["doc_015", "doc_027"],
+      "answer_variants": [
+        "Anna Kowalska - Dyrektor Marketingu",
+        "Anna Kowalska (Dyrektor Marketingu)",
+        "Anna Kowalska, Marketing Director"
+      ],
+      "source_documents": [
+        "doc_015",
+        "doc_027"
+      ],
       "planted_fact_id": "client_d_contact_person",
       "type": "single_source",
       "difficulty": "easy"
@@ -58,8 +89,14 @@
       "question_pl": "Jaka była wartość początkowej oferty dla MaszBud (październik 2023)? Podaj tylko kwotę w PLN.",
       "question_en": "What was the value of the initial proposal for MaszBud (October 2023)? Provide amount in PLN only.",
       "expected_answer": "52000",
-      "answer_variants": ["52,000 PLN", "52 000 PLN", "52000 PLN"],
-      "source_documents": ["doc_015"],
+      "answer_variants": [
+        "52,000 PLN",
+        "52 000 PLN",
+        "52000 PLN"
+      ],
+      "source_documents": [
+        "doc_015"
+      ],
       "planted_fact_id": "client_d_initial_proposal",
       "type": "single_source",
       "difficulty": "easy"
@@ -69,8 +106,14 @@
       "question_pl": "Jaką kwotę zaproponował MaszBud jako kontrpropozycję w listopadzie 2023? Podaj tylko kwotę w PLN.",
       "question_en": "What amount did MaszBud propose as a counter-offer in November 2023? Provide amount in PLN only.",
       "expected_answer": "42000",
-      "answer_variants": ["42,000 PLN", "42 000 PLN", "42000 PLN"],
-      "source_documents": ["doc_011"],
+      "answer_variants": [
+        "42,000 PLN",
+        "42 000 PLN",
+        "42000 PLN"
+      ],
+      "source_documents": [
+        "doc_011"
+      ],
       "planted_fact_id": "client_d_counter_offer",
       "type": "single_source",
       "difficulty": "easy"
@@ -80,8 +123,14 @@
       "question_pl": "Jaka była wartość zrewidowanej oferty dla MaszBud (grudzień 2023)? Podaj tylko kwotę w PLN.",
       "question_en": "What was the value of the revised proposal for MaszBud (December 2023)? Provide amount in PLN only.",
       "expected_answer": "48000",
-      "answer_variants": ["48,000 PLN", "48 000 PLN", "48000 PLN"],
-      "source_documents": ["doc_027"],
+      "answer_variants": [
+        "48,000 PLN",
+        "48 000 PLN",
+        "48000 PLN"
+      ],
+      "source_documents": [
+        "doc_027"
+      ],
       "planted_fact_id": "client_d_revised_proposal",
       "type": "single_source",
       "difficulty": "easy"
@@ -91,8 +140,14 @@
       "question_pl": "Jaki był przychód agencji w Q3 2023? Podaj tylko kwotę w PLN.",
       "question_en": "What was the agency's revenue in Q3 2023? Provide amount in PLN only.",
       "expected_answer": "287500",
-      "answer_variants": ["287,500 PLN", "287 500 PLN", "287500 PLN"],
-      "source_documents": ["doc_016"],
+      "answer_variants": [
+        "287,500 PLN",
+        "287 500 PLN",
+        "287500 PLN"
+      ],
+      "source_documents": [
+        "doc_016"
+      ],
       "planted_fact_id": "q3_2023_revenue",
       "type": "single_source",
       "difficulty": "easy"
@@ -102,8 +157,13 @@
       "question_pl": "Jaka była marża operacyjna agencji w Q3 2023? Odpowiedz tylko liczbą (procent).",
       "question_en": "What was the agency's operating margin in Q3 2023? Answer with number only (percent).",
       "expected_answer": "42",
-      "answer_variants": ["42%", "42 procent"],
-      "source_documents": ["doc_016"],
+      "answer_variants": [
+        "42%",
+        "42 procent"
+      ],
+      "source_documents": [
+        "doc_016"
+      ],
       "planted_fact_id": "q3_2023_margin",
       "type": "single_source",
       "difficulty": "easy"
@@ -113,8 +173,15 @@
       "question_pl": "Jaka była początkowa miesięczna opłata ModaNet przed zwiększeniem scope? Podaj tylko kwotę w PLN.",
       "question_en": "What was ModaNet's initial monthly fee before scope expansion? Provide amount in PLN only.",
       "expected_answer": "3800",
-      "answer_variants": ["3,800 PLN", "3 800 PLN", "3800 PLN"],
-      "source_documents": ["doc_019", "doc_021"],
+      "answer_variants": [
+        "3,800 PLN",
+        "3 800 PLN",
+        "3800 PLN"
+      ],
+      "source_documents": [
+        "doc_019",
+        "doc_021"
+      ],
       "planted_fact_id": "client_b_monthly_fee_initial",
       "type": "single_source",
       "difficulty": "easy"
@@ -124,8 +191,15 @@
       "question_pl": "Jaka była miesięczna opłata ModaNet po dodaniu TikTok do scope? Podaj tylko kwotę w PLN.",
       "question_en": "What was ModaNet's monthly fee after adding TikTok to the scope? Provide amount in PLN only.",
       "expected_answer": "4500",
-      "answer_variants": ["4,500 PLN", "4 500 PLN", "4500 PLN"],
-      "source_documents": ["doc_019", "doc_021"],
+      "answer_variants": [
+        "4,500 PLN",
+        "4 500 PLN",
+        "4500 PLN"
+      ],
+      "source_documents": [
+        "doc_019",
+        "doc_021"
+      ],
       "planted_fact_id": "client_b_monthly_fee_final",
       "type": "single_source",
       "difficulty": "easy"
@@ -135,8 +209,15 @@
       "question_pl": "Od jakiej daty obowiązywała nowa opłata ModaNet po zwiększeniu scope? Odpowiedz tylko datą.",
       "question_en": "From what date was the new ModaNet fee effective after scope increase? Answer with date only.",
       "expected_answer": "15 stycznia 2024",
-      "answer_variants": ["15.01.2024", "2024-01-15", "15 January 2024"],
-      "source_documents": ["doc_019", "doc_021"],
+      "answer_variants": [
+        "15.01.2024",
+        "2024-01-15",
+        "15 January 2024"
+      ],
+      "source_documents": [
+        "doc_019",
+        "doc_021"
+      ],
       "planted_fact_id": "client_b_fee_increase_date",
       "type": "single_source",
       "difficulty": "easy"
@@ -146,8 +227,14 @@
       "question_pl": "Jaka była łączna kwota zaległych płatności w listopadzie 2023? Podaj tylko kwotę w PLN.",
       "question_en": "What was the total amount of overdue payments in November 2023? Provide amount in PLN only.",
       "expected_answer": "6000",
-      "answer_variants": ["6,000 PLN", "6 000 PLN", "6000 PLN"],
-      "source_documents": ["doc_028"],
+      "answer_variants": [
+        "6,000 PLN",
+        "6 000 PLN",
+        "6000 PLN"
+      ],
+      "source_documents": [
+        "doc_028"
+      ],
       "planted_fact_id": "november_2023_overdue",
       "type": "single_source",
       "difficulty": "easy"
@@ -157,8 +244,15 @@
       "question_pl": "Jaki był planowany budżet projektu ModaNet? Podaj tylko kwotę w PLN.",
       "question_en": "What was the planned budget for the ModaNet project? Provide amount in PLN only.",
       "expected_answer": "32000",
-      "answer_variants": ["32,000 PLN", "32 000 PLN", "32000 PLN"],
-      "source_documents": ["doc_022", "doc_031"],
+      "answer_variants": [
+        "32,000 PLN",
+        "32 000 PLN",
+        "32000 PLN"
+      ],
+      "source_documents": [
+        "doc_022",
+        "doc_031"
+      ],
       "planted_fact_id": "modanet_project_budget",
       "type": "single_source",
       "difficulty": "easy"
@@ -168,8 +262,14 @@
       "question_pl": "Jaki był rzeczywisty koszt projektu ModaNet? Podaj tylko kwotę w PLN.",
       "question_en": "What was the actual cost of the ModaNet project? Provide amount in PLN only.",
       "expected_answer": "34500",
-      "answer_variants": ["34,500 PLN", "34 500 PLN", "34500 PLN"],
-      "source_documents": ["doc_031"],
+      "answer_variants": [
+        "34,500 PLN",
+        "34 500 PLN",
+        "34500 PLN"
+      ],
+      "source_documents": [
+        "doc_031"
+      ],
       "planted_fact_id": "modanet_project_actual",
       "type": "single_source",
       "difficulty": "easy"
@@ -179,8 +279,16 @@
       "question_pl": "O ile PLN projekt ModaNet przekroczył budżet? Podaj tylko kwotę.",
       "question_en": "By how much PLN did the ModaNet project exceed the budget? Provide amount only.",
       "expected_answer": "2500",
-      "answer_variants": ["2,500 PLN", "2 500 PLN", "2500 PLN"],
-      "source_documents": ["doc_022", "doc_023", "doc_031"],
+      "answer_variants": [
+        "2,500 PLN",
+        "2 500 PLN",
+        "2500 PLN"
+      ],
+      "source_documents": [
+        "doc_022",
+        "doc_023",
+        "doc_031"
+      ],
       "planted_fact_id": "modanet_budget_overrun",
       "type": "single_source",
       "difficulty": "medium"
@@ -190,8 +298,17 @@
       "question_pl": "Ile emaili follow-up wysłał Maciej Boryna do prospekta LogiTrans? Odpowiedz tylko liczbą.",
       "question_en": "How many follow-up emails did Maciej Boryna send to prospect LogiTrans? Answer with number only.",
       "expected_answer": "4",
-      "answer_variants": ["4 maile", "4 emails", "cztery"],
-      "source_documents": ["doc_014", "doc_017", "doc_020", "doc_024"],
+      "answer_variants": [
+        "4 maile",
+        "4 emails",
+        "cztery"
+      ],
+      "source_documents": [
+        "doc_014",
+        "doc_017",
+        "doc_020",
+        "doc_024"
+      ],
       "planted_fact_id": "logitrans_followup_count",
       "type": "multi_document",
       "difficulty": "medium"
@@ -201,8 +318,14 @@
       "question_pl": "Kiedy Browar Wroclavia przedłużył umowę i jaka była nowa miesięczna wartość? Podaj datę i kwotę.",
       "question_en": "When did Browar Wroclavia renew their contract and what was the new monthly value? Provide date and amount.",
       "expected_answer": "Marzec 2024, 9200 PLN",
-      "answer_variants": ["Marzec 2024, 9,200 PLN", "March 2024, 9200 PLN", "1 kwietnia 2024, 9200 PLN"],
-      "source_documents": ["doc_030"],
+      "answer_variants": [
+        "Marzec 2024, 9,200 PLN",
+        "March 2024, 9200 PLN",
+        "1 kwietnia 2024, 9200 PLN"
+      ],
+      "source_documents": [
+        "doc_030"
+      ],
       "planted_fact_id": "client_a_contract_renewal",
       "type": "single_source",
       "difficulty": "easy"
@@ -212,8 +335,14 @@
       "question_pl": "Kiedy Andrzej Kmicic przejął konto ModaNet od Macieja Boryny? Odpowiedz tylko datą.",
       "question_en": "When did Andrzej Kmicic take over the ModaNet account from Maciej Boryna? Answer with date only.",
       "expected_answer": "12 marca 2024",
-      "answer_variants": ["12.03.2024", "2024-03-12", "12 March 2024"],
-      "source_documents": ["doc_029"],
+      "answer_variants": [
+        "12.03.2024",
+        "2024-03-12",
+        "12 March 2024"
+      ],
+      "source_documents": [
+        "doc_029"
+      ],
       "planted_fact_id": "modanet_account_handover",
       "type": "single_source",
       "difficulty": "easy"
@@ -225,8 +354,14 @@
       "question_pl": "Ile dni minęło między pierwszą skargą Smakosz (12 listopada 2023) a spotkaniem rozwiązującym problem (1 grudnia 2023)? Odpowiedz tylko liczbą dni.",
       "question_en": "How many days passed between Smakosz's first complaint (November 12, 2023) and the resolution meeting (December 1, 2023)? Answer with number of days only.",
       "expected_answer": "19",
-      "answer_variants": ["19 dni", "19 days"],
-      "source_documents": ["doc_044", "doc_013"],
+      "answer_variants": [
+        "19 dni",
+        "19 days"
+      ],
+      "source_documents": [
+        "doc_044",
+        "doc_013"
+      ],
       "planted_fact_id": "client_c_complaint_to_resolution",
       "type": "temporal_calculation",
       "difficulty": "medium"
@@ -237,7 +372,11 @@
       "question_en": "Describe the sequence of price negotiations with MaszBud: provide three amounts and dates.",
       "expected_answer": "52,000 PLN (20 października 2023) → 42,000 PLN kontrpropozycja (28 listopada 2023) → 48,000 PLN finalna oferta (15 grudnia 2023)",
       "answer_variants": [],
-      "source_documents": ["doc_015", "doc_011", "doc_027"],
+      "source_documents": [
+        "doc_015",
+        "doc_011",
+        "doc_027"
+      ],
       "planted_fact_id": "multi_fact_synthesis",
       "type": "sequence",
       "difficulty": "medium"
@@ -248,7 +387,11 @@
       "question_en": "Describe the Smakosz project timeline from contract signing to concept approval. Provide key dates.",
       "expected_answer": "Umowa: 15 czerwca 2023, Kickoff: 20 czerwca 2023, Koncepcje zaakceptowane: 22 sierpnia 2023",
       "answer_variants": [],
-      "source_documents": ["doc_001", "doc_033", "doc_034"],
+      "source_documents": [
+        "doc_001",
+        "doc_033",
+        "doc_034"
+      ],
       "planted_fact_id": "client_c_project_timeline",
       "type": "timeline",
       "difficulty": "medium"
@@ -259,7 +402,11 @@
       "question_en": "Describe the sequence of ModaNet's scope change: when was the request, when approved, when did the new contract start?",
       "expected_answer": "Prośba: 8 stycznia 2024, Zatwierdzenie: 9 stycznia 2024, Nowa umowa: 30 stycznia 2024, obowiązuje od 15 stycznia 2024",
       "answer_variants": [],
-      "source_documents": ["doc_018", "doc_019", "doc_021"],
+      "source_documents": [
+        "doc_018",
+        "doc_019",
+        "doc_021"
+      ],
       "planted_fact_id": "modanet_scope_change_sequence",
       "type": "sequence",
       "difficulty": "medium"
@@ -270,7 +417,16 @@
       "id": "q024",
       "question_pl": "Opisz jak zmieniała się relacja agencji z klientem ModaNet między sierpniem 2023 a kwietniem 2024. Wymień kluczowe momenty.",
       "question_en": "Describe how the relationship between the agency and ModaNet evolved from August 2023 to April 2024. List key moments.",
-      "source_documents": ["doc_018", "doc_021", "doc_022", "doc_023", "doc_025", "doc_026", "doc_029", "doc_031"],
+      "source_documents": [
+        "doc_018",
+        "doc_021",
+        "doc_022",
+        "doc_023",
+        "doc_025",
+        "doc_026",
+        "doc_029",
+        "doc_031"
+      ],
       "rubric_id": "modanet_relationship_evolution",
       "type": "narrative",
       "difficulty": "hard"
@@ -279,7 +435,14 @@
       "id": "q025",
       "question_pl": "Jakie były główne problemy w projekcie Smakosz i jak zostały rozwiązane?",
       "question_en": "What were the main problems in the Smakosz project and how were they resolved?",
-      "source_documents": ["doc_008", "doc_009", "doc_010", "doc_013", "doc_044", "doc_050"],
+      "source_documents": [
+        "doc_008",
+        "doc_009",
+        "doc_010",
+        "doc_013",
+        "doc_044",
+        "doc_050"
+      ],
       "rubric_id": "smakosz_problem_resolution",
       "type": "narrative",
       "difficulty": "hard"
@@ -288,7 +451,16 @@
       "id": "q026",
       "question_pl": "Opisz proces pozyskiwania klienta MaszBud od pierwszego kontaktu do finalnej decyzji.",
       "question_en": "Describe the process of acquiring MaszBud client from first contact to final decision.",
-      "source_documents": ["doc_054", "doc_055", "doc_056", "doc_057", "doc_094", "doc_095", "doc_098", "doc_100"],
+      "source_documents": [
+        "doc_054",
+        "doc_055",
+        "doc_056",
+        "doc_057",
+        "doc_094",
+        "doc_095",
+        "doc_098",
+        "doc_100"
+      ],
       "rubric_id": "maszbud_sales_process",
       "type": "narrative",
       "difficulty": "hard"
@@ -297,7 +469,12 @@
       "id": "q027",
       "question_pl": "Jakie lessons learned wynikają z projektu ModaNet według wewnętrznego post-mortem?",
       "question_en": "What lessons learned emerged from the ModaNet project according to the internal post-mortem?",
-      "source_documents": ["doc_022", "doc_023", "doc_031", "doc_046"],
+      "source_documents": [
+        "doc_022",
+        "doc_023",
+        "doc_031",
+        "doc_046"
+      ],
       "rubric_id": "modanet_lessons_learned",
       "type": "lessons_learned",
       "difficulty": "medium"
@@ -308,7 +485,13 @@
       "id": "q028",
       "question_pl": "Pokaż wszystkie dokumenty z marca 2024.",
       "question_en": "Show all documents from March 2024.",
-      "expected_document_ids": ["doc_029", "doc_030", "doc_043", "doc_073", "doc_074"],
+      "expected_document_ids": [
+        "doc_029",
+        "doc_030",
+        "doc_043",
+        "doc_073",
+        "doc_074"
+      ],
       "type": "temporal_filter",
       "difficulty": "easy"
     },
@@ -316,7 +499,13 @@
       "id": "q029",
       "question_pl": "Pokaż wszystkie dokumenty związane z klientem ModaNet z lutego 2024.",
       "question_en": "Show all documents related to client ModaNet from February 2024.",
-      "expected_document_ids": ["doc_022", "doc_023", "doc_025", "doc_026", "doc_046"],
+      "expected_document_ids": [
+        "doc_022",
+        "doc_023",
+        "doc_025",
+        "doc_026",
+        "doc_046"
+      ],
       "type": "temporal_filter_client",
       "difficulty": "medium"
     },
@@ -324,8 +513,16 @@
       "id": "q030",
       "question_pl": "Co się działo z projektem Smakosz w listopadzie 2023? Podsumuj na podstawie dokumentów z tego miesiąca.",
       "question_en": "What was happening with the Smakosz project in November 2023? Summarize based on documents from that month.",
-      "expected_document_ids": ["doc_010", "doc_012", "doc_044"],
-      "source_documents": ["doc_010", "doc_012", "doc_044"],
+      "expected_document_ids": [
+        "doc_010",
+        "doc_012",
+        "doc_044"
+      ],
+      "source_documents": [
+        "doc_010",
+        "doc_012",
+        "doc_044"
+      ],
       "type": "temporal_synthesis",
       "difficulty": "medium"
     }
@@ -375,6 +572,428 @@
       "expected_behavior": "System should indicate that this information is not available (documents only cover June 2023 - May 2024)",
       "type": "negative_outside_timeframe",
       "difficulty": "easy"
+    }
+  ],
+  "ocr_questions": [
+    {
+      "id": "q_ocr_001",
+      "question_pl": "Jaka jest roczna wartość umowy ze Smakosz podpisanej w styczniu 2024? Podaj tylko kwotę w PLN.",
+      "question_en": "What is the annual value of the contract with Smakosz signed in January 2024? Provide amount in PLN only.",
+      "expected_answer": "48000",
+      "answer_variants": [
+        "48,000 PLN",
+        "48 000 PLN",
+        "48000 PLN",
+        "48 tysięcy"
+      ],
+      "source_documents": [
+        "doc_101"
+      ],
+      "planted_fact_id": "pf_ocr_001_smakosz_contract_value",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_002",
+      "question_pl": "Jaka była kwota netto faktury od Studio Graficzne Pixel za projekt broszury ModaNet?",
+      "question_en": "What was the net amount of the invoice from Studio Graficzne Pixel for the ModaNet brochure design?",
+      "expected_answer": "3200",
+      "answer_variants": [
+        "3,200 PLN",
+        "3 200 PLN",
+        "3200 PLN"
+      ],
+      "source_documents": [
+        "doc_102"
+      ],
+      "planted_fact_id": "pf_ocr_002_vendor_pixel_amount",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_003",
+      "question_pl": "Ile wynosiła faktura netto od VideoMakers Wrocław za produkcję spotu reklamowego?",
+      "question_en": "What was the net invoice amount from VideoMakers Wrocław for the advertising spot production?",
+      "expected_answer": "8500",
+      "answer_variants": [
+        "8,500 PLN",
+        "8 500 PLN",
+        "8500 PLN"
+      ],
+      "source_documents": [
+        "doc_103"
+      ],
+      "planted_fact_id": "pf_ocr_003_vendor_video_amount",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_004",
+      "question_pl": "Jaką kwotę zaliczki wpłacił MaszBud w lipcu 2024? Podaj datę i kwotę.",
+      "question_en": "What advance payment did MaszBud make in July 2024? Provide date and amount.",
+      "expected_answer": "28 lipca 2024, 25000 PLN",
+      "answer_variants": [
+        "25,000 PLN 28.07.2024",
+        "25 000 PLN",
+        "25000 PLN"
+      ],
+      "source_documents": [
+        "doc_104"
+      ],
+      "planted_fact_id": "pf_ocr_004_maszbud_advance",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_005",
+      "question_pl": "Kiedy doszło do eskalacji problemu z ModaNet do CEO Kreatywnej Fali?",
+      "question_en": "When was the ModaNet issue escalated to the CEO of Kreatywna Fala?",
+      "expected_answer": "12 lutego 2024",
+      "answer_variants": [
+        "12.02.2024",
+        "2024-02-12"
+      ],
+      "source_documents": [
+        "doc_105"
+      ],
+      "planted_fact_id": "pf_ocr_005_modanet_escalation_date",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_006",
+      "question_pl": "Kiedy podpisano protokół odbioru kampanii wiosennej Browar Wroclavia?",
+      "question_en": "When was the delivery protocol for the Browar Wroclavia spring campaign signed?",
+      "expected_answer": "15 marca 2024",
+      "answer_variants": [
+        "15.03.2024",
+        "2024-03-15"
+      ],
+      "source_documents": [
+        "doc_106"
+      ],
+      "planted_fact_id": "pf_ocr_006_browar_signoff_date",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_007",
+      "question_pl": "Jaka była wartość projektu dla EduSfera zaakceptowanego w czerwcu 2024?",
+      "question_en": "What was the project value for EduSfera accepted in June 2024?",
+      "expected_answer": "35000",
+      "answer_variants": [
+        "35,000 PLN",
+        "35 000 PLN",
+        "35000 PLN"
+      ],
+      "source_documents": [
+        "doc_107"
+      ],
+      "planted_fact_id": "pf_ocr_007_edusfera_value",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_ocr_008",
+      "question_pl": "O ile PLN rocznie wzrosła wartość umowy ze Smakosz po rozszerzeniu o usługi wideo?",
+      "question_en": "By how much PLN annually did the Smakosz contract value increase after adding video services?",
+      "expected_answer": "12000",
+      "answer_variants": [
+        "12,000 PLN",
+        "12 000 PLN",
+        "12000 PLN",
+        "18000 (1500x12)"
+      ],
+      "source_documents": [
+        "doc_108"
+      ],
+      "planted_fact_id": "pf_ocr_008_smakosz_video_extension",
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_ocr_009",
+      "question_pl": "Jaki roczny budżet na marketing MaszBud był zapisany w odręcznych notatkach ze spotkania?",
+      "question_en": "What annual marketing budget for MaszBud was written in the handwritten meeting notes?",
+      "expected_answer": "50000",
+      "answer_variants": [
+        "50,000 PLN",
+        "50 000 PLN",
+        "50000 PLN",
+        "50k"
+      ],
+      "source_documents": [
+        "doc_109"
+      ],
+      "planted_fact_id": "pf_ocr_009_maszbud_budget_handwritten",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_010",
+      "question_pl": "Jaki był budżet produkcyjny kampanii letniej Smakosz według briefu z adnotacjami?",
+      "question_en": "What was the production budget for the Smakosz summer campaign according to the annotated brief?",
+      "expected_answer": "18000",
+      "answer_variants": [
+        "18,000 PLN",
+        "18 000 PLN",
+        "18000 PLN"
+      ],
+      "source_documents": [
+        "doc_110"
+      ],
+      "planted_fact_id": "pf_ocr_010_smakosz_summer_budget",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_011",
+      "question_pl": "Jaka była kwota netto faktury od Drukarni Express ze stemplami zatwierdzenia?",
+      "question_en": "What was the net amount of the invoice from Drukarnia Express with approval stamps?",
+      "expected_answer": "2950",
+      "answer_variants": [
+        "2,950 PLN",
+        "2 950 PLN",
+        "2950 PLN"
+      ],
+      "source_documents": [
+        "doc_111"
+      ],
+      "planted_fact_id": "pf_ocr_011_drukarnia_amount",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_012",
+      "question_pl": "Na jaki nowy termin przesunięto prezentację dla Browaru według zafaxowanego dokumentu?",
+      "question_en": "To what new date was the Browar presentation rescheduled according to the faxed document?",
+      "expected_answer": "22 lutego 2024",
+      "answer_variants": [
+        "22.02.2024",
+        "2024-02-22"
+      ],
+      "source_documents": [
+        "doc_112"
+      ],
+      "planted_fact_id": "pf_ocr_012_browar_deadline_change",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_013",
+      "question_pl": "Jaki był roczny cel przychodowy agencji według zdjęcia tablicy strategicznej?",
+      "question_en": "What was the agency's annual revenue target according to the strategy whiteboard photo?",
+      "expected_answer": "1200000",
+      "answer_variants": [
+        "1,200,000 PLN",
+        "1.2 mln",
+        "1.2 miliona",
+        "1200000 PLN"
+      ],
+      "source_documents": [
+        "doc_113"
+      ],
+      "planted_fact_id": "pf_ocr_013_annual_revenue_goal",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_014",
+      "question_pl": "W jakim terminie Andrzej Kmicic planował urlop w 2024 roku według wypełnionego formularza?",
+      "question_en": "What vacation dates did Andrzej Kmicic plan for 2024 according to the filled form?",
+      "expected_answer": "5-16 sierpnia 2024",
+      "answer_variants": [
+        "05.08.2024 - 16.08.2024",
+        "5-16.08.2024",
+        "August 5-16, 2024"
+      ],
+      "source_documents": [
+        "doc_114"
+      ],
+      "planted_fact_id": "pf_ocr_014_kmicic_vacation_dates",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_ocr_015",
+      "question_pl": "Jaka była średnia stawka godzinowa dla agencji we Wrocławiu według raportu branżowego?",
+      "question_en": "What was the average hourly rate for agencies in Wrocław according to the industry report?",
+      "expected_answer": "165 PLN",
+      "answer_variants": [
+        "165 PLN/h",
+        "165 zł"
+      ],
+      "source_documents": [
+        "doc_115"
+      ],
+      "planted_fact_id": "pf_ocr_015_industry_wroclaw_rate",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_ocr_016",
+      "question_pl": "Ile kosztował obiad z klientką z MaszBud według zgniecionego paragonu?",
+      "question_en": "How much was the dinner with the MaszBud client according to the crumpled receipt?",
+      "expected_answer": "345",
+      "answer_variants": [
+        "345 PLN",
+        "345,00 PLN",
+        "345 zł"
+      ],
+      "source_documents": [
+        "doc_116"
+      ],
+      "planted_fact_id": "pf_ocr_016_client_dinner_amount",
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "difficulty": "hard"
+    }
+  ],
+  "multi_hop_ocr_questions": [
+    {
+      "id": "q_mh_001",
+      "question_pl": "O ile PLN początkowa oferta Kreatywnej Fali dla MaszBud (z dokumentu ofertowego) przekraczała roczny budżet marketingowy klienta zapisany w odręcznych notatkach ze spotkania?",
+      "question_en": "By how much PLN did Kreatywna Fala's initial proposal for MaszBud (from the proposal document) exceed the client's annual marketing budget noted in handwritten meeting notes?",
+      "expected_answer": "2000",
+      "answer_variants": [
+        "2,000 PLN",
+        "2 000 PLN",
+        "2000 PLN",
+        "2 tysiące"
+      ],
+      "source_documents": [
+        "doc_109",
+        "doc_015"
+      ],
+      "reasoning_steps": [
+        "OCR handwritten notes (doc_109) to extract MaszBud budget: 50,000 PLN",
+        "Read proposal document (doc_015) to find initial offer: 52,000 PLN",
+        "Calculate difference: 52,000 - 50,000 = 2,000 PLN"
+      ],
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "requires_multi_doc": true,
+      "type": "numeric_calculation",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_mh_002",
+      "question_pl": "Jaki procent rocznego budżetu marketingowego MaszBud (z notatek odręcznych) stanowiła zaliczka wpłacona w lipcu 2024 (z potwierdzenia przelewu)?",
+      "question_en": "What percentage of MaszBud's annual marketing budget (from handwritten notes) was the advance payment made in July 2024 (from bank confirmation)?",
+      "expected_answer": "50",
+      "answer_variants": [
+        "50%",
+        "50 procent",
+        "połowa"
+      ],
+      "source_documents": [
+        "doc_109",
+        "doc_104"
+      ],
+      "reasoning_steps": [
+        "OCR handwritten notes (doc_109) to extract MaszBud budget: 50,000 PLN",
+        "OCR bank confirmation (doc_104) to extract advance payment: 25,000 PLN",
+        "Calculate percentage: 25,000 / 50,000 * 100 = 50%"
+      ],
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "requires_multi_doc": true,
+      "type": "numeric_calculation",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_mh_003",
+      "question_pl": "Jaki procent rocznej wartości umowy ze Smakosz (z podpisanej umowy PDF) stanowił budżet produkcyjny kampanii letniej (z briefu z adnotacjami)?",
+      "question_en": "What percentage of Smakosz's annual contract value (from signed PDF contract) was the summer campaign production budget (from annotated brief)?",
+      "expected_answer": "37.5",
+      "answer_variants": [
+        "37,5%",
+        "37.5%",
+        "38%",
+        "37,5 procent"
+      ],
+      "source_documents": [
+        "doc_101",
+        "doc_110"
+      ],
+      "reasoning_steps": [
+        "OCR signed contract (doc_101) to extract annual value: 48,000 PLN",
+        "OCR annotated brief (doc_110) to extract production budget: 18,000 PLN",
+        "Calculate percentage: 18,000 / 48,000 * 100 = 37.5%"
+      ],
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "requires_multi_doc": true,
+      "type": "numeric_calculation",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_mh_004",
+      "question_pl": "Opisz chronologię kryzysu z ModaNet: kiedy doszło do eskalacji do CEO Kreatywnej Fali (z archiwum emaili PDF), jakie były działania naprawcze, i jak zakończyła się relacja z tym klientem? Uwzględnij kluczowe daty i osoby.",
+      "question_en": "Describe the ModaNet crisis timeline: when was the escalation to Kreatywna Fala's CEO (from PDF email archive), what corrective actions were taken, and how did the relationship with this client end? Include key dates and people.",
+      "expected_answer": "Eskalacja do CEO 12 lutego 2024. Działania naprawcze: przejęcie konta przez Andrzeja Kmicica (12 marca 2024), post-mortem z lessons learned. Relacja utrzymana ale napięta, projekt zakończony z przekroczeniem budżetu o 2,500 PLN.",
+      "source_documents": [
+        "doc_105",
+        "doc_022",
+        "doc_023",
+        "doc_025",
+        "doc_026",
+        "doc_029",
+        "doc_031"
+      ],
+      "reasoning_steps": [
+        "OCR email archive PDF (doc_105) to extract escalation date: 12 February 2024",
+        "Read meeting notes (doc_022, doc_023) for crisis discussion",
+        "Read emails (doc_025, doc_026) for remediation actions",
+        "Read handover email (doc_029) for account transfer: 12 March 2024 to Andrzej Kmicic",
+        "Read project summary (doc_031) for financial outcome: 2,500 PLN overrun"
+      ],
+      "requires_ocr": true,
+      "ocr_difficulty": "easy",
+      "requires_multi_doc": true,
+      "type": "narrative_timeline",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_mh_005",
+      "question_pl": "Porównaj formalny i nieformalny obraz procesu pozyskiwania klienta MaszBud. Jakie informacje znajdziesz w oficjalnych dokumentach (oferty, umowy), a jakie w odręcznych notatkach i rachunkach? Czy są rozbieżności między nimi?",
+      "question_en": "Compare the formal and informal picture of the MaszBud client acquisition process. What information do you find in official documents (proposals, contracts) versus handwritten notes and receipts? Are there any discrepancies?",
+      "expected_answer": "Dokumenty oficjalne: oferta 52k PLN (październik 2023), kontroferta 42k, finalna oferta 48k PLN. Notatki nieformalne: budżet klienta 50k, ocena szans 90%, plan etapowy (15k+18k+17k=50k). Rachunek z obiadu 345 PLN pokazuje nieformalne relacje z klientką. Rozbieżność: początkowa oferta (52k) przekraczała budżet klienta (50k), co wyjaśnia negocjacje.",
+      "source_documents": [
+        "doc_015",
+        "doc_011",
+        "doc_027",
+        "doc_109",
+        "doc_116"
+      ],
+      "reasoning_steps": [
+        "Read proposal (doc_015): initial offer 52,000 PLN",
+        "Read counter-offer email (doc_011): client proposed 42,000 PLN",
+        "Read revised proposal (doc_027): final offer 48,000 PLN",
+        "OCR handwritten notes (doc_109): client budget 50,000 PLN, 90% probability, phased plan",
+        "OCR crumpled receipt (doc_116): 345 PLN dinner with Anna Kowalska",
+        "Synthesize: formal vs informal picture, identify discrepancies"
+      ],
+      "requires_ocr": true,
+      "ocr_difficulty": "hard",
+      "requires_multi_doc": true,
+      "type": "comparative_analysis",
+      "difficulty": "hard"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 A synthetic **Polish-language** dataset of business documents from a fictional marketing agency. Designed for testing and evaluating RAG (Retrieval-Augmented Generation) systems.
 
-> **Language:** All documents are in Polish (polski). This is one of few high-quality Polish-language datasets available for RAG evaluation.
+> **Language:** All documents are in Polish (polski).
 
 ## Overview
 
@@ -10,11 +10,12 @@ The dataset mimics internal documents of Kreatywna Fala Sp. z o.o., a small mark
 
 ### Key Features
 
-- **100 documents** across 7 types (emails, reports, spreadsheets, presentations, meeting notes)
+- **116 documents** across multiple types (emails, reports, spreadsheets, presentations, meeting notes, PDFs)
 - **Polish business language** with authentic terminology and conventions
-- **22 planted facts** with ground truth for quantitative evaluation
-- **43 evaluation questions** (35 standard + 8 meta-questions for synthesizable facts)
+- **38 planted facts** with ground truth for quantitative evaluation
+- **59 evaluation questions** (35 standard + 8 meta + 16 OCR)
 - **Interconnected narratives** testing multi-document reasoning
+- **Optional OCR testing** with scanned-style PDFs (easy and hard difficulty)
 
 ## Installation
 
@@ -25,8 +26,8 @@ Requires [uv](https://docs.astral.sh/uv/) for dependency management.
 git clone https://github.com/your-username/sme-synth-data-gen.git
 cd sme-synth-data-gen
 
-# Install dependencies (optional - only needed for file generation)
-uv sync --extra files
+# Install dependencies
+uv sync
 ```
 
 ## Usage
@@ -50,10 +51,7 @@ for doc in data['documents']:
 To create .eml, .docx, .xlsx, .pptx files from the JSON:
 
 ```bash
-# Install file generation dependencies
-uv sync --extra files
-
-# Generate files to output/ directory
+# Generate files to output/ directory (excludes PDFs by default)
 uv run generate
 
 # Or specify custom output directory
@@ -63,9 +61,39 @@ uv run generate --output-dir my_output/
 ### Running Tests
 
 ```bash
-uv sync --extra dev
+uv sync --extra dev  # includes pytest, ruff
 uv run pytest
 ```
+
+## OCR Testing (Optional)
+
+The dataset includes 16 scanned PDF documents for testing OCR capabilities:
+
+| Difficulty | Count | Description |
+|------------|-------|-------------|
+| Easy | 8 | Clean scans - contracts, invoices, bank confirmations |
+| Hard | 8 | Degraded quality - handwritten notes, faxes, crumpled receipts, multi-column layouts |
+
+### Generating PDFs
+
+```bash
+# Install PDF generation dependencies
+uv sync --extra pdf
+
+# Generate all files including PDFs
+uv run generate --include-pdf
+```
+
+### Hard PDF Challenges
+
+The "hard" PDFs include realistic degradation effects:
+- Slight rotation (0.5-2.5 degrees)
+- Gaussian noise
+- Reduced contrast
+- Lower DPI (150-200)
+- JPEG compression artifacts
+
+OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and `"ocr_difficulty": "easy"|"hard"`. Skip these if not testing OCR pipelines.
 
 ## Repository Structure
 
@@ -75,8 +103,8 @@ uv run pytest
 ├── pyproject.toml
 │
 ├── dataset/
-│   ├── documents.json           # 100 documents (main artifact)
-│   ├── ground_truth.json        # 35 evaluation questions
+│   ├── documents.json           # 116 documents (100 standard + 16 PDF)
+│   ├── ground_truth.json        # 51 evaluation questions (35 + 16 OCR)
 │   ├── qualitative_rubric.json  # Scoring rubrics for narrative questions
 │   └── company_meta.json        # Synthesizable facts + 8 meta-questions
 │
@@ -94,14 +122,16 @@ uv run pytest
 
 | Metric | Value |
 |--------|-------|
-| Documents | 100 |
+| Total Documents | 116 |
+| Standard Documents | 100 |
+| OCR Documents (PDF) | 16 (8 easy, 8 hard) |
 | Language | Polish |
-| Document Types | 7 (emails, reports, proposals, meeting notes, spreadsheets, presentations) |
+| Document Types | 8+ (emails, reports, proposals, meeting notes, spreadsheets, presentations, PDFs) |
 | Time Range | June 2023 - July 2024 |
 | Clients | 5 |
 | Team Members | 10 |
-| Planted Facts | 22 |
-| Evaluation Questions | 35 + 8 meta |
+| Planted Facts | 38 (22 standard + 16 OCR) |
+| Evaluation Questions | 59 total |
 
 ## Evaluation Questions
 
@@ -113,6 +143,7 @@ uv run pytest
 | Temporal Filter | 3 | Date-based retrieval |
 | Negative | 5 | Absent or out-of-scope information |
 | Meta (synthesizable) | 8 | Implicit facts derivable from multiple documents |
+| **OCR (optional)** | **16** | Facts in scanned PDFs (8 easy, 8 hard) |
 
 ### Meta-Questions
 

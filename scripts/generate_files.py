@@ -3,18 +3,23 @@
 Generate realistic files from documents.json
 
 Reads the canonical JSON and creates actual .eml, .docx, .xlsx, .pptx, .md files
-in the output/ directory.
+in the output/ directory. Optionally generates scanned-style PDFs for OCR testing.
 
 Usage:
-    uv run generate [--output-dir OUTPUT_DIR]
+    uv run generate [--output-dir OUTPUT_DIR] [--include-pdf]
 
 Or without uv:
     pip install python-docx openpyxl python-pptx
     python scripts/generate_files.py
+
+For PDF generation:
+    uv sync --extra pdf
+    uv run generate --include-pdf
 """
 
 import argparse
 import json
+import random
 from datetime import datetime
 from pathlib import Path
 
@@ -40,6 +45,33 @@ try:
     HAS_PPTX = True
 except ImportError:
     HAS_PPTX = False
+
+# PDF dependencies
+try:
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+    from reportlab.lib.units import cm
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+
+    HAS_REPORTLAB = True
+except ImportError:
+    HAS_REPORTLAB = False
+
+try:
+    from PIL import Image, ImageFilter
+
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
+
+try:
+    import fitz  # pymupdf
+
+    HAS_PYMUPDF = True
+except ImportError:
+    HAS_PYMUPDF = False
+
+HAS_PDF = HAS_REPORTLAB and HAS_PIL and HAS_PYMUPDF
 
 
 def generate_eml(doc: dict, output_dir: Path) -> Path:
@@ -177,10 +209,216 @@ def generate_pptx(doc: dict, output_dir: Path) -> Path:
     return filepath
 
 
+def generate_pdf_easy(doc: dict, output_dir: Path) -> Path:
+    """Generate clean, OCR-friendly PDF"""
+    if not HAS_REPORTLAB:
+        print(f"  Skipping {doc['filename']} - reportlab not installed")
+        return None
+
+    filepath = output_dir / doc["filename"]
+
+    # Create PDF with reportlab
+    pdf_doc = SimpleDocTemplate(
+        str(filepath),
+        pagesize=A4,
+        rightMargin=2 * cm,
+        leftMargin=2 * cm,
+        topMargin=2 * cm,
+        bottomMargin=2 * cm,
+    )
+
+    styles = getSampleStyleSheet()
+
+    # Custom styles for Polish text
+    title_style = ParagraphStyle(
+        "CustomTitle",
+        parent=styles["Heading1"],
+        fontSize=16,
+        spaceAfter=20,
+        fontName="Helvetica-Bold",
+    )
+
+    body_style = ParagraphStyle(
+        "CustomBody",
+        parent=styles["Normal"],
+        fontSize=10,
+        leading=14,
+        fontName="Helvetica",
+    )
+
+    story = []
+
+    # Add title
+    title = doc.get("title", doc.get("filename", "Dokument"))
+    story.append(Paragraph(title, title_style))
+    story.append(Spacer(1, 12))
+
+    # Add content - handle Polish characters by escaping XML entities
+    content = doc.get("content", "")
+    # Replace problematic characters for XML
+    content = content.replace("&", "&amp;")
+    content = content.replace("<", "&lt;")
+    content = content.replace(">", "&gt;")
+    # Convert newlines to HTML breaks for proper rendering
+    content = content.replace("\n", "<br/>")
+
+    story.append(Paragraph(content, body_style))
+
+    pdf_doc.build(story)
+    return filepath
+
+
+def apply_scan_effects(img: Image.Image, difficulty: str = "hard") -> Image.Image:
+    """Apply scan/degradation effects to an image"""
+    # Convert to RGB if necessary
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+
+    width, height = img.size
+
+    # Rotation (slight for all hard PDFs)
+    if difficulty == "hard":
+        angle = random.uniform(-2.5, 2.5)
+        img = img.rotate(angle, expand=True, fillcolor=(255, 255, 255))
+
+    # Add noise
+    if difficulty == "hard":
+        import numpy as np
+
+        img_array = np.array(img)
+        noise = np.random.normal(0, random.uniform(5, 15), img_array.shape).astype(np.int16)
+        img_array = np.clip(img_array.astype(np.int16) + noise, 0, 255).astype(np.uint8)
+        img = Image.fromarray(img_array)
+
+    # Slight blur
+    if difficulty == "hard":
+        blur_radius = random.uniform(0.3, 0.8)
+        img = img.filter(ImageFilter.GaussianBlur(radius=blur_radius))
+
+    # Contrast/brightness adjustment
+    if difficulty == "hard":
+        from PIL import ImageEnhance
+
+        # Reduce contrast slightly
+        contrast = ImageEnhance.Contrast(img)
+        img = contrast.enhance(random.uniform(0.85, 1.0))
+
+        # Adjust brightness
+        brightness = ImageEnhance.Brightness(img)
+        img = brightness.enhance(random.uniform(0.9, 1.05))
+
+    return img
+
+
+def generate_pdf_hard(doc: dict, output_dir: Path) -> Path:
+    """Generate scanned-style PDF with degradation effects"""
+    if not HAS_PDF:
+        missing = []
+        if not HAS_REPORTLAB:
+            missing.append("reportlab")
+        if not HAS_PIL:
+            missing.append("Pillow")
+        if not HAS_PYMUPDF:
+            missing.append("pymupdf")
+        print(f"  Skipping {doc['filename']} - missing: {', '.join(missing)}")
+        return None
+
+    # First generate a clean PDF
+    temp_pdf_path = output_dir / f"_temp_{doc['filename']}"
+
+    pdf_doc = SimpleDocTemplate(
+        str(temp_pdf_path),
+        pagesize=A4,
+        rightMargin=2 * cm,
+        leftMargin=2 * cm,
+        topMargin=2 * cm,
+        bottomMargin=2 * cm,
+    )
+
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle(
+        "CustomTitle",
+        parent=styles["Heading1"],
+        fontSize=14,
+        spaceAfter=16,
+        fontName="Helvetica-Bold",
+    )
+    body_style = ParagraphStyle(
+        "CustomBody",
+        parent=styles["Normal"],
+        fontSize=10,
+        leading=13,
+        fontName="Helvetica",
+    )
+
+    story = []
+    title = doc.get("title", doc.get("filename", "Dokument"))
+    story.append(Paragraph(title, title_style))
+    story.append(Spacer(1, 10))
+
+    content = doc.get("content", "")
+    content = content.replace("&", "&amp;")
+    content = content.replace("<", "&lt;")
+    content = content.replace(">", "&gt;")
+    content = content.replace("\n", "<br/>")
+
+    story.append(Paragraph(content, body_style))
+    pdf_doc.build(story)
+
+    # Convert PDF to images and apply effects
+    pdf_document = fitz.open(str(temp_pdf_path))
+    images = []
+
+    # DPI for rendering (lower = more degraded)
+    dpi = random.randint(150, 200)
+    matrix = fitz.Matrix(dpi / 72, dpi / 72)
+
+    for page_num in range(len(pdf_document)):
+        page = pdf_document[page_num]
+        pix = page.get_pixmap(matrix=matrix)
+
+        # Convert to PIL Image
+        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+
+        # Apply scan effects
+        img = apply_scan_effects(img, "hard")
+        images.append(img)
+
+    pdf_document.close()
+
+    # Save as new PDF from images
+    filepath = output_dir / doc["filename"]
+
+    if images:
+        # Convert images back to PDF
+        first_img = images[0]
+        if len(images) > 1:
+            first_img.save(
+                str(filepath),
+                "PDF",
+                save_all=True,
+                append_images=images[1:],
+                resolution=dpi,
+                quality=random.randint(70, 85),
+            )
+        else:
+            first_img.save(str(filepath), "PDF", resolution=dpi, quality=random.randint(70, 85))
+
+    # Clean up temp file
+    temp_pdf_path.unlink()
+
+    return filepath
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate files from documents.json")
     parser.add_argument("--output-dir", "-o", default="output", help="Output directory")
     parser.add_argument("--input", "-i", default="dataset/documents.json", help="Input JSON file")
+    parser.add_argument(
+        "--include-pdf",
+        action="store_true",
+        help="Include PDF documents (requires: uv sync --extra pdf)",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -189,17 +427,41 @@ def main():
     with open(args.input, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    print(f"Generating {len(data['documents'])} files to {output_dir}/")
+    # Filter documents based on --include-pdf flag
+    docs_to_generate = []
+    pdf_skipped = 0
+    for doc in data["documents"]:
+        if doc.get("format") == "pdf":
+            if args.include_pdf:
+                docs_to_generate.append(doc)
+            else:
+                pdf_skipped += 1
+        else:
+            docs_to_generate.append(doc)
+
+    print(f"Generating {len(docs_to_generate)} files to {output_dir}/")
+    if pdf_skipped > 0:
+        print(f"  (Skipping {pdf_skipped} PDF documents - use --include-pdf to generate)")
 
     generated = 0
     skipped = 0
 
-    for doc in data["documents"]:
+    for doc in docs_to_generate:
         doc_type = doc["type"]
         fmt = doc.get("format", "")
 
         try:
-            if fmt == "eml" or "email" in doc_type:
+            if fmt == "pdf":
+                # Handle PDF documents
+                difficulty = doc.get("pdf_difficulty", "easy")
+                if difficulty == "easy":
+                    result = generate_pdf_easy(doc, output_dir)
+                else:
+                    result = generate_pdf_hard(doc, output_dir)
+                if result is None:
+                    skipped += 1
+                    continue
+            elif fmt == "eml" or "email" in doc_type:
                 generate_eml(doc, output_dir)
             elif fmt == "md" or doc_type in ["meeting_notes", "project_kickoff"]:
                 generate_md(doc, output_dir)
@@ -236,6 +498,38 @@ def main():
             skipped += 1
 
     print(f"\nDone: {generated} generated, {skipped} skipped")
+
+    # Validation check: ensure we processed all documents
+    expected = len(docs_to_generate)
+    actual = generated + skipped
+    if actual != expected:
+        print(f"\nERROR: Expected to process {expected} documents, but processed {actual}")
+        raise SystemExit(1)
+
+    if skipped > 0:
+        print(f"\nWARNING: {skipped} documents were skipped (missing dependencies?)")
+
+    # Count actual files on disk
+    actual_files = list(output_dir.glob("*"))
+    actual_file_count = len([f for f in actual_files if f.is_file()])
+
+    if actual_file_count != generated:
+        print(f"\nERROR: Expected {generated} files on disk, but found {actual_file_count}")
+        raise SystemExit(1)
+
+    # Summary
+    total_in_json = len(data["documents"])
+    if args.include_pdf:
+        if generated == total_in_json:
+            print(f"\nValidation passed: all {generated} documents generated")
+        else:
+            print(f"\nValidation passed: {generated}/{total_in_json} generated ({skipped} skipped)")
+    else:
+        non_pdf_count = total_in_json - pdf_skipped
+        if generated == non_pdf_count:
+            print(f"\nValidation passed: all {generated} non-PDF documents generated")
+        else:
+            print(f"\nValidation passed: {generated}/{non_pdf_count} non-PDF ({skipped} skipped)")
 
 
 if __name__ == "__main__":

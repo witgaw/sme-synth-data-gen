@@ -45,8 +45,8 @@ class TestDocumentsJson:
         assert isinstance(documents["documents"], list)
 
     def test_document_count(self, documents):
-        """Should have exactly 100 documents."""
-        assert len(documents["documents"]) == 100
+        """Should have exactly 116 documents (100 standard + 16 PDF)."""
+        assert len(documents["documents"]) == 116
 
     def test_unique_ids(self, documents):
         """All document IDs should be unique."""
@@ -54,9 +54,9 @@ class TestDocumentsJson:
         assert len(ids) == len(set(ids)), "Duplicate document IDs found"
 
     def test_sequential_ids(self, documents):
-        """Document IDs should be sequential doc_001 to doc_100."""
+        """Document IDs should be sequential doc_001 to doc_116."""
         ids = sorted([doc["id"] for doc in documents["documents"]])
-        expected = [f"doc_{i:03d}" for i in range(1, 101)]
+        expected = [f"doc_{i:03d}" for i in range(1, 117)]
         assert ids == expected
 
     def test_required_fields(self, documents):
@@ -96,14 +96,44 @@ class TestDocumentsJson:
             assert isinstance(doc["planted_facts"], list)
 
 
+class TestPdfDocuments:
+    """Tests specific to PDF documents."""
+
+    def test_pdf_document_count(self, documents):
+        """Should have 16 PDF documents."""
+        pdf_docs = [d for d in documents["documents"] if d.get("format") == "pdf"]
+        assert len(pdf_docs) == 16
+
+    def test_pdf_difficulty_distribution(self, documents):
+        """Should have 8 easy and 8 hard PDFs."""
+        pdf_docs = [d for d in documents["documents"] if d.get("format") == "pdf"]
+        easy = [d for d in pdf_docs if d.get("pdf_difficulty") == "easy"]
+        hard = [d for d in pdf_docs if d.get("pdf_difficulty") == "hard"]
+        assert len(easy) == 8, f"Expected 8 easy PDFs, got {len(easy)}"
+        assert len(hard) == 8, f"Expected 8 hard PDFs, got {len(hard)}"
+
+    def test_pdf_documents_have_content(self, documents):
+        """All PDF documents should have content field."""
+        pdf_docs = [d for d in documents["documents"] if d.get("format") == "pdf"]
+        for doc in pdf_docs:
+            assert "content" in doc, f"PDF {doc['id']} missing content"
+            assert len(doc["content"]) > 100, f"PDF {doc['id']} content too short"
+
+    def test_pdf_documents_have_titles(self, documents):
+        """All PDF documents should have title field."""
+        pdf_docs = [d for d in documents["documents"] if d.get("format") == "pdf"]
+        for doc in pdf_docs:
+            assert "title" in doc, f"PDF {doc['id']} missing title"
+
+
 class TestGroundTruth:
     def test_valid_json(self, ground_truth):
         """ground_truth.json is valid JSON."""
         assert "meta" in ground_truth
         assert "exact_match_questions" in ground_truth
 
-    def test_question_count(self, ground_truth):
-        """Should have 35 questions total."""
+    def test_standard_question_count(self, ground_truth):
+        """Should have 35 standard questions (excluding OCR)."""
         total = (
             len(ground_truth.get("exact_match_questions", []))
             + len(ground_truth.get("multi_document_synthesis_questions", []))
@@ -112,6 +142,23 @@ class TestGroundTruth:
             + len(ground_truth.get("negative_questions", []))
         )
         assert total == 35
+
+    def test_ocr_question_count(self, ground_truth):
+        """Should have 16 OCR questions."""
+        ocr_questions = ground_truth.get("ocr_questions", [])
+        assert len(ocr_questions) == 16
+
+    def test_total_question_count(self, ground_truth):
+        """Should have 51 total questions (35 standard + 16 OCR)."""
+        total = (
+            len(ground_truth.get("exact_match_questions", []))
+            + len(ground_truth.get("multi_document_synthesis_questions", []))
+            + len(ground_truth.get("qualitative_questions", []))
+            + len(ground_truth.get("temporal_filter_questions", []))
+            + len(ground_truth.get("negative_questions", []))
+            + len(ground_truth.get("ocr_questions", []))
+        )
+        assert total == 51
 
     def test_unique_question_ids(self, ground_truth):
         """All question IDs should be unique."""
@@ -131,6 +178,35 @@ class TestGroundTruth:
         """Qualitative questions should reference rubrics."""
         for q in ground_truth.get("qualitative_questions", []):
             assert "rubric_id" in q, f"Question {q['id']} missing rubric_id"
+
+
+class TestOcrQuestions:
+    """Tests specific to OCR questions."""
+
+    def test_ocr_questions_have_required_fields(self, ground_truth):
+        """OCR questions should have requires_ocr and ocr_difficulty."""
+        for q in ground_truth.get("ocr_questions", []):
+            assert q.get("requires_ocr") is True, f"Question {q['id']} missing requires_ocr"
+            assert q.get("ocr_difficulty") in [
+                "easy",
+                "hard",
+            ], f"Question {q['id']} has invalid ocr_difficulty"
+
+    def test_ocr_difficulty_distribution(self, ground_truth):
+        """Should have 8 easy and 8 hard OCR questions."""
+        ocr_questions = ground_truth.get("ocr_questions", [])
+        easy = [q for q in ocr_questions if q.get("ocr_difficulty") == "easy"]
+        hard = [q for q in ocr_questions if q.get("ocr_difficulty") == "hard"]
+        assert len(easy) == 8, f"Expected 8 easy OCR questions, got {len(easy)}"
+        assert len(hard) == 8, f"Expected 8 hard OCR questions, got {len(hard)}"
+
+    def test_ocr_questions_reference_pdf_documents(self, ground_truth, documents):
+        """OCR questions should reference PDF documents."""
+        pdf_doc_ids = {d["id"] for d in documents["documents"] if d.get("format") == "pdf"}
+        for q in ground_truth.get("ocr_questions", []):
+            source_docs = q.get("source_documents", [])
+            for doc_id in source_docs:
+                assert doc_id in pdf_doc_ids, f"Question {q['id']} references non-PDF {doc_id}"
 
 
 class TestCompanyMeta:
@@ -178,7 +254,7 @@ class TestCrossValidation:
         for doc in documents["documents"]:
             planted_in_docs.update(doc.get("planted_facts", []))
 
-        # Collect all planted_fact_ids from questions
+        # Collect all planted_fact_ids from questions (including OCR)
         planted_in_questions = set()
         for key in ground_truth:
             if isinstance(ground_truth[key], list):
@@ -189,3 +265,21 @@ class TestCrossValidation:
         # Every planted fact in docs should have a question
         missing = planted_in_docs - planted_in_questions - {"multi_fact_synthesis"}
         assert not missing, f"Planted facts without questions: {missing}"
+
+    def test_ocr_questions_match_pdf_facts(self, documents, ground_truth):
+        """OCR planted facts should match between documents and questions."""
+        # Get planted facts from PDF documents
+        pdf_planted_facts = set()
+        for doc in documents["documents"]:
+            if doc.get("format") == "pdf":
+                pdf_planted_facts.update(doc.get("planted_facts", []))
+
+        # Get planted fact IDs from OCR questions
+        ocr_question_facts = set()
+        for q in ground_truth.get("ocr_questions", []):
+            if "planted_fact_id" in q:
+                ocr_question_facts.add(q["planted_fact_id"])
+
+        # Every OCR question should reference a fact in PDFs
+        for fact_id in ocr_question_facts:
+            assert fact_id in pdf_planted_facts, f"OCR question fact {fact_id} not in any PDF"
