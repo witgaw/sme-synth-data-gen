@@ -1,18 +1,18 @@
 {
   "meta": {
-    "version": "1.2",
+    "version": "1.3",
     "created": "2026-01-09",
     "updated": "2026-01-15",
     "description": "Evaluation questions for synthetic SME dataset - Kreatywna Fala",
-    "total_questions": 56,
+    "total_questions": 70,
     "language": "pl",
-    "notes": "Updated for Phase 2 documents (doc_051-100), OCR documents (doc_101-116), and multi-hop OCR questions. Multi-hop questions require combining OCR-extracted data with other document types.",
+    "notes": "Includes document questions, OCR questions, database questions, and multi-hop questions requiring multiple sources.",
     "ocr_questions": 16,
     "ocr_easy": 8,
     "ocr_hard": 8,
     "multi_hop_ocr_questions": 5,
-    "multi_hop_concrete": 3,
-    "multi_hop_narrative": 2
+    "database_questions": 10,
+    "multi_hop_db_doc_questions": 4
   },
   "exact_match_questions": [
     {
@@ -993,6 +993,194 @@
       "ocr_difficulty": "hard",
       "requires_multi_doc": true,
       "type": "comparative_analysis",
+      "difficulty": "hard"
+    }
+  ],
+  "database_questions": [
+    {
+      "id": "q_db_001",
+      "question_pl": "Jaki jest numer telefonu Anny Kowalskiej z MaszBud?",
+      "question_en": "What is Anna Kowalska's phone number at MaszBud?",
+      "expected_answer": "+48 607 777 888",
+      "answer_variants": ["607 777 888", "607777888"],
+      "sql_hint": "SELECT phone FROM contacts WHERE name = 'Anna Kowalska'",
+      "source": "database",
+      "type": "db_lookup",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_db_002",
+      "question_pl": "Kiedy Maciej Boryna został zatrudniony w agencji? Podaj datę.",
+      "question_en": "When was Maciej Boryna hired at the agency? Provide the date.",
+      "expected_answer": "2023-02-01",
+      "answer_variants": ["1 lutego 2023", "01.02.2023", "February 1, 2023"],
+      "sql_hint": "SELECT hire_date FROM employees WHERE name = 'Maciej Boryna'",
+      "source": "database",
+      "type": "db_lookup",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_db_003",
+      "question_pl": "Jaka jest stawka godzinowa Art Directora (Ireny Dulskiej)?",
+      "question_en": "What is the hourly rate of the Art Director (Irena Dulska)?",
+      "expected_answer": "170",
+      "answer_variants": ["170 PLN", "170 PLN/h", "170 zł"],
+      "sql_hint": "SELECT hourly_rate FROM employees WHERE role = 'Art Director'",
+      "source": "database",
+      "type": "db_lookup",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_db_004",
+      "question_pl": "Ile łącznie (brutto) zapłacił Browar Wroclavia za faktury w 2023 roku?",
+      "question_en": "How much total (gross) did Browar Wroclavia pay for invoices in 2023?",
+      "expected_answer": "31365",
+      "answer_variants": ["31365 PLN", "31,365 PLN", "31 365 PLN"],
+      "sql_hint": "SELECT SUM(amount_gross) FROM invoices WHERE client_id = 1 AND strftime('%Y', paid_date) = '2023'",
+      "source": "database",
+      "type": "db_aggregation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_db_005",
+      "question_pl": "Ile dni opóźnienia miała płatność faktury FV/2023/10/003?",
+      "question_en": "How many days late was the payment for invoice FV/2023/10/003?",
+      "expected_answer": "61",
+      "answer_variants": ["61 dni", "61 days"],
+      "sql_hint": "SELECT julianday(paid_date) - julianday(due_date) FROM invoices WHERE invoice_number = 'FV/2023/10/003'",
+      "source": "database",
+      "type": "db_calculation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_db_006",
+      "question_pl": "Jaki był łączny koszt podwykonawców (netto) dla kampanii wiosennej Browaru 2024?",
+      "question_en": "What was the total subcontractor cost (net) for Browar's spring 2024 campaign?",
+      "expected_answer": "13000",
+      "answer_variants": ["13000 PLN", "13,000 PLN", "13 000 PLN"],
+      "sql_hint": "SELECT SUM(amount_net) FROM expenses WHERE project_id = 4",
+      "source": "database",
+      "type": "db_aggregation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_db_007",
+      "question_pl": "Jaki jest NIP firmy MaszBud?",
+      "question_en": "What is MaszBud's tax ID (NIP)?",
+      "expected_answer": "8973456789",
+      "answer_variants": ["897-345-67-89"],
+      "sql_hint": "SELECT nip FROM clients WHERE code = 'MASZBUD'",
+      "source": "database",
+      "type": "db_lookup",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q_db_008",
+      "question_pl": "Ile godzin łącznie przepracowano na projekcie rebrandingu Smakosz?",
+      "question_en": "How many hours total were worked on the Smakosz rebranding project?",
+      "expected_answer": "87",
+      "answer_variants": ["87 godzin", "87 h", "87 hours"],
+      "sql_hint": "SELECT SUM(hours) FROM time_entries WHERE project_id = 7",
+      "source": "database",
+      "type": "db_aggregation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_db_009",
+      "question_pl": "Który klient wygenerował największy przychód netto dla agencji?",
+      "question_en": "Which client generated the highest net revenue for the agency?",
+      "expected_answer": "Browar Regionalny \"Wroclavia\"",
+      "answer_variants": ["Browar Wroclavia", "BROWAR", "Browar"],
+      "sql_hint": "SELECT c.name FROM clients c JOIN invoices i ON c.id = i.client_id GROUP BY c.id ORDER BY SUM(i.amount_net) DESC LIMIT 1",
+      "source": "database",
+      "type": "db_aggregation",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q_db_010",
+      "question_pl": "Ilu pracowników jest w dziale Creative?",
+      "question_en": "How many employees are in the Creative department?",
+      "expected_answer": "3",
+      "answer_variants": ["3 osoby", "trzech", "three"],
+      "sql_hint": "SELECT COUNT(*) FROM employees WHERE department = 'Creative'",
+      "source": "database",
+      "type": "db_aggregation",
+      "difficulty": "easy"
+    }
+  ],
+  "multi_hop_db_doc_questions": [
+    {
+      "id": "q_dbdoc_001",
+      "question_pl": "Jaki procent budżetu projektu rebrandingu Smakosz stanowił koszt pracy wewnętrznej (godziny * stawki)?",
+      "question_en": "What percentage of the Smakosz rebranding project budget was internal labor cost (hours * rates)?",
+      "expected_answer": "37-40%",
+      "answer_variants": ["około 38%", "~38%", "37%", "40%"],
+      "source_documents": ["doc_007"],
+      "db_tables": ["time_entries", "employees", "projects"],
+      "reasoning_steps": [
+        "DB: Get hours per employee for project 7 (Smakosz rebranding)",
+        "DB: Multiply hours by hourly rates (Irena 170 PLN, Zosia 130 PLN, Maciej 120 PLN, Andrzej 180 PLN)",
+        "DB: Total ~13,380 PLN internal cost",
+        "Docs: Find project budget 35,000 PLN (from project docs or doc_007)",
+        "Calculate: 13,380 / 35,000 = 38.2%"
+      ],
+      "requires_db": true,
+      "requires_docs": true,
+      "type": "multi_hop_calculation",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_dbdoc_002",
+      "question_pl": "Czy opóźnienie płatności faktury od Smakosz (FV/2023/10/003) nastąpiło przed czy po spotkaniu reklamacyjnym?",
+      "question_en": "Did the payment delay for the Smakosz invoice (FV/2023/10/003) occur before or after the complaint meeting?",
+      "expected_answer": "Opóźnienie trwało podczas całego procesu reklamacyjnego - faktura była już przeterminowana gdy doszło do reklamacji, a zapłacono dopiero 2 tygodnie po spotkaniu",
+      "source_documents": ["doc_010", "doc_013"],
+      "db_tables": ["invoices"],
+      "reasoning_steps": [
+        "DB: Invoice FV/2023/10/003 due 2023-10-15, paid 2023-12-15 (61 days late)",
+        "Docs: doc_010 - email about overdue payment dated 2023-11-15 (already 31 days late)",
+        "Docs: doc_013 - complaint meeting on 2023-12-01",
+        "Timeline: Due Oct 15 → Complaint email Nov 15 → Meeting Dec 1 → Paid Dec 15"
+      ],
+      "requires_db": true,
+      "requires_docs": true,
+      "type": "multi_hop_timeline",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_dbdoc_003",
+      "question_pl": "Ile wyniósł całkowity koszt zewnętrzny projektu ModaNet launch i jak się ma do przekroczenia budżetu opisanego w dokumentach?",
+      "question_en": "What was the total external cost for the ModaNet launch project and how does it relate to the budget overrun described in documents?",
+      "expected_answer": "Koszt zewnętrzny (Studio Pixel): 3,200 PLN netto. Przekroczenie budżetu: 2,500 PLN. Koszt Pixel stanowił główną przyczynę przekroczenia.",
+      "source_documents": ["doc_022", "doc_031"],
+      "db_tables": ["expenses", "projects"],
+      "reasoning_steps": [
+        "DB: Get expenses for project 6 (ModaNet launch) - Studio Pixel 3,200 PLN",
+        "DB: Project budget 32,000 PLN",
+        "Docs: doc_031 shows actual cost 34,500 PLN, overrun 2,500 PLN",
+        "Analysis: 3,200 PLN external + high internal hours caused overrun"
+      ],
+      "requires_db": true,
+      "requires_docs": true,
+      "type": "multi_hop_analysis",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q_dbdoc_004",
+      "question_pl": "Porównaj stawkę godzinową Kreatywnej Fali (z bazy) ze średnią rynkową dla Wrocławia (z raportu branżowego). Czy agencja jest powyżej czy poniżej rynku?",
+      "question_en": "Compare Kreatywna Fala's hourly rates (from DB) with the Wrocław market average (from industry report). Is the agency above or below market?",
+      "expected_answer": "Średnia rynkowa Wrocław: 165 PLN/h. Kreatywna Fala: CEO 250, Senior AM 180, Art Director 170, PM 160 - większość stawek powyżej średniej rynkowej.",
+      "source_documents": ["doc_115"],
+      "db_tables": ["employees"],
+      "reasoning_steps": [
+        "DB: Get hourly rates for all employees",
+        "OCR doc_115: Industry report shows Wrocław average 165 PLN/h",
+        "Compare: Most KF rates (170-250) above market, junior rates (110-130) below"
+      ],
+      "requires_db": true,
+      "requires_docs": true,
+      "requires_ocr": true,
+      "type": "multi_hop_comparison",
       "difficulty": "hard"
     }
   ]

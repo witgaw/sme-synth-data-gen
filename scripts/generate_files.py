@@ -419,6 +419,11 @@ def main():
         action="store_true",
         help="Include PDF documents (requires: uv sync --extra pdf)",
     )
+    parser.add_argument(
+        "--include-db",
+        action="store_true",
+        help="Include SQLite database generation",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -530,6 +535,45 @@ def main():
             print(f"\nValidation passed: all {generated} non-PDF documents generated")
         else:
             print(f"\nValidation passed: {generated}/{non_pdf_count} non-PDF ({skipped} skipped)")
+
+    # Generate database if requested
+    if args.include_db:
+        from scripts.generate_database import (
+            create_indexes,
+            create_schema,
+            create_views,
+            insert_data,
+            verify_database,
+        )
+
+        db_json_path = Path(args.input).parent / "database.json"
+        with open(db_json_path, "r", encoding="utf-8") as f:
+            db_def = json.load(f)
+
+        db_name = db_def["meta"]["database_name"]
+        db_path = output_dir / db_name
+
+        if db_path.exists():
+            db_path.unlink()
+
+        print(f"\nGenerating database: {db_path}")
+
+        import sqlite3
+
+        conn = sqlite3.connect(str(db_path))
+        try:
+            create_schema(conn, db_def["schema"])
+            counts = insert_data(conn, db_def["data"])
+            create_indexes(conn)
+            create_views(conn)
+
+            if verify_database(conn, counts):
+                print(f"  Database created: {sum(counts.values())} rows in {len(counts)} tables")
+            else:
+                print("  ERROR: Database verification failed")
+                raise SystemExit(1)
+        finally:
+            conn.close()
 
 
 if __name__ == "__main__":

@@ -11,11 +11,11 @@ The dataset mimics internal documents of Kreatywna Fala Sp. z o.o., a small mark
 ### Key Features
 
 - **116 documents** across multiple types (emails, reports, spreadsheets, presentations, meeting notes, PDFs)
+- **SQLite database** with CRM/project data (employees, clients, projects, invoices, time tracking)
 - **Polish business language** with authentic terminology and conventions
-- **38 planted facts** with ground truth for quantitative evaluation
-- **59 evaluation questions** (35 standard + 8 meta + 16 OCR)
+- **70 evaluation questions** across multiple modalities (documents, OCR, database, multi-hop)
 - **Interconnected narratives** testing multi-document reasoning
-- **Optional OCR testing** with scanned-style PDFs (easy and hard difficulty)
+- **Multi-hop questions** requiring cross-referencing documents, OCR, and database
 
 ## Installation
 
@@ -51,11 +51,37 @@ for doc in data['documents']:
 To create .eml, .docx, .xlsx, .pptx files from the JSON:
 
 ```bash
-# Generate files to output/ directory (excludes PDFs by default)
+# Generate document files to output/ directory
 uv run generate
 
-# Or specify custom output directory
-uv run generate --output-dir my_output/
+# Include SQLite database
+uv run generate --include-db
+
+# Include PDF documents (requires: uv sync --extra pdf)
+uv run generate --include-pdf
+
+# Generate everything
+uv run generate --include-db --include-pdf
+```
+
+### SQLite Database
+
+The `--include-db` flag generates a CRM database with 8 tables:
+
+| Table | Description |
+|-------|-------------|
+| `employees` | Agency staff with hourly rates |
+| `clients` | Client companies |
+| `contacts` | Contact persons at clients |
+| `projects` | Projects and campaigns |
+| `project_assignments` | Employee-project assignments |
+| `time_entries` | Hours logged |
+| `invoices` | Invoices issued |
+| `expenses` | Vendor costs |
+
+```bash
+# Query example
+sqlite3 output/kreatywna_fala_crm.db "SELECT name, hourly_rate FROM employees"
 ```
 
 ### Running Tests
@@ -104,7 +130,8 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 │
 ├── dataset/
 │   ├── documents.json           # 116 documents (100 standard + 16 PDF)
-│   ├── ground_truth.json        # 51 evaluation questions (35 + 16 OCR)
+│   ├── database.json            # SQLite database schema and data definition
+│   ├── ground_truth.json        # 70 evaluation questions
 │   ├── qualitative_rubric.json  # Scoring rubrics for narrative questions
 │   └── company_meta.json        # Synthesizable facts + 8 meta-questions
 │
@@ -112,10 +139,11 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 │   └── company_bible.md         # Company background, team, clients, timeline
 │
 ├── scripts/
-│   └── generate_files.py        # File generator (entry point: `generate`)
+│   ├── generate_files.py        # Document generator (entry point: `generate`)
+│   └── generate_database.py     # Database generator (entry point: `generate-db`)
 │
 └── tests/
-    └── test_dataset.py          # Dataset validation tests
+    └── test_dataset.py          # Dataset validation tests (44 tests)
 ```
 
 ## Dataset Statistics
@@ -125,13 +153,14 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 | Total Documents | 116 |
 | Standard Documents | 100 |
 | OCR Documents (PDF) | 16 (8 easy, 8 hard) |
+| Database Tables | 8 |
+| Database Rows | 105 |
 | Language | Polish |
 | Document Types | 8+ (emails, reports, proposals, meeting notes, spreadsheets, presentations, PDFs) |
 | Time Range | June 2023 - July 2024 |
-| Clients | 5 |
-| Team Members | 10 |
-| Planted Facts | 38 (22 standard + 16 OCR) |
-| Evaluation Questions | 59 total |
+| Clients | 8 |
+| Team Members | 9 |
+| Evaluation Questions | 70 total |
 
 ## Evaluation Questions
 
@@ -143,7 +172,10 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 | Temporal Filter | 3 | Date-based retrieval |
 | Negative | 5 | Absent or out-of-scope information |
 | Meta (synthesizable) | 8 | Implicit facts derivable from multiple documents |
-| **OCR (optional)** | **16** | Facts in scanned PDFs (8 easy, 8 hard) |
+| OCR | 16 | Facts in scanned PDFs (8 easy, 8 hard) |
+| Multi-hop OCR | 5 | Combine OCR-extracted data with other documents |
+| **Database (SQL)** | **10** | Facts queryable from SQLite database |
+| **Multi-hop DB+Docs** | **4** | Combine database queries with document search |
 
 ### Meta-Questions
 

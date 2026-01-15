@@ -37,6 +37,12 @@ def rubrics():
         return json.load(f)
 
 
+@pytest.fixture
+def database():
+    with open(DATASET_DIR / "database.json", encoding="utf-8") as f:
+        return json.load(f)
+
+
 class TestDocumentsJson:
     def test_valid_json(self, documents):
         """documents.json is valid JSON with expected structure."""
@@ -149,7 +155,7 @@ class TestGroundTruth:
         assert len(ocr_questions) == 16
 
     def test_total_question_count(self, ground_truth):
-        """Should have 51 total questions (35 standard + 16 OCR)."""
+        """Should have 70 total questions."""
         total = (
             len(ground_truth.get("exact_match_questions", []))
             + len(ground_truth.get("multi_document_synthesis_questions", []))
@@ -157,8 +163,11 @@ class TestGroundTruth:
             + len(ground_truth.get("temporal_filter_questions", []))
             + len(ground_truth.get("negative_questions", []))
             + len(ground_truth.get("ocr_questions", []))
+            + len(ground_truth.get("multi_hop_ocr_questions", []))
+            + len(ground_truth.get("database_questions", []))
+            + len(ground_truth.get("multi_hop_db_doc_questions", []))
         )
-        assert total == 51
+        assert total == 70
 
     def test_unique_question_ids(self, ground_truth):
         """All question IDs should be unique."""
@@ -283,3 +292,198 @@ class TestCrossValidation:
         # Every OCR question should reference a fact in PDFs
         for fact_id in ocr_question_facts:
             assert fact_id in pdf_planted_facts, f"OCR question fact {fact_id} not in any PDF"
+
+
+class TestDatabaseJson:
+    """Tests for database.json structure."""
+
+    def test_valid_json(self, database):
+        """database.json is valid JSON with expected structure."""
+        assert "meta" in database
+        assert "schema" in database
+        assert "data" in database
+
+    def test_schema_has_required_tables(self, database):
+        """Schema should define all required tables."""
+        required_tables = [
+            "employees",
+            "clients",
+            "contacts",
+            "projects",
+            "time_entries",
+            "invoices",
+            "expenses",
+        ]
+        for table in required_tables:
+            assert table in database["schema"], f"Missing table: {table}"
+
+    def test_data_has_required_tables(self, database):
+        """Data should have entries for required tables."""
+        required_tables = ["employees", "clients", "contacts", "projects", "invoices"]
+        for table in required_tables:
+            assert table in database["data"], f"Missing data for table: {table}"
+            assert len(database["data"][table]) > 0, f"No data in table: {table}"
+
+    def test_employee_count(self, database):
+        """Should have 9 employees."""
+        assert len(database["data"]["employees"]) == 9
+
+    def test_client_count(self, database):
+        """Should have 8 clients."""
+        assert len(database["data"]["clients"]) == 8
+
+    def test_employees_have_required_fields(self, database):
+        """Employees should have required fields."""
+        required = ["id", "name", "email", "role", "hourly_rate"]
+        for emp in database["data"]["employees"]:
+            for field in required:
+                assert field in emp, f"Employee {emp.get('id')} missing {field}"
+
+    def test_clients_have_required_fields(self, database):
+        """Clients should have required fields."""
+        required = ["id", "code", "name", "status"]
+        for client in database["data"]["clients"]:
+            for field in required:
+                assert field in client, f"Client {client.get('id')} missing {field}"
+
+    def test_invoices_have_valid_amounts(self, database):
+        """Invoice amounts should be positive."""
+        for inv in database["data"]["invoices"]:
+            assert inv["amount_net"] > 0, f"Invoice {inv['invoice_number']} has invalid amount"
+
+    def test_foreign_key_references_valid(self, database):
+        """Foreign keys should reference existing records."""
+        client_ids = {c["id"] for c in database["data"]["clients"]}
+        employee_ids = {e["id"] for e in database["data"]["employees"]}
+        project_ids = {p["id"] for p in database["data"]["projects"]}
+
+        # Check projects reference valid clients
+        for proj in database["data"]["projects"]:
+            assert proj["client_id"] in client_ids, f"Project {proj['id']} invalid client_id"
+
+        # Check invoices reference valid clients
+        for inv in database["data"]["invoices"]:
+            assert inv["client_id"] in client_ids, f"Invoice {inv['id']} invalid client_id"
+
+        # Check time_entries reference valid projects and employees
+        for te in database["data"]["time_entries"]:
+            assert te["project_id"] in project_ids, f"Time entry {te['id']} invalid project_id"
+            assert te["employee_id"] in employee_ids, f"Time entry {te['id']} invalid employee_id"
+
+
+class TestDatabaseQuestions:
+    """Tests for database questions in ground_truth."""
+
+    def test_database_question_count(self, ground_truth):
+        """Should have 10 database-only questions."""
+        db_questions = ground_truth.get("database_questions", [])
+        assert len(db_questions) == 10
+
+    def test_multi_hop_db_question_count(self, ground_truth):
+        """Should have 4 multi-hop DB+doc questions."""
+        multi_hop = ground_truth.get("multi_hop_db_doc_questions", [])
+        assert len(multi_hop) == 4
+
+    def test_database_questions_have_sql_hints(self, ground_truth):
+        """Database questions should have SQL hints."""
+        for q in ground_truth.get("database_questions", []):
+            assert "sql_hint" in q, f"Question {q['id']} missing sql_hint"
+
+    def test_multi_hop_questions_have_reasoning(self, ground_truth):
+        """Multi-hop DB questions should have reasoning steps."""
+        for q in ground_truth.get("multi_hop_db_doc_questions", []):
+            assert "reasoning_steps" in q, f"Question {q['id']} missing reasoning_steps"
+            assert "db_tables" in q, f"Question {q['id']} missing db_tables"
+
+
+class TestGeneratedDatabase:
+    """Tests for the generated SQLite database."""
+
+    @pytest.fixture
+    def generated_db(self, tmp_path, database):
+        """Generate a temporary database for testing."""
+        import sqlite3
+
+        from scripts.generate_database import (
+            create_indexes,
+            create_schema,
+            create_views,
+            insert_data,
+        )
+
+        db_path = tmp_path / "test.db"
+        conn = sqlite3.connect(str(db_path))
+
+        create_schema(conn, database["schema"])
+        insert_data(conn, database["data"])
+        create_indexes(conn)
+        create_views(conn)
+        conn.commit()
+
+        yield conn
+        conn.close()
+
+    def test_can_query_employees(self, generated_db):
+        """Can query employees table."""
+        cursor = generated_db.cursor()
+        cursor.execute("SELECT COUNT(*) FROM employees")
+        count = cursor.fetchone()[0]
+        assert count == 9
+
+    def test_can_query_anna_kowalska_phone(self, generated_db):
+        """Can retrieve planted fact: Anna Kowalska's phone."""
+        cursor = generated_db.cursor()
+        cursor.execute("SELECT phone FROM contacts WHERE name = 'Anna Kowalska'")
+        phone = cursor.fetchone()[0]
+        assert phone == "+48 607 777 888"
+
+    def test_can_query_maciej_hire_date(self, generated_db):
+        """Can retrieve planted fact: Maciej Boryna's hire date."""
+        cursor = generated_db.cursor()
+        cursor.execute("SELECT hire_date FROM employees WHERE name = 'Maciej Boryna'")
+        hire_date = cursor.fetchone()[0]
+        assert hire_date == "2023-02-01"
+
+    def test_can_query_smakosz_hours(self, generated_db):
+        """Can retrieve planted fact: hours on Smakosz rebranding."""
+        cursor = generated_db.cursor()
+        cursor.execute("SELECT SUM(hours) FROM time_entries WHERE project_id = 7")
+        total_hours = cursor.fetchone()[0]
+        assert total_hours == 87.0
+
+    def test_can_query_invoice_delay(self, generated_db):
+        """Can retrieve planted fact: invoice FV/2023/10/003 delay."""
+        cursor = generated_db.cursor()
+        cursor.execute(
+            "SELECT julianday(paid_date) - julianday(due_date) "
+            "FROM invoices WHERE invoice_number = 'FV/2023/10/003'"
+        )
+        days_late = cursor.fetchone()[0]
+        assert days_late == 61.0
+
+    def test_views_work(self, generated_db):
+        """Views should return data."""
+        cursor = generated_db.cursor()
+        cursor.execute("SELECT COUNT(*) FROM v_client_revenue")
+        count = cursor.fetchone()[0]
+        assert count > 0
+
+    def test_foreign_keys_valid(self, generated_db):
+        """All foreign key references should be valid."""
+        cursor = generated_db.cursor()
+
+        # Check no orphan invoices
+        cursor.execute(
+            "SELECT COUNT(*) FROM invoices i "
+            "LEFT JOIN clients c ON i.client_id = c.id WHERE c.id IS NULL"
+        )
+        orphans = cursor.fetchone()[0]
+        assert orphans == 0, "Found invoices with invalid client_id"
+
+        # Check no orphan time entries
+        cursor.execute(
+            "SELECT COUNT(*) FROM time_entries t "
+            "LEFT JOIN projects p ON t.project_id = p.id WHERE p.id IS NULL"
+        )
+        orphans = cursor.fetchone()[0]
+        assert orphans == 0, "Found time_entries with invalid project_id"

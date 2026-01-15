@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2026-01-15",
+    "description": "CRM/Project management database for Kreatywna Fala",
+    "database_name": "kreatywna_fala_crm.db",
+    "notes": "SQLite database with realistic CRM data. Some facts are DB-only, others require cross-referencing with documents."
+  },
+  "schema": {
+    "clients": {
+      "description": "Client companies",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "code": "TEXT UNIQUE NOT NULL",
+        "name": "TEXT NOT NULL",
+        "nip": "TEXT",
+        "address": "TEXT",
+        "city": "TEXT",
+        "industry": "TEXT",
+        "status": "TEXT",
+        "acquired_date": "DATE",
+        "account_manager_id": "INTEGER REFERENCES employees(id)",
+        "notes": "TEXT"
+      }
+    },
+    "contacts": {
+      "description": "Contact persons at client companies",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "client_id": "INTEGER REFERENCES clients(id)",
+        "name": "TEXT NOT NULL",
+        "email": "TEXT",
+        "phone": "TEXT",
+        "role": "TEXT",
+        "is_primary": "BOOLEAN DEFAULT 0",
+        "notes": "TEXT"
+      }
+    },
+    "employees": {
+      "description": "Agency staff",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "name": "TEXT NOT NULL",
+        "email": "TEXT UNIQUE",
+        "role": "TEXT",
+        "department": "TEXT",
+        "hire_date": "DATE",
+        "hourly_rate": "DECIMAL(10,2)",
+        "is_active": "BOOLEAN DEFAULT 1"
+      }
+    },
+    "projects": {
+      "description": "Client projects and campaigns",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "client_id": "INTEGER REFERENCES clients(id)",
+        "name": "TEXT NOT NULL",
+        "type": "TEXT",
+        "status": "TEXT",
+        "budget_net": "DECIMAL(10,2)",
+        "start_date": "DATE",
+        "end_date": "DATE",
+        "lead_employee_id": "INTEGER REFERENCES employees(id)",
+        "notes": "TEXT"
+      }
+    },
+    "project_assignments": {
+      "description": "Employee assignments to projects",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "project_id": "INTEGER REFERENCES projects(id)",
+        "employee_id": "INTEGER REFERENCES employees(id)",
+        "role": "TEXT",
+        "assigned_date": "DATE"
+      }
+    },
+    "time_entries": {
+      "description": "Hours logged by employees on projects",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "project_id": "INTEGER REFERENCES projects(id)",
+        "employee_id": "INTEGER REFERENCES employees(id)",
+        "date": "DATE NOT NULL",
+        "hours": "DECIMAL(4,2) NOT NULL",
+        "description": "TEXT",
+        "billable": "BOOLEAN DEFAULT 1"
+      }
+    },
+    "invoices": {
+      "description": "Invoices issued to clients",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "client_id": "INTEGER REFERENCES clients(id)",
+        "project_id": "INTEGER REFERENCES projects(id)",
+        "invoice_number": "TEXT UNIQUE NOT NULL",
+        "amount_net": "DECIMAL(10,2) NOT NULL",
+        "vat_rate": "DECIMAL(4,2) DEFAULT 23.00",
+        "amount_gross": "DECIMAL(10,2)",
+        "issued_date": "DATE NOT NULL",
+        "due_date": "DATE",
+        "paid_date": "DATE",
+        "status": "TEXT DEFAULT 'issued'"
+      }
+    },
+    "expenses": {
+      "description": "Vendor expenses and subcontractor costs",
+      "columns": {
+        "id": "INTEGER PRIMARY KEY",
+        "project_id": "INTEGER REFERENCES projects(id)",
+        "vendor_name": "TEXT NOT NULL",
+        "vendor_nip": "TEXT",
+        "invoice_number": "TEXT",
+        "description": "TEXT",
+        "amount_net": "DECIMAL(10,2) NOT NULL",
+        "amount_gross": "DECIMAL(10,2)",
+        "expense_date": "DATE",
+        "category": "TEXT"
+      }
+    }
+  },
+  "data": {
+    "employees": [
+      {"id": 1, "name": "Zbigniew Reymontowski", "email": "zbigniew.reymontowski@kreatywnafala.pl", "role": "CEO", "department": "Management", "hire_date": "2009-03-01", "hourly_rate": 250.00, "is_active": 1},
+      {"id": 2, "name": "Andrzej Kmicic", "email": "andrzej.kmicic@kreatywnafala.pl", "role": "Senior Account Manager", "department": "Sales", "hire_date": "2015-06-15", "hourly_rate": 180.00, "is_active": 1},
+      {"id": 3, "name": "Maciej Boryna", "email": "maciej.boryna@kreatywnafala.pl", "role": "Account Manager", "department": "Sales", "hire_date": "2023-02-01", "hourly_rate": 120.00, "is_active": 1},
+      {"id": 4, "name": "Janusz Sieczkowski", "email": "janusz.sieczkowski@kreatywnafala.pl", "role": "Project Manager", "department": "Operations", "hire_date": "2016-09-01", "hourly_rate": 160.00, "is_active": 1},
+      {"id": 5, "name": "Irena Dulska", "email": "irena.dulska@kreatywnafala.pl", "role": "Art Director", "department": "Creative", "hire_date": "2017-04-01", "hourly_rate": 170.00, "is_active": 1},
+      {"id": 6, "name": "Zosia Samosiej", "email": "zosia.samosiej@kreatywnafala.pl", "role": "Graphic Designer", "department": "Creative", "hire_date": "2019-08-01", "hourly_rate": 130.00, "is_active": 1},
+      {"id": 7, "name": "Halina Lichocka", "email": "halina.lichocka@kreatywnafala.pl", "role": "Office Manager / Finance", "department": "Administration", "hire_date": "2012-01-15", "hourly_rate": 140.00, "is_active": 1},
+      {"id": 8, "name": "Ryszard Ochódzki", "email": "ryszard.ochodzki@kreatywnafala.pl", "role": "Legal Advisor", "department": "Administration", "hire_date": "2014-03-01", "hourly_rate": 200.00, "is_active": 1},
+      {"id": 9, "name": "Kasia Pawlak", "email": "kasia.pawlak@kreatywnafala.pl", "role": "Content Writer", "department": "Creative", "hire_date": "2021-05-01", "hourly_rate": 110.00, "is_active": 1}
+    ],
+    "clients": [
+      {"id": 1, "code": "BROWAR", "name": "Browar Regionalny \"Wroclavia\" Sp. z o.o.", "nip": "8951234567", "address": "ul. Piwna 12", "city": "Wrocław", "industry": "Brewing / FMCG", "status": "active", "acquired_date": "2021-03-15", "account_manager_id": 2, "notes": "Długoletni klient, bardzo dobra relacja"},
+      {"id": 2, "code": "MODANET", "name": "ModaNet Sp. z o.o.", "nip": "8962345678", "address": "ul. Modowa 5/2", "city": "Wrocław", "industry": "E-commerce / Fashion", "status": "active", "acquired_date": "2023-08-01", "account_manager_id": 2, "notes": "Młoda firma, dynamiczna, czasem chaotyczna"},
+      {"id": 3, "code": "SMAKOSZ", "name": "Sieć Restauracji Smakosz Sp. z o.o.", "nip": "8961234567", "address": "ul. Rynek 15", "city": "Wrocław", "industry": "Gastronomy", "status": "active", "acquired_date": "2023-06-15", "account_manager_id": 3, "notes": "Pierwszy klient Maćka. Historia z reklamacją."},
+      {"id": 4, "code": "MASZBUD", "name": "MaszBud Sp. z o.o.", "nip": "8973456789", "address": "ul. Przemysłowa 12", "city": "Legnica", "industry": "Industrial / Machinery", "status": "active", "acquired_date": "2024-07-25", "account_manager_id": 2, "notes": "Duży potencjał B2B, długi cykl decyzyjny"},
+      {"id": 5, "code": "MIASTO", "name": "Urząd Miasta Wrocławia", "nip": "8970123456", "address": "pl. Nowy Targ 1-8", "city": "Wrocław", "industry": "Public Sector", "status": "completed", "acquired_date": "2023-07-01", "account_manager_id": 2, "notes": "Projekt jednorazowy - kampania bożonarodzeniowa"},
+      {"id": 6, "code": "LOGITRANS", "name": "LogiTrans Sp. z o.o.", "nip": "8984567890", "address": "ul. Logistyczna 45", "city": "Wrocław", "industry": "Logistics", "status": "prospect_lost", "acquired_date": null, "account_manager_id": 3, "notes": "Cold outreach, brak odpowiedzi po 4 follow-upach"},
+      {"id": 7, "code": "TECHSTART", "name": "TechStart Sp. z o.o.", "nip": "8995678901", "address": "ul. Technologiczna 8", "city": "Wrocław", "industry": "IT / Startup", "status": "prospect", "acquired_date": null, "account_manager_id": 2, "notes": "Wstępne rozmowy, budżet 28k"},
+      {"id": 8, "code": "EDUSFERA", "name": "EduSfera Sp. z o.o.", "nip": "8967891234", "address": "ul. Akademicka 5", "city": "Wrocław", "industry": "Education", "status": "active", "acquired_date": "2024-06-10", "account_manager_id": 2, "notes": "Nowy klient od czerwca 2024"}
+    ],
+    "contacts": [
+      {"id": 1, "client_id": 1, "name": "Marek Piwowar", "email": "m.piwowar@browarwroclavia.pl", "phone": "+48 601 111 222", "role": "Dyrektor Marketingu", "is_primary": 1, "notes": null},
+      {"id": 2, "client_id": 1, "name": "Tomasz Chmielarz", "email": "t.chmielarz@browarwroclavia.pl", "phone": "+48 602 222 333", "role": "Brand Manager", "is_primary": 0, "notes": null},
+      {"id": 3, "client_id": 2, "name": "Julia Nowakowska", "email": "julia@modanet.pl", "phone": "+48 603 333 444", "role": "CEO", "is_primary": 1, "notes": "Wymagająca, bezpośrednia komunikacja"},
+      {"id": 4, "client_id": 2, "name": "Patrycja Modna", "email": "patrycja@modanet.pl", "phone": "+48 604 444 555", "role": "Marketing Manager", "is_primary": 0, "notes": null},
+      {"id": 5, "client_id": 3, "name": "Marek Nowak", "email": "m.nowak@smakosz.pl", "phone": "+48 605 555 666", "role": "Właściciel", "is_primary": 1, "notes": null},
+      {"id": 6, "client_id": 3, "name": "Anna Wiśniewska", "email": "a.wisniewska@smakosz.pl", "phone": "+48 606 666 777", "role": "Dyrektor Operacyjny", "is_primary": 0, "notes": "Obecna na spotkaniu reklamacyjnym"},
+      {"id": 7, "client_id": 4, "name": "Anna Kowalska", "email": "a.kowalska@maszbud.pl", "phone": "+48 607 777 888", "role": "Dyrektor Marketingu", "is_primary": 1, "notes": "Główny kontakt operacyjny"},
+      {"id": 8, "client_id": 4, "name": "Piotr Machinery", "email": "p.machinery@maszbud.pl", "phone": "+48 608 888 999", "role": "Dyrektor Zarządzający", "is_primary": 0, "notes": "CEO, wrócił z USA, bardzo pro-marketing"},
+      {"id": 9, "client_id": 5, "name": "Ewa Miejska", "email": "e.miejska@um.wroc.pl", "phone": "+48 71 777 8888", "role": "Naczelnik Wydziału Promocji", "is_primary": 1, "notes": null},
+      {"id": 10, "client_id": 6, "name": "Jan Nowak", "email": "j.nowak@logitrans.pl", "phone": "+48 609 999 000", "role": "Dyrektor", "is_primary": 1, "notes": "Brak odpowiedzi na cold outreach"},
+      {"id": 11, "client_id": 7, "name": "Michał Startowy", "email": "michal@techstart.pl", "phone": "+48 610 000 111", "role": "Founder", "is_primary": 1, "notes": null},
+      {"id": 12, "client_id": 8, "name": "Maria Szkolna", "email": "m.szkolna@edusfera.pl", "phone": "+48 611 111 222", "role": "Dyrektor ds. Rozwoju", "is_primary": 1, "notes": "Dr hab., bardzo profesjonalna"}
+    ],
+    "projects": [
+      {"id": 1, "client_id": 1, "name": "Browar - obsługa bieżąca 2023", "type": "retainer", "status": "completed", "budget_net": 102000.00, "start_date": "2023-01-01", "end_date": "2023-12-31", "lead_employee_id": 2, "notes": "8500 PLN/miesiąc"},
+      {"id": 2, "client_id": 1, "name": "Browar - kampania letnia 2023", "type": "campaign", "status": "completed", "budget_net": 25000.00, "start_date": "2023-05-01", "end_date": "2023-08-31", "lead_employee_id": 2, "notes": null},
+      {"id": 3, "client_id": 1, "name": "Browar - obsługa bieżąca 2024", "type": "retainer", "status": "active", "budget_net": 110400.00, "start_date": "2024-01-01", "end_date": "2024-12-31", "lead_employee_id": 2, "notes": "9200 PLN/miesiąc po odnowieniu"},
+      {"id": 4, "client_id": 1, "name": "Browar - kampania wiosenna 2024", "type": "campaign", "status": "completed", "budget_net": 28000.00, "start_date": "2024-02-01", "end_date": "2024-03-31", "lead_employee_id": 2, "notes": "Spot reklamowy + materiały POS"},
+      {"id": 5, "client_id": 2, "name": "ModaNet - obsługa social media", "type": "retainer", "status": "active", "budget_net": 45600.00, "start_date": "2023-08-01", "end_date": "2024-07-31", "lead_employee_id": 2, "notes": "3800 PLN/miesiąc, potem 4500 po dodaniu TikTok"},
+      {"id": 6, "client_id": 2, "name": "ModaNet - kampania launchu kolekcji", "type": "campaign", "status": "completed", "budget_net": 32000.00, "start_date": "2024-01-15", "end_date": "2024-03-15", "lead_employee_id": 3, "notes": "Przekroczenie budżetu o 2500 PLN"},
+      {"id": 7, "client_id": 3, "name": "Smakosz - rebranding", "type": "project", "status": "completed", "budget_net": 35000.00, "start_date": "2023-06-20", "end_date": "2023-11-30", "lead_employee_id": 3, "notes": "Pierwszy projekt Maćka, problemy z komunikacją"},
+      {"id": 8, "client_id": 3, "name": "Smakosz - obsługa bieżąca 2024", "type": "retainer", "status": "active", "budget_net": 48000.00, "start_date": "2024-02-01", "end_date": "2025-01-31", "lead_employee_id": 3, "notes": "4000 PLN/miesiąc"},
+      {"id": 9, "client_id": 3, "name": "Smakosz - kampania letnia 2024", "type": "campaign", "status": "active", "budget_net": 18000.00, "start_date": "2024-05-01", "end_date": "2024-08-31", "lead_employee_id": 3, "notes": "Ogródki letnie w 5 lokalizacjach"},
+      {"id": 10, "client_id": 4, "name": "MaszBud - Etap 1 (audit + LinkedIn)", "type": "project", "status": "active", "budget_net": 15000.00, "start_date": "2024-09-01", "end_date": "2024-10-31", "lead_employee_id": 2, "notes": "Część planu 50k/rok"},
+      {"id": 11, "client_id": 5, "name": "Miasto - kampania bożonarodzeniowa", "type": "project", "status": "completed", "budget_net": 45000.00, "start_date": "2023-09-01", "end_date": "2023-12-31", "lead_employee_id": 2, "notes": "Projekt jednorazowy, dobra referencja"},
+      {"id": 12, "client_id": 8, "name": "EduSfera - strategia i materiały", "type": "project", "status": "active", "budget_net": 35000.00, "start_date": "2024-06-17", "end_date": "2024-08-31", "lead_employee_id": 2, "notes": "Strategia + identyfikacja + materiały rekrutacyjne"}
+    ],
+    "project_assignments": [
+      {"id": 1, "project_id": 1, "employee_id": 2, "role": "Account Lead", "assigned_date": "2023-01-01"},
+      {"id": 2, "project_id": 1, "employee_id": 5, "role": "Creative", "assigned_date": "2023-01-01"},
+      {"id": 3, "project_id": 2, "employee_id": 2, "role": "Account Lead", "assigned_date": "2023-05-01"},
+      {"id": 4, "project_id": 2, "employee_id": 5, "role": "Art Director", "assigned_date": "2023-05-01"},
+      {"id": 5, "project_id": 2, "employee_id": 6, "role": "Designer", "assigned_date": "2023-05-01"},
+      {"id": 6, "project_id": 5, "employee_id": 2, "role": "Account Lead", "assigned_date": "2023-08-01"},
+      {"id": 7, "project_id": 5, "employee_id": 6, "role": "Designer", "assigned_date": "2023-08-01"},
+      {"id": 8, "project_id": 6, "employee_id": 3, "role": "Account Manager", "assigned_date": "2024-01-15"},
+      {"id": 9, "project_id": 6, "employee_id": 5, "role": "Art Director", "assigned_date": "2024-01-15"},
+      {"id": 10, "project_id": 6, "employee_id": 6, "role": "Designer", "assigned_date": "2024-01-15"},
+      {"id": 11, "project_id": 7, "employee_id": 3, "role": "Account Manager", "assigned_date": "2023-06-20"},
+      {"id": 12, "project_id": 7, "employee_id": 5, "role": "Art Director", "assigned_date": "2023-06-20"},
+      {"id": 13, "project_id": 7, "employee_id": 6, "role": "Designer", "assigned_date": "2023-06-20"},
+      {"id": 14, "project_id": 8, "employee_id": 3, "role": "Account Manager", "assigned_date": "2024-02-01"},
+      {"id": 15, "project_id": 8, "employee_id": 2, "role": "Senior Backup", "assigned_date": "2023-12-01"},
+      {"id": 16, "project_id": 10, "employee_id": 2, "role": "Account Lead", "assigned_date": "2024-09-01"},
+      {"id": 17, "project_id": 11, "employee_id": 2, "role": "Account Lead", "assigned_date": "2023-09-01"},
+      {"id": 18, "project_id": 11, "employee_id": 4, "role": "Project Manager", "assigned_date": "2023-09-01"},
+      {"id": 19, "project_id": 12, "employee_id": 2, "role": "Account Lead", "assigned_date": "2024-06-17"}
+    ],
+    "time_entries": [
+      {"id": 1, "project_id": 7, "employee_id": 3, "date": "2023-06-20", "hours": 4.0, "description": "Kickoff meeting, brief review", "billable": 1},
+      {"id": 2, "project_id": 7, "employee_id": 5, "date": "2023-06-21", "hours": 8.0, "description": "Koncepcje logo - pierwsze szkice", "billable": 1},
+      {"id": 3, "project_id": 7, "employee_id": 6, "date": "2023-06-22", "hours": 6.0, "description": "Paleta kolorów, moodboard", "billable": 1},
+      {"id": 4, "project_id": 7, "employee_id": 5, "date": "2023-07-05", "hours": 10.0, "description": "Iteracje logo po feedbacku", "billable": 1},
+      {"id": 5, "project_id": 7, "employee_id": 6, "date": "2023-07-10", "hours": 8.0, "description": "System identyfikacji wizualnej", "billable": 1},
+      {"id": 6, "project_id": 7, "employee_id": 3, "date": "2023-07-15", "hours": 2.0, "description": "Prezentacja klientowi", "billable": 1},
+      {"id": 7, "project_id": 7, "employee_id": 5, "date": "2023-08-01", "hours": 12.0, "description": "Finalizacja logo i brand book", "billable": 1},
+      {"id": 8, "project_id": 7, "employee_id": 6, "date": "2023-08-10", "hours": 16.0, "description": "Materiały drukowane - menu, wizytówki", "billable": 1},
+      {"id": 9, "project_id": 7, "employee_id": 5, "date": "2023-10-25", "hours": 8.0, "description": "Ikony menu - rozszerzenie scope", "billable": 1},
+      {"id": 10, "project_id": 7, "employee_id": 6, "date": "2023-10-28", "hours": 6.0, "description": "Dodatkowe adaptacje", "billable": 1},
+      {"id": 11, "project_id": 7, "employee_id": 3, "date": "2023-11-15", "hours": 3.0, "description": "Zarządzanie eskalacją klienta", "billable": 0},
+      {"id": 12, "project_id": 7, "employee_id": 2, "date": "2023-12-01", "hours": 4.0, "description": "Spotkanie reklamacyjne z klientem", "billable": 0},
+      {"id": 13, "project_id": 6, "employee_id": 3, "date": "2024-01-16", "hours": 3.0, "description": "Brief i planowanie kampanii", "billable": 1},
+      {"id": 14, "project_id": 6, "employee_id": 5, "date": "2024-01-20", "hours": 16.0, "description": "Key visuals - 3 koncepcje", "billable": 1},
+      {"id": 15, "project_id": 6, "employee_id": 6, "date": "2024-01-25", "hours": 20.0, "description": "Adaptacje social media", "billable": 1},
+      {"id": 16, "project_id": 6, "employee_id": 5, "date": "2024-02-05", "hours": 12.0, "description": "Poprawki po feedbacku klienta", "billable": 1},
+      {"id": 17, "project_id": 6, "employee_id": 6, "date": "2024-02-10", "hours": 8.0, "description": "Kolejne poprawki", "billable": 1},
+      {"id": 18, "project_id": 6, "employee_id": 3, "date": "2024-02-12", "hours": 2.0, "description": "Obsługa eskalacji", "billable": 0},
+      {"id": 19, "project_id": 6, "employee_id": 2, "date": "2024-02-15", "hours": 4.0, "description": "Przejęcie komunikacji z klientem", "billable": 0},
+      {"id": 20, "project_id": 6, "employee_id": 5, "date": "2024-02-20", "hours": 10.0, "description": "Finalne materiały", "billable": 1},
+      {"id": 21, "project_id": 6, "employee_id": 6, "date": "2024-03-01", "hours": 6.0, "description": "Przygotowanie do druku", "billable": 1},
+      {"id": 22, "project_id": 4, "employee_id": 2, "date": "2024-02-05", "hours": 4.0, "description": "Brief kampanii wiosennej", "billable": 1},
+      {"id": 23, "project_id": 4, "employee_id": 5, "date": "2024-02-10", "hours": 20.0, "description": "Key visuals Wiosna z Wroclavią", "billable": 1},
+      {"id": 24, "project_id": 4, "employee_id": 6, "date": "2024-02-15", "hours": 24.0, "description": "Adaptacje SM + POS", "billable": 1},
+      {"id": 25, "project_id": 4, "employee_id": 9, "date": "2024-02-20", "hours": 8.0, "description": "Copywriting spot radiowy", "billable": 1},
+      {"id": 26, "project_id": 4, "employee_id": 2, "date": "2024-03-10", "hours": 3.0, "description": "Prezentacja i odbiór", "billable": 1}
+    ],
+    "invoices": [
+      {"id": 1, "client_id": 1, "project_id": 1, "invoice_number": "FV/2023/07/001", "amount_net": 8500.00, "vat_rate": 23.00, "amount_gross": 10455.00, "issued_date": "2023-07-01", "due_date": "2023-07-15", "paid_date": "2023-07-20", "status": "paid"},
+      {"id": 2, "client_id": 1, "project_id": 1, "invoice_number": "FV/2023/08/001", "amount_net": 8500.00, "vat_rate": 23.00, "amount_gross": 10455.00, "issued_date": "2023-08-01", "due_date": "2023-08-15", "paid_date": "2023-08-25", "status": "paid"},
+      {"id": 3, "client_id": 1, "project_id": 1, "invoice_number": "FV/2023/09/001", "amount_net": 8500.00, "vat_rate": 23.00, "amount_gross": 10455.00, "issued_date": "2023-09-01", "due_date": "2023-09-15", "paid_date": "2023-09-28", "status": "paid"},
+      {"id": 4, "client_id": 2, "project_id": 5, "invoice_number": "FV/2023/09/002", "amount_net": 3800.00, "vat_rate": 23.00, "amount_gross": 4674.00, "issued_date": "2023-09-01", "due_date": "2023-09-15", "paid_date": "2023-09-14", "status": "paid"},
+      {"id": 5, "client_id": 3, "project_id": 7, "invoice_number": "FV/2023/10/003", "amount_net": 6000.00, "vat_rate": 23.00, "amount_gross": 7380.00, "issued_date": "2023-10-01", "due_date": "2023-10-15", "paid_date": "2023-12-15", "status": "paid"},
+      {"id": 6, "client_id": 2, "project_id": 5, "invoice_number": "FV/2023/10/004", "amount_net": 3800.00, "vat_rate": 23.00, "amount_gross": 4674.00, "issued_date": "2023-10-01", "due_date": "2023-10-15", "paid_date": "2023-10-12", "status": "paid"},
+      {"id": 7, "client_id": 5, "project_id": 11, "invoice_number": "FV/2023/10/005", "amount_net": 15000.00, "vat_rate": 23.00, "amount_gross": 18450.00, "issued_date": "2023-10-01", "due_date": "2023-10-31", "paid_date": "2023-11-15", "status": "paid"},
+      {"id": 8, "client_id": 3, "project_id": 7, "invoice_number": "FV/2023/12/001", "amount_net": 5400.00, "vat_rate": 23.00, "amount_gross": 6642.00, "issued_date": "2023-12-05", "due_date": "2023-12-19", "paid_date": "2023-12-18", "status": "paid"},
+      {"id": 9, "client_id": 2, "project_id": 6, "invoice_number": "FV/2024/02/001", "amount_net": 16000.00, "vat_rate": 23.00, "amount_gross": 19680.00, "issued_date": "2024-02-01", "due_date": "2024-02-15", "paid_date": "2024-02-20", "status": "paid"},
+      {"id": 10, "client_id": 2, "project_id": 6, "invoice_number": "FV/2024/03/002", "amount_net": 18500.00, "vat_rate": 23.00, "amount_gross": 22755.00, "issued_date": "2024-03-15", "due_date": "2024-03-29", "paid_date": "2024-04-05", "status": "paid"},
+      {"id": 11, "client_id": 1, "project_id": 4, "invoice_number": "FV/2024/03/003", "amount_net": 28000.00, "vat_rate": 23.00, "amount_gross": 34440.00, "issued_date": "2024-03-20", "due_date": "2024-04-03", "paid_date": "2024-04-10", "status": "paid"},
+      {"id": 12, "client_id": 3, "project_id": 8, "invoice_number": "FV/2024/03/004", "amount_net": 4000.00, "vat_rate": 23.00, "amount_gross": 4920.00, "issued_date": "2024-03-01", "due_date": "2024-03-15", "paid_date": "2024-03-14", "status": "paid"},
+      {"id": 13, "client_id": 4, "project_id": 10, "invoice_number": "FV/2024/07/001", "amount_net": 25000.00, "vat_rate": 23.00, "amount_gross": 30750.00, "issued_date": "2024-07-28", "due_date": "2024-08-11", "paid_date": "2024-07-28", "status": "paid"},
+      {"id": 14, "client_id": 8, "project_id": 12, "invoice_number": "FV/2024/06/001", "amount_net": 10500.00, "vat_rate": 23.00, "amount_gross": 12915.00, "issued_date": "2024-06-14", "due_date": "2024-06-28", "paid_date": "2024-06-25", "status": "paid"}
+    ],
+    "expenses": [
+      {"id": 1, "project_id": 6, "vendor_name": "Studio Graficzne Pixel", "vendor_nip": "8991234561", "invoice_number": "FV/2024/02/015", "description": "Projekt broszury ModaNet (16 stron) + przygotowanie do druku", "amount_net": 3200.00, "amount_gross": 3936.00, "expense_date": "2024-02-15", "category": "design"},
+      {"id": 2, "project_id": 4, "vendor_name": "VideoMakers Wrocław Sp. z o.o.", "vendor_nip": "8942345678", "invoice_number": "VM/2024/03/003", "description": "Produkcja spotu reklamowego Browar (30s) + postprodukcja + licencja muzyki", "amount_net": 8500.00, "amount_gross": 10455.00, "expense_date": "2024-03-20", "category": "video"},
+      {"id": 3, "project_id": 9, "vendor_name": "Drukarnia Express Sp.j.", "vendor_nip": "8951234567", "invoice_number": "DE/04/2024/0089", "description": "Druk ulotek A5 (5000 szt.), plakaty B1 (50 szt.), wizytówki, roll-upy", "amount_net": 2950.00, "amount_gross": 3628.50, "expense_date": "2024-04-02", "category": "print"},
+      {"id": 4, "project_id": 4, "vendor_name": "RadioWrocław S.A.", "vendor_nip": "8960001234", "invoice_number": "RW/2024/02/088", "description": "Emisja spotu radiowego - pakiet 50 emisji", "amount_net": 4500.00, "amount_gross": 5535.00, "expense_date": "2024-02-28", "category": "media"},
+      {"id": 5, "project_id": 11, "vendor_name": "Agencja Fotograficzna LensArt", "vendor_nip": "8971112233", "invoice_number": "LA/2023/11/045", "description": "Sesja zdjęciowa - kampania świąteczna miasto", "amount_net": 6000.00, "amount_gross": 7380.00, "expense_date": "2023-11-10", "category": "photo"}
+    ]
+  },
+  "planted_facts": {
+    "db_only": [
+      {"id": "pf_db_001", "fact": "Numer telefonu Anny Kowalskiej z MaszBud", "value": "+48 607 777 888", "query_hint": "SELECT phone FROM contacts WHERE name = 'Anna Kowalska'"},
+      {"id": "pf_db_002", "fact": "Data zatrudnienia Macieja Boryny", "value": "2023-02-01", "query_hint": "SELECT hire_date FROM employees WHERE name = 'Maciej Boryna'"},
+      {"id": "pf_db_003", "fact": "Stawka godzinowa Art Directora (Irena Dulska)", "value": "170.00 PLN", "query_hint": "SELECT hourly_rate FROM employees WHERE role = 'Art Director'"},
+      {"id": "pf_db_004", "fact": "Łączna wartość faktur zapłaconych przez Browar w 2023", "value": "31365.00 PLN gross", "query_hint": "SELECT SUM(amount_gross) FROM invoices WHERE client_id = 1 AND strftime('%Y', paid_date) = '2023'"},
+      {"id": "pf_db_005", "fact": "Ile dni opóźnienia miała faktura FV/2023/10/003 od Smakosz", "value": "61 dni", "query_hint": "SELECT julianday(paid_date) - julianday(due_date) FROM invoices WHERE invoice_number = 'FV/2023/10/003'"},
+      {"id": "pf_db_006", "fact": "Koszt podwykonawców dla projektu kampanii wiosennej Browar 2024", "value": "13000.00 PLN net", "query_hint": "SELECT SUM(amount_net) FROM expenses WHERE project_id = 4"},
+      {"id": "pf_db_007", "fact": "NIP firmy MaszBud", "value": "8973456789", "query_hint": "SELECT nip FROM clients WHERE code = 'MASZBUD'"},
+      {"id": "pf_db_008", "fact": "Ile godzin łącznie przepracowano na projekcie rebrandingu Smakosz", "value": "87.0 godzin", "query_hint": "SELECT SUM(hours) FROM time_entries WHERE project_id = 7"}
+    ],
+    "multi_hop_db_docs": [
+      {"id": "pf_dbdoc_001", "fact": "Koszt godzinowy projektu Smakosz rebranding vs budżet", "description": "Wymaga: DB (godziny * stawki) + docs (budżet projektu)", "reasoning": "87h * średnia stawka (~150) = ~13k koszt pracy, budżet 35k, więc ~37% to praca"},
+      {"id": "pf_dbdoc_002", "fact": "Czy opóźnienie płatności Smakosz koreluje z reklamacją", "description": "Wymaga: DB (daty faktur) + docs (daty emaili reklamacyjnych)", "reasoning": "Faktura FV/2023/10/003 zapłacona 61 dni po terminie, reklamacja 12.11.2023"},
+      {"id": "pf_dbdoc_003", "fact": "Stosunek kosztów zewnętrznych do wewnętrznych w projekcie ModaNet launch", "description": "Wymaga: DB (expenses + time_entries) + docs (podsumowanie projektu)", "reasoning": "Expenses: 3200 PLN (Pixel), Time: ~77h * stawki"}
+    ]
+  }
+}
