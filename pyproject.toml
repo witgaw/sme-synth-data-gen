@@ -9,6 +9,7 @@ dependencies = [
     "python-docx>=1.1.0",
     "openpyxl>=3.1.0",
     "python-pptx>=0.6.0",
+    "rich>=13.0.0",
 ]
 
 [project.optional-dependencies]
@@ -29,6 +30,7 @@ all = [
 [project.scripts]
 generate = "scripts.generate_files:main"
 generate-db = "scripts.generate_database:main"
+evaluate = "scripts.evaluate:main"
 test = "pytest:main"
 
 [build-system]
