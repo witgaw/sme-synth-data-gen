@@ -29,6 +29,7 @@ all = [
 [project.scripts]
 generate = "scripts.generate_files:main"
 generate-db = "scripts.generate_database:main"
+test = "pytest:main"
 
 [build-system]
 requires = ["hatchling"]

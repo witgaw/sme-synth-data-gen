@@ -19,7 +19,10 @@ For PDF generation:
 
 import argparse
 import json
+import os
+import platform
 import random
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -410,21 +413,95 @@ def generate_pdf_hard(doc: dict, output_dir: Path) -> Path:
     return filepath
 
 
+def parse_timestamp(ts_str: str) -> datetime:
+    """Parse ISO 8601 timestamp string to datetime."""
+    # Handle timezone offset format (e.g., +02:00)
+    if "+" in ts_str or ts_str.endswith("Z"):
+        # Python 3.11+ has fromisoformat support for this, but for 3.10 compatibility:
+        ts_str = ts_str.replace("Z", "+00:00")
+        # fromisoformat handles +02:00 format in Python 3.11+
+        try:
+            return datetime.fromisoformat(ts_str)
+        except ValueError:
+            # Fallback for Python 3.10
+            if "+" in ts_str:
+                base, tz = ts_str.rsplit("+", 1)
+                return datetime.fromisoformat(base)
+    return datetime.fromisoformat(ts_str)
+
+
+def set_file_timestamps(filepath: Path, doc: dict, vary_mtime: bool = True) -> None:
+    """
+    Set file timestamps to match document metadata.
+
+    Args:
+        filepath: Path to the generated file
+        doc: Document dict with 'timestamp' field
+        vary_mtime: If True, some files get a slightly later mtime (simulating edits)
+    """
+    ts_str = doc.get("timestamp")
+    if not ts_str:
+        return
+
+    created_dt = parse_timestamp(ts_str)
+    created_ts = created_dt.timestamp()
+
+    # For modification time, sometimes add a small offset to simulate edits
+    # ~30% of files have been "edited" after creation
+    if vary_mtime and random.random() < 0.3:
+        # Add 1-48 hours for edits
+        edit_offset = random.randint(3600, 172800)
+        mtime_ts = created_ts + edit_offset
+    else:
+        mtime_ts = created_ts
+
+    # Set atime and mtime (works on all platforms)
+    os.utime(filepath, (mtime_ts, mtime_ts))
+
+    # On macOS, also try to set creation time (birthtime)
+    if platform.system() == "Darwin":
+        try:
+            # Format: [[CC]YY]MMDDhhmm[.SS]
+            fmt_time = datetime.fromtimestamp(created_ts).strftime("%Y%m%d%H%M.%S")
+            # SetFile -d sets creation date (requires Xcode CLI tools)
+            subprocess.run(
+                ["SetFile", "-d", fmt_time, str(filepath)],
+                capture_output=True,
+                check=False,
+            )
+        except FileNotFoundError:
+            # SetFile not available, skip creation time
+            pass
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate files from documents.json")
     parser.add_argument("--output-dir", "-o", default="output", help="Output directory")
     parser.add_argument("--input", "-i", default="dataset/documents.json", help="Input JSON file")
     parser.add_argument(
-        "--include-pdf",
+        "--no-pdf",
         action="store_true",
-        help="Include PDF documents (requires: uv sync --extra pdf)",
+        help="Skip PDF document generation",
     )
     parser.add_argument(
-        "--include-db",
+        "--no-db",
         action="store_true",
-        help="Include SQLite database generation",
+        help="Skip SQLite database generation",
+    )
+    parser.add_argument(
+        "--no-timestamps",
+        action="store_true",
+        help="Skip setting file timestamps to document dates",
     )
     args = parser.parse_args()
+
+    # Check if PDF dependencies are available
+    pdf_deps_available = True
+    if not args.no_pdf:
+        try:
+            import reportlab  # noqa: F401
+        except ImportError:
+            pdf_deps_available = False
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -432,12 +509,14 @@ def main():
     with open(args.input, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Filter documents based on --include-pdf flag
+    # Filter documents based on --no-pdf flag and dependency availability
     docs_to_generate = []
     pdf_skipped = 0
+    include_pdf = not args.no_pdf and pdf_deps_available
+
     for doc in data["documents"]:
         if doc.get("format") == "pdf":
-            if args.include_pdf:
+            if include_pdf:
                 docs_to_generate.append(doc)
             else:
                 pdf_skipped += 1
@@ -446,7 +525,10 @@ def main():
 
     print(f"Generating {len(docs_to_generate)} files to {output_dir}/")
     if pdf_skipped > 0:
-        print(f"  (Skipping {pdf_skipped} PDF documents - use --include-pdf to generate)")
+        if args.no_pdf:
+            print(f"  (Skipping {pdf_skipped} PDF documents per --no-pdf)")
+        else:
+            print(f"  (Skipping {pdf_skipped} PDFs - install with: uv sync --extra pdf)")
 
     generated = 0
     skipped = 0
@@ -496,6 +578,12 @@ def main():
                 continue
 
             generated += 1
+
+            # Set file timestamps to match document metadata
+            if not args.no_timestamps:
+                filepath = output_dir / doc["filename"]
+                set_file_timestamps(filepath, doc)
+
             print(f"  {doc['id']}: {doc['filename']}")
 
         except Exception as e:
@@ -524,7 +612,7 @@ def main():
 
     # Summary
     total_in_json = len(data["documents"])
-    if args.include_pdf:
+    if include_pdf:
         if generated == total_in_json:
             print(f"\nValidation passed: all {generated} documents generated")
         else:
@@ -536,8 +624,8 @@ def main():
         else:
             print(f"\nValidation passed: {generated}/{non_pdf_count} non-PDF ({skipped} skipped)")
 
-    # Generate database if requested
-    if args.include_db:
+    # Generate database by default (unless --no-db)
+    if not args.no_db:
         from scripts.generate_database import (
             create_indexes,
             create_schema,
@@ -569,11 +657,29 @@ def main():
 
             if verify_database(conn, counts):
                 print(f"  Database created: {sum(counts.values())} rows in {len(counts)} tables")
+                db_generated = True
             else:
                 print("  ERROR: Database verification failed")
                 raise SystemExit(1)
         finally:
             conn.close()
+    else:
+        db_generated = False
+
+    # Final summary
+    print("\n" + "=" * 50)
+    print("GENERATION SUMMARY")
+    print("=" * 50)
+    print(f"  Documents: {generated}/{len(docs_to_generate)}")
+    if pdf_skipped > 0:
+        print(f"  PDFs:      skipped ({pdf_skipped} files)")
+    elif include_pdf:
+        pdf_count = len([d for d in docs_to_generate if d.get("format") == "pdf"])
+        print(f"  PDFs:      {pdf_count} generated")
+    print(f"  Database:  {'generated' if db_generated else 'skipped'}")
+    print(f"  Timestamps: {'skipped' if args.no_timestamps else 'set to document dates'}")
+    print(f"  Output:    {output_dir.absolute()}")
+    print("=" * 50)
 
 
 if __name__ == "__main__":

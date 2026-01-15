@@ -385,15 +385,65 @@ class TestDatabaseQuestions:
         assert len(multi_hop) == 4
 
     def test_database_questions_have_sql_hints(self, ground_truth):
-        """Database questions should have SQL hints."""
+        """Database questions should have SQL hints and db_tables."""
         for q in ground_truth.get("database_questions", []):
             assert "sql_hint" in q, f"Question {q['id']} missing sql_hint"
+            assert "db_tables" in q, f"Question {q['id']} missing db_tables"
 
     def test_multi_hop_questions_have_reasoning(self, ground_truth):
         """Multi-hop DB questions should have reasoning steps."""
         for q in ground_truth.get("multi_hop_db_doc_questions", []):
             assert "reasoning_steps" in q, f"Question {q['id']} missing reasoning_steps"
             assert "db_tables" in q, f"Question {q['id']} missing db_tables"
+
+
+class TestGeneration:
+    """Tests for the generate command."""
+
+    def test_generate_creates_all_files(self, tmp_path, documents):
+        """Generate should create all non-PDF files by default."""
+        import subprocess
+
+        result = subprocess.run(
+            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf"],
+            capture_output=True,
+            text=True,
+        )
+        assert result.returncode == 0, f"Generate failed: {result.stderr}"
+
+        # Check document count (100 non-PDF)
+        non_pdf_docs = [d for d in documents["documents"] if d.get("format") != "pdf"]
+        generated_files = list(tmp_path.glob("*"))
+        # +1 for database
+        assert len(generated_files) == len(non_pdf_docs) + 1
+
+    def test_generate_creates_database(self, tmp_path):
+        """Generate should create database by default."""
+        import subprocess
+
+        result = subprocess.run(
+            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf"],
+            capture_output=True,
+            text=True,
+        )
+        assert result.returncode == 0
+
+        db_path = tmp_path / "kreatywna_fala_crm.db"
+        assert db_path.exists(), "Database not created"
+
+    def test_generate_no_db_skips_database(self, tmp_path):
+        """--no-db should skip database creation."""
+        import subprocess
+
+        result = subprocess.run(
+            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf", "--no-db"],
+            capture_output=True,
+            text=True,
+        )
+        assert result.returncode == 0
+
+        db_path = tmp_path / "kreatywna_fala_crm.db"
+        assert not db_path.exists(), "Database should not be created with --no-db"
 
 
 class TestGeneratedDatabase:

@@ -1004,7 +1004,7 @@
       "expected_answer": "+48 607 777 888",
       "answer_variants": ["607 777 888", "607777888"],
       "sql_hint": "SELECT phone FROM contacts WHERE name = 'Anna Kowalska'",
-      "source": "database",
+      "db_tables": ["contacts"],
       "type": "db_lookup",
       "difficulty": "easy"
     },
@@ -1015,7 +1015,7 @@
       "expected_answer": "2023-02-01",
       "answer_variants": ["1 lutego 2023", "01.02.2023", "February 1, 2023"],
       "sql_hint": "SELECT hire_date FROM employees WHERE name = 'Maciej Boryna'",
-      "source": "database",
+      "db_tables": ["employees"],
       "type": "db_lookup",
       "difficulty": "easy"
     },
@@ -1026,7 +1026,7 @@
       "expected_answer": "170",
       "answer_variants": ["170 PLN", "170 PLN/h", "170 zł"],
       "sql_hint": "SELECT hourly_rate FROM employees WHERE role = 'Art Director'",
-      "source": "database",
+      "db_tables": ["employees"],
       "type": "db_lookup",
       "difficulty": "easy"
     },
@@ -1037,7 +1037,7 @@
       "expected_answer": "31365",
       "answer_variants": ["31365 PLN", "31,365 PLN", "31 365 PLN"],
       "sql_hint": "SELECT SUM(amount_gross) FROM invoices WHERE client_id = 1 AND strftime('%Y', paid_date) = '2023'",
-      "source": "database",
+      "db_tables": ["invoices", "clients"],
       "type": "db_aggregation",
       "difficulty": "medium"
     },
@@ -1048,7 +1048,7 @@
       "expected_answer": "61",
       "answer_variants": ["61 dni", "61 days"],
       "sql_hint": "SELECT julianday(paid_date) - julianday(due_date) FROM invoices WHERE invoice_number = 'FV/2023/10/003'",
-      "source": "database",
+      "db_tables": ["invoices"],
       "type": "db_calculation",
       "difficulty": "medium"
     },
@@ -1059,7 +1059,7 @@
       "expected_answer": "13000",
       "answer_variants": ["13000 PLN", "13,000 PLN", "13 000 PLN"],
       "sql_hint": "SELECT SUM(amount_net) FROM expenses WHERE project_id = 4",
-      "source": "database",
+      "db_tables": ["expenses", "projects"],
       "type": "db_aggregation",
       "difficulty": "medium"
     },
@@ -1070,7 +1070,7 @@
       "expected_answer": "8973456789",
       "answer_variants": ["897-345-67-89"],
       "sql_hint": "SELECT nip FROM clients WHERE code = 'MASZBUD'",
-      "source": "database",
+      "db_tables": ["clients"],
       "type": "db_lookup",
       "difficulty": "easy"
     },
@@ -1081,7 +1081,7 @@
       "expected_answer": "87",
       "answer_variants": ["87 godzin", "87 h", "87 hours"],
       "sql_hint": "SELECT SUM(hours) FROM time_entries WHERE project_id = 7",
-      "source": "database",
+      "db_tables": ["time_entries", "projects"],
       "type": "db_aggregation",
       "difficulty": "medium"
     },
@@ -1092,7 +1092,7 @@
       "expected_answer": "Browar Regionalny \"Wroclavia\"",
       "answer_variants": ["Browar Wroclavia", "BROWAR", "Browar"],
       "sql_hint": "SELECT c.name FROM clients c JOIN invoices i ON c.id = i.client_id GROUP BY c.id ORDER BY SUM(i.amount_net) DESC LIMIT 1",
-      "source": "database",
+      "db_tables": ["clients", "invoices"],
       "type": "db_aggregation",
       "difficulty": "medium"
     },
@@ -1103,7 +1103,7 @@
       "expected_answer": "3",
       "answer_variants": ["3 osoby", "trzech", "three"],
       "sql_hint": "SELECT COUNT(*) FROM employees WHERE department = 'Creative'",
-      "source": "database",
+      "db_tables": ["employees"],
       "type": "db_aggregation",
       "difficulty": "easy"
     }

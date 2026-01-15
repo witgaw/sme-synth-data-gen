@@ -48,25 +48,22 @@ for doc in data['documents']:
 
 ### Generating Actual Files
 
-To create .eml, .docx, .xlsx, .pptx files from the JSON:
-
 ```bash
-# Generate document files to output/ directory
+# Generate everything (documents + database + PDFs if deps available)
 uv run generate
 
-# Include SQLite database
-uv run generate --include-db
+# For PDF generation, install extra dependencies first:
+uv sync --extra pdf
 
-# Include PDF documents (requires: uv sync --extra pdf)
-uv run generate --include-pdf
-
-# Generate everything
-uv run generate --include-db --include-pdf
+# Exclude specific outputs if needed:
+uv run generate --no-pdf         # Skip PDFs
+uv run generate --no-db          # Skip database
+uv run generate --no-timestamps  # Keep current timestamps (default: set to document dates)
 ```
 
 ### SQLite Database
 
-The `--include-db` flag generates a CRM database with 8 tables:
+The generator creates a CRM database (`kreatywna_fala_crm.db`) with 8 tables:
 
 | Table | Description |
 |-------|-------------|
@@ -88,7 +85,7 @@ sqlite3 output/kreatywna_fala_crm.db "SELECT name, hourly_rate FROM employees"
 
 ```bash
 uv sync --extra dev  # includes pytest, ruff
-uv run pytest
+uv run test
 ```
 
 ## OCR Testing (Optional)
@@ -135,6 +132,9 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 │   ├── qualitative_rubric.json  # Scoring rubrics for narrative questions
 │   └── company_meta.json        # Synthesizable facts + 8 meta-questions
 │
+├── docs/
+│   └── verification.md          # Manual verification guide for ground truth
+│
 ├── context/
 │   └── company_bible.md         # Company background, team, clients, timeline
 │
@@ -143,7 +143,7 @@ OCR questions in `ground_truth.json` are marked with `"requires_ocr": true` and 
 │   └── generate_database.py     # Database generator (entry point: `generate-db`)
 │
 └── tests/
-    └── test_dataset.py          # Dataset validation tests (44 tests)
+    └── test_dataset.py          # Dataset validation tests (51 tests)
 ```
 
 ## Dataset Statistics
