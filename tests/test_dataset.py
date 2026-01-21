@@ -401,28 +401,28 @@ class TestGeneration:
     """Tests for the generate command."""
 
     def test_generate_creates_all_files(self, tmp_path, documents):
-        """Generate should create all non-PDF files by default."""
+        """Generate should create all files including PDFs."""
         import subprocess
 
         result = subprocess.run(
-            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf"],
+            ["uv", "run", "generate", "-o", str(tmp_path)],
             capture_output=True,
             text=True,
         )
         assert result.returncode == 0, f"Generate failed: {result.stderr}"
 
-        # Check document count (100 non-PDF)
-        non_pdf_docs = [d for d in documents["documents"] if d.get("format") != "pdf"]
+        # Check document count (all documents including PDFs)
+        all_docs = documents["documents"]
         generated_files = list(tmp_path.glob("*"))
         # +1 for database
-        assert len(generated_files) == len(non_pdf_docs) + 1
+        assert len(generated_files) == len(all_docs) + 1
 
     def test_generate_creates_database(self, tmp_path):
         """Generate should create database by default."""
         import subprocess
 
         result = subprocess.run(
-            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf"],
+            ["uv", "run", "generate", "-o", str(tmp_path)],
             capture_output=True,
             text=True,
         )
@@ -436,7 +436,7 @@ class TestGeneration:
         import subprocess
 
         result = subprocess.run(
-            ["uv", "run", "generate", "-o", str(tmp_path), "--no-pdf", "--no-db"],
+            ["uv", "run", "generate", "-o", str(tmp_path), "--no-db"],
             capture_output=True,
             text=True,
         )

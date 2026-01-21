@@ -10,21 +10,16 @@ dependencies = [
     "openpyxl>=3.1.0",
     "python-pptx>=0.6.0",
     "rich>=13.0.0",
-]
-
-[project.optional-dependencies]
-pdf = [
     "reportlab>=4.0.0",
     "Pillow>=10.0.0",
     "pymupdf>=1.23.0",
     "numpy>=1.24.0",
 ]
+
+[project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
     "ruff>=0.4.0",
-]
-all = [
-    "sme-synth-data-gen[pdf]",
 ]
 
 [project.scripts]

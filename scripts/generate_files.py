@@ -2,19 +2,11 @@
 """
 Generate realistic files from documents.json
 
-Reads the canonical JSON and creates actual .eml, .docx, .xlsx, .pptx, .md files
-in the output/ directory. Optionally generates scanned-style PDFs for OCR testing.
+Reads the canonical JSON and creates actual .eml, .docx, .xlsx, .pptx, .md, and .pdf files
+in the output/ directory. Includes scanned-style PDFs for OCR testing.
 
 Usage:
-    uv run generate [--output-dir OUTPUT_DIR] [--include-pdf]
-
-Or without uv:
-    pip install python-docx openpyxl python-pptx
-    python scripts/generate_files.py
-
-For PDF generation:
-    uv sync --extra pdf
-    uv run generate --include-pdf
+    uv run generate [--output-dir OUTPUT_DIR]
 """
 
 import argparse
@@ -26,55 +18,16 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-# Optional dependencies - graceful fallback if not installed
-try:
-    from docx import Document
-
-    HAS_DOCX = True
-except ImportError:
-    HAS_DOCX = False
-
-try:
-    from openpyxl import Workbook
-    from openpyxl.styles import Font, PatternFill
-
-    HAS_XLSX = True
-except ImportError:
-    HAS_XLSX = False
-
-try:
-    from pptx import Presentation
-
-    HAS_PPTX = True
-except ImportError:
-    HAS_PPTX = False
-
-# PDF dependencies
-try:
-    from reportlab.lib.pagesizes import A4
-    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-    from reportlab.lib.units import cm
-    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
-
-    HAS_REPORTLAB = True
-except ImportError:
-    HAS_REPORTLAB = False
-
-try:
-    from PIL import Image, ImageFilter
-
-    HAS_PIL = True
-except ImportError:
-    HAS_PIL = False
-
-try:
-    import fitz  # pymupdf
-
-    HAS_PYMUPDF = True
-except ImportError:
-    HAS_PYMUPDF = False
-
-HAS_PDF = HAS_REPORTLAB and HAS_PIL and HAS_PYMUPDF
+from docx import Document
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill
+from pptx import Presentation
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.units import cm
+from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+from PIL import Image, ImageFilter
+import fitz  # pymupdf
 
 
 def generate_eml(doc: dict, output_dir: Path) -> Path:
@@ -126,10 +79,6 @@ def generate_md(doc: dict, output_dir: Path) -> Path:
 
 def generate_docx(doc: dict, output_dir: Path) -> Path:
     """Generate .docx file"""
-    if not HAS_DOCX:
-        print(f"  Skipping {doc['filename']} - python-docx not installed")
-        return None
-
     document = Document()
     document.add_heading(doc["title"], 0)
 
@@ -149,10 +98,6 @@ def generate_docx(doc: dict, output_dir: Path) -> Path:
 
 def generate_xlsx(doc: dict, output_dir: Path) -> Path:
     """Generate .xlsx file"""
-    if not HAS_XLSX:
-        print(f"  Skipping {doc['filename']} - openpyxl not installed")
-        return None
-
     wb = Workbook()
     wb.remove(wb.active)
 
@@ -177,10 +122,6 @@ def generate_xlsx(doc: dict, output_dir: Path) -> Path:
 
 def generate_pptx(doc: dict, output_dir: Path) -> Path:
     """Generate .pptx file"""
-    if not HAS_PPTX:
-        print(f"  Skipping {doc['filename']} - python-pptx not installed")
-        return None
-
     prs = Presentation()
 
     for slide_data in doc.get("slides", []):
@@ -214,10 +155,6 @@ def generate_pptx(doc: dict, output_dir: Path) -> Path:
 
 def generate_pdf_easy(doc: dict, output_dir: Path) -> Path:
     """Generate clean, OCR-friendly PDF"""
-    if not HAS_REPORTLAB:
-        print(f"  Skipping {doc['filename']} - reportlab not installed")
-        return None
-
     filepath = output_dir / doc["filename"]
 
     # Create PDF with reportlab
@@ -315,17 +252,6 @@ def apply_scan_effects(img: Image.Image, difficulty: str = "hard") -> Image.Imag
 
 def generate_pdf_hard(doc: dict, output_dir: Path) -> Path:
     """Generate scanned-style PDF with degradation effects"""
-    if not HAS_PDF:
-        missing = []
-        if not HAS_REPORTLAB:
-            missing.append("reportlab")
-        if not HAS_PIL:
-            missing.append("Pillow")
-        if not HAS_PYMUPDF:
-            missing.append("pymupdf")
-        print(f"  Skipping {doc['filename']} - missing: {', '.join(missing)}")
-        return None
-
     # First generate a clean PDF
     temp_pdf_path = output_dir / f"_temp_{doc['filename']}"
 
@@ -479,11 +405,6 @@ def main():
     parser.add_argument("--output-dir", "-o", default="output", help="Output directory")
     parser.add_argument("--input", "-i", default="dataset/documents.json", help="Input JSON file")
     parser.add_argument(
-        "--no-pdf",
-        action="store_true",
-        help="Skip PDF document generation",
-    )
-    parser.add_argument(
         "--no-db",
         action="store_true",
         help="Skip SQLite database generation",
@@ -495,40 +416,15 @@ def main():
     )
     args = parser.parse_args()
 
-    # Check if PDF dependencies are available
-    pdf_deps_available = True
-    if not args.no_pdf:
-        try:
-            import reportlab  # noqa: F401
-        except ImportError:
-            pdf_deps_available = False
-
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     with open(args.input, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Filter documents based on --no-pdf flag and dependency availability
-    docs_to_generate = []
-    pdf_skipped = 0
-    include_pdf = not args.no_pdf and pdf_deps_available
-
-    for doc in data["documents"]:
-        if doc.get("format") == "pdf":
-            if include_pdf:
-                docs_to_generate.append(doc)
-            else:
-                pdf_skipped += 1
-        else:
-            docs_to_generate.append(doc)
+    docs_to_generate = data["documents"]
 
     print(f"Generating {len(docs_to_generate)} files to {output_dir}/")
-    if pdf_skipped > 0:
-        if args.no_pdf:
-            print(f"  (Skipping {pdf_skipped} PDF documents per --no-pdf)")
-        else:
-            print(f"  (Skipping {pdf_skipped} PDFs - install with: uv sync --extra pdf)")
 
     generated = 0
     skipped = 0
@@ -542,12 +438,9 @@ def main():
                 # Handle PDF documents
                 difficulty = doc.get("pdf_difficulty", "easy")
                 if difficulty == "easy":
-                    result = generate_pdf_easy(doc, output_dir)
+                    generate_pdf_easy(doc, output_dir)
                 else:
-                    result = generate_pdf_hard(doc, output_dir)
-                if result is None:
-                    skipped += 1
-                    continue
+                    generate_pdf_hard(doc, output_dir)
             elif fmt == "eml" or "email" in doc_type:
                 generate_eml(doc, output_dir)
             elif fmt == "md" or doc_type in ["meeting_notes", "project_kickoff"]:
@@ -558,20 +451,11 @@ def main():
                 "report_project",
                 "proposal",
             ]:
-                result = generate_docx(doc, output_dir)
-                if result is None:
-                    skipped += 1
-                    continue
+                generate_docx(doc, output_dir)
             elif fmt == "xlsx" or "spreadsheet" in doc_type:
-                result = generate_xlsx(doc, output_dir)
-                if result is None:
-                    skipped += 1
-                    continue
+                generate_xlsx(doc, output_dir)
             elif fmt == "pptx" or "presentation" in doc_type:
-                result = generate_pptx(doc, output_dir)
-                if result is None:
-                    skipped += 1
-                    continue
+                generate_pptx(doc, output_dir)
             else:
                 print(f"  Unknown format for {doc['id']}: {doc_type}/{fmt}")
                 skipped += 1
@@ -602,6 +486,17 @@ def main():
     if skipped > 0:
         print(f"\nWARNING: {skipped} documents were skipped (missing dependencies?)")
 
+    # Delete old database file before counting (if it exists from a previous run)
+    if not args.no_db:
+        db_json_path = Path(args.input).parent / "database.json"
+        if db_json_path.exists():
+            with open(db_json_path, "r", encoding="utf-8") as f:
+                db_def = json.load(f)
+                db_name = db_def["meta"]["database_name"]
+                db_path = output_dir / db_name
+                if db_path.exists():
+                    db_path.unlink()
+
     # Count actual files on disk
     actual_files = list(output_dir.glob("*"))
     actual_file_count = len([f for f in actual_files if f.is_file()])
@@ -612,17 +507,10 @@ def main():
 
     # Summary
     total_in_json = len(data["documents"])
-    if include_pdf:
-        if generated == total_in_json:
-            print(f"\nValidation passed: all {generated} documents generated")
-        else:
-            print(f"\nValidation passed: {generated}/{total_in_json} generated ({skipped} skipped)")
+    if generated == total_in_json:
+        print(f"\nValidation passed: all {generated} documents generated")
     else:
-        non_pdf_count = total_in_json - pdf_skipped
-        if generated == non_pdf_count:
-            print(f"\nValidation passed: all {generated} non-PDF documents generated")
-        else:
-            print(f"\nValidation passed: {generated}/{non_pdf_count} non-PDF ({skipped} skipped)")
+        print(f"\nValidation passed: {generated}/{total_in_json} generated ({skipped} skipped)")
 
     # Generate database by default (unless --no-db)
     if not args.no_db:
@@ -640,9 +528,6 @@ def main():
 
         db_name = db_def["meta"]["database_name"]
         db_path = output_dir / db_name
-
-        if db_path.exists():
-            db_path.unlink()
 
         print(f"\nGenerating database: {db_path}")
 
@@ -671,11 +556,6 @@ def main():
     print("GENERATION SUMMARY")
     print("=" * 50)
     print(f"  Documents: {generated}/{len(docs_to_generate)}")
-    if pdf_skipped > 0:
-        print(f"  PDFs:      skipped ({pdf_skipped} files)")
-    elif include_pdf:
-        pdf_count = len([d for d in docs_to_generate if d.get("format") == "pdf"])
-        print(f"  PDFs:      {pdf_count} generated")
     print(f"  Database:  {'generated' if db_generated else 'skipped'}")
     print(f"  Timestamps: {'skipped' if args.no_timestamps else 'set to document dates'}")
     print(f"  Output:    {output_dir.absolute()}")
