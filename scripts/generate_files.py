@@ -14,20 +14,136 @@ import json
 import os
 import platform
 import random
+import re
 import subprocess
 from datetime import datetime
 from pathlib import Path
 
+import fitz  # pymupdf
 from docx import Document
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
+from PIL import Image, ImageFilter
 from pptx import Presentation
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
-from PIL import Image, ImageFilter
-import fitz  # pymupdf
+
+
+def _register_fonts() -> tuple[str, str]:
+    """Register TTF fonts with Polish character support. Returns (regular_name, bold_name)."""
+    # Prefer Arial from macOS Supplemental (full Latin Extended support)
+    arial_paths = [
+        (
+            "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        ),
+        (
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        ),
+        (
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        ),
+    ]
+    for regular, bold in arial_paths:
+        if os.path.exists(regular):
+            pdfmetrics.registerFont(TTFont("PolishRegular", regular))
+            if os.path.exists(bold):
+                pdfmetrics.registerFont(TTFont("PolishBold", bold))
+            else:
+                pdfmetrics.registerFont(TTFont("PolishBold", regular))
+            return "PolishRegular", "PolishBold"
+    # Fallback: Vera (partial Polish support - missing ą, ę, ń, ś, ź, ż)
+    import reportlab
+
+    vera_dir = os.path.join(os.path.dirname(reportlab.__file__), "fonts")
+    pdfmetrics.registerFont(TTFont("PolishRegular", os.path.join(vera_dir, "Vera.ttf")))
+    pdfmetrics.registerFont(TTFont("PolishBold", os.path.join(vera_dir, "VeraBd.ttf")))
+    return "PolishRegular", "PolishBold"
+
+
+_FONT_REGULAR, _FONT_BOLD = _register_fonts()
+
+# Patterns that indicate illegible/damaged text — replace with ellipsis
+_ILLEGIBLE_PAT = re.compile(
+    r"ILLEGIBLE|FADED|GLARE|FOLD|COVERED|CUT OFF",
+    re.IGNORECASE,
+)
+
+
+def _annotation_to_text(inner: str) -> str:
+    """
+    Convert the contents of a [bracket annotation] to replacement text.
+
+    Returns empty string to remove the annotation entirely, or a replacement
+    string to substitute in its place.
+    """
+    # Checkboxes
+    if inner == "X":
+        return "☑"
+    if inner == " ":
+        return "☐"
+    if inner.startswith("✓"):
+        rest = inner[1:].strip()
+        return f"✓ {rest}" if rest else "✓"
+    # Exact ellipsis marker
+    if inner == "...":
+        return "…"
+    # Illegibility / scan damage → ellipsis
+    if _ILLEGIBLE_PAT.search(inner):
+        return "…"
+    # Everything else (scan type headers, layout markers, handwriting labels,
+    # stamps, arrows, damage descriptions, etc.) → remove
+    return ""
+
+
+def _content_to_markup(content: str) -> str:
+    """
+    Convert plain-text document content to ReportLab Paragraph XML markup.
+
+    - Escapes XML entities (&, <, >)
+    - [STRIKETHROUGH] → strikes through the rest of that line
+    - [X] / [ ] / [✓...] → checkbox/tick symbols
+    - Illegibility markers ([ILLEGIBLE], [...], etc.) → …
+    - All other [annotation] markers → removed; if the whole line was just
+      annotation(s) the line is dropped entirely
+    - Genuinely blank lines (paragraph separators) are preserved
+    - Newlines → <br/>
+    """
+    lines = content.split("\n")
+    result_lines = []
+    for line in lines:
+        original_stripped = line.strip()
+
+        # Preserve genuinely blank lines as paragraph separators
+        if not original_stripped:
+            result_lines.append("")
+            continue
+
+        # Escape XML entities before inserting any markup tags
+        line = line.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+        # [STRIKETHROUGH] → strike through remaining text on this line
+        strike_match = re.search(r"\[STRIKETHROUGH\]", line)
+        if strike_match:
+            before = line[: strike_match.start()]
+            after = line[strike_match.end() :].strip()
+            result_lines.append(before + (f"<strike>{after}</strike>" if after else ""))
+            continue
+
+        # Replace all remaining [annotation] markers
+        line = re.sub(r"\[([^\]]{1,80})\]", lambda m: _annotation_to_text(m.group(1)), line)
+
+        # Drop lines that consisted entirely of annotations (now empty)
+        if line.strip():
+            result_lines.append(line.rstrip())
+
+    return "<br/>".join(result_lines)
 
 
 def generate_eml(doc: dict, output_dir: Path) -> Path:
@@ -157,7 +273,6 @@ def generate_pdf_easy(doc: dict, output_dir: Path) -> Path:
     """Generate clean, OCR-friendly PDF"""
     filepath = output_dir / doc["filename"]
 
-    # Create PDF with reportlab
     pdf_doc = SimpleDocTemplate(
         str(filepath),
         pagesize=A4,
@@ -169,13 +284,12 @@ def generate_pdf_easy(doc: dict, output_dir: Path) -> Path:
 
     styles = getSampleStyleSheet()
 
-    # Custom styles for Polish text
     title_style = ParagraphStyle(
         "CustomTitle",
         parent=styles["Heading1"],
         fontSize=16,
         spaceAfter=20,
-        fontName="Helvetica-Bold",
+        fontName=_FONT_BOLD,
     )
 
     body_style = ParagraphStyle(
@@ -183,26 +297,18 @@ def generate_pdf_easy(doc: dict, output_dir: Path) -> Path:
         parent=styles["Normal"],
         fontSize=10,
         leading=14,
-        fontName="Helvetica",
+        fontName=_FONT_REGULAR,
     )
 
     story = []
 
-    # Add title
     title = doc.get("title", doc.get("filename", "Dokument"))
-    story.append(Paragraph(title, title_style))
+    title_escaped = title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    story.append(Paragraph(title_escaped, title_style))
     story.append(Spacer(1, 12))
 
-    # Add content - handle Polish characters by escaping XML entities
     content = doc.get("content", "")
-    # Replace problematic characters for XML
-    content = content.replace("&", "&amp;")
-    content = content.replace("<", "&lt;")
-    content = content.replace(">", "&gt;")
-    # Convert newlines to HTML breaks for proper rendering
-    content = content.replace("\n", "<br/>")
-
-    story.append(Paragraph(content, body_style))
+    story.append(Paragraph(_content_to_markup(content), body_style))
 
     pdf_doc.build(story)
     return filepath
@@ -270,28 +376,24 @@ def generate_pdf_hard(doc: dict, output_dir: Path) -> Path:
         parent=styles["Heading1"],
         fontSize=14,
         spaceAfter=16,
-        fontName="Helvetica-Bold",
+        fontName=_FONT_BOLD,
     )
     body_style = ParagraphStyle(
         "CustomBody",
         parent=styles["Normal"],
         fontSize=10,
         leading=13,
-        fontName="Helvetica",
+        fontName=_FONT_REGULAR,
     )
 
     story = []
     title = doc.get("title", doc.get("filename", "Dokument"))
-    story.append(Paragraph(title, title_style))
+    title_escaped = title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    story.append(Paragraph(title_escaped, title_style))
     story.append(Spacer(1, 10))
 
     content = doc.get("content", "")
-    content = content.replace("&", "&amp;")
-    content = content.replace("<", "&lt;")
-    content = content.replace(">", "&gt;")
-    content = content.replace("\n", "<br/>")
-
-    story.append(Paragraph(content, body_style))
+    story.append(Paragraph(_content_to_markup(content), body_style))
     pdf_doc.build(story)
 
     # Convert PDF to images and apply effects
