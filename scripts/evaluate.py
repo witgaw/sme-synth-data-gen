@@ -198,6 +198,103 @@ def check_temporal_filter(submitted: str, expected_doc_ids: list[str]) -> dict:
     }
 
 
+def levenshtein_distance(seq1: list, seq2: list) -> int:
+    """Compute Levenshtein edit distance between two sequences (chars or words)."""
+    m, n = len(seq1), len(seq2)
+    prev = list(range(n + 1))
+    curr = [0] * (n + 1)
+    for i in range(1, m + 1):
+        curr[0] = i
+        for j in range(1, n + 1):
+            if seq1[i - 1] == seq2[j - 1]:
+                curr[j] = prev[j - 1]
+            else:
+                curr[j] = 1 + min(prev[j - 1], prev[j], curr[j - 1])
+        prev, curr = curr, prev
+    return prev[n]
+
+
+def compute_cer(hypothesis: str, reference: str) -> float:
+    """Character Error Rate: char-level edit distance / reference length. 0.0 = perfect."""
+    if not reference:
+        return 0.0 if not hypothesis else 1.0
+    dist = levenshtein_distance(list(hypothesis), list(reference))
+    return dist / len(reference)
+
+
+def compute_wer(hypothesis: str, reference: str) -> float:
+    """Word Error Rate: word-level edit distance / reference word count. 0.0 = perfect."""
+    ref_words = reference.split()
+    hyp_words = hypothesis.split()
+    if not ref_words:
+        return 0.0 if not hyp_words else 1.0
+    dist = levenshtein_distance(hyp_words, ref_words)
+    return dist / len(ref_words)
+
+
+def evaluate_ocr_quality(ocr_texts: dict, documents: list) -> dict:
+    """
+    Compare submitted OCR text against ground truth document content.
+
+    Args:
+        ocr_texts: Dict of {doc_id: extracted_text} from submissions["ocr_texts"]
+        documents: List of document dicts from documents.json
+
+    Returns:
+        Dict with per-document CER/WER and aggregated summary by difficulty.
+    """
+    ocr_docs = {d["id"]: d for d in documents if d.get("pdf_difficulty")}
+
+    results = []
+    for doc_id, submitted_text in ocr_texts.items():
+        if doc_id not in ocr_docs:
+            continue
+        doc = ocr_docs[doc_id]
+        reference = doc.get("content", "")
+        difficulty = doc.get("pdf_difficulty", "unknown")
+
+        ref_norm = re.sub(r"\s+", " ", reference.strip())
+        hyp_norm = re.sub(r"\s+", " ", submitted_text.strip()) if submitted_text else ""
+
+        cer = compute_cer(hyp_norm, ref_norm)
+        wer = compute_wer(hyp_norm, ref_norm)
+
+        results.append(
+            {
+                "doc_id": doc_id,
+                "filename": doc.get("filename", ""),
+                "difficulty": difficulty,
+                "cer": round(cer, 4),
+                "wer": round(wer, 4),
+                "ref_chars": len(ref_norm),
+                "hyp_chars": len(hyp_norm),
+                "submitted": bool(submitted_text),
+            }
+        )
+
+    def _agg(items: list) -> dict:
+        if not items:
+            return {"count": 0, "mean_cer": None, "mean_wer": None, "submitted_count": 0}
+        return {
+            "count": len(items),
+            "mean_cer": round(sum(r["cer"] for r in items) / len(items), 4),
+            "mean_wer": round(sum(r["wer"] for r in items) / len(items), 4),
+            "submitted_count": sum(1 for r in items if r["submitted"]),
+        }
+
+    easy = [r for r in results if r["difficulty"] == "easy"]
+    hard = [r for r in results if r["difficulty"] == "hard"]
+
+    return {
+        "documents": results,
+        "summary": {
+            "total": _agg(results),
+            "easy": _agg(easy),
+            "hard": _agg(hard),
+        },
+    }
+
+
 def evaluate_submissions(ground_truth: dict, submissions: dict) -> dict:
     """Evaluate all submissions against ground truth."""
     results = {
@@ -369,6 +466,7 @@ def evaluate(
     submissions: dict | str | Path,
     ground_truth: dict | str | Path | None = None,
     rubrics: dict | str | Path | None = None,
+    documents: dict | str | Path | None = None,
 ) -> dict:
     """
     Evaluate RAG submissions against ground truth.
@@ -376,9 +474,13 @@ def evaluate(
     Can be called from Python code with dicts or file paths.
 
     Args:
-        submissions: Dict of {question_id: answer} or path to JSON file
+        submissions: Dict of {question_id: answer} or path to JSON file.
+            May include an optional "ocr_texts" key: {doc_id: extracted_text}
+            for OCR quality assessment.
         ground_truth: Dict or path to ground truth JSON (default: dataset/ground_truth.json)
         rubrics: Dict or path to rubrics JSON (default: dataset/qualitative_rubric.json)
+        documents: Dict or path to documents JSON (default: dataset/documents.json).
+            Required only when "ocr_texts" is present in submissions.
 
     Returns:
         Dict with keys:
@@ -387,6 +489,7 @@ def evaluate(
             - temporal: List of temporal filter results
             - not_answered: List of unanswered questions
             - summary: Dict with aggregate statistics
+            - ocr_quality: (optional) OCR CER/WER results per document
 
     Example:
         >>> from scripts.evaluate import evaluate
@@ -415,12 +518,26 @@ def evaluate(
         with open(rubrics, encoding="utf-8") as f:
             rubrics = json.load(f)
 
-    # Run evaluation
+    # Run QA evaluation
     results = evaluate_submissions(ground_truth, submissions)
 
     # Attach rubrics to results for convenience
     if rubrics:
         results["rubrics"] = rubrics
+
+    # OCR quality assessment if ocr_texts provided
+    ocr_texts = submissions.get("ocr_texts")
+    if ocr_texts:
+        if documents is None:
+            documents = Path("dataset/documents.json")
+        if isinstance(documents, (str, Path)):
+            with open(documents, encoding="utf-8") as f:
+                documents = json.load(f)
+        if isinstance(documents, dict):
+            doc_list = documents.get("documents", documents)
+        else:
+            doc_list = documents
+        results["ocr_quality"] = evaluate_ocr_quality(ocr_texts, doc_list)
 
     return results
 
@@ -538,6 +655,32 @@ def format_markdown_report(results: dict, rubrics: dict | None = None) -> str:
             lines.append(f"**Submitted answer:**\n> {r['submitted']}\n")
             lines.append("---\n")
 
+    # OCR quality
+    if results.get("ocr_quality"):
+        oq = results["ocr_quality"]
+        lines.append("## OCR Quality Assessment\n")
+        s = oq["summary"]
+        for label, key in [("All", "total"), ("Easy PDFs", "easy"), ("Hard PDFs", "hard")]:
+            agg = s[key]
+            if agg["count"] == 0:
+                continue
+            cer = f"{agg['mean_cer']:.1%}" if agg["mean_cer"] is not None else "n/a"
+            wer = f"{agg['mean_wer']:.1%}" if agg["mean_wer"] is not None else "n/a"
+            submitted = agg["submitted_count"]
+            total_docs = agg["count"]
+            lines.append(f"**{label}** ({submitted}/{total_docs} submitted): CER={cer}, WER={wer}")
+        lines.append("")
+        lines.append("| Document | Difficulty | CER | WER | Chars (ref) |")
+        lines.append("|---|---|---|---|---|")
+        for r in sorted(oq["documents"], key=lambda x: x["doc_id"]):
+            cer = f"{r['cer']:.1%}"
+            wer = f"{r['wer']:.1%}"
+            lines.append(
+                f"| {r['doc_id']} / {r['filename']} | {r['difficulty']} "
+                f"| {cer} | {wer} | {r['ref_chars']} |"
+            )
+        lines.append("")
+
     # Not answered
     if results["not_answered"]:
         lines.append("## Not Answered\n")
@@ -638,6 +781,45 @@ def print_rich_report(results: dict, rubrics: dict | None = None) -> None:
         for r in results["human_review"]:
             panels.append(make_review_panel(r, rubrics))
 
+    if results.get("ocr_quality"):
+        oq = results["ocr_quality"]
+        s = oq["summary"]
+        tbl = Table(
+            title="OCR Quality Assessment", show_lines=True, border_style="cyan", expand=True
+        )
+        tbl.add_column("Document", style="dim", no_wrap=True)
+        tbl.add_column("Difficulty", width=8)
+        tbl.add_column("CER", width=8, justify="right")
+        tbl.add_column("WER", width=8, justify="right")
+        tbl.add_column("Chars (ref)", width=12, justify="right")
+        for r in sorted(oq["documents"], key=lambda x: x["doc_id"]):
+            cer_color = "green" if r["cer"] < 0.05 else "yellow" if r["cer"] < 0.20 else "red"
+            wer_color = "green" if r["wer"] < 0.05 else "yellow" if r["wer"] < 0.20 else "red"
+            diff_color = "cyan" if r["difficulty"] == "easy" else "magenta"
+            tbl.add_row(
+                f"{r['doc_id']} {r['filename']}",
+                f"[{diff_color}]{r['difficulty']}[/]",
+                f"[{cer_color}]{r['cer']:.1%}[/]",
+                f"[{wer_color}]{r['wer']:.1%}[/]",
+                str(r["ref_chars"]),
+            )
+        # Append aggregate summary rows
+        for label, key in [("Easy avg", "easy"), ("Hard avg", "hard"), ("Total avg", "total")]:
+            agg = s[key]
+            if agg["count"] == 0:
+                continue
+            cer_str = f"{agg['mean_cer']:.1%}" if agg["mean_cer"] is not None else "n/a"
+            wer_str = f"{agg['mean_wer']:.1%}" if agg["mean_wer"] is not None else "n/a"
+            sub_str = f"{agg['submitted_count']}/{agg['count']}"
+            tbl.add_row(
+                f"[bold]{label}[/] ({sub_str} submitted)",
+                "",
+                f"[bold]{cer_str}[/]",
+                f"[bold]{wer_str}[/]",
+                "",
+            )
+        panels.append(tbl)
+
     for panel in panels:
         console.print(panel)
 
@@ -663,6 +845,12 @@ def main():
         help="Output file path (default: stdout)",
     )
     parser.add_argument(
+        "--documents",
+        "-D",
+        default="dataset/documents.json",
+        help="Path to documents JSON (for OCR quality assessment)",
+    )
+    parser.add_argument(
         "--display",
         "-d",
         choices=["rich", "markdown", "json"],
@@ -671,23 +859,14 @@ def main():
     )
     args = parser.parse_args()
 
-    # Load ground truth
-    with open(args.ground_truth, encoding="utf-8") as f:
-        ground_truth = json.load(f)
-
-    # Load submissions
-    with open(args.submissions, encoding="utf-8") as f:
-        submissions = json.load(f)
-
-    # Load rubrics (optional)
-    rubrics = None
-    rubrics_path = Path(args.rubrics)
-    if rubrics_path.exists():
-        with open(rubrics_path, encoding="utf-8") as f:
-            rubrics = json.load(f)
-
-    # Evaluate
-    results = evaluate_submissions(ground_truth, submissions)
+    # Evaluate (loads ground truth, submissions, rubrics, documents internally)
+    results = evaluate(
+        submissions=args.submissions,
+        ground_truth=args.ground_truth,
+        rubrics=args.rubrics,
+        documents=args.documents,
+    )
+    rubrics = results.pop("rubrics", None)
 
     # Format and output
     if args.display == "rich":
