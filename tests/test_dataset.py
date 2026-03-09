@@ -147,7 +147,7 @@ class TestGroundTruth:
             + len(ground_truth.get("temporal_filter_questions", []))
             + len(ground_truth.get("negative_questions", []))
         )
-        assert total == 35
+        assert total == 36
 
     def test_ocr_question_count(self, ground_truth):
         """Should have 16 OCR questions."""
@@ -167,7 +167,7 @@ class TestGroundTruth:
             + len(ground_truth.get("database_questions", []))
             + len(ground_truth.get("multi_hop_db_doc_questions", []))
         )
-        assert total == 70
+        assert total == 71
 
     def test_unique_question_ids(self, ground_truth):
         """All question IDs should be unique."""
@@ -214,7 +214,8 @@ class TestOcrQuestions:
         pdf_doc_ids = {d["id"] for d in documents["documents"] if d.get("format") == "pdf"}
         for q in ground_truth.get("ocr_questions", []):
             source_docs = q.get("source_documents", [])
-            for doc_id in source_docs:
+            for entry in source_docs:
+                doc_id = entry["id"] if isinstance(entry, dict) else entry
                 assert doc_id in pdf_doc_ids, f"Question {q['id']} references non-PDF {doc_id}"
 
 
@@ -395,6 +396,102 @@ class TestDatabaseQuestions:
         for q in ground_truth.get("multi_hop_db_doc_questions", []):
             assert "reasoning_steps" in q, f"Question {q['id']} missing reasoning_steps"
             assert "db_tables" in q, f"Question {q['id']} missing db_tables"
+
+
+class TestSystemPrompt:
+    """Tests for system_prompt.json."""
+
+    @pytest.fixture
+    def system_prompt(self):
+        with open(DATASET_DIR / "system_prompt.json", encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_valid_json(self, system_prompt):
+        """system_prompt.json is valid JSON with expected structure."""
+        assert "meta" in system_prompt
+        assert "pl" in system_prompt
+        assert "en" in system_prompt
+
+    def test_both_languages_have_required_fields(self, system_prompt):
+        """Both language variants have system_prompt and format fields."""
+        for lang in ("pl", "en"):
+            assert "system_prompt" in system_prompt[lang]
+            assert "negative_answer_format" in system_prompt[lang]
+            assert "partial_answer_suffix" in system_prompt[lang]
+            assert len(system_prompt[lang]["system_prompt"]) > 100
+
+
+class TestEvaluatorFunctions:
+    """Tests for evaluator scoring functions."""
+
+    def test_negative_question_polish_natural_language(self):
+        """check_negative_question should handle natural Polish LLM responses."""
+        from scripts.evaluate import check_negative_question
+
+        # Common LLM phrasings that should be detected
+        assert check_negative_question(
+            "Nie jestem w stanie odpowiedzieć na to pytanie na podstawie dokumentów."
+        )
+        assert check_negative_question(
+            "Ta informacja nie jest dostępna w dokumentach."
+        )
+        assert check_negative_question(
+            "Dokumenty nie zawierają tej informacji."
+        )
+        assert check_negative_question("Brak informacji w dokumentach.")
+        assert check_negative_question("Brak danych na ten temat.")
+        assert check_negative_question(
+            "Nie udało się znaleźć tych danych w dostarczonych materiałach."
+        )
+        assert check_negative_question(
+            "Nie mogę udzielić odpowiedzi - dokumenty nie obejmują tego tematu."
+        )
+
+    def test_negative_question_english_natural_language(self):
+        """check_negative_question should handle natural English LLM responses."""
+        from scripts.evaluate import check_negative_question
+
+        assert check_negative_question("Information not found in documents.")
+        assert check_negative_question(
+            "I could not find this information in the provided documents."
+        )
+        assert check_negative_question("No relevant data available.")
+        assert check_negative_question(
+            "The documents do not contain this information."
+        )
+        assert check_negative_question(
+            "I'm unable to answer this based on the available documents."
+        )
+
+    def test_negative_question_rejects_positive_answers(self):
+        """check_negative_question should reject actual content answers."""
+        from scripts.evaluate import check_negative_question
+
+        assert not check_negative_question("Anna Kowalska, Dyrektor Marketingu")
+        assert not check_negative_question("52000 PLN")
+        assert not check_negative_question("15 czerwca 2023")
+        assert not check_negative_question(
+            "Agencja zrealizowała projekt rebrandingu dla Smakosz."
+        )
+
+    def test_partial_answer_detection(self):
+        """check_partial_answer should detect partial-info acknowledgments."""
+        from scripts.evaluate import check_partial_answer
+
+        assert check_partial_answer(
+            "Dokumenty zawierają jedynie częściowe informacje na ten temat."
+        )
+        assert check_partial_answer(
+            "Only high-level proposal exists, no detailed strategy."
+        )
+        assert check_partial_answer(
+            "Informacje w dokumentach są niepełne i fragmentaryczne."
+        )
+        assert check_partial_answer(
+            "Brak szczegółów - dostępny jedynie ogólny zarys."
+        )
+        assert not check_partial_answer("Anna Kowalska, Dyrektor Marketingu")
+        assert not check_partial_answer("")
 
 
 class TestGeneration:

@@ -23,9 +23,9 @@
         "Pozytywne wyniki biznesowe mimo problemów"
       ],
       "must_not_mention": [
-        "Informacje o innych klientach nie związane z kontekstem",
-        "Wydarzenia spoza okresu sierpień 2023 - kwiecień 2024",
-        "Spekulacje nie oparte na dokumentach"
+        ["Information about unrelated clients", "Informacje o innych klientach nie związane z kontekstem"],
+        ["Events outside the August 2023 - April 2024 period", "Wydarzenia spoza okresu sierpień 2023 - kwiecień 2024"],
+        ["Speculation not grounded in documents", "Spekulacje nie oparte na dokumentach"]
       ],
       "scoring": {
         "all_must_mention": 3,
@@ -54,9 +54,9 @@
         "Lessons learned nt. komunikacji projektowej"
       ],
       "must_not_mention": [
-        "Problemy innych klientów jako przyczyny",
-        "Wydarzenia po grudniu 2023 (fokus na crisis resolution)",
-        "Nieudokumentowane szczegóły"
+        ["Other clients' problems presented as causes", "Problemy innych klientów jako przyczyny"],
+        ["Events after December 2023 (focus is on crisis resolution)", "Wydarzenia po grudniu 2023 (fokus na crisis resolution)"],
+        ["Undocumented details", "Nieudokumentowane szczegóły"]
       ],
       "scoring": {
         "all_must_mention": 3,
@@ -88,8 +88,38 @@
         "LinkedIn jako kluczowy kanał w finalnej ofercie"
       ],
       "must_not_mention": [
-        "Spekulacje o przyczynach nie wymienione w dokumentach",
-        "Informacje o innych prospektach nie związane z kontekstem"
+        ["Speculation about causes not mentioned in documents", "Spekulacje o przyczynach nie wymienione w dokumentach"],
+        ["Information about unrelated prospects", "Informacje o innych prospektach nie związane z kontekstem"]
+      ],
+      "scoring": {
+        "all_must_mention": 3,
+        "most_must_mention": 2,
+        "some_must_mention": 1,
+        "includes_should_mention": "+1 (max 2)",
+        "any_must_not_mention": "-2",
+        "factual_errors": "-1 per error"
+      },
+      "max_score": 5
+    },
+    "smakosz_november_2023": {
+      "description": "Evaluates summary of Smakosz project events in November 2023 based on 3 emails",
+      "must_mention": [
+        "Opóźnienie w dostawie niezkomunikowane klientowi (Boryna wiedział od 28.10, nie poinformował Smakosz)",
+        "Skarga klienta (Marek Nowak) na brak komunikacji - dowiaduje się o problemach dopiero gdy pyta",
+        "Wstrzymanie płatności faktury przez klienta do wyjaśnienia sytuacji",
+        "Zaległość płatnicza 45 dni (faktura FV/2023/10/003, 6,000 PLN netto)"
+      ],
+      "should_mention": [
+        "Wczesny alert Ochódzkiego (3 listopada) o zaległej płatności Smakosz od 19 października",
+        "Propozycja Sieczkowskiego: tygodniowe statusy email dla aktywnych projektów",
+        "Boryna przyznaje winę za brak przekazania informacji o opóźnieniu",
+        "Eskalacja płatności przez Lichocką do Reymontowskiego i Kmicica",
+        "Wnioski z problemu: zmiana procesu komunikacji z klientem"
+      ],
+      "must_not_mention": [
+        ["Events from December 2023 or later (resolution meeting, discount)", "Wydarzenia z grudnia 2023 lub późniejsze (spotkanie wyjaśniające, rabat)"],
+        ["Information about other clients presented as Smakosz events", "Informacje o innych klientach jako zdarzenia Smakosz"],
+        ["Speculation not grounded in the three November documents", "Spekulacje nie oparte na trzech dokumentach z listopada"]
       ],
       "scoring": {
         "all_must_mention": 3,
@@ -116,9 +146,9 @@
         "Wcześniejsza eskalacja problemów budżetowych"
       ],
       "must_not_mention": [
-        "Lessons learned z innych projektów",
-        "Spekulacje nie oparte na dokumentach",
-        "Krytyka zespołu (focus na proces, nie osoby)"
+        ["Lessons learned from other projects", "Lessons learned z innych projektów"],
+        ["Speculation not grounded in documents", "Spekulacje nie oparte na dokumentach"],
+        ["Team criticism (focus on process, not people)", "Krytyka zespołu (focus na proces, nie osoby)"]
       ],
       "scoring": {
         "all_must_mention": 3,

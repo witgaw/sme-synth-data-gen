@@ -132,6 +132,16 @@ def check_exact_match(submitted: str, expected: str, variants: list[str] | None)
     if expected_norm in submitted_norm and len(expected_norm) > 5:
         return 0.5
 
+    # Token recall - partial credit if all meaningful expected tokens appear in submitted
+    # Handles any order, extra surrounding text, punctuation differences
+    def _tokens(s: str) -> set[str]:
+        return {t for t in re.sub(r"[^\w\s]", " ", s).split() if len(t) > 2}
+
+    exp_tokens = _tokens(expected_norm)
+    sub_tokens = _tokens(submitted_norm)
+    if exp_tokens and exp_tokens.issubset(sub_tokens):
+        return 0.5
+
     return 0.0
 
 
@@ -144,20 +154,55 @@ def check_negative_question(submitted: str) -> bool:
     submitted_lower = submitted.lower().strip()
 
     negative_indicators = [
-        "nie znaleziono",
+        # Polish - explicit negatives
         "brak informacji",
+        "brak danych",
+        "brak takich",
+        "nie znaleziono",
+        "nie odnaleziono",
         "nie ma danych",
+        "nie ma informacji",
         "nie wiem",
         "nie można ustalić",
-        "brak danych",
+        "nie można określić",
         "nie dotyczy",
-        "n/a",
+        "nie występuje",
+        "nie istnieje",
+        "nie zawiera",
+        "nie zawierają",
+        "nie jest dostępna",
+        "nie są dostępne",
+        "nie jestem w stanie",
+        "nie mogę",
+        "nie udało się",
+        "nie posiadam",
+        "nie wynika",
+        "nie obejmują",
+        "nie odnoszą się",
+        "niedostępn",
+        "poza zakresem",
+        "brak",
+        # English - explicit negatives
         "not found",
         "no information",
+        "no data",
+        "not available",
+        "not present",
+        "not mentioned",
+        "does not contain",
+        "doesn't contain",
+        "do not contain",
+        "don't contain",
+        "cannot find",
+        "could not find",
+        "couldn't find",
+        "unable to",
+        "no such",
+        "no relevant",
+        "not in the documents",
+        "outside the scope",
+        "n/a",
         "unknown",
-        "nie występuje",
-        "brak",
-        "nie istnieje",
     ]
 
     # Check for negative indicators
@@ -165,19 +210,61 @@ def check_negative_question(submitted: str) -> bool:
         if indicator in submitted_lower:
             return True
 
-    # Check for question marks or uncertainty
-    if "?" in submitted and len(submitted) < 50:
-        return True
+    return False
+
+
+def check_partial_answer(submitted: str) -> bool:
+    """Check if answer acknowledges that only partial/limited information is available."""
+    if not submitted or not submitted.strip():
+        return False
+
+    submitted_lower = submitted.lower().strip()
+
+    partial_indicators = [
+        # Polish
+        "częściow",
+        "fragmentarycz",
+        "ograniczon",
+        "niepełn",
+        "jedynie ogóln",
+        "tylko ogóln",
+        "brak szczegół",
+        "brak szczegółow",
+        "nie zawiera szczegół",
+        "nie ma szczegół",
+        "ogólnikow",
+        "wysokopoziomow",
+        # English
+        "partial",
+        "limited information",
+        "incomplete",
+        "only high-level",
+        "only general",
+        "no detail",
+        "lacks detail",
+        "not detailed",
+        "fragmentary",
+    ]
+
+    for indicator in partial_indicators:
+        if indicator in submitted_lower:
+            return True
 
     return False
 
 
-def check_temporal_filter(submitted: str, expected_doc_ids: list[str]) -> dict:
-    """Check temporal filter question - expects list of document IDs."""
-    # Try to extract document IDs from the answer
-    found_ids = set(re.findall(r"doc_\d+", submitted.lower()))
+def check_temporal_filter(submitted: str, expected_doc_ids: list) -> dict:
+    """Check temporal filter question - matches filenames mentioned in the answer."""
+    # expected_doc_ids may be list of strings or list of {id, filename} dicts
+    entries = [e if isinstance(e, dict) else {"id": e, "filename": e} for e in expected_doc_ids]
+    filename_to_id = {e["filename"]: e["id"] for e in entries}
+    expected_set = {e["id"] for e in entries}
 
-    expected_set = set(expected_doc_ids)
+    # Match filenames mentioned in the submitted answer
+    found_ids = set()
+    for filename, doc_id in filename_to_id.items():
+        if filename.lower() in submitted.lower():
+            found_ids.add(doc_id)
 
     correct = found_ids & expected_set
     missing = expected_set - found_ids
@@ -316,28 +403,11 @@ def evaluate_submissions(ground_truth: dict, submissions: dict) -> dict:
         "multi_hop_db_doc_questions",
     ]
 
-    # Max length for auto-scoring - longer answers need human review
-    AUTO_SCORE_MAX_LENGTH = 80
-
     for category in auto_score_categories:
         questions = ground_truth.get(category, [])
         for q in questions:
             qid = q["id"]
             expected = q.get("expected_answer", "")
-
-            # Long/complex answers go to human review, not auto-scoring
-            if len(expected) > AUTO_SCORE_MAX_LENGTH:
-                submitted = submissions.get(qid, "[NOT ANSWERED]")
-                results["human_review"].append(
-                    {
-                        "id": qid,
-                        "category": category,
-                        "question": q.get("question_pl", q.get("question_en", "")),
-                        "reference_answer": expected,
-                        "submitted": submitted,
-                    }
-                )
-                continue
 
             if qid not in submissions:
                 results["not_answered"].append(
@@ -397,19 +467,35 @@ def evaluate_submissions(ground_truth: dict, submissions: dict) -> dict:
 
         submitted = submissions[qid]
         expected_behavior = q.get("expected_behavior", "")
+        q_type = q.get("type", "")
 
-        is_correct = check_negative_question(submitted)
-
-        results["auto_scored"].append(
-            {
-                "id": qid,
-                "category": "negative_questions",
-                "question": q.get("question_pl", "")[:80] + "...",
-                "expected": f"[Should indicate: {expected_behavior}]",
-                "submitted": submitted,
-                "score": 1.0 if is_correct else 0.0,
-            }
-        )
+        # negative_partial: partial info exists, so route to human review
+        # since a good answer may provide partial data + acknowledge gaps
+        if q_type == "negative_partial":
+            is_negative = check_negative_question(submitted)
+            is_partial = check_partial_answer(submitted)
+            results["auto_scored"].append(
+                {
+                    "id": qid,
+                    "category": "negative_questions",
+                    "question": q.get("question_pl", "")[:80] + "...",
+                    "expected": f"[Should indicate: {expected_behavior}]",
+                    "submitted": submitted,
+                    "score": 1.0 if (is_negative or is_partial) else 0.0,
+                }
+            )
+        else:
+            is_correct = check_negative_question(submitted)
+            results["auto_scored"].append(
+                {
+                    "id": qid,
+                    "category": "negative_questions",
+                    "question": q.get("question_pl", "")[:80] + "...",
+                    "expected": f"[Should indicate: {expected_behavior}]",
+                    "submitted": submitted,
+                    "score": 1.0 if is_correct else 0.0,
+                }
+            )
 
     # Temporal filter questions - check document ID recall
     for q in ground_truth.get("temporal_filter_questions", []):
@@ -433,6 +519,18 @@ def evaluate_submissions(ground_truth: dict, submissions: dict) -> dict:
         temporal_result["submitted"] = submitted
 
         results["temporal"].append(temporal_result)
+
+        # temporal_synthesis questions also require summary scoring via rubric
+        if q.get("rubric_id"):
+            results["human_review"].append(
+                {
+                    "id": qid,
+                    "category": "temporal_synthesis",
+                    "question": q.get("question_pl", q.get("question_en", "")),
+                    "rubric_id": q["rubric_id"],
+                    "submitted": submitted,
+                }
+            )
 
     # Calculate summary statistics
     auto_scored = results["auto_scored"]

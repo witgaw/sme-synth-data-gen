@@ -202,7 +202,6 @@ def generate_docx(doc: dict, output_dir: Path) -> Path:
     meta.add_run(f"Autor: {doc['author']}\n").italic = True
     dt = datetime.fromisoformat(doc["timestamp"])
     meta.add_run(f"Data: {dt.strftime('%d %B %Y')}").italic = True
-
     for section in doc.get("sections", []):
         document.add_heading(section["heading"], level=1)
         document.add_paragraph(section["content"])
@@ -216,6 +215,8 @@ def generate_xlsx(doc: dict, output_dir: Path) -> Path:
     """Generate .xlsx file"""
     wb = Workbook()
     wb.remove(wb.active)
+    wb.properties.title = doc.get("title", "")
+    wb.properties.creator = doc.get("author", "")
 
     for sheet_data in doc.get("sheets", []):
         ws = wb.create_sheet(title=sheet_data["name"][:31])
@@ -239,6 +240,8 @@ def generate_xlsx(doc: dict, output_dir: Path) -> Path:
 def generate_pptx(doc: dict, output_dir: Path) -> Path:
     """Generate .pptx file"""
     prs = Presentation()
+    prs.core_properties.title = doc.get("title", "")
+    prs.core_properties.author = doc.get("author", "")
 
     for slide_data in doc.get("slides", []):
         if slide_data.get("type") == "title":

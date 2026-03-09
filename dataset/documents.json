@@ -277,7 +277,7 @@
         }
       ],
       "subject": "PILNE - Zaległości płatnicze Smakosz",
-      "body": "Dzień dobry,\n\nInformuję że płatność od Sieć Restauracji Smakosz jest opóźniona o 45 dni.\n\nSzczegóły:\n- Faktura FV/2023/10/003\n- Kwota: 6,000 PLN netto\n- Data wystawienia: 1 października 2023\n- Termin płatności: 15 października 2023\n- Dzisiaj: 15 listopada 2023\n- Opóźnienie: 45 dni (!!)\n\nTo jest już czerwona flaga. Dzwoniłam do ich biura wczoraj - pani z księgowości powiedziała że \"jest w toku\" ale nie podała konkretnego terminu.\n\nMaciej - to Twój klient, musisz to wyjaśnić. Czy są jakieś problemy o których nie wiemy? Reklamacja? Niezadowolenie?\n\nAndrzej - może pomożesz Maćkowi w tej rozmowie?\n\nRyszard - jak długo możemy czekać przed wysłaniem upomnienia?\n\nHalina",
+      "body": "Dzień dobry,\n\nInformuję że płatność od Sieć Restauracji Smakosz jest opóźniona o 45 dni.\n\nSzczegóły:\n- Faktura FV/2023/10/003\n- Kwota: 6,000 PLN netto\n- Data wystawienia: 1 października 2023\n- Termin płatności: 1 października 2023\n- Dzisiaj: 15 listopada 2023\n- Opóźnienie: 45 dni (!!)\n\nTo jest już czerwona flaga. Dzwoniłam do ich biura wczoraj - pani z księgowości powiedziała że \"jest w toku\" ale nie podała konkretnego terminu.\n\nMaciej - to Twój klient, musisz to wyjaśnić. Czy są jakieś problemy o których nie wiemy? Reklamacja? Niezadowolenie?\n\nAndrzej - może pomożesz Maćkowi w tej rozmowie?\n\nRyszard - jak długo możemy czekać przed wysłaniem upomnienia?\n\nHalina",
       "clients_mentioned": [
         "Client C"
       ],
@@ -410,9 +410,6 @@
       "timestamp": "2023-10-20T14:00:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Propozycja współpracy - MaszBud Sp. z o.o.",
-      "client": "Client D",
-      "client_contact": "Anna Kowalska",
-      "value_pln": 52000,
       "sections": [
         {
           "heading": "O Kreatywnej Fali",
@@ -462,7 +459,7 @@
         },
         {
           "heading": "Wyniki finansowe",
-          "content": "**Przychody Q3 2023: 287,500 PLN netto** (wzrost 12% vs Q2: 256,700 PLN)\n\nStruktura przychodów:\n- Browar Wroclavia (Client A): 3 x 8,500 PLN = 25,500 PLN (45% recurring revenue)\n- ModaNet (Client B): 2 x 3,800 PLN = 7,600 PLN (15%, rozpoczęli w sierpniu)\n- Smakosz (Client C): projekty ad-hoc = 18,000 PLN (30%)\n- Urząd Miasta (Client E): projekt = 15,000 PLN (zaliczka, 10%)\n- Projekty jednorazowe i mniejsze klienci: razem ok. 21,400 PLN\n\n**Marża operacyjna: 42%** (cel: 45%)\n\nPrzyczyny niższej marży:\n- Dodatkowe godziny na projekcie Smakosz (brak doświadczenia Maćka)\n- Koszty podwykonawców przy projekcie miejskim\n- Wakacyjne zastępstwa"
+          "content": "**Przychody Q3 2023: 287,500 PLN netto** (wzrost 12% vs Q2: 256,700 PLN)\n\nStruktura przychodów:\n- Browar Wroclavia (Client A): retainer 3 x 8,500 PLN + kampania letnia = 67,500 PLN\n- ModaNet (Client B): retainer 2 x 3,800 PLN + setup projektu = 25,000 PLN\n- Smakosz (Client C): projekt rebrandingowy (etapy 1-2) + materiały = 67,500 PLN\n- Urząd Miasta (Client E): kampania (zaliczka) = 38,000 PLN\n- Jednorazowe zlecenia i mniejsze projekty: 89,500 PLN\n\n**Marża operacyjna: 42%** (cel: 45%)\n\nPrzyczyny niższej marży:\n- Dodatkowe godziny na projekcie Smakosz (brak doświadczenia Maćka)\n- Koszty podwykonawców przy projekcie miejskim\n- Wakacyjne zastępstwa"
         },
         {
           "heading": "Status klientów",
@@ -604,8 +601,6 @@
       "timestamp": "2024-01-30T15:00:00+01:00",
       "author": "Andrzej Kmicic",
       "title": "Zakres współpracy - ModaNet Sp. z o.o. - wersja 2.0",
-      "version": "2.0",
-      "previous_version": "doc_055",
       "sections": [
         {
           "heading": "Strony umowy",
@@ -772,9 +767,6 @@
       "timestamp": "2023-12-15T11:00:00+01:00",
       "author": "Andrzej Kmicic",
       "title": "Propozycja współpracy - MaszBud Sp. z o.o. - wersja 2",
-      "client": "Client D",
-      "client_contact": "Anna Kowalska",
-      "value_pln": 48000,
       "sections": [
         {
           "heading": "Wersja 2 - dopasowanie do budżetu",
@@ -890,7 +882,6 @@
           ]
         }
       ],
-      "has_formulas": true,
       "clients_mentioned": [
         "Client A",
         "Client B",
@@ -1166,11 +1157,6 @@
             ]
           ]
         }
-      ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "Wartość oczekiwana pipeline = Wartość * Szansa%",
-        "Total pipeline value = suma wszystkich wartości w toku"
       ],
       "clients_mentioned": [
         "Client A",
@@ -1550,10 +1536,6 @@
           ]
         }
       ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "% wykorzystania budżetu = Wykorzystano / Budżet * 100"
-      ],
       "clients_mentioned": [
         "Client A",
         "Client B",
@@ -1883,12 +1865,6 @@
             ]
           ]
         }
-      ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "Expected value = Wartość * Szansa %",
-        "Konserwatywna = 90% prognozy bazowej",
-        "Optymistyczna = 110% prognozy bazowej"
       ],
       "clients_mentioned": [
         "Client A",
@@ -2555,10 +2531,6 @@
           ]
         }
       ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "Expected = Wartość roczna * Szansa %"
-      ],
       "clients_mentioned": [
         "Client A",
         "Client B",
@@ -2813,9 +2785,6 @@
       "timestamp": "2024-01-15T14:00:00+01:00",
       "author": "Kasia Pawlak",
       "title": "Propozycja współpracy - TechStart Sp. z o.o.",
-      "client": "TechStart",
-      "client_contact": "Michał Startup",
-      "value_pln": 28000,
       "sections": [
         {
           "heading": "O TechStart",
@@ -3018,11 +2987,6 @@
             ]
           ]
         }
-      ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "Marża = Przychód - Koszty bezpośrednie",
-        "Marża % = Marża / Przychód * 100"
       ],
       "clients_mentioned": [
         "Client A",
@@ -3483,10 +3447,6 @@
           ]
         }
       ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "Avg koszt = Budżet / Planowane osoby"
-      ],
       "clients_mentioned": [
         "Client A",
         "Client C"
@@ -3722,11 +3682,6 @@
             ]
           ]
         }
-      ],
-      "has_formulas": true,
-      "formula_descriptions": [
-        "% wykorzystania = Wydany / Planowany * 100",
-        "Pozostało = Planowany - Wydany"
       ],
       "clients_mentioned": [
         "Client A",
@@ -3985,16 +3940,7 @@
       "timestamp": "2024-01-22T14:00:00+02:00",
       "author": "Marek Nowak",
       "title": "Umowa o świadczenie usług marketingowych - Smakosz",
-      "parties": {
-        "client": "Sieć Restauracji Smakosz Sp. z o.o.",
-        "agency": "Kreatywna Fala Sp. z o.o."
-      },
       "content": "UMOWA O ŚWIADCZENIE USŁUG MARKETINGOWYCH\nNr: KF/2024/SMAK/001\n\nzawarta dnia 22 stycznia 2024 roku we Wrocławiu\n\npomiędzy:\nSieć Restauracji Smakosz Sp. z o.o.\nul. Rynek 15, 50-106 Wrocław\nNIP: 8961234567\nreprezentowaną przez: Marek Nowak - Właściciel\nzwaną dalej \"Zleceniodawcą\"\n\na\n\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\nreprezentowaną przez: Zbigniew Reymontowski - Prezes Zarządu\nzwaną dalej \"Zleceniobiorcą\"\n\n§1. PRZEDMIOT UMOWY\n1. Przedmiotem umowy jest świadczenie kompleksowych usług marketingowych.\n2. Zakres usług obejmuje: obsługę social media, kampanie reklamowe, materiały graficzne.\n\n§2. WYNAGRODZENIE\n1. Roczna wartość umowy wynosi: 48 000 PLN netto (czterdzieści osiem tysięcy złotych).\n2. Płatność miesięczna: 4 000 PLN netto.\n3. Termin płatności: 14 dni od wystawienia faktury.\n\n§3. CZAS TRWANIA\n1. Umowa zostaje zawarta na okres 12 miesięcy.\n2. Data rozpoczęcia: 1 lutego 2024 roku.\n3. Data zakończenia: 31 stycznia 2025 roku.\n\n§4. PODPISY\n\n_____________________          _____________________\nMarek Nowak                    Zbigniew Reymontowski\nSieć Restauracji Smakosz       Kreatywna Fala Sp. z o.o.\n\nWrocław, 22 stycznia 2024 r.",
-      "signatures": [
-        "Marek Nowak",
-        "Zbigniew Reymontowski"
-      ],
-      "contract_value_annual": 48000,
       "clients_mentioned": [
         "Client C"
       ],
@@ -4012,10 +3958,6 @@
       "author": "Studio Graficzne Pixel",
       "title": "Faktura VAT nr FV/2024/02/015",
       "content": "FAKTURA VAT\nNr: FV/2024/02/015\nData wystawienia: 15 lutego 2024\n\nSPRZEDAWCA:\nStudio Graficzne Pixel\nTomasz Kolorski\nul. Świdnicka 22/5, 50-068 Wrocław\nNIP: 8991234561\n\nNABYWCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\n\nPOZYCJE:\n1. Projekt graficzny - broszura ModaNet (16 stron)\n   Ilość: 1 | Cena netto: 2 400,00 PLN | VAT 23%: 552,00 PLN | Brutto: 2 952,00 PLN\n\n2. Przygotowanie do druku - pliki produkcyjne\n   Ilość: 1 | Cena netto: 800,00 PLN | VAT 23%: 184,00 PLN | Brutto: 984,00 PLN\n\nRAZEM NETTO: 3 200,00 PLN\nVAT 23%: 736,00 PLN\nRAZEM BRUTTO: 3 936,00 PLN\n\nTermin płatności: 28 lutego 2024\nNumer konta: 12 1234 5678 9012 3456 7890 1234\n\nPodpis wystawcy: Tomasz Kolorski",
-      "vendor_name": "Studio Graficzne Pixel",
-      "vendor_nip": "8991234561",
-      "amount_net": 3200,
-      "amount_gross": 3936,
       "clients_mentioned": [
         "Client B"
       ],
@@ -4033,10 +3975,6 @@
       "author": "VideoMakers Wrocław",
       "title": "Faktura VAT nr VM/2024/03/003",
       "content": "FAKTURA VAT\nNr: VM/2024/03/003\nData wystawienia: 20 marca 2024\n\nSPRZEDAWCA:\nVideoMakers Wrocław Sp. z o.o.\nul. Legnicka 55, 54-203 Wrocław\nNIP: 8942345678\n\nNABYWCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNIP: 8943156789\n\nPOZYCJE:\n1. Produkcja spotu reklamowego - Browar Wroclavia (30s)\n   Cena netto: 5 500,00 PLN | VAT 23%: 1 265,00 PLN | Brutto: 6 765,00 PLN\n\n2. Montaż i postprodukcja\n   Cena netto: 2 000,00 PLN | VAT 23%: 460,00 PLN | Brutto: 2 460,00 PLN\n\n3. Udostępnienie licencji muzyki\n   Cena netto: 1 000,00 PLN | VAT 23%: 230,00 PLN | Brutto: 1 230,00 PLN\n\nRAZEM NETTO: 8 500,00 PLN\nVAT 23%: 1 955,00 PLN\nRAZEM BRUTTO: 10 455,00 PLN\n\nTermin płatności: 3 kwietnia 2024\nNumer konta: 45 9876 5432 1098 7654 3210 9876",
-      "vendor_name": "VideoMakers Wrocław Sp. z o.o.",
-      "vendor_nip": "8942345678",
-      "amount_net": 8500,
-      "amount_gross": 10455,
       "clients_mentioned": [
         "Client A"
       ],
@@ -4054,9 +3992,6 @@
       "author": "mBank",
       "title": "Potwierdzenie przelewu przychodzącego",
       "content": "POTWIERDZENIE PRZELEWU PRZYCHODZĄCEGO\nmBank S.A.\n\nData operacji: 28 lipca 2024\nNumer referencyjny: PRZ/2024/07/28/00154782\n\nNADAWCA:\nMaszBud Sp. z o.o.\nul. Przemysłowa 12, 59-220 Legnica\nNumer rachunku: PL 67 1234 5678 9012 3456 7890 1234\n\nODBIORCA:\nKreatywna Fala Sp. z o.o.\nul. Kazimierza Wielkiego 47/3, 50-077 Wrocław\nNumer rachunku: PL 12 1140 2004 0000 3102 7654 3210\n\nKWOTA: 25 000,00 PLN\n(słownie: dwadzieścia pięć tysięcy złotych 00/100)\n\nTYTUŁ PRZELEWU:\nZaliczka - umowa KF/2024/MB/001, Etap 1\n\nSTATUS: ZAKSIĘGOWANO\n\nDokument wygenerowany elektronicznie.\nmBank S.A., ul. Senatorska 18, 00-950 Warszawa",
-      "amount": 25000,
-      "payer": "MaszBud Sp. z o.o.",
-      "payment_date": "2024-07-28",
       "clients_mentioned": [
         "Client D"
       ],
@@ -4074,9 +4009,6 @@
       "author": "System archiwizacji",
       "title": "Archiwum korespondencji - ModaNet eskalacja",
       "content": "ARCHIWUM KORESPONDENCJI EMAIL\nEksport: 28 lutego 2024, 16:00\nSystem: Kreatywna Fala - archiwizacja\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 1 z 3\nOd: Julia Nowakowska <julia@modanet.pl>\nDo: Maciej Boryna <maciej.boryna@kreatywnafala.pl>\nData: 12 lutego 2024, 09:45\nTemat: Pilne - problem z materiałami\n\nMacieju,\nGrafiki do kampanii są nie do przyjęcia. Kolory są blade, zdjęcia produktów rozmazane. Rozmawialiśmy o tym już tydzień temu!\nJulia\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 2 z 3\nOd: Maciej Boryna <maciej.boryna@kreatywnafala.pl>\nDo: Julia Nowakowska <julia@modanet.pl>\nCC: Andrzej Kmicic <andrzej.kmicic@kreatywnafala.pl>\nData: 12 lutego 2024, 11:20\nTemat: RE: Pilne - problem z materiałami\n\nPani Julio,\nPrzepraszam za problemy. Dodaję Andrzeja do wątku - wspólnie przygotujemy poprawki do jutra.\nMaciej\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEMAIL 3 z 3\nOd: Julia Nowakowska <julia@modanet.pl>\nDo: Zbigniew Reymontowski <zbigniew.reymontowski@kreatywnafala.pl>\nData: 12 lutego 2024, 14:30\nTemat: FW: Pilne - problem z materiałami\n\nPanie Zbigniewie,\nPrzesyłam poniżej wymianę z Maciejem. To nie pierwszy raz. Proszę o interwencję.\nJulia Nowakowska\nCEO, ModaNet\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKONIEC ARCHIWUM\nData eskalacji do CEO: 12 lutego 2024",
-      "export_date": "2024-02-28",
-      "email_count": 3,
-      "escalation_date": "2024-02-12",
       "clients_mentioned": [
         "Client B"
       ],
@@ -4094,9 +4026,6 @@
       "author": "Marek Piwowar",
       "title": "Protokół odbioru - Kampania wiosenna Browar Wroclavia",
       "content": "PROTOKÓŁ ODBIORU PRAC\nNr: PO/2024/BW/002\n\nZLECENIODAWCA:\nBrowar Regionalny \"Wroclavia\" Sp. z o.o.\nreprezentowany przez: Marek Piwowar, Dyrektor Marketingu\n\nWYKONAWCA:\nKreatywna Fala Sp. z o.o.\nreprezentowana przez: Andrzej Kmicic, Senior Account Manager\n\nPRZEDMIOT ODBIORU:\nKampania reklamowa \"Wiosna z Wroclavią\" - materiały promocyjne\n\nZAKRES PRAC:\n☑ Koncepcja kreatywna kampanii\n☑ Projekt graficzny - 5 key visuals\n☑ Adaptacje do social media (FB, IG) - 15 formatów\n☑ Materiały POS - projekty (10 szt.)\n☑ Spot radiowy 30s - scenariusz i produkcja\n\nTERMIN REALIZACJI:\nPlanowany: 10 marca 2024\nFaktyczny: 14 marca 2024\nOpóźnienie: 4 dni (uzgodnione z klientem)\n\nOCENA JAKOŚCI:\n☑ Materiały zgodne z briefem\n☑ Jakość wykonania: BARDZO DOBRA\n☑ Brak uwag do poprawek\n\nUWAGI:\nKampania zaakceptowana bez zastrzeżeń. Opóźnienie wynikało z dodatkowych poprawek zgłoszonych przez klienta w trakcie realizacji.\n\nDATA ODBIORU: 15 marca 2024\n\nPODPISY:\n\n_____________________          _____________________\nMarek Piwowar                  Andrzej Kmicic\nBrowar Wroclavia               Kreatywna Fala Sp. z o.o.",
-      "delivery_date": "2024-03-15",
-      "signatory_client": "Marek Piwowar",
-      "quality_rating": "bardzo dobra",
       "clients_mentioned": [
         "Client A"
       ],
@@ -4114,9 +4043,6 @@
       "author": "Dr hab. Maria Szkolna",
       "title": "Akceptacja oferty - EduSfera Sp. z o.o.",
       "content": "POTWIERDZENIE AKCEPTACJI OFERTY\n\nDotyczy: Oferta nr KF/2024/EDU/001\nData oferty: 28 maja 2024\nData akceptacji: 10 czerwca 2024\n\nDANE ZLECENIODAWCY:\nEduSfera Sp. z o.o.\nul. Akademicka 5, 50-038 Wrocław\nNIP: 8967891234\nOsoba kontaktowa: Dr hab. Maria Szkolna, Dyrektor ds. Rozwoju\n\nZAKRES ZLECENIA:\n1. Strategia komunikacji marki - 8 000 PLN\n2. Identyfikacja wizualna (odświeżenie) - 12 000 PLN\n3. Materiały rekrutacyjne (rok akademicki 2024/25) - 15 000 PLN\n\nŁĄCZNA WARTOŚĆ: 35 000 PLN netto\n\nHARMONOGRAM:\n- Start prac: 17 czerwca 2024\n- Zakończenie: 31 sierpnia 2024\n\nWARUNKI PŁATNOŚCI:\n- 30% zaliczki przy podpisaniu (10 500 PLN) - do 14 czerwca 2024\n- 70% po odbiorze (24 500 PLN) - do 14 września 2024\n\nAKCEPTACJA:\nNiniejszym akceptuję warunki przedstawionej oferty i wyrażam zgodę na rozpoczęcie prac.\n\n[COMPANY SEAL]\nEduSfera Sp. z o.o.\nZatwierdzono: 10.06.2024\n\n_____________________\nDr hab. Maria Szkolna\nDyrektor ds. Rozwoju\nEduSfera Sp. z o.o.",
-      "acceptance_date": "2024-06-10",
-      "project_value": 35000,
-      "client_name": "EduSfera Sp. z o.o.",
       "clients_mentioned": [],
       "planted_facts": [
         "pf_ocr_007_edusfera_value"
@@ -4132,9 +4058,6 @@
       "author": "Zbigniew Reymontowski",
       "title": "Aneks nr 1 do umowy KF/2024/SMAK/001",
       "content": "ANEKS NR 1\ndo Umowy o świadczenie usług marketingowych\nnr KF/2024/SMAK/001 z dnia 22 stycznia 2024 r.\n\nzawarty dnia 8 maja 2024 roku we Wrocławiu\n\npomiędzy:\nSieć Restauracji Smakosz Sp. z o.o. (Zleceniodawca)\na\nKreatywna Fala Sp. z o.o. (Zleceniobiorca)\n\n§1. ROZSZERZENIE ZAKRESU USŁUG\nStrony postanawiają rozszerzyć zakres usług o:\n1. Produkcję materiałów wideo (2 spoty miesięcznie)\n2. Obsługę kanału YouTube\n3. Współpracę z influencerami lokalnymi\n\n§2. ZMIANA WYNAGRODZENIA\n1. Dotychczasowa miesięczna opłata: 4 000 PLN netto\n2. Nowa miesięczna opłata: 5 500 PLN netto\n3. Różnica: 1 500 PLN netto miesięcznie\n4. Dodatkowy roczny koszt: 12 000 PLN netto (za 8 miesięcy: maj-grudzień)\n\n§3. WEJŚCIE W ŻYCIE\nAneks wchodzi w życie z dniem 1 maja 2024 roku.\n\n§4. POZOSTAŁE POSTANOWIENIA\nPozostałe warunki umowy pozostają bez zmian.\n\nPODPISY:\n\n_____________________          _____________________\nMarek Nowak                    Zbigniew Reymontowski\nSieć Restauracji Smakosz       Kreatywna Fala Sp. z o.o.\n\nWrocław, 8 maja 2024 r.",
-      "annex_date": "2024-05-08",
-      "new_monthly_fee": 5500,
-      "additional_scope_value": 12000,
       "clients_mentioned": [
         "Client C"
       ],
@@ -4151,17 +4074,7 @@
       "timestamp": "2024-07-10T16:00:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Notatki odręczne - spotkanie MaszBud",
-      "ocr_challenges": [
-        "handwriting",
-        "crossed_out_text",
-        "arrows",
-        "margin_notes"
-      ],
       "content": "[HANDWRITTEN NOTES - SCANNED]\n\nMaszBud - spotkanie 10.07.2024\n=================================\n\nObecni:\n- Piotr M. (nowy CEO!) ← wrócił z USA\n- Anna K. (marketing)\n- my: Zbyszek + ja\n\nBUDŻET: 50k/rok ✓\n         ~~~~~~~~\nPlan etapowy:\n  Etap 1 → 15k (audit + LinkedIn)\n  Etap 2 → 18k (content)  \n  Etap 3 → 17k (pełna obsł.)\n           ----\n           50k RAZEM\n\n[arrow right] start WRZESIEŃ '24\n\nPiotr bardzo pro-marketing!!\n\"w USA każda firma ma LinkedIn\"\n\nAnna: ulżyło jej że CEO się zgodził\n\nKPI - WAŻNE dla Piotra\n↓\nmusimy mierzyć wszystko\n\nDo zrobienia:\n□ oferta formalna → 15.07\n□ timeline dla Anny\n□ benchmark konkurencji (Janek)\n\nOcena: 90% szans!!!\nTo jest NASZ ROK! :)\n\n[UNDERLINED] Decyzja do końca lipca",
-      "key_figures": {
-        "budget": 50000,
-        "probability": "90%"
-      },
       "clients_mentioned": [
         "Client D"
       ],
@@ -4178,15 +4091,7 @@
       "timestamp": "2024-04-15T14:00:00+02:00",
       "author": "Irena Dulska",
       "title": "Brief kreatywny Smakosz z adnotacjami zespołu",
-      "ocr_challenges": [
-        "mixed_print_handwriting",
-        "sticky_notes",
-        "highlighter",
-        "margin_annotations"
-      ],
       "content": "BRIEF KREATYWNY - KAMPANIA LETNIA SMAKOSZ\n===========================================\n\n[PRINT] Cel kampanii: Promocja ogródków letnich w 5 lokalizacjach\n\n[HANDWRITTEN MARGIN NOTE: \"główny focus = Rynek!\"]\n\nGrupa docelowa:\n- Wiek: 25-45 lat\n- Wrocław i okolice\n- [HIGHLIGHTED IN YELLOW] Rodziny z dziećmi + pary\n\n[STICKY NOTE]\n\"Kasia - hasło musi \nmieć słowo LATO\n- Irena\"\n\nBudżet produkcyjny: 18 000 PLN\n[ANNOTATION] → zostało ~2k rezerwy\n\nMateriały do przygotowania:\n1. Key visual [✓ DONE - Zosia]\n2. Adaptacje SM (15 szt.) [✓]\n3. Menu boards [in progress]\n4. [STRIKETHROUGH] Ulotki - klient zrezygnował\n\nTerminy:\n- Prezentacja konceptu: 22 kwietnia → [CHANGE TO 25.04!]\n- Finalne materiały: 10 maja\n- Start kampanii: 15 maja\n\n[BOTTOM OF PAGE - HANDWRITTEN]\n\"Spotkanie z klientem przesunięte!\nPan Nowak - urlop 20-24.04\nNowy termin: 25.04 godz 11:00\"\n\nZatwierdził: ______________ \n              [ILLEGIBLE SIGNATURE]",
-      "production_budget": 18000,
-      "campaign_start": "2024-05-15",
       "clients_mentioned": [
         "Client C"
       ],
@@ -4203,16 +4108,7 @@
       "timestamp": "2024-04-02T09:00:00+02:00",
       "author": "Drukarnia Express",
       "title": "Faktura z pieczątkami i adnotacjami",
-      "ocr_challenges": [
-        "overlapping_stamps",
-        "handwritten_approval",
-        "coffee_stain",
-        "faded_text"
-      ],
       "content": "[SCAN OF INVOICE WITH STAMPS]\n\nFAKTURA VAT nr DE/04/2024/0089\nData: 02.04.2024\n\nDrukarnia Express Sp.j.\nul. Fabryczna 10, Wrocław\nNIP: 8951234567\n\nNabywca: Kreatywna Fala Sp. z o.o.\n\n[ROUND STAMP PARTIALLY COVERING TEXT]\n\"ZAPŁACONO\n05.04.2024\nmBank\"\n\nPozycje:\n1. Druk ulotek A5 (5000 szt.)     1 200,00 PLN\n2. Druk plakatów B1 (50 szt.)       800,00 PLN  \n3. Druk wizytówek (1000 szt.)       350,00 PLN\n4. Roll-up 200x85 (2 szt.)          600,00 PLN\n                              ----------------\n[COFFEE STAIN PARTIALLY COVERING]\nRAZEM NETTO:                     2 950,00 PLN\nVAT 23%:                           678,50 PLN\nBRUTTO:                          3 628,50 PLN\n\n[RECTANGULAR STAMP]\n\"SPRAWDZONO POD WZGLĘDEM\nMERYTORYCZNYM I FORMALNYM\nHalina Lichocka\npodpis: [ILLEGIBLE SIGNATURE]\"\n\n[HANDWRITTEN ANNOTATION]\n\"OK do zapłaty - HL 04.04\"\n\nTermin płatności: 16.04.2024",
-      "amount_net": 2950,
-      "payment_date": "2024-04-05",
-      "verified_by": "Halina Lichocka",
       "clients_mentioned": [],
       "planted_facts": [
         "pf_ocr_011_drukarnia_amount"
@@ -4227,17 +4123,7 @@
       "timestamp": "2024-02-05T11:30:00+02:00",
       "author": "Browar Wroclavia",
       "title": "Fax - zmiana terminu kampanii",
-      "ocr_challenges": [
-        "low_resolution",
-        "noise",
-        "skewed",
-        "fax_artifacts",
-        "partial_cutoff"
-      ],
       "content": "[FAX - POOR QUALITY, NOISE, SKEWED]\n\n====================================\nTELEFAX\n====================================\nOd: Browar Wroclavia - Dział Marketingu\nDo: Kreatywna Fala Sp. z o.o.\nData: 05.02.2024\nStron: 1/1\nNr ref: BW/FAX/2024/012\n====================================\n\nPILNE - ZMIANA HARMONOGRAMU\n\nSz.P. Andrzej Kmicic,\n\n[FRAGMENT ILLEGIBLE DUE TO NOISE]\n...informuję o konieczności przesunięcia...\n\nNOWY TERMIN prezentacji konceptów:\nz 15 lutego na 22 LUTEGO 2024\n\nPowód: wewnętrzne ustalenia zarządu\ndotyczące [ILLEGIBLE] ...budżetu rocznego...\n\nProsimy o potwierdzenie przyjęcia\nnowego terminu.\n\n[BOTTOM PART CUT OFF BY FAX]\n\nZ poważan...\nMar...Piwo...\nDyr. Mar[keting]u\n\nTel. zwrotny: 71 333 [ILLEGIBLE]\n\n[RECEIVED STAMP]\n\"Wpłynęło: 05.02.2024 godz. 11:47\nKreatywna Fala - sekretariat\"\n====================================\n                          str. 1 z 1",
-      "original_deadline": "2024-02-15",
-      "new_deadline": "2024-02-22",
-      "received_timestamp": "2024-02-05T11:47:00",
       "clients_mentioned": [
         "Client A"
       ],
@@ -4254,17 +4140,7 @@
       "timestamp": "2024-04-03T16:30:00+02:00",
       "author": "Janusz Sieczkowski",
       "title": "Zdjęcie tablicy - sesja strategiczna Q2",
-      "ocr_challenges": [
-        "perspective_distortion",
-        "glare",
-        "partial_occlusion",
-        "whiteboard_markers",
-        "reflection"
-      ],
       "content": "[PHOTO OF WHITEBOARD - PERSPECTIVE, GLARE]\n\nSTRATEGIA Q2 2024\n==================\n\n[LEFT SIDE - blue marker]\nPRIORYTETY:\n→ ModaNet - NAPRAWIĆ relację!\n→ MaszBud - zamknąć deal\n→ Browar - odnowienie ✓\n\n[CENTER - red marker, partially covered by glare]\nBUDŻET:\nPrzychody plan: 320k\nKoszty: ~210k    [GLARE]\nMarża cel: 35%\n\n[RIGHT SIDE - green marker]\nZESPÓŁ:\n- Maciej → mentoring (Andrzej)\n- [ILLEGIBLE - GLARE]\n- Nowy designer? → WRZESIEŃ?\n\n[BOTTOM - black marker, barely visible]\nKLIENCI NOWI (target):\n1. EduSfera ← kontakt Maria Sz.\n2. [COVERED BY PHOTOGRAPHER'S HAND]\n3. LogiTrans - odpuścić?\n\n[ARROW UP]\nCEL ROKU: 1.2 mln przychodu\n\n[sticky note attached]\n\"Spotkanie podsumowujące\n15.04 godz 10:00\"\n\n[date in corner]\n3.04.2024, sesja #1",
-      "q2_revenue_target": 320000,
-      "annual_revenue_goal": 1200000,
-      "margin_target": "35%",
       "clients_mentioned": [
         "Client B",
         "Client D",
@@ -4283,19 +4159,7 @@
       "timestamp": "2024-07-01T09:00:00+02:00",
       "author": "Andrzej Kmicic",
       "title": "Wniosek urlopowy - wypełniony ręcznie",
-      "ocr_challenges": [
-        "form_fields",
-        "checkboxes",
-        "handwritten_in_boxes",
-        "signature",
-        "stamp"
-      ],
       "content": "[FORM WITH FILLABLE FIELDS]\n\nWNIOSEK O URLOP WYPOCZYNKOWY\nKreatywna Fala Sp. z o.o.\n\nDANE PRACOWNIKA:\nImię i nazwisko: [handwritten] Andrzej Kmicic\nStanowisko: [handwritten] Senior Account Manager\nDział: [handwritten] Sprzedaż / Obsługa Klienta\n\nRODZAJ URLOPU:\n[X] Urlop wypoczynkowy\n[ ] Urlop na żądanie\n[ ] Urlop okolicznościowy\n\nTERMIN URLOPU:\nOd dnia: [handwritten] 05.08.2024\nDo dnia: [handwritten] 16.08.2024\nLiczba dni: [handwritten] 10 (dziesięć)\n\nZASTĘPSTWO:\nOsoba zastępująca: [handwritten] Maciej Boryna\n                            + Janusz S. (sprawy eskalowane)\n\nKONTAKT W NAGŁYCH PRZYPADKACH:\nTelefon: [handwritten] 601 XXX XXX (tylko PILNE!)\n\n[APPROVAL SECTION]\n\nBezpośredni przełożony:\nPodpis: [signature] ____________\nData: [handwritten] 01.07.2024\n[STAMP] ZATWIERDZAM - Z. Reymontowski\n\nDział HR / Administracja:\nPodpis: [Halina's signature] ____________\nData: [handwritten] 02.07.2024\nPozostały urlop w 2024: [handwritten] 8 dni\n\nNr wniosku: [STAMP] WU/2024/031",
-      "employee": "Andrzej Kmicic",
-      "leave_start": "2024-08-05",
-      "leave_end": "2024-08-16",
-      "leave_days": 10,
-      "substitute": "Maciej Boryna",
       "clients_mentioned": [],
       "planted_facts": [
         "pf_ocr_014_kmicic_vacation_dates"
@@ -4310,19 +4174,7 @@
       "timestamp": "2024-01-10T08:00:00+02:00",
       "author": "Polska Izba Komunikacji Marketingowej",
       "title": "Raport branżowy - skan starego dokumentu",
-      "ocr_challenges": [
-        "two_column_layout",
-        "faded_print",
-        "fold_marks",
-        "page_numbers",
-        "headers_footers"
-      ],
       "content": "[SCAN OF REPORT - 2 COLUMNS, FADED PRINT]\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nPOLSKA IZBA KOMUNIKACJI MARKETINGOWEJ\nRaport: Rynek agencji reklamowych 2023\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n                                    Strona 47\n\n[LEFT COLUMN]                  [RIGHT COLUMN]\n\nSEGMENT: MAŁE AGENCJE          TRENDY CENOWE\n(do 15 pracowników)            \n                               Średnia stawka godzinowa\nLiczba firm: ~2,400            w segmencie małych agencji:\nPrzychody segmentu:            \n842 mln PLN (+7% r/r)          • Strategia: 180-250 PLN/h\n                               • Kreacja: 150-220 PLN/h\nŚredni przychód na             • Social media: 120-180 PLN/h\nfirmę: 351 tys. PLN            • Produkcja: 100-150 PLN/h\n\nMediana: 285 tys. PLN          [TABLE - PARTIALLY ILLEGIBLE]\n                               \nZatrudnienie:                  Region    | Śr.stawka | Zmiana\nśr. 8,2 pracownika            Warszawa  | 195 PLN   | +12%\n                              [PAPER FOLD]\nMarża operacyjna:             Wrocław   | 165 PLN   | +8%\nśrednia 28,5%                 [FADED]| [...]     | [...]\nnajlepsze firmy: >40%         \n                              \n[QUOTE BOX]             PROGNOZA 2024:\n\"Małe agencje               \nkonkurują jakością,           Wzrost rynku: +5-7%\nnie skalą\"                    Presja na marże: TAK\n- ekspert PIKM                Konsolidacja: prawdopodobna\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[FOOTER - BARELY VISIBLE]\n© 2023 PIKM | www.pikm.org.pl | Źródło: badania własne\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      "report_year": 2023,
-      "small_agency_segment_revenue": "842 mln PLN",
-      "average_agency_revenue": "351 tys PLN",
-      "average_margin": "28.5%",
-      "wroclaw_hourly_rate": "165 PLN",
       "clients_mentioned": [],
       "planted_facts": [
         "pf_ocr_015_industry_wroclaw_rate"
@@ -4337,19 +4189,7 @@
       "timestamp": "2024-05-22T20:00:00+02:00",
       "author": "Restauracja Patio",
       "title": "Paragon fiskalny - rozliczenie spotkania z klientem",
-      "ocr_challenges": [
-        "crumpled_paper",
-        "thermal_print_fade",
-        "creases",
-        "partial_text",
-        "small_font"
-      ],
       "content": "[CRUMPLED RECEIPT - SCAN]\n\n       ████████████████████\n       █  PARAGON FISKALNY █\n       ████████████████████\n\n    RESTAURACJA PATIO SP.J.\n    ul. Świdnicka 53, Wrocław\n    NIP: 895-123-45-67\n\n    2024-05-22       19:47\n\n[FOLD - PART ILLEGIBLE]\n\n    Zupa dnia x2     ████ 28,00\n    Stek wołowy      ████ 89,00\n    [FOLD]łosoś      79,00\n    Wino dom[owe]       45,00\n    [ILLEGIBLE]       38,00\n    Deser x2            42,00\n    Kawa x2             24,00\n\n[TRANSVERSE FOLD]\n\n    ═══════════════════════\n    SUMA PLN       345,00\n    ═══════════════════════\n    W tym PTU 8%:   25,56\n\n    GOTÓWKA:       350,00\n    RESZTA:          5,00\n\n[BOTTOM SECTION HEAVILY DAMAGED]\n    \n    Nr wydr.: 0█47\n    #fiskalny: [ILLEGIBLE]\n\n[HANDWRITTEN NOTE ON REVERSE]\n\"Obiad z p. Kowalską (MaszBud)\n22.05.2024 - do rozliczenia\n- Andrzej K.\"\n\n[COMPANY STAMP - SMEARED]\n\"Kreatywna Fala\nROZLICZONO\"\n\n================================",
-      "restaurant": "Restauracja Patio",
-      "total_amount": 345.0,
-      "expense_date": "2024-05-22",
-      "client_meeting": "MaszBud - Anna Kowalska",
-      "claimed_by": "Andrzej Kmicic",
       "clients_mentioned": [
         "Client D"
       ],

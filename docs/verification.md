@@ -16,8 +16,8 @@ Each question type has different verification methods:
 ## Setup
 
 ```bash
-# Generate all files including database
-uv run generate --include-db --include-pdf
+# Generate all files (PDFs and database included by default)
+uv run generate
 
 # Files will be in output/
 ls output/
