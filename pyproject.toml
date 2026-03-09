@@ -26,6 +26,7 @@ dev = [
 generate = "scripts.generate_files:main"
 generate-db = "scripts.generate_database:main"
 evaluate = "scripts.evaluate:main"
+leaderboard = "scripts.leaderboard:main"
 test = "pytest:main"
 
 [build-system]
