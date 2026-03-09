@@ -237,21 +237,23 @@ def print_rich_leaderboard(entries: list[dict]) -> None:
         {cat for e in entries if not e.get("error") for cat in e.get("by_category", {})}
     )
     if all_cats:
-        cat_table = Table(title="Score by Category", show_lines=True, border_style="blue")
-        cat_table.add_column("Category", min_width=36)
-        for e in entries:
-            if not e.get("error"):
-                cat_table.add_column(e["name"], justify="right", min_width=10)
+        valid = [e for e in entries if not e.get("error")]
+        cat_table = Table(
+            title="Score by Category", show_lines=True, border_style="blue", expand=True
+        )
+        cat_table.add_column("#", width=3, justify="right", style="dim", no_wrap=True)
+        cat_table.add_column("Name", min_width=20, ratio=1, no_wrap=False)
         for cat in all_cats:
-            row = [cat]
-            for e in entries:
-                if e.get("error"):
-                    continue
+            label = cat.replace("_questions", "").replace("_", " ")
+            cat_table.add_column(label, justify="right", min_width=8, no_wrap=True)
+        for i, e in enumerate(valid, 1):
+            row = [str(i), e["name"]]
+            for cat in all_cats:
                 stats = e.get("by_category", {}).get(cat)
                 if stats:
                     pct = 100 * stats["score"] / stats["max"] if stats["max"] else 0
                     col = "green" if pct >= 80 else "yellow" if pct >= 60 else "red"
-                    row.append(f"[{col}]{stats['score']:.0f}/{stats['max']} ({pct:.0f}%)[/]")
+                    row.append(f"[{col}]{pct:.0f}%[/]")
                 else:
                     row.append("[dim]—[/]")
             cat_table.add_row(*row)
